@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "gl.h"
+#include "gl/gl.h"
 
 void sig_handler(int sig){
     printf("Oh noes: signal %i was sent.\n",sig);

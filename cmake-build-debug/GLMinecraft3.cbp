@@ -45,6 +45,7 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/glad"/>
+					<Add directory="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.0/include"/>
@@ -67,6 +68,7 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/glad"/>
+					<Add directory="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.0/include"/>
@@ -82,22 +84,19 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/gl.cpp">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/gl.cpp">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/gl.h">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/gl.h">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/glad.c">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/glad.cpp">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/glad.h">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/glad.h">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/khrplatform.h">
-			<Option target="GLMinecraft3"/>
-		</Unit>
-		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/main.cpp">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/main.cpp">
 			<Option target="GLMinecraft3"/>
 		</Unit>
 		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/CMakeLists.txt">

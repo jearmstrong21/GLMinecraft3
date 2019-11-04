@@ -16,13 +16,13 @@ find_library(COCOA_LIBRARY Cocoa REQUIRED)
 find_library(IOKIT_LIBRARY IOKit REQUIRED)
 find_library(COREVID_LIBRARY CoreVideo REQUIRED)
 
-add_executable(GLMinecraft3
-        main.cpp
-        glad.h glad.c
-        khrplatform.h
-        gl.h
-        gl.cpp
+include_directories(src)
+set(SOURCE_FILES
+        src/main.cpp
+        src/gl/gl.cpp
+        src/gl/glad.cpp
         )
+add_executable(GLMinecraft3 ${SOURCE_FILES})
 target_link_libraries (GLMinecraft3
         ${OPENGL_LIBRARIES}
         ${COCOA_LIBRARY}

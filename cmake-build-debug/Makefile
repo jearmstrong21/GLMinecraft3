@@ -123,86 +123,86 @@ GLMinecraft3/fast:
 	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/build
 .PHONY : GLMinecraft3/fast
 
-gl.o: gl.cpp.o
+src/gl/gl.o: src/gl/gl.cpp.o
 
-.PHONY : gl.o
-
-# target to build an object file
-gl.cpp.o:
-	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/gl.cpp.o
-.PHONY : gl.cpp.o
-
-gl.i: gl.cpp.i
-
-.PHONY : gl.i
-
-# target to preprocess a source file
-gl.cpp.i:
-	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/gl.cpp.i
-.PHONY : gl.cpp.i
-
-gl.s: gl.cpp.s
-
-.PHONY : gl.s
-
-# target to generate assembly for a file
-gl.cpp.s:
-	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/gl.cpp.s
-.PHONY : gl.cpp.s
-
-glad.o: glad.c.o
-
-.PHONY : glad.o
+.PHONY : src/gl/gl.o
 
 # target to build an object file
-glad.c.o:
-	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/glad.c.o
-.PHONY : glad.c.o
+src/gl/gl.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/gl/gl.cpp.o
+.PHONY : src/gl/gl.cpp.o
 
-glad.i: glad.c.i
+src/gl/gl.i: src/gl/gl.cpp.i
 
-.PHONY : glad.i
+.PHONY : src/gl/gl.i
 
 # target to preprocess a source file
-glad.c.i:
-	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/glad.c.i
-.PHONY : glad.c.i
+src/gl/gl.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/gl/gl.cpp.i
+.PHONY : src/gl/gl.cpp.i
 
-glad.s: glad.c.s
+src/gl/gl.s: src/gl/gl.cpp.s
 
-.PHONY : glad.s
+.PHONY : src/gl/gl.s
 
 # target to generate assembly for a file
-glad.c.s:
-	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/glad.c.s
-.PHONY : glad.c.s
+src/gl/gl.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/gl/gl.cpp.s
+.PHONY : src/gl/gl.cpp.s
 
-main.o: main.cpp.o
+src/gl/glad.o: src/gl/glad.cpp.o
 
-.PHONY : main.o
+.PHONY : src/gl/glad.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/main.cpp.o
-.PHONY : main.cpp.o
+src/gl/glad.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/gl/glad.cpp.o
+.PHONY : src/gl/glad.cpp.o
 
-main.i: main.cpp.i
+src/gl/glad.i: src/gl/glad.cpp.i
 
-.PHONY : main.i
+.PHONY : src/gl/glad.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/main.cpp.i
-.PHONY : main.cpp.i
+src/gl/glad.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/gl/glad.cpp.i
+.PHONY : src/gl/glad.cpp.i
 
-main.s: main.cpp.s
+src/gl/glad.s: src/gl/glad.cpp.s
 
-.PHONY : main.s
+.PHONY : src/gl/glad.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/main.cpp.s
-.PHONY : main.cpp.s
+src/gl/glad.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/gl/glad.cpp.s
+.PHONY : src/gl/glad.cpp.s
+
+src/main.o: src/main.cpp.o
+
+.PHONY : src/main.o
+
+# target to build an object file
+src/main.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
+
+src/main.i: src/main.cpp.i
+
+.PHONY : src/main.i
+
+# target to preprocess a source file
+src/main.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
+
+src/main.s: src/main.cpp.s
+
+.PHONY : src/main.s
+
+# target to generate assembly for a file
+src/main.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
 
 # Help Target
 help:
@@ -213,15 +213,15 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... GLMinecraft3"
-	@echo "... gl.o"
-	@echo "... gl.i"
-	@echo "... gl.s"
-	@echo "... glad.o"
-	@echo "... glad.i"
-	@echo "... glad.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... src/gl/gl.o"
+	@echo "... src/gl/gl.i"
+	@echo "... src/gl/gl.s"
+	@echo "... src/gl/glad.o"
+	@echo "... src/gl/glad.i"
+	@echo "... src/gl/glad.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
 .PHONY : help
 
 
