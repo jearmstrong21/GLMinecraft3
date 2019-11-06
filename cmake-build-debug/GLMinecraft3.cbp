@@ -96,7 +96,37 @@
 		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/glad.h">
 			<Option target="GLMinecraft3"/>
 		</Unit>
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/mesh.cpp">
+			<Option target="GLMinecraft3"/>
+		</Unit>
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/mesh.h">
+			<Option target="GLMinecraft3"/>
+		</Unit>
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/meshdata.cpp">
+			<Option target="GLMinecraft3"/>
+		</Unit>
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/meshdata.h">
+			<Option target="GLMinecraft3"/>
+		</Unit>
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/shader.cpp">
+			<Option target="GLMinecraft3"/>
+		</Unit>
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/shader.h">
+			<Option target="GLMinecraft3"/>
+		</Unit>
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/texture.cpp">
+			<Option target="GLMinecraft3"/>
+		</Unit>
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/texture.h">
+			<Option target="GLMinecraft3"/>
+		</Unit>
 		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/main.cpp">
+			<Option target="GLMinecraft3"/>
+		</Unit>
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/utils.cpp">
+			<Option target="GLMinecraft3"/>
+		</Unit>
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/utils.h">
 			<Option target="GLMinecraft3"/>
 		</Unit>
 		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/CMakeLists.txt">

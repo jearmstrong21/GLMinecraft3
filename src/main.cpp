@@ -1,6 +1,10 @@
 #include <iostream>
 
 #include "gl/gl.h"
+#include "gl/texture.h"
+#include "gl/shader.h"
+#include "gl/meshdata.h"
+#include "gl/mesh.h"
 
 void sig_handler(int sig){
     printf("Oh noes: signal %i was sent.\n",sig);
@@ -34,6 +38,11 @@ int main() {
 
     bool is_first_frame=true;
 
+    gl::Shader shader("../shaders/test.vert","../shaders/test.frag");
+    gl::MeshData meshData;
+    meshData.addBuffer({2,{0,0,0,1,1,0}});
+    gl::Mesh mesh(3,meshData);
+
     while(!glfwWindowShouldClose(window)){
         glGetError();
         int width, height;
@@ -45,6 +54,9 @@ int main() {
         glEnable(GL_DEPTH_TEST);
         glDepthFunc(GL_LESS);
         glEnable(GL_FRAMEBUFFER_SRGB);
+
+        shader.bind();
+        mesh.renderTriangles();
 
         glfwSwapBuffers(window);
         glfwPollEvents();

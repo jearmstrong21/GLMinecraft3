@@ -177,6 +177,114 @@ src/gl/glad.cpp.s:
 	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/gl/glad.cpp.s
 .PHONY : src/gl/glad.cpp.s
 
+src/gl/mesh.o: src/gl/mesh.cpp.o
+
+.PHONY : src/gl/mesh.o
+
+# target to build an object file
+src/gl/mesh.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/gl/mesh.cpp.o
+.PHONY : src/gl/mesh.cpp.o
+
+src/gl/mesh.i: src/gl/mesh.cpp.i
+
+.PHONY : src/gl/mesh.i
+
+# target to preprocess a source file
+src/gl/mesh.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/gl/mesh.cpp.i
+.PHONY : src/gl/mesh.cpp.i
+
+src/gl/mesh.s: src/gl/mesh.cpp.s
+
+.PHONY : src/gl/mesh.s
+
+# target to generate assembly for a file
+src/gl/mesh.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/gl/mesh.cpp.s
+.PHONY : src/gl/mesh.cpp.s
+
+src/gl/meshdata.o: src/gl/meshdata.cpp.o
+
+.PHONY : src/gl/meshdata.o
+
+# target to build an object file
+src/gl/meshdata.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/gl/meshdata.cpp.o
+.PHONY : src/gl/meshdata.cpp.o
+
+src/gl/meshdata.i: src/gl/meshdata.cpp.i
+
+.PHONY : src/gl/meshdata.i
+
+# target to preprocess a source file
+src/gl/meshdata.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/gl/meshdata.cpp.i
+.PHONY : src/gl/meshdata.cpp.i
+
+src/gl/meshdata.s: src/gl/meshdata.cpp.s
+
+.PHONY : src/gl/meshdata.s
+
+# target to generate assembly for a file
+src/gl/meshdata.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/gl/meshdata.cpp.s
+.PHONY : src/gl/meshdata.cpp.s
+
+src/gl/shader.o: src/gl/shader.cpp.o
+
+.PHONY : src/gl/shader.o
+
+# target to build an object file
+src/gl/shader.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/gl/shader.cpp.o
+.PHONY : src/gl/shader.cpp.o
+
+src/gl/shader.i: src/gl/shader.cpp.i
+
+.PHONY : src/gl/shader.i
+
+# target to preprocess a source file
+src/gl/shader.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/gl/shader.cpp.i
+.PHONY : src/gl/shader.cpp.i
+
+src/gl/shader.s: src/gl/shader.cpp.s
+
+.PHONY : src/gl/shader.s
+
+# target to generate assembly for a file
+src/gl/shader.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/gl/shader.cpp.s
+.PHONY : src/gl/shader.cpp.s
+
+src/gl/texture.o: src/gl/texture.cpp.o
+
+.PHONY : src/gl/texture.o
+
+# target to build an object file
+src/gl/texture.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/gl/texture.cpp.o
+.PHONY : src/gl/texture.cpp.o
+
+src/gl/texture.i: src/gl/texture.cpp.i
+
+.PHONY : src/gl/texture.i
+
+# target to preprocess a source file
+src/gl/texture.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/gl/texture.cpp.i
+.PHONY : src/gl/texture.cpp.i
+
+src/gl/texture.s: src/gl/texture.cpp.s
+
+.PHONY : src/gl/texture.s
+
+# target to generate assembly for a file
+src/gl/texture.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/gl/texture.cpp.s
+.PHONY : src/gl/texture.cpp.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -204,6 +312,33 @@ src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/utils.o: src/utils.cpp.o
+
+.PHONY : src/utils.o
+
+# target to build an object file
+src/utils.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/utils.cpp.o
+.PHONY : src/utils.cpp.o
+
+src/utils.i: src/utils.cpp.i
+
+.PHONY : src/utils.i
+
+# target to preprocess a source file
+src/utils.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/utils.cpp.i
+.PHONY : src/utils.cpp.i
+
+src/utils.s: src/utils.cpp.s
+
+.PHONY : src/utils.s
+
+# target to generate assembly for a file
+src/utils.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/utils.cpp.s
+.PHONY : src/utils.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -219,9 +354,24 @@ help:
 	@echo "... src/gl/glad.o"
 	@echo "... src/gl/glad.i"
 	@echo "... src/gl/glad.s"
+	@echo "... src/gl/mesh.o"
+	@echo "... src/gl/mesh.i"
+	@echo "... src/gl/mesh.s"
+	@echo "... src/gl/meshdata.o"
+	@echo "... src/gl/meshdata.i"
+	@echo "... src/gl/meshdata.s"
+	@echo "... src/gl/shader.o"
+	@echo "... src/gl/shader.i"
+	@echo "... src/gl/shader.s"
+	@echo "... src/gl/texture.o"
+	@echo "... src/gl/texture.i"
+	@echo "... src/gl/texture.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/utils.o"
+	@echo "... src/utils.i"
+	@echo "... src/utils.s"
 .PHONY : help
 
 

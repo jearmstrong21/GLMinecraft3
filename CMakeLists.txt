@@ -19,8 +19,13 @@ find_library(COREVID_LIBRARY CoreVideo REQUIRED)
 include_directories(src)
 set(SOURCE_FILES
         src/main.cpp
+        src/utils.cpp
         src/gl/gl.cpp
         src/gl/glad.cpp
+        src/gl/texture.cpp
+        src/gl/shader.cpp
+        src/gl/meshdata.cpp
+        src/gl/mesh.cpp
         )
 
 add_executable(GLMinecraft3 ${SOURCE_FILES})

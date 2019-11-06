@@ -3,6 +3,7 @@
 
 CMakeFiles/GLMinecraft3.dir/src/gl/gl.cpp.o
  ../src/GL/gl.h
+ ../src/utils.h
  /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/gl.cpp
  /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/gl.h
  /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/glad.h
@@ -12,10 +13,56 @@ CMakeFiles/GLMinecraft3.dir/src/gl/glad.cpp.o
  /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/glad.cpp
  /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/glad.h
  /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/khrplatform.h
+CMakeFiles/GLMinecraft3.dir/src/gl/mesh.cpp.o
+ ../src/GL/gl.h
+ ../src/gl/gl.h
+ ../src/gl/glad.h
+ ../src/gl/khrplatform.h
+ ../src/gl/mesh.h
+ ../src/gl/meshdata.h
+ ../src/utils.h
+ /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/mesh.cpp
+ /usr/local/include/GLFW/glfw3.h
+CMakeFiles/GLMinecraft3.dir/src/gl/meshdata.cpp.o
+ ../src/GL/gl.h
+ ../src/gl/gl.h
+ ../src/gl/glad.h
+ ../src/gl/khrplatform.h
+ ../src/utils.h
+ /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/meshdata.cpp
+ /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/meshdata.h
+ /usr/local/include/GLFW/glfw3.h
+CMakeFiles/GLMinecraft3.dir/src/gl/shader.cpp.o
+ ../src/GL/gl.h
+ ../src/gl/gl.h
+ ../src/gl/glad.h
+ ../src/gl/khrplatform.h
+ ../src/gl/shader.h
+ ../src/utils.h
+ /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/shader.cpp
+ /usr/local/include/GLFW/glfw3.h
+CMakeFiles/GLMinecraft3.dir/src/gl/texture.cpp.o
+ ../src/GL/gl.h
+ ../src/gl/gl.h
+ ../src/gl/glad.h
+ ../src/gl/khrplatform.h
+ ../src/gl/stb_image.h
+ ../src/gl/texture.h
+ ../src/utils.h
+ /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/texture.cpp
+ /usr/local/include/GLFW/glfw3.h
 CMakeFiles/GLMinecraft3.dir/src/main.cpp.o
  ../src/GL/gl.h
+ ../src/utils.h
  /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/gl.h
  /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/glad.h
  /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/khrplatform.h
+ /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/mesh.h
+ /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/meshdata.h
+ /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/shader.h
+ /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/texture.h
  /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/main.cpp
  /usr/local/include/GLFW/glfw3.h
+CMakeFiles/GLMinecraft3.dir/src/utils.cpp.o
+ /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/utils.cpp
+ /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/utils.h
