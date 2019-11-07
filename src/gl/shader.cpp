@@ -76,4 +76,8 @@ namespace gl {
         glUseProgram(id);
     }
 
+    int Shader::programID() {
+        return id;
+    }
+
 }

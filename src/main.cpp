@@ -38,10 +38,82 @@ int main() {
 
     bool is_first_frame=true;
 
-    gl::Shader shader("../shaders/test.vert","../shaders/test.frag");
-    gl::MeshData meshData;
-    meshData.addBuffer({2,{0,0,0,1,1,0}});
-    gl::Mesh mesh(3,meshData);
+
+    const char* vertexShaderSource="#version 410 core\n"
+                                   "layout (location=0) in vec3 aPos;\n"
+                                   "void main(){\n"
+                                   "    gl_Position=vec4(aPos.x,aPos.y,aPos.z,1.0);\n"
+                                   "}\n\0";
+
+    const char* fragmentShaderSource="#version 410 core\n"
+                                     "out vec4 FragColor;\n"
+                                     "void main(){\n"
+                                     "  FragColor=vec4(1.0,0.5,0.2,1.0);\n"
+                                     "}\n\0";
+
+    int vertexShader=glCreateShader(GL_VERTEX_SHADER);
+    glShaderSource(vertexShader,1,&vertexShaderSource,nullptr);
+    glCompileShader(vertexShader);
+    int success;
+    char infoLog[512];
+    glGetShaderiv(vertexShader,GL_COMPILE_STATUS,&success);
+    if(!success){
+        glGetShaderInfoLog(vertexShader,512,nullptr,infoLog);
+        printf("VERTEX\n%s\n",infoLog);
+    }
+
+    int fragmentShader=glCreateShader(GL_FRAGMENT_SHADER);
+    glShaderSource(fragmentShader,1,&fragmentShaderSource,nullptr);
+    glCompileShader(fragmentShader);
+    glGetShaderiv(fragmentShader,GL_COMPILE_STATUS,&success);
+    if(!success){
+        glGetShaderInfoLog(fragmentShader,512,nullptr,infoLog);
+        printf("FRAGMENT\n%s\n",infoLog);
+    }
+
+    int shaderProgram=glCreateProgram();
+    glAttachShader(shaderProgram,vertexShader);
+    glAttachShader(shaderProgram,fragmentShader);
+    glLinkProgram(shaderProgram);
+    glGetProgramiv(shaderProgram,GL_LINK_STATUS,&success);
+    if(!success){
+        glGetProgramInfoLog(shaderProgram,512,nullptr,infoLog);
+        printf("LINK\n%s\n",infoLog);
+    }
+    glDeleteShader(vertexShader);
+    glDeleteShader(fragmentShader);
+
+    float vertices[]={
+            .5,.5,0,
+            .5,-.5,0,
+            -.5,-.5,0,
+            -.5,.5,0
+    };
+
+    unsigned int indices[]={
+            0,1,3,
+            1,2,3
+    };
+
+    unsigned int vbo,vao,ebo;
+
+    glGenVertexArrays(1,&vao);
+    glGenBuffers(1,&vbo);
+    glGenBuffers(1,&ebo);
+
+    glBindVertexArray(vao);
+
+    glBindBuffer(GL_ARRAY_BUFFER,vbo);
+    glBufferData(GL_ARRAY_BUFFER,sizeof(vertices),vertices,GL_STATIC_DRAW);
+
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,ebo);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER,sizeof(indices),indices,GL_STATIC_DRAW);
+
+    glVertexAttribPointer(0,3,GL_FLOAT,GL_FALSE,3*sizeof(float),(void*)0);
+    glEnableVertexAttribArray(0);
+
+    glBindBuffer(GL_ARRAY_BUFFER,0);
+    glBindVertexArray(0);
 
     while(!glfwWindowShouldClose(window)){
         glGetError();
@@ -49,14 +121,12 @@ int main() {
         glfwGetFramebufferSize(window, &width, &height);
 
         glViewport(0, 0, width, height);
-        glClearColor(1, 1, 1, 1);
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        glEnable(GL_DEPTH_TEST);
-        glDepthFunc(GL_LESS);
-        glEnable(GL_FRAMEBUFFER_SRGB);
+        glClearColor(0.2,0.3,0.3,1.0);
+        glClear(GL_COLOR_BUFFER_BIT);
 
-        shader.bind();
-        mesh.renderTriangles();
+        glUseProgram(shaderProgram);
+        glBindVertexArray(vao);
+        glDrawElements(GL_TRIANGLES,6,GL_UNSIGNED_INT,0);
 
         glfwSwapBuffers(window);
         glfwPollEvents();

@@ -20,6 +20,8 @@ namespace gl {
 
         void bind();
 
+        int programID();
+
     };
 
 }

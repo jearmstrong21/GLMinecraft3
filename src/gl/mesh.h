@@ -20,6 +20,8 @@ namespace gl {
         ~Mesh();
 
         void renderTriangles();
+        int vaoID();
+        int vertNum();
     };
 
 }
