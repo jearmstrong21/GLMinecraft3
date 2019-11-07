@@ -38,20 +38,7 @@ int main() {
 
     bool is_first_frame=true;
 
-
-    const char* vertexShaderSource="#version 410 core\n"
-                                   "layout (location=0) in vec3 aPos;\n"
-                                   "void main(){\n"
-                                   "    gl_Position=vec4(aPos.x,aPos.y,aPos.z,1.0);\n"
-                                   "}\n\0";
-
-    const char* fragmentShaderSource="#version 410 core\n"
-                                     "out vec4 FragColor;\n"
-                                     "void main(){\n"
-                                     "  FragColor=vec4(1.0,0.5,0.2,1.0);\n"
-                                     "}\n\0";
-
-    gl::Shader shader((std::string(vertexShaderSource)),std::string(fragmentShaderSource));
+    gl::Shader shader("../shaders/test.vert","../shaders/test.frag");
 
     float vertices[]={
             .5,.5,0,
@@ -94,7 +81,6 @@ int main() {
         glClearColor(0.2,0.3,0.3,1.0);
         glClear(GL_COLOR_BUFFER_BIT);
 
-//        glUseProgram(shaderProgram);
         shader.bind();
         glBindVertexArray(vao);
         glDrawElements(GL_TRIANGLES,6,GL_UNSIGNED_INT,0);

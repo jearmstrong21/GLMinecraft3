@@ -7,8 +7,10 @@
 namespace gl {
 
     Shader::Shader(const std::string& vert, const std::string& frag) {
-        const char*vertexShaderSource=vert.c_str();
-        const char*fragmentShaderSource=frag.c_str();
+        std::string vertCode=utils::loadFile(vert);
+        std::string fragCode=utils::loadFile(frag);
+        const char*vertexShaderSource=vertCode.c_str();
+        const char*fragmentShaderSource=fragCode.c_str();
         int vertexShader=glCreateShader(GL_VERTEX_SHADER);
         glShaderSource(vertexShader,1,&vertexShaderSource,nullptr);
         glCompileShader(vertexShader);
