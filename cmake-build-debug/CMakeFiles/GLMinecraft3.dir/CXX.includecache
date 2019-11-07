@@ -56,15 +56,11 @@ inttypes.h
 stdint.h
 -
 
-../src/gl/mesh.h
+../src/gl/shader.h
 gl/gl.h
 ../src/gl/gl/gl.h
-gl/meshdata.h
-../src/gl/gl/meshdata.h
-
-../src/gl/meshdata.h
-gl/gl.h
-../src/gl/gl/gl.h
+utils.h
+../src/gl/utils.h
 
 ../src/utils.h
 string
@@ -112,10 +108,6 @@ inttypes.h
 stdint.h
 -
 
-/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/mesh.cpp
-gl/mesh.h
-/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/gl/mesh.h
-
 /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/mesh.h
 gl/gl.h
 /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/gl/gl.h
@@ -125,6 +117,10 @@ gl/meshdata.h
 /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/meshdata.h
 gl/gl.h
 /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/gl/gl.h
+
+/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/shader.cpp
+gl/shader.h
+/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/gl/shader.h
 
 /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/shader.h
 gl/gl.h
