@@ -13,7 +13,7 @@ void sig_handler(int sig) {
     exit(EXIT_FAILURE);
 }
 
-static void on_glfw_error(int error, const char *description) {
+static void on_glfw_error(int error, const char* description) {
     fprintf(stderr, "Error: %i,%s\n", error, description);
 }
 
@@ -29,7 +29,7 @@ int main() {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GLFW_TRUE);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-    GLFWwindow *window = glfwCreateWindow(500, 500, "GLMinecraft3", nullptr, nullptr);
+    GLFWwindow* window = glfwCreateWindow(500, 500, "GLMinecraft3", nullptr, nullptr);
 
     glfwMakeContextCurrent(window);
     gladLoadGLLoader((GLADloadproc) glfwGetProcAddress);
