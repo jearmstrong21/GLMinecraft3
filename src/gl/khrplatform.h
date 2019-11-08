@@ -138,7 +138,9 @@
 /*
  * Using <stdint.h>
  */
-#include <c++/v1/stdint.h>
+//#include <c++/v1/stdint.h>
+#include <cstdint>
+
 typedef int32_t                 khronos_int32_t;
 typedef uint32_t                khronos_uint32_t;
 typedef int64_t                 khronos_int64_t;
