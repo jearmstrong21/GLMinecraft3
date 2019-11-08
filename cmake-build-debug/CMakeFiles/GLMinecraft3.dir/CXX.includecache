@@ -49,7 +49,7 @@ khrplatform.h
 ../src/gl/khrplatform.h
 
 ../src/gl/khrplatform.h
-c++/v1/stdint.h
+cstdint
 -
 inttypes.h
 -
@@ -71,6 +71,44 @@ gl/gl.h
 ../src/gl/gl/gl.h
 utils.h
 ../src/gl/utils.h
+
+../src/gl/stb_image.h
+stb_image.h
+../src/gl/stb_image.h
+stdio.h
+-
+stdlib.h
+-
+stdarg.h
+-
+stddef.h
+-
+stdlib.h
+-
+string.h
+-
+limits.h
+-
+math.h
+-
+stdio.h
+-
+assert.h
+-
+stdint.h
+-
+emmintrin.h
+-
+intrin.h
+-
+arm_neon.h
+-
+
+../src/gl/texture.h
+string
+-
+gl/gl.h
+../src/gl/gl/gl.h
 
 ../src/utils.h
 string
@@ -98,6 +136,10 @@ gl/shader.h
 gl/mesh.h
 /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/client/gl/mesh.h
 
+/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/gl.cpp
+gl.h
+/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/gl.h
+
 /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/gl.h
 glad.h
 /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/glad.h
@@ -116,6 +158,22 @@ map
 vector
 -
 
+/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/glad.cpp
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+glad.h
+/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/glad.h
+windows.h
+-
+winapifamily.h
+-
+dlfcn.h
+-
+
 /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/glad.h
 windows.h
 -
@@ -123,12 +181,16 @@ khrplatform.h
 /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/khrplatform.h
 
 /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/khrplatform.h
-c++/v1/stdint.h
+cstdint
 -
 inttypes.h
 -
 stdint.h
 -
+
+/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/mesh.cpp
+gl/mesh.h
+/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/gl/mesh.h
 
 /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/mesh.h
 gl/gl.h
@@ -140,11 +202,21 @@ gl/meshdata.h
 gl/gl.h
 /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/gl/gl.h
 
+/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/shader.cpp
+gl/shader.h
+/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/gl/shader.h
+
 /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/shader.h
 gl/gl.h
 /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/gl/gl.h
 utils.h
 /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/utils.h
+
+/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/texture.cpp
+gl/texture.h
+/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/gl/texture.h
+gl/stb_image.h
+/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/gl/stb_image.h
 
 /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/texture.h
 string
@@ -154,6 +226,8 @@ gl/gl.h
 
 /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/main.cpp
 iostream
+-
+csignal
 -
 gl/gl.h
 /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/gl.h

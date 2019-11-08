@@ -9,14 +9,18 @@ find_package (PkgConfig REQUIRED)
 find_package (OpenGL REQUIRED)
 find_package (glfw3 REQUIRED)
 
-add_link_options(/usr/lib/libdl.so.2)
+if(NOT APPLE)
+    add_link_options(/usr/lib/libdl.so.2)
+endif()
 
 include_directories(/usr/local/include glad)
 include_directories(${GLFW_INCLUDE_DIRS})
 
-#find_library(COCOA_LIBRARY Cocoa REQUIRED)
-#find_library(IOKIT_LIBRARY IOKit REQUIRED)
-#find_library(COREVID_LIBRARY CoreVideo REQUIRED)
+if(APPLE)
+    find_library(COCOA_LIBRARY Cocoa REQUIRED)
+    find_library(IOKIT_LIBRARY IOKit REQUIRED)
+    find_library(COREVID_LIBRARY CoreVideo REQUIRED)
+endif()
 
 include_directories(src)
 set(SOURCE_FILES
@@ -30,10 +34,21 @@ set(SOURCE_FILES
         src/client/game.cpp
         )
 
+set(MAC_LIBS)
+
+if(APPLE)
+    set(MAC_LIBS
+            ${COCOA_LIBRARY}
+            ${COREVID_LIBRARY}
+            ${IOKIT_LIBRARY}
+            )
+endif()
+
 add_executable(GLMinecraft3 ${SOURCE_FILES})
 target_link_libraries (GLMinecraft3
         ${OPENGL_LIBRARIES}
 #        ${COCOA_LIBRARY}
 #        ${COREVID_LIBRARY}
 #        ${IOKIT_LIBRARY}
+        ${MAC_LIBS}
         ${GLFW3_LIBRARY} glfw)
