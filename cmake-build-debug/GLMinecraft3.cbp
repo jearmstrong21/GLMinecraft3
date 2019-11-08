@@ -102,12 +102,6 @@
 		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/mesh.h">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/meshdata.cpp">
-			<Option target="GLMinecraft3"/>
-		</Unit>
-		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/meshdata.h">
-			<Option target="GLMinecraft3"/>
-		</Unit>
 		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/shader.cpp">
 			<Option target="GLMinecraft3"/>
 		</Unit>

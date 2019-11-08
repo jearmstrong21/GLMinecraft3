@@ -14,18 +14,10 @@ namespace gl {
         std::vector<float>data;
     };
 
-    class MeshData {
-
-    private:
+    struct MeshData {
         std::vector<BufferData>buffers;
-
-    public:
-        MeshData();
-
-        void addBuffer(BufferData buffer);
-        const BufferData& buffer(int attrib);
-        int numBuffers();
-
+        std::vector<unsigned int>tri;
+        int vertCount;
     };
 
 }

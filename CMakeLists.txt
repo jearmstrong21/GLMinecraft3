@@ -24,7 +24,6 @@ set(SOURCE_FILES
         src/gl/glad.cpp
         src/gl/texture.cpp
         src/gl/shader.cpp
-        src/gl/meshdata.cpp
         src/gl/mesh.cpp
         )
 

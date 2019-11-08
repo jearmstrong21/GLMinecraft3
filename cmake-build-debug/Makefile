@@ -204,33 +204,6 @@ src/gl/mesh.cpp.s:
 	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/gl/mesh.cpp.s
 .PHONY : src/gl/mesh.cpp.s
 
-src/gl/meshdata.o: src/gl/meshdata.cpp.o
-
-.PHONY : src/gl/meshdata.o
-
-# target to build an object file
-src/gl/meshdata.cpp.o:
-	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/gl/meshdata.cpp.o
-.PHONY : src/gl/meshdata.cpp.o
-
-src/gl/meshdata.i: src/gl/meshdata.cpp.i
-
-.PHONY : src/gl/meshdata.i
-
-# target to preprocess a source file
-src/gl/meshdata.cpp.i:
-	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/gl/meshdata.cpp.i
-.PHONY : src/gl/meshdata.cpp.i
-
-src/gl/meshdata.s: src/gl/meshdata.cpp.s
-
-.PHONY : src/gl/meshdata.s
-
-# target to generate assembly for a file
-src/gl/meshdata.cpp.s:
-	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/gl/meshdata.cpp.s
-.PHONY : src/gl/meshdata.cpp.s
-
 src/gl/shader.o: src/gl/shader.cpp.o
 
 .PHONY : src/gl/shader.o
@@ -357,9 +330,6 @@ help:
 	@echo "... src/gl/mesh.o"
 	@echo "... src/gl/mesh.i"
 	@echo "... src/gl/mesh.s"
-	@echo "... src/gl/meshdata.o"
-	@echo "... src/gl/meshdata.i"
-	@echo "... src/gl/meshdata.s"
 	@echo "... src/gl/shader.o"
 	@echo "... src/gl/shader.i"
 	@echo "... src/gl/shader.s"

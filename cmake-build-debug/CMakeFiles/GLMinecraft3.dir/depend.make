@@ -23,15 +23,6 @@ CMakeFiles/GLMinecraft3.dir/src/gl/mesh.cpp.o: ../src/utils.h
 CMakeFiles/GLMinecraft3.dir/src/gl/mesh.cpp.o: ../src/gl/mesh.cpp
 CMakeFiles/GLMinecraft3.dir/src/gl/mesh.cpp.o: /usr/local/include/GLFW/glfw3.h
 
-CMakeFiles/GLMinecraft3.dir/src/gl/meshdata.cpp.o: ../src/GL/gl.h
-CMakeFiles/GLMinecraft3.dir/src/gl/meshdata.cpp.o: ../src/gl/gl.h
-CMakeFiles/GLMinecraft3.dir/src/gl/meshdata.cpp.o: ../src/gl/glad.h
-CMakeFiles/GLMinecraft3.dir/src/gl/meshdata.cpp.o: ../src/gl/khrplatform.h
-CMakeFiles/GLMinecraft3.dir/src/gl/meshdata.cpp.o: ../src/utils.h
-CMakeFiles/GLMinecraft3.dir/src/gl/meshdata.cpp.o: ../src/gl/meshdata.cpp
-CMakeFiles/GLMinecraft3.dir/src/gl/meshdata.cpp.o: ../src/gl/meshdata.h
-CMakeFiles/GLMinecraft3.dir/src/gl/meshdata.cpp.o: /usr/local/include/GLFW/glfw3.h
-
 CMakeFiles/GLMinecraft3.dir/src/gl/shader.cpp.o: ../src/GL/gl.h
 CMakeFiles/GLMinecraft3.dir/src/gl/shader.cpp.o: ../src/gl/gl.h
 CMakeFiles/GLMinecraft3.dir/src/gl/shader.cpp.o: ../src/gl/glad.h

@@ -13,10 +13,11 @@ namespace gl {
     class Mesh {
     private:
         GLuint vao;
+        GLuint ebo;
         int vertCount;
 
     public:
-        Mesh(int vertCount,MeshData data);
+        Mesh(MeshData data);
         ~Mesh();
 
         void renderTriangles();
