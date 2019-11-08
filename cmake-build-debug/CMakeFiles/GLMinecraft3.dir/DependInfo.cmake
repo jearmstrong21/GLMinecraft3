@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/client/game.cpp" "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/src/client/game.cpp.o"
   "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/gl.cpp" "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/src/gl/gl.cpp.o"
   "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/glad.cpp" "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/src/gl/glad.cpp.o"
   "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/mesh.cpp" "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/src/gl/mesh.cpp.o"

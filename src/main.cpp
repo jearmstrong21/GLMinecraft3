@@ -5,6 +5,7 @@
 #include "gl/shader.h"
 #include "gl/meshdata.h"
 #include "gl/mesh.h"
+#include "client/game.h"
 
 void sig_handler(int sig){
     printf("Oh noes: signal %i was sent.\n",sig);
@@ -28,7 +29,7 @@ int main() {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GLFW_TRUE);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-    GLFWwindow* window=glfwCreateWindow(500,500,"GLMinecraft3",NULL,NULL);
+    GLFWwindow* window=glfwCreateWindow(500,500,"GLMinecraft3",nullptr,nullptr);
 
     glfwMakeContextCurrent(window);
     gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
@@ -38,26 +39,13 @@ int main() {
 
     bool is_first_frame=true;
 
-    gl::Shader shader("../shaders/test.vert","../shaders/test.frag");
-
-    gl::MeshData data;
-    data.tri={0,1,3, 1,2,3};
-    data.buffers.push_back({2, {.5,.5,.5,-.5,-.5,-.5,-.5,.5}});
-    data.vertCount=6;
-
-    gl::Mesh mesh(data);
+    client::Game game(window);
+    game.initialize();
 
     while(!glfwWindowShouldClose(window)){
         glGetError();
-        int width, height;
-        glfwGetFramebufferSize(window, &width, &height);
 
-        glViewport(0, 0, width, height);
-        glClearColor(0.2,0.3,0.3,1.0);
-        glClear(GL_COLOR_BUFFER_BIT);
-
-        shader.bind();
-        mesh.renderTriangles();
+        game.loop();
 
         glfwSwapBuffers(window);
         glfwPollEvents();
@@ -69,6 +57,7 @@ int main() {
 
         gl_check_error();
     }
+    game.end();
     glfwTerminate();
 
     return 0;

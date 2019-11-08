@@ -123,6 +123,33 @@ GLMinecraft3/fast:
 	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/build
 .PHONY : GLMinecraft3/fast
 
+src/client/game.o: src/client/game.cpp.o
+
+.PHONY : src/client/game.o
+
+# target to build an object file
+src/client/game.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/client/game.cpp.o
+.PHONY : src/client/game.cpp.o
+
+src/client/game.i: src/client/game.cpp.i
+
+.PHONY : src/client/game.i
+
+# target to preprocess a source file
+src/client/game.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/client/game.cpp.i
+.PHONY : src/client/game.cpp.i
+
+src/client/game.s: src/client/game.cpp.s
+
+.PHONY : src/client/game.s
+
+# target to generate assembly for a file
+src/client/game.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/client/game.cpp.s
+.PHONY : src/client/game.cpp.s
+
 src/gl/gl.o: src/gl/gl.cpp.o
 
 .PHONY : src/gl/gl.o
@@ -321,6 +348,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... GLMinecraft3"
+	@echo "... src/client/game.o"
+	@echo "... src/client/game.i"
+	@echo "... src/client/game.s"
 	@echo "... src/gl/gl.o"
 	@echo "... src/gl/gl.i"
 	@echo "... src/gl/gl.s"

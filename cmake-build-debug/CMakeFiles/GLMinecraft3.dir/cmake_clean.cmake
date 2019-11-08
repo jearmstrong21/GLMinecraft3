@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/GLMinecraft3.dir/src/client/game.cpp.o"
   "CMakeFiles/GLMinecraft3.dir/src/gl/gl.cpp.o"
   "CMakeFiles/GLMinecraft3.dir/src/gl/glad.cpp.o"
   "CMakeFiles/GLMinecraft3.dir/src/gl/mesh.cpp.o"

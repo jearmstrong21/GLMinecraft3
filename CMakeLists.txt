@@ -25,6 +25,7 @@ set(SOURCE_FILES
         src/gl/texture.cpp
         src/gl/shader.cpp
         src/gl/mesh.cpp
+        src/client/game.cpp
         )
 
 add_executable(GLMinecraft3 ${SOURCE_FILES})

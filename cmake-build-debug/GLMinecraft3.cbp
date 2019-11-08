@@ -84,6 +84,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/client/game.cpp">
+			<Option target="GLMinecraft3"/>
+		</Unit>
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/client/game.h">
+			<Option target="GLMinecraft3"/>
+		</Unit>
 		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/gl.cpp">
 			<Option target="GLMinecraft3"/>
 		</Unit>
