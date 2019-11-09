@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.15)
 project(GLMinecraft3)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_MODULE_PATH /usr/local/lib/cmake)
 set(CMAKE_PREFIX_PATH /usr/local/lib/cmake/glfw3)
 
@@ -32,7 +32,7 @@ set(SOURCE_FILES
         src/gl/shader.cpp
         src/gl/mesh.cpp
         src/client/game.cpp
-        )
+        src/server/registry.cpp src/server/registry.h src/server/jsonformat.h)
 
 set(MAC_LIBS)
 

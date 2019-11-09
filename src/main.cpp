@@ -1,5 +1,6 @@
 #include <iostream>
 #include <csignal>
+#include <server/registry.h>
 
 #include "gl/gl.h"
 #include "gl/texture.h"
@@ -18,6 +19,8 @@ static void on_glfw_error(int error, const char* description) {
 }
 
 int main() {
+//    test_registry();
+
     std::signal(SIGSEGV, sig_handler);
 
     glfwSetErrorCallback(on_glfw_error);
