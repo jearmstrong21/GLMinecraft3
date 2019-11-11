@@ -25,14 +25,15 @@ endif()
 include_directories(src)
 set(SOURCE_FILES
         src/main.cpp
-        src/utils.cpp
+        src/utils/utils.cpp
         src/gl/gl.cpp
         src/gl/glad.cpp
         src/gl/texture.cpp
         src/gl/shader.cpp
         src/gl/mesh.cpp
         src/client/game.cpp
-        src/server/registry.cpp src/server/registry.h src/server/jsonformat.h)
+        src/server/registry.cpp
+        )
 
 set(MAC_LIBS)
 

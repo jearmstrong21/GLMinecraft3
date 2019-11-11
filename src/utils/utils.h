@@ -11,6 +11,7 @@
 #include <fstream>
 #include <streambuf>
 #include <sstream>
+#include <glm/glm.hpp>
 
 namespace utils {
     std::string loadFile(std::string filename);

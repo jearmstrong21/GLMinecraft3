@@ -10,9 +10,10 @@
 #include <stdio.h>
 #include <string>
 #include <iostream>
-#include "utils.h"
+#include "utils/utils.h"
 #include <map>
 #include <vector>
+#include <glm/glm.hpp>
 
 void _gl_check_error(const char*file,int line);
 #define gl_check_error() _gl_check_error(__FILE__,__LINE__)

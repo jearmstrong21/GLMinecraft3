@@ -6,7 +6,7 @@
 #define GLMINECRAFT3_SHADER_H
 
 #include "gl/gl.h"
-#include "utils.h"
+#include "utils/utils.h"
 
 namespace gl {
 
@@ -21,6 +21,8 @@ namespace gl {
         void bind();
 
         int programID();
+
+        void uniform4x4(const std::string& name,glm::mat4 value);
 
     };
 

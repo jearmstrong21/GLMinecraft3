@@ -1,6 +1,6 @@
 #include <iostream>
 #include <csignal>
-#include <server/registry.h>
+//#include <server/registry.h>
 
 #include "gl/gl.h"
 #include "gl/texture.h"
@@ -8,6 +8,7 @@
 #include "gl/meshdata.h"
 #include "gl/mesh.h"
 #include "client/game.h"
+#include <glm/glm.hpp>
 
 void sig_handler(int sig) {
     printf("Oh noes: signal %i was sent.\n", sig);

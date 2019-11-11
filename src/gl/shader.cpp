@@ -49,11 +49,18 @@ namespace gl {
     }
 
     void Shader::bind() {
+        if(!glIsProgram(id)){
+            printf("ERROR %i IS NOT PROGRAM %s,%i\n",id,__FILE__,__LINE__);
+        }
         glUseProgram(id);
     }
 
     int Shader::programID() {
         return id;
+    }
+
+    void Shader::uniform4x4(const std::string& name, glm::mat4 value) {
+        glUniformMatrix4fv(glGetUniformLocation(id,name.c_str()),1,GL_FALSE,&value[0][0]);
     }
 
 }
