@@ -9,19 +9,29 @@
 namespace gl {
 
     Texture::Texture(const std::string &filename) {
-        glGenTextures(1, &id);
-        glBindTexture(GL_TEXTURE_2D, id);
-        int w, h, comps;
+        glGenTextures(1,&id);
+        glBindTexture(GL_TEXTURE_2D,id);
+        glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_S,GL_CLAMP_TO_EDGE);
+        glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_T,GL_CLAMP_TO_EDGE);
+        glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_NEAREST);
+        glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_NEAREST);
+
+        int w,h,chn;
         stbi_set_flip_vertically_on_load(true);
-        unsigned char *data = stbi_load(("assets/" + filename).c_str(), &w, &h, &comps, 0);
-        if (data) {
-            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, w, h, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
-            glGenerateMipmap(GL_TEXTURE_2D);
-        } else {
-            printf("F %s,%i", __FILE__, __LINE__);
+        unsigned char*data=stbi_load(("../assets/"+filename).c_str(),&w,&h,&chn,0);
+
+        GLenum frmt=GL_RGBA;
+        printf("Loaded file %s with dimensions %ix%i and channels %i\n",filename.c_str(),w,h,chn);
+        if(chn==3)frmt=GL_RGB;
+
+        if(data){
+            glTexImage2D(GL_TEXTURE_2D,0,frmt,w,h,0,frmt,GL_UNSIGNED_BYTE,data);
+            stbi_image_free(data);
+        }else{
+            printf("Failed to load texture %s\n",filename.c_str());
+            stbi_image_free(data);
+            exit(1);
         }
-        stbi_image_free(data);
-        glBindTexture(GL_TEXTURE_2D,0);
     }
 
     Texture::~Texture() {
@@ -29,8 +39,8 @@ namespace gl {
     }
 
     void Texture::bind(int unit) {
-        glActiveTexture(GL_TEXTURE0 + unit);
-        glBindTexture(GL_TEXTURE_2D, id);
+        glActiveTexture(GL_TEXTURE0+unit);
+        glBindTexture(GL_TEXTURE_2D,id);
     }
 
 }

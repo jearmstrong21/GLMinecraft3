@@ -18,6 +18,7 @@ namespace client {
 
         std::shared_ptr<gl::Shader>shader;
         std::shared_ptr<gl::Mesh>mesh;
+        std::shared_ptr<gl::Texture>texture;
 
         GLFWwindow* window;
 

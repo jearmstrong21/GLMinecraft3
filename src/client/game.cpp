@@ -14,13 +14,44 @@ namespace client {
         shader=std::shared_ptr<gl::Shader>(new gl::Shader("../shaders/test.vert", "../shaders/test.frag"));
 
         gl::MeshData data;
-        data.tri = {0,1,2, 1,2,3};
-        float f=0.5;
-        data.buffers.push_back({3, {-f,-f,0, -f,f,0, f,-f,0, f,f,0}});
-        data.buffers.push_back({3, {0,0,0, 1,0,0, 0,1,0, 1,1,0}});
-        data.vertCount = 6;
+        data.tri = {
+                0,1,2,
+                1,2,3,
+
+                4,5,6,
+                5,6,7,
+
+                8,9,10,
+                9,10,11,
+
+                12,13,14,
+                13,14,15
+        };
+        data.buffers.push_back({3, {
+            -1,-1,-1, -1,1,-1, 1,-1,-1, 1,1,-1,
+            -1,-1, 1, -1,1, 1, 1,-1, 1, 1,1, 1,
+
+            -1,-1,-1, -1,-1,1, -1,1,-1, -1,1,1,
+             1,-1,-1,  1,-1,1,  1,1,-1,  1,1,1
+        }});
+        data.buffers.push_back({2, {
+                0,0, 0,1, 1,0, 1,1,
+                0,0, 0,1, 1,0, 1,1,
+
+                0,0, 0,1, 1,0, 1,1,
+                0,0, 0,1, 1,0, 1,1,
+
+//            0,0,0, 0,1,0, 1,0,0, 1,1,0,
+//            0,0,1, 0,1,1, 1,0,1, 1,1,1,
+//
+//            0,0,0, 0,0,1, 0,1,0, 0,1,1,
+//            1,0,0, 1,0,1, 1,1,0, 1,1,1
+        }});
+        data.vertCount = data.tri.size();
 
         mesh =std::shared_ptr<gl::Mesh>(new gl::Mesh(data));
+
+        texture=std::shared_ptr<gl::Texture>(new gl::Texture("blocks_color_grass.png"));
     }
 
     void Game::loop() {
@@ -33,11 +64,12 @@ namespace client {
         glEnable(GL_DEPTH_TEST);
 
         glm::mat4 p=glm::perspective(80.0F,1.0F,0.01F,100.0F);
-        glm::mat4 v=glm::lookAt(glm::vec3(1,2,2),glm::vec3(0,0,0),glm::vec3(0,1,0));
+        glm::mat4 v=glm::lookAt(glm::vec3(2,3,2),glm::vec3(0,0,0),glm::vec3(0,-1,0));
 
         shader->bind();
         shader->uniform4x4("perspective",p);
         shader->uniform4x4("view",v);
+        shader->texture("tex",texture,0);
         mesh->renderTriangles();
     }
 

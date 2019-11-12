@@ -7,7 +7,7 @@
 
 #include "glad.h"
 #include <GLFW/glfw3.h>
-#include <stdio.h>
+#include <cstdio>
 #include <string>
 #include <iostream>
 #include "utils/utils.h"

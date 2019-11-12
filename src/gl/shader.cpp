@@ -63,4 +63,9 @@ namespace gl {
         glUniformMatrix4fv(glGetUniformLocation(id,name.c_str()),1,GL_FALSE,&value[0][0]);
     }
 
+    void Shader::texture(const std::string &name, std::shared_ptr<gl::Texture> texture, int unit) {
+        texture->bind(unit);
+        glUniform1i(glGetUniformLocation(id,name.c_str()),unit);
+    }
+
 }

@@ -7,6 +7,7 @@
 
 #include "gl/gl.h"
 #include "utils/utils.h"
+#include "texture.h"
 
 namespace gl {
 
@@ -23,7 +24,7 @@ namespace gl {
         int programID();
 
         void uniform4x4(const std::string& name,glm::mat4 value);
-
+        void texture(const std::string &name,std::shared_ptr<gl::Texture>texture, int unit);
     };
 
 }
