@@ -17,7 +17,6 @@ namespace gl {
     struct MeshData {
         std::vector<BufferData>buffers;
         std::vector<unsigned int>tri;
-        int vertCount;
     };
 
 }

@@ -10,4 +10,6 @@ uniform mat4 view;
 void main(){
     gl_Position=perspective*view*vec4(inPos,1.0);
     uv=inUV;
+//    uv=inUV/16.0;
+//    uv.y=1.0-uv.y;
 }

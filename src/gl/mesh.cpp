@@ -7,7 +7,7 @@
 namespace gl {
 
     Mesh::Mesh(gl::MeshData data) {
-        this->vertCount=data.vertCount;
+        this->vertCount=data.tri.size();
 
         glGenVertexArrays(1,&vao);
         glBindVertexArray(vao);
