@@ -7,8 +7,8 @@
 namespace gl {
 
     Shader::Shader(const std::string& vert, const std::string& frag) {
-        std::string vertCode=utils::loadFile(vert);
-        std::string fragCode=utils::loadFile(frag);
+        std::string vertCode=utils::loadFile("../src/assets/shaders/"+vert+".vert");
+        std::string fragCode=utils::loadFile("../src/assets/shaders/"+frag+".frag");
         const char*vertexShaderSource=vertCode.c_str();
         const char*fragmentShaderSource=fragCode.c_str();
         int vertexShader=glCreateShader(GL_VERTEX_SHADER);

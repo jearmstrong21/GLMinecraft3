@@ -11,7 +11,7 @@ namespace client {
     }
 
     void Game::initialize() {
-        shader=std::shared_ptr<gl::Shader>(new gl::Shader("../shaders/test.vert", "../shaders/test.frag"));
+        shader=std::shared_ptr<gl::Shader>(new gl::Shader("test","test"));
 
         gl::MeshData data;
         data.tri = {
