@@ -71,5 +71,40 @@ namespace block {
             md->buffers.push_back({3,{}});
         }
 
+        void QuadDescr::xmi() {
+            start={0,0,0};
+            d0={0,0,1};
+            d1={0,1,0};
+        }
+
+        void QuadDescr::xpl() {
+            start={1,0,0};
+            d0={0,0,1};
+            d1={0,1,0};
+        }
+
+        void QuadDescr::ymi() {
+            start={0,0,0};
+            d0={1,0,0};
+            d1={0,0,1};
+        }
+
+        void QuadDescr::ypl() {
+            start={0,1,0};
+            d0={1,0,0};
+            d1={0,0,1};
+        }
+
+        void QuadDescr::zmi() {
+            start={0,0,0};
+            d0={1,0,0};
+            d1={0,1,0};
+        }
+
+        void QuadDescr::zpl() {
+            start={0,0,1};
+            d0={1,0,0};
+            d1={0,1,0};
+        }
     }
 }

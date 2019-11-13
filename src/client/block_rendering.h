@@ -53,6 +53,13 @@ namespace block {
             glm::vec3 d0;
             glm::vec3 d1;
 
+            void xmi();
+            void xpl();
+            void ymi();
+            void ypl();
+            void zmi();
+            void zpl();
+
         };
 
         void meshQuad(gl::MeshData*md,QuadDescr qd,int x,int y,int z);

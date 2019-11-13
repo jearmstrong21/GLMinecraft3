@@ -16,27 +16,47 @@ namespace client {
         gl::MeshData data;
         block::client::initChunkBuffers(&data);
 
-        block::client::LayerTextureDescr ltd0;
-        ltd0.texture = block::client::AtlasTexture::GRASS_SIDE;
-        ltd0.color = glm::vec3(1, 1, 1);
+        block::client::LayerTextureDescr ltdGrassSide;
+        ltdGrassSide.texture = block::client::AtlasTexture::GRASS_SIDE;
+        ltdGrassSide.color = glm::vec3(1, 1, 1);
 
-        block::client::LayerTextureDescr ltd1;
-        ltd1.texture = block::client::AtlasTexture::GRASS_SIDE_OVERLAY;
-        ltd1.color=glm::vec3(0.47,0.82,0.37);//#79c05a, https://minecraft.gamepedia.com/Grass_Block
+        block::client::LayerTextureDescr ltdGrassSideOverlay;
+        ltdGrassSideOverlay.texture = block::client::AtlasTexture::GRASS_SIDE_OVERLAY;
+        ltdGrassSideOverlay.color=glm::vec3(0.47,0.82,0.37);//#79c05a, https://minecraft.gamepedia.com/Grass_Block
 
-        block::client::QuadTextureDescr qdt;
-        qdt.first = ltd0;
-        qdt.second = ltd1;
+        block::client::LayerTextureDescr ltdGrassTop;
+        ltdGrassTop.texture=block::client::AtlasTexture::GRASS_TOP;
+        ltdGrassTop.color=glm::vec3(0.47,0.82,0.37);
+
+        block::client::LayerTextureDescr ltdDirt;
+        ltdDirt.texture=block::client::AtlasTexture::DIRT;
+        ltdDirt.color=glm::vec3(1,1,1);
+
+        block::client::LayerTextureDescr ltdNone;
+        ltdNone.texture=block::client::AtlasTexture::NONE;
+        ltdNone.color=glm::vec3(1,1,1);
+
+        block::client::QuadTextureDescr qtdGrassSide;
+        qtdGrassSide.first = ltdGrassSide;
+        qtdGrassSide.second = ltdGrassSideOverlay;
+
+        block::client::QuadTextureDescr qtdGrassTop;
+        qtdGrassTop.first=ltdGrassTop;
+        qtdGrassTop.second=ltdNone;
+
+        block::client::QuadTextureDescr qtdDirt;
+        qtdDirt.first=ltdDirt;
+        qtdDirt.second=ltdNone;
+
 
         block::client::QuadDescr qd;
-        qd.start = glm::vec3(1, 0, 0);
-        qd.d0 = glm::vec3(0, 0, 1);
-        qd.d1 = glm::vec3(0, 1, 0);
-        qd.texture = qdt;
 
-        block::client::meshQuad(&data, qd, 0, 0, 0);
-        qd.start = glm::vec3(0, 0, 0);
-        block::client::meshQuad(&data, qd, 0, 0, 0);
+        qd.texture=qtdGrassSide;qd.xmi();block::client::meshQuad(&data, qd, 0, 0, 0);
+        qd.texture=qtdGrassSide;qd.xpl();block::client::meshQuad(&data, qd, 0, 0, 0);
+        qd.texture=qtdDirt;qd.ymi();block::client::meshQuad(&data, qd, 0, 0, 0);
+        qd.texture=qtdGrassTop;qd.ypl();block::client::meshQuad(&data, qd, 0, 0, 0);
+        qd.texture=qtdGrassSide;qd.zmi();block::client::meshQuad(&data, qd, 0, 0, 0);
+        qd.texture=qtdGrassSide;qd.zpl();block::client::meshQuad(&data, qd, 0, 0, 0);
 
         mesh = std::shared_ptr<gl::Mesh>(new gl::Mesh(&data));
 
@@ -54,7 +74,7 @@ namespace client {
         glEnable(GL_DEPTH_TEST);
 
         glm::mat4 p = glm::perspective(80.0F, 1.0F, 0.01F, 100.0F);
-        glm::mat4 v = glm::lookAt(glm::vec3(2, 1.5, 2), glm::vec3(0, 0, 0), glm::vec3(0, -1, 0));
+        glm::mat4 v = glm::lookAt(glm::vec3(cos(glfwGetTime())*3+0.5,sin(glfwGetTime()*0.5)*3,sin(glfwGetTime())*3+0.5), glm::vec3(0, 0, 0), glm::vec3(0, -1, 0));
 
         shader->bind();
         shader->uniform4x4("perspective", p);
