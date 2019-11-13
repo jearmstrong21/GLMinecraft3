@@ -32,6 +32,7 @@ set(SOURCE_FILES
         src/gl/shader.cpp
         src/gl/mesh.cpp
         src/client/game.cpp
+        src/client/block_rendering.cpp
         src/server/registry.cpp
         )
 

@@ -17,7 +17,7 @@ namespace gl {
         int vertCount;
 
     public:
-        Mesh(MeshData data);
+        Mesh(MeshData* data);
         ~Mesh();
 
         void renderTriangles();

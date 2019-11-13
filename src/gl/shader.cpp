@@ -19,7 +19,8 @@ namespace gl {
         glGetShaderiv(vertexShader,GL_COMPILE_STATUS,&success);
         if(!success){
             glGetShaderInfoLog(vertexShader,512,nullptr,infoLog);
-            printf("VERTEX\n%s\n",infoLog);
+            printf("\n\n%s,%s: %s\n",vert.c_str(),frag.c_str(),infoLog);
+            ASSERT_OR_EXIT(false,"VERTEX SHADER FAILED");
         }
 
         int fragmentShader=glCreateShader(GL_FRAGMENT_SHADER);
@@ -28,7 +29,8 @@ namespace gl {
         glGetShaderiv(fragmentShader,GL_COMPILE_STATUS,&success);
         if(!success){
             glGetShaderInfoLog(fragmentShader,512,nullptr,infoLog);
-            printf("FRAGMENT\n%s\n",infoLog);
+            printf("\n\n%s,%s: %s\n",vert.c_str(),frag.c_str(),infoLog);
+            ASSERT_OR_EXIT(false,"FRAGMENT SHADER FAILED");
         }
 
         id=glCreateProgram();
@@ -38,7 +40,8 @@ namespace gl {
         glGetProgramiv(id,GL_LINK_STATUS,&success);
         if(!success){
             glGetProgramInfoLog(id,512,nullptr,infoLog);
-            printf("LINK\n%s\n",infoLog);
+            printf("\n\n%s,%s: %s\n",vert.c_str(),frag.c_str(),infoLog);
+            ASSERT_OR_EXIT(false,"SHADER LINK FAILED");
         }
         glDeleteShader(vertexShader);
         glDeleteShader(fragmentShader);

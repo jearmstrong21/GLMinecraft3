@@ -14,50 +14,32 @@ namespace client {
         shader=std::shared_ptr<gl::Shader>(new gl::Shader("test","test"));
 
         gl::MeshData data;
-        data.tri = {
-                0,1,2,
-                1,2,3,
+        block::initChunkBuffers(&data);
 
-                4,5,6,
-                5,6,7,
+        block::LayerTextureDescr ltd0;
+        ltd0.texture=block::AtlasTexture::GRASS_SIDE_OVERLAY;
+//        ltd0.color=glm::vec3(0.47,0.82,0.37);//#79c05a, https://minecraft.gamepedia.com/Grass_Block
+        ltd0.color=glm::vec3(1,0,0);
+        block::LayerTextureDescr ltd1;
+        ltd1.texture=block::AtlasTexture::GRASS_SIDE;
+        ltd1.color=glm::vec3(1,1,1);
 
-                8,9,10,
-                9,10,11,
+        block::QuadTextureDescr qdt;
+        qdt.first=ltd1;
+        qdt.second=ltd0;
 
-                12,13,14,
-                13,14,15,
+        block::QuadDescr qd;
+        qd.start=glm::vec3(1,0,0);
+        qd.d0=glm::vec3(0,0,1);
+        qd.d1=glm::vec3(0,1,0);
+        qd.texture=qdt;
 
-                16,17,18,
-                17,18,19,
+        block::meshQuad(&data,qd,0,0,0);
 
-                20,21,22,
-                21,22,23
-        };
-        data.buffers.push_back({3, {
-            -1,-1,-1, -1,1,-1, 1,-1,-1, 1,1,-1,
-            -1,-1, 1, -1,1, 1, 1,-1, 1, 1,1, 1,
+        mesh =std::shared_ptr<gl::Mesh>(new gl::Mesh(&data));
 
-            -1,-1,-1, -1,-1,1, -1,1,-1, -1,1,1,
-             1,-1,-1,  1,-1,1,  1,1,-1,  1,1,1,
-//
-//             -1,-1,-1, -1,-1,1, 1,-1,-1, 1,-1,1,
-//             -1,1,-1, -1,1,1, 1,1,-1, 1,1,1
-        }});
-        data.buffers.push_back({2, {
-                1,0, 1,1, 0,0, 0,1,
-                0,0, 0,1, 1,0, 1,1,
-
-//                0,0, 0,1, 1,0, 1,1,
-                0,0, 1,0, 0,1, 1,1,
-                1,0, 0,0, 1,1, 0,1,
-
-                0,0, 0,1, 1,0, 1,1,
-                0,0, 0,1, 1,0, 1,1
-        }});
-
-        mesh =std::shared_ptr<gl::Mesh>(new gl::Mesh(data));
-
-        texture=std::shared_ptr<gl::Texture>(new gl::Texture("New Piskel.png"));
+        texture=std::shared_ptr<gl::Texture>(new gl::Texture("1.8_textures_0.png"));
+//        texture=std::shared_ptr<gl::Texture>(new gl::Texture("New Piskel.png"));
     }
 
     void Game::loop() {
@@ -70,13 +52,18 @@ namespace client {
         glEnable(GL_DEPTH_TEST);
 
         glm::mat4 p=glm::perspective(80.0F,1.0F,0.01F,100.0F);
-        glm::mat4 v=glm::lookAt(glm::vec3(2,3,2),glm::vec3(0,0,0),glm::vec3(0,-1,0));
+        glm::mat4 v=glm::lookAt(glm::vec3(2,1.5,2),glm::vec3(0,0,0),glm::vec3(0,-1,0));
 
         shader->bind();
         shader->uniform4x4("perspective",p);
         shader->uniform4x4("view",v);
         shader->texture("tex",texture,0);
         mesh->renderTriangles();
+
+        if(glfwGetKey(window,GLFW_KEY_Q)){
+            std::raise(11);
+//            std::abort();
+        }
     }
 
     void Game::end() {
