@@ -34,6 +34,7 @@ set(SOURCE_FILES
         src/client/game.cpp
         src/client/block_rendering.cpp
         src/server/registry.cpp
+        src/block/block.cpp
         )
 
 set(MAC_LIBS)

@@ -14,29 +14,29 @@ namespace client {
         shader = std::shared_ptr<gl::Shader>(new gl::Shader("test", "test"));
 
         gl::MeshData data;
-        block::initChunkBuffers(&data);
+        block::client::initChunkBuffers(&data);
 
-        block::LayerTextureDescr ltd0;
-        ltd0.texture = block::AtlasTexture::GRASS_SIDE;
+        block::client::LayerTextureDescr ltd0;
+        ltd0.texture = block::client::AtlasTexture::GRASS_SIDE;
         ltd0.color = glm::vec3(1, 1, 1);
 
-        block::LayerTextureDescr ltd1;
-        ltd1.texture = block::AtlasTexture::GRASS_SIDE_OVERLAY;
+        block::client::LayerTextureDescr ltd1;
+        ltd1.texture = block::client::AtlasTexture::GRASS_SIDE_OVERLAY;
         ltd1.color=glm::vec3(0.47,0.82,0.37);//#79c05a, https://minecraft.gamepedia.com/Grass_Block
 
-        block::QuadTextureDescr qdt;
+        block::client::QuadTextureDescr qdt;
         qdt.first = ltd0;
         qdt.second = ltd1;
 
-        block::QuadDescr qd;
+        block::client::QuadDescr qd;
         qd.start = glm::vec3(1, 0, 0);
         qd.d0 = glm::vec3(0, 0, 1);
         qd.d1 = glm::vec3(0, 1, 0);
         qd.texture = qdt;
 
-        block::meshQuad(&data, qd, 0, 0, 0);
+        block::client::meshQuad(&data, qd, 0, 0, 0);
         qd.start = glm::vec3(0, 0, 0);
-        block::meshQuad(&data, qd, 0, 0, 0);
+        block::client::meshQuad(&data, qd, 0, 0, 0);
 
         mesh = std::shared_ptr<gl::Mesh>(new gl::Mesh(&data));
 

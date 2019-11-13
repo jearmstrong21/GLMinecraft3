@@ -9,9 +9,9 @@
 #include "utils/utils.h"
 #include "gl/meshdata.h"
 
-namespace client {
+namespace block {
 
-    namespace block {
+    namespace client {
 
 #define ATLASTEXTURE(X,Y) (32*(31-Y)+(X))
 

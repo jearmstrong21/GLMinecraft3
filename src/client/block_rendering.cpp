@@ -4,8 +4,8 @@
 
 #include "block_rendering.h"
 
-namespace client {
-    namespace block {
+namespace block {
+    namespace client {
 
 
         void meshQuad(gl::MeshData* md, QuadDescr qd, int x, int y, int z) {

@@ -11,6 +11,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include "block_rendering.h"
+#include "block/block.h"
 #include <csignal>
 
 namespace client {
