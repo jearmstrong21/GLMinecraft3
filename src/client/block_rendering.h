@@ -23,6 +23,7 @@ namespace block {
             GRASS_TOP=ATLASTEXTURE(15,10),
             GRASS_SIDE=ATLASTEXTURE(12,10),
             GRASS_SIDE_OVERLAY=ATLASTEXTURE(13,10),
+            STONE=ATLASTEXTURE(20,9),
 
             BREAK_0=ATLASTEXTURE(2,7)
 
@@ -64,7 +65,6 @@ namespace block {
 
         void meshQuad(gl::MeshData*md,QuadDescr qd,int x,int y,int z);
         void initChunkBuffers(gl::MeshData*md);
-
 
     }
 
