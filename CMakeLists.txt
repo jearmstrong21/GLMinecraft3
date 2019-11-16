@@ -36,6 +36,8 @@ set(SOURCE_FILES
         src/server/registry.cpp
         src/block/blockstate.cpp
         src/block/block.cpp
+        src/block/world.cpp
+        src/block/types/block_grass.cpp
         )
 
 set(MAC_LIBS)

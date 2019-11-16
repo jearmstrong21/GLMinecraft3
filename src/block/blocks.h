@@ -6,6 +6,6 @@
 #define GLMINECRAFT3_BLOCKS_H
 
 #include "block.h"
-#include "block_grass.h"
+#include "block/types/block_grass.h"
 
 #endif //GLMINECRAFT3_BLOCKS_H

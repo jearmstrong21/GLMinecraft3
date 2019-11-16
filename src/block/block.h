@@ -26,15 +26,15 @@ namespace block {
             paletteSet.insert(0);
         }
 
-        bool in_bounds(int x,int y,int z){
+        [[nodiscard]] bool in_bounds(int x,int y,int z)const{
             return x>=0&&y>=0&&z>=0&&x<16&&y<256&&z<16;
         }
-        bool in_bounds(glm::ivec3 v){return in_bounds(v.x,v.y,v.z);}
-        BlockState get(int x,int y,int z){
+        [[nodiscard]] bool in_bounds(glm::ivec3 v)const{return in_bounds(v.x,v.y,v.z);}
+        [[nodiscard]] BlockState get(int x,int y,int z)const{
             if(in_bounds(x,y,z))return palette[data[x][y][z]];
             return 0;
         }
-        BlockState get(glm::ivec3 v){return get(v.x,v.y,v.z);}
+        [[nodiscard]] BlockState get(glm::ivec3 v)const{return get(v.x,v.y,v.z);}
         void set(int x,int y,int z,BlockState b){
             if(in_bounds(x,y,z)){
                 if(paletteSet.count(b)==0){
@@ -63,12 +63,12 @@ namespace block {
 
         int id;
 
-        explicit Block(int id){
+        explicit Block(int id)noexcept{
             this->id=id;
         }
 
-        virtual void render(gl::MeshData*md,BlockContext*ctx)const=0;
-        [[nodiscard]] BlockState getDefaultState()const{
+        virtual void render(gl::MeshData*md,BlockContext*ctx)const noexcept=0;
+        [[nodiscard]] BlockState getDefaultState()const noexcept{
             return create(id,0);
         }
 
