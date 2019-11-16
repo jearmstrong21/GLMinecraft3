@@ -44,7 +44,7 @@ namespace client {
         glEnable(GL_DEPTH_TEST);
 
         glm::mat4 p = glm::perspective(80.0F, 1.0F, 0.01F, 100.0F);
-        glm::mat4 v = glm::lookAt(glm::vec3(cos(glfwGetTime())*3+0.5,sin(glfwGetTime()*0.5)*3,sin(glfwGetTime())*3+0.5), glm::vec3(0, 0, 0), glm::vec3(0, -1, 0));
+        glm::mat4 v = glm::lookAt(glm::vec3(cos(glfwGetTime())*20+8,sin(glfwGetTime()*0.25)*20+8,sin(glfwGetTime())*20+8), glm::vec3(8, 4, 8), glm::vec3(0, -1, 0));
 
         shader->bind();
         shader->uniform4x4("perspective", p);

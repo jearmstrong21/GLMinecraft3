@@ -18,7 +18,7 @@ namespace block {
         const client::QuadTextureDescr side{{client::AtlasTexture::GRASS_SIDE,glm::vec3(1,1,1)},{client::AtlasTexture::GRASS_SIDE_OVERLAY,glm::vec3(0.47,0.82,0.37)}};
         const client::QuadTextureDescr bot{{client::AtlasTexture::DIRT,glm::vec3(1,1,1)},{client::AtlasTexture::NONE,glm::vec3(1,1,1)}};
 
-        void render(gl::MeshData*md,BlockContext ctx) const noexcept;
+        void render(gl::MeshData*md,BlockContext ctx) const noexcept override;
 
     };
 

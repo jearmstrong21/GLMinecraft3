@@ -14,7 +14,7 @@ namespace block {
 
         explicit BlockNone(int id)noexcept;
 
-        void render(gl::MeshData*md,BlockContext ctx) const noexcept;
+        void render(gl::MeshData*md,BlockContext ctx) const noexcept override;
 
     };
 
