@@ -6,9 +6,15 @@
 #define GLMINECRAFT3_BLOCKS_H
 
 #include "block.h"
+#include "block/types/block_none.h"
 #include "block/types/block_grass.h"
 #include "block/types/block_dirt.h"
 #include "block/types/block_stone.h"
-#include "block/types/block_dirt.h"
+
+namespace block {
+
+    const Block* fromID(int id);
+
+}
 
 #endif //GLMINECRAFT3_BLOCKS_H

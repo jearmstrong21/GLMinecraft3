@@ -11,7 +11,7 @@ namespace block {
 
     }
 
-    void BlockDirt::render(gl::MeshData *md, block::BlockContext *ctx) const noexcept {
+    void BlockDirt::render(gl::MeshData *md, block::BlockContext ctx) const noexcept {
         renderFullBlock(md,ctx,side,side,side,side,side,side);
     }
 

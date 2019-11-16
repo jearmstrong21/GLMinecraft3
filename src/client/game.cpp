@@ -18,9 +18,15 @@ namespace client {
 
         block::World world;
 //        block::BlockContext ctx=world.getCTX({0,0,0});
-        block::BlockContext ctx{0,0,0,0,0,0,block::GRASS.getDefaultState(),{0,0,0}};
-
-        block::STONE.render(&data,&ctx);
+//        block::BlockContext ctx{0,0,0,0,0,0,block::GRASS.getDefaultState(),{0,0,0}};
+        for(int x=0;x<16;x++){
+            for(int y=0;y<256;y++){
+                for(int z=0;z<16;z++){
+                    block::fromID(block::id(world.get(x,y,z)))->render(&data,world.getCTX({x,y,z}));
+                }
+            }
+        }
+//        block::STONE.render(&data,&ctx);
 
         mesh = std::shared_ptr<gl::Mesh>(new gl::Mesh(&data));
 

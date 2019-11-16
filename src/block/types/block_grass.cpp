@@ -11,7 +11,7 @@ namespace block {
 
     }
 
-    void BlockGrass::render(gl::MeshData *md, block::BlockContext *ctx) const noexcept {
+    void BlockGrass::render(gl::MeshData*md,BlockContext ctx) const noexcept {
         renderFullBlock(md,ctx,side,side,bot,top,side,side);
     }
 

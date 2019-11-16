@@ -12,6 +12,7 @@
 #include <gl/meshdata.h>
 #include "client/block_rendering.h"
 #include "blockstate.h"
+#include <csignal>
 
 namespace block {
 
@@ -37,7 +38,7 @@ namespace block {
         [[nodiscard]] BlockState get(glm::ivec3 v)const{return get(v.x,v.y,v.z);}
         void set(int x,int y,int z,BlockState b){
             if(in_bounds(x,y,z)){
-                printf("SET %i,%i,%i: %i\n",x,y,z,b);
+//                printf("SET %i,%i,%i: %i\n",x,y,z,b);
                 if(paletteSet.count(b)==0){
                     palette.push_back(b);
                     paletteSet.insert(b);
@@ -63,19 +64,18 @@ namespace block {
     struct Block {
 
         int id;
+        BlockState defaultState;
 
         explicit Block(int id)noexcept{
             this->id=id;
+            this->defaultState=create(id,0);
         }
 
-        virtual void render(gl::MeshData*md,BlockContext*ctx)const noexcept=0;
-        [[nodiscard]] BlockState getDefaultState()const noexcept{
-            return create(id,0);
-        }
+        virtual void render(gl::MeshData*md,BlockContext ctx)const noexcept;
 
     };
 
-    void renderFullBlock(gl::MeshData*md,BlockContext*ctx,client::QuadTextureDescr xmi,client::QuadTextureDescr xpl,client::QuadTextureDescr ymi,client::QuadTextureDescr ypl,client::QuadTextureDescr zmi,client::QuadTextureDescr zpl);
+    void renderFullBlock(gl::MeshData*md,BlockContext ctx,client::QuadTextureDescr xmi,client::QuadTextureDescr xpl,client::QuadTextureDescr ymi,client::QuadTextureDescr ypl,client::QuadTextureDescr zmi,client::QuadTextureDescr zpl);
 
 
 }

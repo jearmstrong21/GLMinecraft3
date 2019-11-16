@@ -11,7 +11,7 @@ namespace block {
 
     }
 
-    void BlockStone::render(gl::MeshData *md, block::BlockContext *ctx) const noexcept {
+    void BlockStone::render(gl::MeshData *md, block::BlockContext ctx) const noexcept {
         renderFullBlock(md,ctx,side,side,side,side,side,side);
     }
 

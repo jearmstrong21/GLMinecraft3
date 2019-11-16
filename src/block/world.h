@@ -7,13 +7,13 @@
 
 #include "blocks.h"
 
-#define WORLD_SIZE 2
+#define WORLD_SIZE 4
 
 namespace block {
 
     struct World {
 
-        Chunk map[WORLD_SIZE][WORLD_SIZE];
+        std::shared_ptr<Chunk> map[WORLD_SIZE][WORLD_SIZE];
 
         World();
 

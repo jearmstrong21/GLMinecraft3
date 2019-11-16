@@ -16,7 +16,7 @@ namespace block {
 
         const client::QuadTextureDescr side{{client::AtlasTexture::DIRT,glm::vec3(1,1,1)},{client::AtlasTexture::NONE,glm::vec3(1,1,1)}};
 
-        void render(gl::MeshData*md,BlockContext*ctx) const noexcept override;
+        void render(gl::MeshData*md,BlockContext ctx) const noexcept;
 
     };
 
