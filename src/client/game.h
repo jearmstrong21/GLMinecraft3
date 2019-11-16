@@ -10,9 +10,9 @@
 #include "gl/mesh.h"
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
-#include "block_rendering.h"
-#include "block/block.h"
 #include <csignal>
+#include "block/blocks.h"
+#include "block/world.h"
 
 namespace client {
 
