@@ -37,7 +37,10 @@ set(SOURCE_FILES
         src/block/blockstate.cpp
         src/block/block.cpp
         src/block/world.cpp
+
         src/block/types/block_grass.cpp
+        src/block/types/block_dirt.cpp
+        src/block/types/block_stone.cpp
         )
 
 set(MAC_LIBS)

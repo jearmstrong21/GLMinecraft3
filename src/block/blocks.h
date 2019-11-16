@@ -7,5 +7,8 @@
 
 #include "block.h"
 #include "block/types/block_grass.h"
+#include "block/types/block_dirt.h"
+#include "block/types/block_stone.h"
+#include "block/types/block_dirt.h"
 
 #endif //GLMINECRAFT3_BLOCKS_H

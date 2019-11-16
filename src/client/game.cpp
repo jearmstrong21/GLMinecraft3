@@ -16,50 +16,11 @@ namespace client {
         gl::MeshData data;
         block::client::initChunkBuffers(&data);
 
-        block::BlockContext ctx{0,0,0,0,0,0,block::GRASS.getDefaultState(),glm::ivec3(0,0,0)};
-        block::GRASS.render(&data,&ctx);
+        block::World world;
+//        block::BlockContext ctx=world.getCTX({0,0,0});
+        block::BlockContext ctx{0,0,0,0,0,0,block::GRASS.getDefaultState(),{0,0,0}};
 
-//        block::client::LayerTextureDescr ltdGrassSide;
-//        ltdGrassSide.texture = block::client::AtlasTexture::GRASS_SIDE;
-//        ltdGrassSide.color = glm::vec3(1, 1, 1);
-//
-//        block::client::LayerTextureDescr ltdGrassSideOverlay;
-//        ltdGrassSideOverlay.texture = block::client::AtlasTexture::GRASS_SIDE_OVERLAY;
-//        ltdGrassSideOverlay.color=glm::vec3(0.47,0.82,0.37);//#79c05a, https://minecraft.gamepedia.com/Grass_Block
-//
-//        block::client::LayerTextureDescr ltdGrassTop;
-//        ltdGrassTop.texture=block::client::AtlasTexture::GRASS_TOP;
-//        ltdGrassTop.color=glm::vec3(0.47,0.82,0.37);
-//
-//        block::client::LayerTextureDescr ltdDirt;
-//        ltdDirt.texture=block::client::AtlasTexture::DIRT;
-//        ltdDirt.color=glm::vec3(1,1,1);
-//
-//        block::client::LayerTextureDescr ltdNone;
-//        ltdNone.texture=block::client::AtlasTexture::NONE;
-//        ltdNone.color=glm::vec3(1,1,1);
-//
-//        block::client::QuadTextureDescr qtdGrassSide;
-//        qtdGrassSide.first = ltdGrassSide;
-//        qtdGrassSide.second = ltdGrassSideOverlay;
-//
-//        block::client::QuadTextureDescr qtdGrassTop;
-//        qtdGrassTop.first=ltdGrassTop;
-//        qtdGrassTop.second=ltdNone;
-//
-//        block::client::QuadTextureDescr qtdDirt;
-//        qtdDirt.first=ltdDirt;
-//        qtdDirt.second=ltdNone;
-//
-//
-//        block::client::QuadDescr qd;
-//
-//        qd.texture=qtdGrassSide;qd.xmi();block::client::meshQuad(&data, qd, 0, 0, 0);
-//        qd.texture=qtdGrassSide;qd.xpl();block::client::meshQuad(&data, qd, 0, 0, 0);
-//        qd.texture=qtdDirt;qd.ymi();block::client::meshQuad(&data, qd, 0, 0, 0);
-//        qd.texture=qtdGrassTop;qd.ypl();block::client::meshQuad(&data, qd, 0, 0, 0);
-//        qd.texture=qtdGrassSide;qd.zmi();block::client::meshQuad(&data, qd, 0, 0, 0);
-//        qd.texture=qtdGrassSide;qd.zpl();block::client::meshQuad(&data, qd, 0, 0, 0);
+        block::STONE.render(&data,&ctx);
 
         mesh = std::shared_ptr<gl::Mesh>(new gl::Mesh(&data));
 

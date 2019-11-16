@@ -37,6 +37,7 @@ namespace block {
         [[nodiscard]] BlockState get(glm::ivec3 v)const{return get(v.x,v.y,v.z);}
         void set(int x,int y,int z,BlockState b){
             if(in_bounds(x,y,z)){
+                printf("SET %i,%i,%i: %i\n",x,y,z,b);
                 if(paletteSet.count(b)==0){
                     palette.push_back(b);
                     paletteSet.insert(b);

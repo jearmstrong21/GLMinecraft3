@@ -7,7 +7,7 @@
 
 #include "blocks.h"
 
-#define WORLD_SIZE 16
+#define WORLD_SIZE 2
 
 namespace block {
 
@@ -17,17 +17,19 @@ namespace block {
 
         World();
 
-        bool in_bounds(int x, int y, int z);
+        [[nodiscard]] bool in_bounds(int x, int y, int z)const;
 
-        bool in_bounds(glm::ivec3 v);
+        [[nodiscard]] bool in_bounds(glm::ivec3 v)const;
 
-        BlockState get(int x, int y, int z);
+        [[nodiscard]] BlockState get(int x, int y, int z)const;
 
-        BlockState get(glm::ivec3 v);
+        [[nodiscard]] BlockState get(glm::ivec3 v)const;
 
         void set(int x, int y, int z, BlockState b);
 
         void set(glm::ivec3 v, BlockState b);
+
+        [[nodiscard]] BlockContext getCTX(glm::ivec3 p)const;
 
     };
 
