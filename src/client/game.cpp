@@ -13,9 +13,6 @@ namespace client {
     void Game::initialize() {
         shader = std::shared_ptr<gl::Shader>(new gl::Shader("test", "test"));
 
-        gl::MeshData data;
-        block::client::initChunkBuffers(&data);
-
         std::shared_ptr<block::World> world(new block::World());
 
         for(int x=0;x<WORLD_SIZE;x++){
@@ -49,7 +46,6 @@ namespace client {
                 renderedWorld[x][z]->render(shader);
             }
         }
-//        chunk->render(shader);
 
         if (glfwGetKey(window, GLFW_KEY_Q)) {
             std::raise(11);
