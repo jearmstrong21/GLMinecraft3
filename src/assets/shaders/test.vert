@@ -12,9 +12,10 @@ out vec3 col1;
 
 uniform mat4 perspective;
 uniform mat4 view;
+uniform mat4 model;
 
 void main(){
-    gl_Position=perspective*view*vec4(inPos,1.0);
+    gl_Position=perspective*view*model*vec4(inPos,1.0);
     uv0=inUV0;
     uv1=inUV1;
     col0=inCol0;

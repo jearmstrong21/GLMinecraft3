@@ -7,7 +7,7 @@
 
 #include "blocks.h"
 
-#define WORLD_SIZE 4
+#define WORLD_SIZE 16
 
 namespace block {
 

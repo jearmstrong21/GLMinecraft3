@@ -33,6 +33,7 @@ set(SOURCE_FILES
         src/gl/mesh.cpp
         src/client/game.cpp
         src/client/block_rendering.cpp
+        src/client/rendered_chunk.cpp
         src/server/registry.cpp
         src/block/blockstate.cpp
         src/block/block.cpp

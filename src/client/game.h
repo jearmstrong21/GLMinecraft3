@@ -13,6 +13,7 @@
 #include <csignal>
 #include "block/blocks.h"
 #include "block/world.h"
+#include "rendered_chunk.h"
 
 namespace client {
 
@@ -20,8 +21,8 @@ namespace client {
     public:
 
         std::shared_ptr<gl::Shader>shader;
-        std::shared_ptr<gl::Mesh>mesh;
         std::shared_ptr<gl::Texture>texture;
+        std::shared_ptr<RenderedChunk>renderedWorld[WORLD_SIZE][WORLD_SIZE];
 
         GLFWwindow* window;
 
