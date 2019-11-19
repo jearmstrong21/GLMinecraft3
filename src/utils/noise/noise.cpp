@@ -112,14 +112,8 @@ namespace utils {
 
             for(int i=256-1;i>=1;i--){
                 int j=twister->get()%(i+1);
-                printf("swap %i %i\n",i,j);
                 int temp=p[i];p[i]=p[j];p[j]=temp;
             }
-
-            for(int i=0;i<256;i++){
-                printf("%i, ",p[i]);
-            }
-            printf("\n");
 
             for(int i=256;i<512;i++){
                 p[i]=p[i-256];
