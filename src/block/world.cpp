@@ -11,24 +11,29 @@ namespace block {
                 map[x][z]=std::shared_ptr<Chunk>(new Chunk());
             }
         }
-        for (int x = 0; x < WORLD_SIZE; x++) {
-            for (int z = 0; z < WORLD_SIZE; z++){
-//                printf("%i,%i\n",x,z);
-                for (int a = 0; a < 16; a++) {
-                    for (int b = 0; b < 16; b++) {
-                        int h=a+b+x+z;
-                        for (int y = 0; y <= h; y++) {
-//                            printf("%i,%i,%i\n",a,y,b);
-                            BlockState bs=0;
-                            if(y<h-5)bs=block::STONE.defaultState;
-                            else if(y<h)bs=block::DIRT.defaultState;
-                            else if(y==h)bs=block::GRASS.defaultState;
-                            map[x][z]->set(a,y,b,bs);
-                        }
-                    }
+
+        std::shared_ptr<utils::noise::Perlin>perlin=std::shared_ptr<utils::noise::Perlin>(new utils::noise::Perlin(5));
+        double zoom=0.025;
+
+        //Too much perlin noise segfaults?
+        for(int x=0;x<WORLD_SIZE*16;x++){
+            for(int z=0;z<WORLD_SIZE*16;z++){
+                int h=(int)(perlin->perlin(x*zoom,z*zoom,0)*255);
+                if(h<10)h=10;
+                if(h>100)h=100;
+//                int h=10;
+                for(int y=0;y<=h;y++){
+                    BlockState bs=0;
+                    if(y<h-5)bs=block::STONE.defaultState;
+                    else if(y<h)bs=block::DIRT.defaultState;
+                    else if(y==h)bs=block::GRASS.defaultState;
+                    if(bs==0)continue;
+                    set(x,y,z,bs);
+//                    map[x/16][z/16]->set(x%16,y,z%16,bs);
                 }
             }
         }
+
     }
 
     bool World::in_bounds(int x, int y, int z) const{

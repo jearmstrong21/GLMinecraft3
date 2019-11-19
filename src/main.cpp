@@ -9,10 +9,38 @@
 #include "gl/mesh.h"
 #include "client/game.h"
 #include <glm/glm.hpp>
+#include <execinfo.h>
+
+#define SIZE 100
 
 void sig_handler(int sig) {
-    printf("Oh noes: signal %i was sent.\n", sig);
-    exit(EXIT_FAILURE);
+//    printf("Oh noes: signal %i was sent.\n", sig);
+//    exit(EXIT_FAILURE);
+//    void *buffer[100];
+//    char **strings;
+
+    //https://stackoverflow.com/questions/9207599/printing-stack-trace-from-a-signal-handler
+    int j, nptrs;
+    void *buffer[100];
+    char **strings;
+
+    nptrs = backtrace(buffer, SIZE);
+    printf("backtrace() returned %d addresses\n", nptrs);
+
+    /* The call backtrace_symbols_fd(buffer, nptrs, STDOUT_FILENO)
+       would produce similar output to the following: */
+
+    strings = backtrace_symbols(buffer, nptrs);
+    if (strings == NULL) {
+        perror("backtrace_symbols");
+        exit(EXIT_FAILURE);
+    }
+
+    for (j = 0; j < nptrs; j++)
+        printf("%s\n", strings[j]);
+
+    free(strings);
+    exit(sig);
 }
 
 static void on_glfw_error(int error, const char* description) {

@@ -26,6 +26,7 @@ include_directories(src)
 set(SOURCE_FILES
         src/main.cpp
         src/utils/utils.cpp
+        src/utils/noise/noise.cpp
         src/gl/gl.cpp
         src/gl/glad.cpp
         src/gl/texture.cpp

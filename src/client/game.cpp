@@ -34,8 +34,8 @@ namespace client {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         glEnable(GL_DEPTH_TEST);
 
-        glm::mat4 p = glm::perspective(80.0F, 1.0F, 0.01F, 100.0F);
-        glm::mat4 v = glm::lookAt(glm::vec3(cos(glfwGetTime())*16*WORLD_SIZE/2+16*WORLD_SIZE/2,sin(glfwGetTime()*0.25)*16*WORLD_SIZE/2+16*WORLD_SIZE/2,sin(glfwGetTime())*20+8), glm::vec3(WORLD_SIZE*8, 10, WORLD_SIZE*8), glm::vec3(0, -1, 0));
+        glm::mat4 p = glm::perspective(80.0F, 1.0F, 0.01F, 1000.0F);
+        glm::mat4 v = glm::lookAt(glm::vec3(cos(glfwGetTime())*16*WORLD_SIZE/2+16*WORLD_SIZE/2,sin(glfwGetTime()*0.25)*32*WORLD_SIZE/2+16*WORLD_SIZE/2,sin(glfwGetTime())*20+8), glm::vec3(WORLD_SIZE*8, 60, WORLD_SIZE*8), glm::vec3(0, -1, 0));
 
         shader->bind();
         shader->uniform4x4("perspective", p);

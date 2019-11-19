@@ -6,6 +6,9 @@
 #define GLMINECRAFT3_WORLD_H
 
 #include "blocks.h"
+#include <vector>
+#include <glm/glm.hpp>
+#include "utils/noise/noise.h"
 
 #define WORLD_SIZE 16
 
