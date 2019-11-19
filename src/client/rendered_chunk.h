@@ -5,7 +5,7 @@
 #ifndef GLMINECRAFT3_RENDERED_CHUNK_H
 #define GLMINECRAFT3_RENDERED_CHUNK_H
 
-#include "block/world.h"
+#include "world/world.h"
 #include "gl/mesh.h"
 #include "gl/meshdata.h"
 #include "gl/shader.h"

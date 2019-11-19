@@ -38,14 +38,16 @@ set(SOURCE_FILES
         src/server/registry.cpp
         src/block/blockstate.cpp
         src/block/block.cpp
-        src/block/world.cpp
+        src/world/world.cpp
         src/block/blocks.cpp
 
         src/block/types/block_grass.cpp
         src/block/types/block_dirt.cpp
         src/block/types/block_stone.cpp
         src/block/types/block_none.cpp
-        )
+
+        src/world/gen/carver/base_carver.cpp
+        src/world/gen/features/base_feature.cpp src/world/gen/features/base_feature.h src/world/gen/surface/base_surface.cpp src/world/gen/surface/base_surface.h src/world/gen/structures/base_structure.cpp src/world/gen/structures/base_structure.h)
 
 set(MAC_LIBS)
 

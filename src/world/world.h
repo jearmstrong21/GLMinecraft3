@@ -5,8 +5,9 @@
 #ifndef GLMINECRAFT3_WORLD_H
 #define GLMINECRAFT3_WORLD_H
 
-#include "blocks.h"
+#include "block/blocks.h"
 #include <vector>
+#include <memory>
 #include <glm/glm.hpp>
 #include "utils/noise/noise.h"
 

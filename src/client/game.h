@@ -12,7 +12,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <csignal>
 #include "block/blocks.h"
-#include "block/world.h"
+#include "world/world.h"
 #include "rendered_chunk.h"
 
 namespace client {
