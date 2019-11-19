@@ -18,7 +18,7 @@ namespace block {
         //Too much perlin noise segfaults?
         for(int x=0;x<WORLD_SIZE*16;x++){
             for(int z=0;z<WORLD_SIZE*16;z++){
-                int h=(int)(perlin->perlin(x*zoom,z*zoom,0)*255);
+                int h=(int)(perlin->perlin(x*zoom,z*zoom,0)*100);
                 if(h<10)h=10;
                 if(h>100)h=100;
 //                int h=10;

@@ -43,7 +43,8 @@ namespace utils {
             x^=(x<<7)&0x9d2c5680;
             x^=(x<<15)&0xefc60000;
             x^=x>>18;
-            return x;
+            int y=(int)x;
+            return y<0?-y:y;
         }
 
         double Perlin::lerp(double a,double b,double x){
@@ -109,10 +110,16 @@ namespace utils {
                 p[i]=i;
             }
 
-            for(int i=255;i>=1;i--){
+            for(int i=256-1;i>=1;i--){
                 int j=twister->get()%(i+1);
-                std::swap(p[i],p[j]);
+                printf("swap %i %i\n",i,j);
+                int temp=p[i];p[i]=p[j];p[j]=temp;
             }
+
+            for(int i=0;i<256;i++){
+                printf("%i, ",p[i]);
+            }
+            printf("\n");
 
             for(int i=256;i<512;i++){
                 p[i]=p[i-256];
