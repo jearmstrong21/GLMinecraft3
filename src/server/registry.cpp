@@ -30,11 +30,11 @@ std::ostream& operator<<(std::ostream& os, registry<K, V> const& dt) {
     int counter = 0; // hack to avoid iterator manipulation
     for (std::pair<K, V> val : dt) {
         counter++;
-        os << json::jsonformat(val.first);
+        os << json::json_format(val.first);
 
         os << ": ";
 
-        os << json::jsonformat(val.second);
+        os << json::json_format(val.second);
         if (counter != dt.size())
             os << ", ";
     }

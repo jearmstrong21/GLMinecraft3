@@ -7,12 +7,12 @@
 namespace block {
 
 
-    BlockGrass::BlockGrass(int id)noexcept:Block(id) {
+    block_grass::block_grass(int id)noexcept: block(id) {
 
     }
 
-    void BlockGrass::render(gl::MeshData*md,BlockContext ctx) const noexcept {
-        renderFullBlock(md,ctx,side,side,bot,top,side,side);
+    void block_grass::render(gl::mesh_data*md, block_context ctx) const noexcept {
+        render_full_block(md, ctx, side, side, bot, top, side, side);
     }
 
 }

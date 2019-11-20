@@ -10,19 +10,19 @@
 
 namespace gl {
 
-    class Mesh {
+    class mesh {
     private:
         GLuint vao;
         GLuint ebo;
-        int vertCount;
+        int vert_count;
 
     public:
-        Mesh(MeshData* data);
-        ~Mesh();
+        mesh(mesh_data* data);
+        ~mesh();
 
-        void renderTriangles();
-        int vaoID();
-        int vertNum();
+        void render_triangles();
+        int vao_id();
+        int vert_num();
     };
 
 }

@@ -14,11 +14,6 @@
 #define SIZE 100
 
 void sig_handler(int sig) {
-//    printf("Oh noes: signal %i was sent.\n", sig);
-//    exit(EXIT_FAILURE);
-//    void *buffer[100];
-//    char **strings;
-
     //https://stackoverflow.com/questions/9207599/printing-stack-trace-from-a-signal-handler
     int j, nptrs;
     void *buffer[100];
@@ -48,8 +43,6 @@ static void on_glfw_error(int error, const char* description) {
 }
 
 int main() {
-//    test_registry();
-
     std::signal(SIGSEGV, sig_handler);
 
     glfwSetErrorCallback(on_glfw_error);
@@ -71,7 +64,7 @@ int main() {
 
     bool is_first_frame = true;
 
-    client::Game game(window);
+    client::game game(window);
     game.initialize();
 
     while (!glfwWindowShouldClose(window)) {

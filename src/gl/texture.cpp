@@ -8,7 +8,7 @@
 
 namespace gl {
 
-    Texture::Texture(const std::string &filename) {
+    texture::texture(const std::string &filename) {
         glGenTextures(1,&id);
         glBindTexture(GL_TEXTURE_2D,id);
         glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_S,GL_CLAMP_TO_EDGE);
@@ -34,11 +34,11 @@ namespace gl {
         }
     }
 
-    Texture::~Texture() {
+    texture::~texture() {
         glDeleteTextures(1, &id);
     }
 
-    void Texture::bind(int unit) {
+    void texture::bind(int unit) {
         glActiveTexture(GL_TEXTURE0+unit);
         glBindTexture(GL_TEXTURE_2D,id);
     }

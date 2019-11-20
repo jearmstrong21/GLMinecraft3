@@ -6,7 +6,7 @@
 
 namespace block {
 
-    const Block *fromID(int id) {
+    const block *from_id(int id) {
 
         switch (id) {
             case BLOCK_ID_GRASS:

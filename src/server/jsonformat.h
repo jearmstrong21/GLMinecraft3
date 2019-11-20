@@ -10,16 +10,16 @@
 #include <type_traits>
 
 namespace json {
-    std::string jsonformat(std::string inp) {
+    std::string json_format(std::string inp) {
         return '"' + inp + '"';
     }
 
-    std::string jsonformat(int inp) {
+    std::string json_format(int inp) {
         return std::to_string(inp);
     }
 
     template<class T>
-    std::string jsonformat(T inp) {
+    std::string json_format(T inp) {
         std::cerr << typeid(inp).name() << " is not convertible!" << std::endl;
         throw std::bad_cast();
     }

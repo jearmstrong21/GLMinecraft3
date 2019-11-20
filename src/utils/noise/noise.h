@@ -13,23 +13,23 @@ namespace utils {
 
     namespace noise {
 
-        struct IntTwister{
+        struct int_twister{
 
         private:
-            static const int statesize=624;
-            uint32_t state[statesize];
+            static const int state_size=624;
+            uint32_t state[state_size];
             int next;
 
             void twist();
 
         public:
-            explicit IntTwister(uint32_t seed);
+            explicit int_twister(uint32_t seed);
 
             [[nodiscard]] int get();
 
         };
 
-        struct Perlin {
+        struct perlin {
 
         private:
             int p[512];
@@ -38,14 +38,14 @@ namespace utils {
             double fade(double t);
             double grad(int hash,double x,double y,double z);
 
-            void initialize_permutation(IntTwister*twister);
+            void initialize_permutation(int_twister*twister);
 
         public:
 
-            explicit Perlin(uint32_t seed);//seeded with IntTwister
-            explicit Perlin(IntTwister*twister);
+            explicit perlin(uint32_t seed);//seeded with int_twister
+            explicit perlin(int_twister*twister);
 
-            [[nodiscard]] double perlin(double x,double y,double z);
+            [[nodiscard]] double get(double x,double y,double z);
 
         };
 

@@ -13,43 +13,43 @@ namespace block {
 
     namespace client {
 
-#define ATLASTEXTURE(X,Y) (32*(31-Y)+(X))
+#define ATLAS_TEXTURE(X,Y) (32*(31-Y)+(X))
 
-        enum class AtlasTexture {
+        enum class atlas_texture {
 
-            NONE = ATLASTEXTURE(31,31),
+            NONE = ATLAS_TEXTURE(31, 31),
 
-            DIRT = ATLASTEXTURE(8,6),
-            GRASS_TOP=ATLASTEXTURE(15,10),
-            GRASS_SIDE=ATLASTEXTURE(12,10),
-            GRASS_SIDE_OVERLAY=ATLASTEXTURE(13,10),
-            STONE=ATLASTEXTURE(20,9),
+            DIRT = ATLAS_TEXTURE(8, 6),
+            GRASS_TOP=ATLAS_TEXTURE(15, 10),
+            GRASS_SIDE=ATLAS_TEXTURE(12, 10),
+            GRASS_SIDE_OVERLAY=ATLAS_TEXTURE(13, 10),
+            STONE=ATLAS_TEXTURE(20, 9),
 
-            BREAK_0=ATLASTEXTURE(2,7)
+            BREAK_0=ATLAS_TEXTURE(2, 7)
 
         };
 
-        struct LayerTextureDescr {
+        struct layer_texture_descr {
 
-            AtlasTexture texture=AtlasTexture::NONE;
+            atlas_texture texture=atlas_texture::NONE;
             glm::vec3 color=glm::vec3(1,1,1);
 
-            glm::vec2 getUV(){
+            glm::vec2 get_uv(){
                 return glm::vec2((int)texture%32,(int)texture/32)/32.0F;
             }
 
         };
 
-        struct QuadTextureDescr {
+        struct quad_texture_descr {
 
-            LayerTextureDescr first;
-            LayerTextureDescr second;
+            layer_texture_descr first;
+            layer_texture_descr second;
 
         };
 
-        struct QuadDescr {
+        struct quad_descr {
 
-            QuadTextureDescr texture;
+            quad_texture_descr texture;
             glm::vec3 start;
             glm::vec3 d0;
             glm::vec3 d1;
@@ -63,8 +63,8 @@ namespace block {
 
         };
 
-        void meshQuad(gl::MeshData*md,QuadDescr qd,int x,int y,int z);
-        void initChunkBuffers(gl::MeshData*md);
+        void mesh_quad(gl::mesh_data*md, quad_descr qd, int x, int y, int z);
+        void init_chunk_buffers(gl::mesh_data*md);
 
     }
 

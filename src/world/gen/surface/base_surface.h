@@ -19,7 +19,7 @@ namespace world::gen {
     class base_surface {
     public:
         explicit base_surface(int seed);
-        block::BlockState getForLocation(int x, int y, int z, int h);
+        block::block_state getForLocation(int x, int y, int z, int h);
     };
 }
 

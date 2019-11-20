@@ -12,21 +12,21 @@
 
 namespace gl {
 
-    class Shader {
+    class shader {
     private:
         int id;
     public:
-        Shader(const std::string& vert, const std::string& frag);
+        shader(const std::string& vert, const std::string& frag);
 
-        ~Shader();
+        ~shader();
 
         void bind();
 
-        int programID();
+        [[nodiscard]] int program_id();
 
         void uniform4x4(const std::string& name, glm::mat4 value);
 
-        void texture(const std::string& name, std::shared_ptr<gl::Texture> texture, int unit);
+        void texture(const std::string& name, std::shared_ptr<gl::texture> texture, int unit);
     };
 
 }

@@ -21,9 +21,9 @@ namespace world::gen {
         int seed;
     public:
         explicit base_carver(int seed);
-        void carve(block::World* world, void (block::World::*set)(int x, int y, int z, block::BlockState bs));
+        void carve(block::world* world, void (block::world::*set)(int x, int y, int z, block::block_state bs));
         // TODO: add set() function to signature so carver can set() blocks to air
-        void carve(block::World* world, void (* set)(int, int, int, block::BlockState));
+        void carve(block::world* world, void (* set)(int, int, int, block::block_state));
     };
 
 }

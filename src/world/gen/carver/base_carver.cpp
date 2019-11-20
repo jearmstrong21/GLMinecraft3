@@ -8,6 +8,6 @@ world::gen::base_carver::base_carver(int seed) {
     this->seed = seed;
 }
 
-void world::gen::base_carver::carve(block::World* world, void (block::World::* set)(int, int, int, block::BlockState)) {
+void world::gen::base_carver::carve(block::world* world, void (block::world::* set)(int, int, int, block::block_state)) {
 
 }

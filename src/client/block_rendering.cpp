@@ -8,12 +8,12 @@ namespace block {
     namespace client {
 
 
-        void meshQuad(gl::MeshData* md, QuadDescr qd, int x, int y, int z) {
-            ASSERT_OR_EXIT(md->buffers[0].elemSize == 3, "First buffer must have size 3");
-            ASSERT_OR_EXIT(md->buffers[1].elemSize == 2, "Second buffer must have size 2");
-            ASSERT_OR_EXIT(md->buffers[2].elemSize == 2, "Third buffer must have size 2");
-            ASSERT_OR_EXIT(md->buffers[3].elemSize == 3, "Fourth buffer must have size 3");
-            ASSERT_OR_EXIT(md->buffers[4].elemSize == 3, "Fifth buffer must have size 3");
+        void mesh_quad(gl::mesh_data* md, quad_descr qd, int x, int y, int z) {
+            ASSERT_OR_EXIT(md->buffers[0].elem_size == 3, "First buffer must have size 3");
+            ASSERT_OR_EXIT(md->buffers[1].elem_size == 2, "Second buffer must have size 2");
+            ASSERT_OR_EXIT(md->buffers[2].elem_size == 2, "Third buffer must have size 2");
+            ASSERT_OR_EXIT(md->buffers[3].elem_size == 3, "Fourth buffer must have size 3");
+            ASSERT_OR_EXIT(md->buffers[4].elem_size == 3, "Fifth buffer must have size 3");
 
             unsigned int n = md->buffers[0].data.size() / 3;
 
@@ -30,8 +30,8 @@ namespace block {
             std::vector<float> pos = {x0, y0, z0, x0 + dx0, y0 + dy0, z0 + dz0, x0 + dx1, y0 + dy1, z0 + dz1,
                                       x0 + dx0 + dx1, y0 + dy0 + dy1, z0 + dz0 + dz1};
 
-            glm::vec2 uv0 = qd.texture.first.getUV();
-            glm::vec2 uv1 = qd.texture.second.getUV();
+            glm::vec2 uv0 = qd.texture.first.get_uv();
+            glm::vec2 uv1 = qd.texture.second.get_uv();
             float f = 1.0F / 32.0F;
 
 //            uv0=glm::vec2(0,0);
@@ -54,15 +54,9 @@ namespace block {
                 md->buffers[4].data.push_back(qd.texture.second.color.y);
                 md->buffers[4].data.push_back(qd.texture.second.color.z);
             }
-
-//            md->buffers[0].data.insert(md->buffers[0].data.end(), pos.begin(), pos.end());
-//            md->buffers[1].data.insert(md->buffers[1].data.end(), b_uv0.begin(), b_uv0.end());
-//            md->buffers[2].data.insert(md->buffers[2].data.end(), b_uv1.begin(), b_uv1.end());
-//            md->tri.insert(md->tri.end(), tri.begin(), tri.end());
-
         }
 
-        void initChunkBuffers(gl::MeshData*md){
+        void init_chunk_buffers(gl::mesh_data*md){
             md->tri={};
             md->buffers.push_back({3,{}});
             md->buffers.push_back({2,{}});
@@ -71,37 +65,37 @@ namespace block {
             md->buffers.push_back({3,{}});
         }
 
-        void QuadDescr::xmi() {
+        void quad_descr::xmi() {
             start={0,0,0};
             d0={0,0,1};
             d1={0,1,0};
         }
 
-        void QuadDescr::xpl() {
+        void quad_descr::xpl() {
             start={1,0,0};
             d0={0,0,1};
             d1={0,1,0};
         }
 
-        void QuadDescr::ymi() {
+        void quad_descr::ymi() {
             start={0,0,0};
             d0={1,0,0};
             d1={0,0,1};
         }
 
-        void QuadDescr::ypl() {
+        void quad_descr::ypl() {
             start={0,1,0};
             d0={1,0,0};
             d1={0,0,1};
         }
 
-        void QuadDescr::zmi() {
+        void quad_descr::zmi() {
             start={0,0,0};
             d0={1,0,0};
             d1={0,1,0};
         }
 
-        void QuadDescr::zpl() {
+        void quad_descr::zpl() {
             start={0,0,1};
             d0={1,0,0};
             d1={0,1,0};

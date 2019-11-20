@@ -10,17 +10,17 @@
 
 namespace block {
 
-    struct BlockDirt: Block {
+    struct block_dirt: block {
 
-        explicit BlockDirt(int id)noexcept;
+        explicit block_dirt(int id)noexcept;
 
-        const client::QuadTextureDescr side{{client::AtlasTexture::DIRT,glm::vec3(1,1,1)},{client::AtlasTexture::NONE,glm::vec3(1,1,1)}};
+        const client::quad_texture_descr side{{client::atlas_texture::DIRT, glm::vec3(1, 1, 1)}, {client::atlas_texture::NONE, glm::vec3(1, 1, 1)}};
 
-        void render(gl::MeshData*md,BlockContext ctx) const noexcept;
+        void render(gl::mesh_data*md, block_context ctx) const noexcept;
 
     };
 
-    const BlockDirt DIRT(BLOCK_ID_DIRT);
+    const block_dirt DIRT(BLOCK_ID_DIRT);
 
 }
 

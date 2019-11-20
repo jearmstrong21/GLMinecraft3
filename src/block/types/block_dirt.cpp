@@ -7,12 +7,12 @@
 namespace block {
 
 
-    BlockDirt::BlockDirt(int id)noexcept:Block(id) {
+    block_dirt::block_dirt(int id)noexcept: block(id) {
 
     }
 
-    void BlockDirt::render(gl::MeshData *md, block::BlockContext ctx) const noexcept {
-        renderFullBlock(md,ctx,side,side,side,side,side,side);
+    void block_dirt::render(gl::mesh_data *md, block_context ctx) const noexcept {
+        render_full_block(md, ctx, side, side, side, side, side, side);
     }
 
 }

@@ -16,47 +16,47 @@
 
 namespace block {
 
-    struct Chunk {
+    struct chunk {
 
-        std::vector<BlockState>palette;
-        std::set<BlockState>paletteSet;
+        std::vector<block_state>palette;
+        std::set<block_state>palette_set;
         unsigned short data[16][256][16]={{{0}}};//ushort is max 32767, assuming even no palette prunes it will *never* pass USHORT_MAX limit
 
-        Chunk();
+        chunk();
 
         [[nodiscard]] bool in_bounds(int x,int y,int z)const;
         [[nodiscard]] bool in_bounds(glm::ivec3 v)const;
-        [[nodiscard]] BlockState get(int x,int y,int z)const;
-        [[nodiscard]] BlockState get(glm::ivec3 v)const;
-        void set(int x,int y,int z,BlockState b);
-        void set(glm::ivec3 v,BlockState b);
+        [[nodiscard]] block_state get(int x, int y, int z)const;
+        [[nodiscard]] block_state get(glm::ivec3 v)const;
+        void set(int x, int y, int z, block_state b);
+        void set(glm::ivec3 v, block_state b);
 
     };
 
-    struct BlockContext {
+    struct block_context {
 
         //xmi,xpl...
-        BlockState xmi,xpl,ymi,ypl,zmi,zpl;
-        BlockState self;
+        block_state xmi,xpl,ymi,ypl,zmi,zpl;
+        block_state self;
         glm::ivec3 pos;
 
     };
 
-    struct Block {
+    struct block {
 
         int id;
-        BlockState defaultState;
+        block_state defaultState;
 
-        explicit Block(int id)noexcept{
+        explicit block(int id)noexcept{
             this->id=id;
             this->defaultState=create(id,0);
         }
 
-        virtual void render(gl::MeshData*md,BlockContext ctx)const noexcept;
+        virtual void render(gl::mesh_data*md, block_context ctx)const noexcept;
 
     };
 
-    void renderFullBlock(gl::MeshData*md,BlockContext ctx,client::QuadTextureDescr xmi,client::QuadTextureDescr xpl,client::QuadTextureDescr ymi,client::QuadTextureDescr ypl,client::QuadTextureDescr zmi,client::QuadTextureDescr zpl);
+    void render_full_block(gl::mesh_data*md, block_context ctx, client::quad_texture_descr xmi, client::quad_texture_descr xpl, client::quad_texture_descr ymi, client::quad_texture_descr ypl, client::quad_texture_descr zmi, client::quad_texture_descr zpl);
 
 
 }

@@ -6,11 +6,11 @@
 
 namespace block {
 
-    BlockNone::BlockNone(int id) noexcept: Block(id) {
+    block_none::block_none(int id) noexcept: block(id) {
 
     }
 
-    void BlockNone::render(gl::MeshData *md, block::BlockContext ctx) const noexcept {
+    void block_none::render(gl::mesh_data *md, block_context ctx) const noexcept {
 
     }
 

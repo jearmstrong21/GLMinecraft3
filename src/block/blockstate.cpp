@@ -6,15 +6,15 @@
 
 namespace block {
 
-    int id(BlockState bs) {
+    int id(block_state bs) {
         return (int) (bs >> 32);
     }
 
-    int meta(BlockState bs) {
+    int meta(block_state bs) {
         return (int) bs;
     }
 
-    BlockState create(int id, int meta) {
+    block_state create(int id, int meta) {
         return (((long) id) << 32) | (meta & 0xffffffffL);
     }
 

@@ -6,26 +6,26 @@
 
 namespace client {
 
-    Game::Game(GLFWwindow *window) {
+    game::game(GLFWwindow *window) {
         this->window = window;
     }
 
-    void Game::initialize() {
-        shader = std::shared_ptr<gl::Shader>(new gl::Shader("test", "test"));
+    void game::initialize() {
+        shader = std::shared_ptr<gl::shader>(new gl::shader("test", "test"));
 
-        std::shared_ptr<block::World> world(new block::World());
+        std::shared_ptr<block::world> world(new block::world());
 
         for(int x=0;x<WORLD_SIZE;x++){
             for(int z=0;z<WORLD_SIZE;z++){
-                renderedWorld[x][z]=std::shared_ptr<RenderedChunk>(new RenderedChunk({x,z}));
-                renderedWorld[x][z]->takeChunk(world,world->map[x][z]);
+                rendered_world[x][z]=std::shared_ptr<rendered_chunk>(new rendered_chunk({x, z}));
+                rendered_world[x][z]->take_chunk(world, world->map[x][z]);
             }
         }
 
-        texture = std::shared_ptr<gl::Texture>(new gl::Texture("1.8_textures_0.png"));
+        texture = std::shared_ptr<gl::texture>(new gl::texture("1.8_textures_0.png"));
     }
 
-    void Game::loop() {
+    void game::loop() {
         int width, height;
         glfwGetFramebufferSize(window, &width, &height);
 
@@ -43,7 +43,7 @@ namespace client {
         shader->texture("tex", texture, 0);
         for(int x=0;x<WORLD_SIZE;x++){
             for(int z=0;z<WORLD_SIZE;z++){
-                renderedWorld[x][z]->render(shader);
+                rendered_world[x][z]->render(shader);
             }
         }
 
@@ -52,7 +52,7 @@ namespace client {
         }
     }
 
-    void Game::end() {
+    void game::end() {
 
     }
 

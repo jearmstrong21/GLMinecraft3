@@ -17,16 +17,16 @@
 
 namespace client {
 
-    class Game {
+    class game {
     public:
 
-        std::shared_ptr<gl::Shader>shader;
-        std::shared_ptr<gl::Texture>texture;
-        std::shared_ptr<RenderedChunk>renderedWorld[WORLD_SIZE][WORLD_SIZE];
+        std::shared_ptr<gl::shader>shader;
+        std::shared_ptr<gl::texture>texture;
+        std::shared_ptr<rendered_chunk>rendered_world[WORLD_SIZE][WORLD_SIZE];
 
         GLFWwindow* window;
 
-        Game(GLFWwindow* window);
+        explicit game(GLFWwindow* window);
 
         void initialize();
 

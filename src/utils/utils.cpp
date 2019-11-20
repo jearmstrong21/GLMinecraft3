@@ -5,7 +5,7 @@
 #include "utils.h"
 
 namespace utils {
-    std::string loadFile(std::string filename){
+    std::string load_file(std::string filename){
         std::ifstream ifs(filename);
         return std::string((std::istreambuf_iterator<char>(ifs) ),
                            (std::istreambuf_iterator<char>()    ));

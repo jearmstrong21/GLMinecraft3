@@ -15,25 +15,25 @@
 
 namespace block {
 
-    struct World {
+    struct world {
 
-        std::shared_ptr<Chunk> map[WORLD_SIZE][WORLD_SIZE];
+        std::shared_ptr<chunk> map[WORLD_SIZE][WORLD_SIZE];
 
-        World();
+        world();
 
         [[nodiscard]] bool in_bounds(int x, int y, int z)const;
 
         [[nodiscard]] bool in_bounds(glm::ivec3 v)const;
 
-        [[nodiscard]] BlockState get(int x, int y, int z)const;
+        [[nodiscard]] block_state get(int x, int y, int z)const;
 
-        [[nodiscard]] BlockState get(glm::ivec3 v)const;
+        [[nodiscard]] block_state get(glm::ivec3 v)const;
 
-        void set(int x, int y, int z, BlockState b);
+        void set(int x, int y, int z, block_state b);
 
-        void set(glm::ivec3 v, BlockState b);
+        void set(glm::ivec3 v, block_state b);
 
-        [[nodiscard]] BlockContext getCTX(glm::ivec3 p)const;
+        [[nodiscard]] block_context get_block_context(glm::ivec3 p)const;
 
     };
 

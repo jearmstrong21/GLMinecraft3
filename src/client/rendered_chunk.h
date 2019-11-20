@@ -15,18 +15,18 @@
 namespace client {
 
     //Also will manage tile entity rendering and stuff
-    struct RenderedChunk {
-        gl::MeshData sectionData[16];
-        std::shared_ptr<gl::Mesh> sections[16];
+    struct rendered_chunk {
+        gl::mesh_data section_data[16];
+        std::shared_ptr<gl::mesh> sections[16];
         glm::ivec2 cpos;
 
-        explicit RenderedChunk(glm::ivec2 cpos);
+        explicit rendered_chunk(glm::ivec2 cpos);
 
-        void takeChunk(const std::shared_ptr<block::World>&world,const std::shared_ptr<block::Chunk>&chunk,int section=-1);
-        void render(const std::shared_ptr<gl::Shader>& shader);
+        void take_chunk(const std::shared_ptr<block::world>&world, const std::shared_ptr<block::chunk>&chunk, int section= -1);
+        void render(const std::shared_ptr<gl::shader>& shader);
 
     private:
-        void takeChunkSection(const std::shared_ptr<block::World>&world,const std::shared_ptr<block::Chunk>&chunk,int section);
+        void take_chunk_section(const std::shared_ptr<block::world>&world, const std::shared_ptr<block::chunk>&chunk, int section);
 
     };
 

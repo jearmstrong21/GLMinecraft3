@@ -10,14 +10,14 @@
 
 namespace gl {
 
-    class Texture {
+    class texture {
     private:
         GLuint id;
 
     public:
-        Texture(const std::string &filename);
+        texture(const std::string &filename);
 
-        ~Texture();
+        ~texture();
 
         void bind(int unit);
 

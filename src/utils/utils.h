@@ -19,7 +19,7 @@
 #define ASSERT_OR_EXIT(condition,err) {if(!(condition))EXIT_WITH_ERROR(err);}
 
 namespace utils {
-    std::string loadFile(std::string filename);
+    std::string load_file(std::string filename);
 }
 
 #endif //GLMINECRAFT3_UTILS_H
