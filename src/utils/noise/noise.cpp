@@ -47,11 +47,11 @@ namespace utils {
             return y<0?-y:y;
         }
 
-        double perlin::lerp(double a, double b, double x){
+        double lerp(double a, double b, double x){
             return a+x*(b-a);
         }
 
-        double perlin::fade(double t){
+        double fade(double t){
             return t*t*t*(t*(t*6-15)+10);
         }
 

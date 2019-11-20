@@ -14,6 +14,7 @@
 #include "block/blocks.h"
 #include "world/world.h"
 #include "rendered_chunk.h"
+#include <ctime>
 
 namespace client {
 

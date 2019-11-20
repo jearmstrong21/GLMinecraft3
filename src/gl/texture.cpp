@@ -21,7 +21,7 @@ namespace gl {
         unsigned char*data=stbi_load(("../src/assets/textures/"+filename).c_str(),&w,&h,&chn,0);
 
         GLenum frmt=GL_RGBA;
-        printf("Loaded file %s with dimensions %ix%i and channels %i\n",filename.c_str(),w,h,chn);
+//        printf("Loaded file %s with dimensions %ix%i and channels %i\n",filename.c_str(),w,h,chn);
         if(chn==3)frmt=GL_RGB;
 
         if(data){

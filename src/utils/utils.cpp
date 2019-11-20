@@ -11,4 +11,10 @@ namespace utils {
                            (std::istreambuf_iterator<char>()    ));
 //        return std::string(static_cast<std::stringstream const&>(std::stringstream()<<std::ifstream(filename).rdbuf()).str());
     }
+
+//    void join_all(std::vector<std::thread>threads){
+//        for(auto&t:threads){
+//            t.join();
+//        }
+//    }
 }

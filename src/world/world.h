@@ -10,6 +10,7 @@
 #include <memory>
 #include <glm/glm.hpp>
 #include "utils/noise/noise.h"
+#include "utils/utils.h"
 
 #define WORLD_SIZE 16
 

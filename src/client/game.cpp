@@ -11,18 +11,29 @@ namespace client {
     }
 
     void game::initialize() {
-        shader = std::shared_ptr<gl::shader>(new gl::shader("test", "test"));
 
+        std::clock_t start,end;
+
+        start=std::clock();
         std::shared_ptr<block::world> world(new block::world());
+        end=std::clock();
+        printf("WORLDINIT took %f\n",(end-start)/double(CLOCKS_PER_SEC));
 
+        start=std::clock();
         for(int x=0;x<WORLD_SIZE;x++){
             for(int z=0;z<WORLD_SIZE;z++){
                 rendered_world[x][z]=std::shared_ptr<rendered_chunk>(new rendered_chunk({x, z}));
                 rendered_world[x][z]->take_chunk(world, world->map[x][z]);
             }
         }
+        end=std::clock();
+        printf("RENDER took %f\n",(end-start)/double(CLOCKS_PER_SEC));
 
+        start=std::clock();
+        shader = std::shared_ptr<gl::shader>(new gl::shader("test", "test"));
         texture = std::shared_ptr<gl::texture>(new gl::texture("1.8_textures_0.png"));
+        end=std::clock();
+        printf("GLINIT took %f\n",(end-start)/double(CLOCKS_PER_SEC));
     }
 
     void game::loop() {

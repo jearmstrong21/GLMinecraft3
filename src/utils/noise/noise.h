@@ -29,13 +29,20 @@ namespace utils {
 
         };
 
-        struct perlin {
+        double lerp(double a,double b,double x);
+        double fade(double t);
+
+        struct noise {
+
+            [[nodiscard]] virtual double get(double x,double y,double z)=0;
+
+        };
+
+        struct perlin: noise {
 
         private:
             int p[512];
 
-            double lerp(double a,double b,double x);
-            double fade(double t);
             double grad(int hash,double x,double y,double z);
 
             void initialize_permutation(int_twister*twister);
@@ -45,7 +52,7 @@ namespace utils {
             explicit perlin(uint32_t seed);//seeded with int_twister
             explicit perlin(int_twister*twister);
 
-            [[nodiscard]] double get(double x,double y,double z);
+            [[nodiscard]] double get(double x,double y,double z) override;
 
         };
 
