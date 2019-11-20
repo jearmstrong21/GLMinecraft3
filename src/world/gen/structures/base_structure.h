@@ -14,10 +14,14 @@
  * + Village
  * + Desert Temple
  */
+#include <cstdint>
+
 namespace world::gen {
     class base_structure {
+        uint32_t seed;
     public:
-        void perform();
+        explicit base_structure(uint32_t seed);
+        virtual void perform()=0;
     };
 }
 

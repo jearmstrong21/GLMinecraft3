@@ -6,7 +6,8 @@
 #define GLMINECRAFT3_BASE_SURFACE_H
 
 
-#include <block/blockstate.h>
+#include <cstdint>
+#include "block/blockstate.h"
 
 /**
  * SURFACES
@@ -17,9 +18,11 @@
  */
 namespace world::gen {
     class base_surface {
+    private:
+        uint32_t seed;
     public:
-        explicit base_surface(int seed);
-        block::block_state getForLocation(int x, int y, int z, int h);
+        explicit base_surface(uint32_t seed);
+        [[nodiscard]] virtual block::block_state get_for_location(int x, int y, int z, int h)=0;
     };
 }
 

@@ -9,7 +9,7 @@
 #include <glm/glm.hpp>
 #include <map>
 #include <set>
-#include <gl/meshdata.h>
+#include "gl/meshdata.h"
 #include "client/block_rendering.h"
 #include "blockstate.h"
 #include <csignal>

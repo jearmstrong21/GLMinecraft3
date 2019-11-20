@@ -3,8 +3,8 @@
 //
 
 #include <memory>
-#include <world/gen/surface/base_surface.h>
-#include <world/gen/carver/base_carver.h>
+#include "world/gen/surface/simple_grass_surface.h"
+#include "world/gen/carver/simple_carver.h"
 #include "world.h"
 
 namespace block {
@@ -19,8 +19,12 @@ namespace block {
         std::shared_ptr<utils::noise::perlin> perlin = std::make_shared<utils::noise::perlin>(seed);
         double zoom = 0.025;
 
-        ::world::gen::base_surface surface(seed);
-        ::world::gen::base_carver carver(seed);
+//        std::shared_ptr<::world::gen::base_surface>surface=std::shared_ptr<::world::gen::base_surface>((::world::gen::base_surface*)new ::world::gen::simple_grass_surface(seed));
+//        std::shared_ptr<::world::gen::base_surface>surface=std::make_shared<::world::gen::simple_grass_surface>(seed);
+        ::world::gen::simple_grass_surface surface(seed);
+        ::world::gen::simple_carver carver(seed);
+//        ::world::gen::base_surface surface(seed);
+//        ::world::gen::base_carver carver(seed);
 
         for (int x = 0; x < WORLD_SIZE * 16; x++) {
             for (int z = 0; z < WORLD_SIZE * 16; z++) {
@@ -31,7 +35,7 @@ namespace block {
                 if (h > 100)h = 100;
 
                 for (int y = 0; y <= h; y++) {
-                    block_state bs = surface.getForLocation(x, y, z, h);
+                    block_state bs = surface.get_for_location(x, y, z, h);
                     if (bs == 0)continue;
                     set(x, y, z, bs);
                 }

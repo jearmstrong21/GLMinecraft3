@@ -13,17 +13,15 @@
  * + Generate caves
  * + Generate lakes/lava lakes
  */
-#include <world/world.h>
+#include "world/world.h"
 
 namespace world::gen {
     class base_carver {
     private:
-        int seed;
+        uint32_t seed;
     public:
-        explicit base_carver(int seed);
-        void carve(block::world* world, void (block::world::*set)(int x, int y, int z, block::block_state bs));
-        // TODO: add set() function to signature so carver can set() blocks to air
-        void carve(block::world* world, void (* set)(int, int, int, block::block_state));
+        explicit base_carver(uint32_t seed);
+        virtual void carve(block::world* world, void (block::world::*set)(int x, int y, int z, block::block_state bs))=0;
     };
 
 }

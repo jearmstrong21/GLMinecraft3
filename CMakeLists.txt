@@ -47,7 +47,12 @@ set(SOURCE_FILES
         src/block/types/block_none.cpp
 
         src/world/gen/carver/base_carver.cpp
-        src/world/gen/features/base_feature.cpp src/world/gen/features/base_feature.h src/world/gen/surface/base_surface.cpp src/world/gen/surface/base_surface.h src/world/gen/structures/base_structure.cpp src/world/gen/structures/base_structure.h)
+        src/world/gen/features/base_feature.cpp
+        src/world/gen/surface/base_surface.cpp
+        src/world/gen/structures/base_structure.cpp
+        src/world/gen/surface/simple_grass_surface.cpp
+        src/world/gen/carver/simple_carver.cpp
+        )
 
 set(MAC_LIBS)
 

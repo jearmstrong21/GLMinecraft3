@@ -14,10 +14,14 @@
  * + Cacti
  * + Ores
  */
+#include <cstdint>
+
 namespace world::gen {
     class base_feature {
+        uint32_t seed;
     public:
-        void build();
+        explicit base_feature(uint32_t seed);
+        virtual void build()=0;
         // TODO: add argument (we need to pass set function from world)
     };
 }
