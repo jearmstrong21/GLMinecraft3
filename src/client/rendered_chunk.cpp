@@ -10,7 +10,17 @@ namespace client {
         for(int y=0;y<16;y++){
             section_data[y]=gl::mesh_data();
             block::client::init_chunk_buffers(&section_data[y]);
-            sections[y]=std::shared_ptr<gl::mesh>(new gl::mesh(&section_data[y]));
+//            sections[y]=std::shared_ptr<gl::mesh>(new gl::mesh(&section_data[y]));
+        }
+    }
+
+    void rendered_chunk::render_chunk(int section){
+        if(section==-1){
+            for(int y=0;y<16;y++){
+                render_chunk_section(y);
+            }
+        }else{
+            render_chunk_section(section);
         }
     }
 
@@ -37,6 +47,9 @@ namespace client {
                 }
             }
         }
+    }
+
+    void rendered_chunk::render_chunk_section(int section){
         sections[section]=std::shared_ptr<gl::mesh>(new gl::mesh(&section_data[section]));
     }
 

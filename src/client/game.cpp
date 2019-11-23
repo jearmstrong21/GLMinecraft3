@@ -3,6 +3,7 @@
 //
 
 #include "game.h"
+#include <thread>
 
 namespace client {
 
@@ -20,11 +21,30 @@ namespace client {
         printf("WORLDINIT took %f\n",(end-start)/double(CLOCKS_PER_SEC));
 
         start=std::clock();
+        std::vector<glm::ivec2>chunksToMesh;
         for(int x=0;x<WORLD_SIZE;x++){
             for(int z=0;z<WORLD_SIZE;z++){
-                rendered_world[x][z]=std::shared_ptr<rendered_chunk>(new rendered_chunk({x, z}));
-                rendered_world[x][z]->take_chunk(world, world->map[x][z]);
+                chunksToMesh.emplace_back(x,z);
             }
+        }
+        //1.30S 1T
+        //1.91S 2T
+        //2.49S 256T
+        int numThreads=1;
+        int threadSpan=chunksToMesh.size()/numThreads;
+        std::vector<std::thread>threads;
+        threads.reserve(numThreads);
+        for(int i=0;i<numThreads;i++){
+            threads.emplace_back([&](int threadIndex){
+                for(int t=threadIndex*threadSpan;t<(threadIndex+1)*threadSpan;t++){
+                    glm::ivec2 v=chunksToMesh[t];
+                    rendered_world[v.x][v.y]=std::make_shared<rendered_chunk>(v);
+                    rendered_world[v.x][v.y]->take_chunk(world,world->map[v.x][v.y]);
+                }
+            },i);
+        }
+        for(auto&t:threads){
+            t.join();
         }
         end=std::clock();
         printf("RENDER took %f\n",(end-start)/double(CLOCKS_PER_SEC));
@@ -32,6 +52,11 @@ namespace client {
         start=std::clock();
         shader = std::shared_ptr<gl::shader>(new gl::shader("test", "test"));
         texture = std::shared_ptr<gl::texture>(new gl::texture("1.8_textures_0.png"));
+        for(int x=0;x<WORLD_SIZE;x++){
+            for(int z=0;z<WORLD_SIZE;z++){
+                rendered_world[x][z]->render_chunk();
+            }
+        }
         end=std::clock();
         printf("GLINIT took %f\n",(end-start)/double(CLOCKS_PER_SEC));
     }
@@ -46,7 +71,7 @@ namespace client {
         glEnable(GL_DEPTH_TEST);
 
         glm::mat4 p = glm::perspective(80.0F, 1.0F, 0.01F, 1000.0F);
-        glm::mat4 v = glm::lookAt(glm::vec3(cos(glfwGetTime())*16*WORLD_SIZE/2+16*WORLD_SIZE/2,sin(glfwGetTime()*0.25)*32*WORLD_SIZE/2+16*WORLD_SIZE/2,sin(glfwGetTime())*20+8), glm::vec3(WORLD_SIZE*8, 60, WORLD_SIZE*8), glm::vec3(0, -1, 0));
+        glm::mat4 v = glm::lookAt(glm::vec3(cos(glfwGetTime()*0.25)*16*WORLD_SIZE/2+16*WORLD_SIZE/2,sin(glfwGetTime()*0.25)*32+64,sin(glfwGetTime()*0.25)*16*WORLD_SIZE/2+16*WORLD_SIZE/2), glm::vec3(WORLD_SIZE*8, 60, WORLD_SIZE*8), glm::vec3(0, -1, 0));
 
         shader->bind();
         shader->uniform4x4("perspective", p);

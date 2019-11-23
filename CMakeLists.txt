@@ -54,6 +54,16 @@ set(SOURCE_FILES
         src/world/gen/structures/base_structure.cpp
         src/world/gen/surface/simple_grass_surface.cpp
         src/world/gen/carver/simple_carver.cpp
+
+        src/nbt/__nbt_compound.cpp
+        src/nbt/__nbt_float.cpp
+        src/nbt/__nbt_int.cpp
+        src/nbt/__nbt_list.cpp
+        src/nbt/__nbt_long.cpp
+        src/nbt/__nbt_short.cpp
+        src/nbt/__nbt_string.cpp
+        src/nbt/__nbt_utils.cpp
+        src/nbt/nbt.cpp
         )
 
 set(MAC_LIBS)

@@ -34,7 +34,12 @@ namespace block {
         double roughPoints[SIZE][SIZE];
         double detailPoints[SIZE][SIZE];
 
-        int numThreadSize=2;
+        //1T 0.1
+        //2T 0.12
+        //4T 0.12
+
+
+        int numThreadSize=1;
         int threadSpan=SIZE/numThreadSize+1;
         std::vector<std::thread>threads;
         for(int __tx=0;__tx<numThreadSize;__tx++){
@@ -62,19 +67,6 @@ namespace block {
         for(auto&t:threads){
             t.join();
         }
-//        utils::join_all(threads);
-
-//        for (int x = 0; x < WORLD_SIZE * 16 / SCALE_FACTOR + 1; x++) {
-//            for (int z = 0; z < WORLD_SIZE * 16 / SCALE_FACTOR + 1; z++) {
-//                int rx = x * SCALE_FACTOR;
-//                int rz = z * SCALE_FACTOR;
-//
-//                elevPoints[x][z] = elevNoise->get(rx * elevZoom, 0, rz * elevZoom);
-//                roughPoints[x][z] = roughNoise->get(rx * roughZoom, 0, rz * roughZoom);
-//                detailPoints[x][z] = detailNoise->get(rx * detailZoom, 0, rz * detailZoom);
-//            }
-//        }
-
 
         auto interpolate = [&](int x, int z, int type) {
             int x0 = x / SCALE_FACTOR;
