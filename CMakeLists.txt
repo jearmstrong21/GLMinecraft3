@@ -64,6 +64,8 @@ set(SOURCE_FILES
         src/nbt/__nbt_string.cpp
         src/nbt/__nbt_utils.cpp
         src/nbt/nbt.cpp
+
+        src/server/entity.cpp
         )
 
 set(MAC_LIBS)

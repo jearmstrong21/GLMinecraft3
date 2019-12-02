@@ -29,26 +29,10 @@ namespace nbt {
         }
     }
 
-    std::shared_ptr<nbt> make_short(short value){
-        return std::shared_ptr<nbt>(new nbt_short(value));
-    }
-    std::shared_ptr<nbt> make_int(int value){
-        return std::shared_ptr<nbt>(new nbt_int(value));
-    }
-    std::shared_ptr<nbt> make_float(float value){
-        return std::shared_ptr<nbt>(new nbt_float(value));
-    }
-    std::shared_ptr<nbt> make_long(long value){
-        return std::shared_ptr<nbt>(new nbt_long(value));
-    }
-    std::shared_ptr<nbt> make_string(std::string value){
-        return std::shared_ptr<nbt>(new nbt_string(value));
-    }
-    std::shared_ptr<nbt> make_compound(std::map<std::string,std::shared_ptr<nbt>>value){
-        return std::shared_ptr<nbt>(new nbt_compound(value));
-    }
-    std::shared_ptr<nbt> make_list(std::vector<std::shared_ptr<nbt>>value){
-        return std::shared_ptr<nbt>(new nbt_list(value));
+    void merge(std::shared_ptr<nbt>target,std::shared_ptr<nbt>extra){
+        if(target->type()==nbt_type_compound&&extra->type()==nbt_type_compound){
+            cast_compound(target)->value.insert(cast_compound(extra)->value.begin(),cast_compound(extra)->value.end());
+        }
     }
 
 }

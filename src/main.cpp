@@ -10,6 +10,7 @@
 #include "client/game.h"
 #include <glm/glm.hpp>
 #include <execinfo.h>
+#include "server/server.h"
 
 #define SIZE 100
 

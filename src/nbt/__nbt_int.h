@@ -24,6 +24,8 @@ namespace nbt{
         std::string to_str(std::string indent)const override;
     };
 
+//    std::shared_ptr<nbt::nbt>(new nbt::nbt_int(321));
+//    nbt::make_int(321)
 
 }
 
