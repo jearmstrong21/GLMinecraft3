@@ -6,6 +6,22 @@
 
 namespace nbt {
 
+    const std::function<std::shared_ptr<nbt>(const short&value)> make_short=make<nbt_short,short>;
+    const std::function<std::shared_ptr<nbt>(const int&value)> make_int=make<nbt_int,int>;
+    const std::function<std::shared_ptr<nbt>(const float&value)> make_float=make<nbt_float,float>;
+    const std::function<std::shared_ptr<nbt>(const long&value)> make_long=make<nbt_long,long>;
+    const std::function<std::shared_ptr<nbt>(const std::string&value)> make_string=make<nbt_string,std::string>;
+    const std::function<std::shared_ptr<nbt>(const std::map<std::string,std::shared_ptr<nbt>>&value)> make_compound=make<nbt_compound,std::map<std::string,std::shared_ptr<nbt>>>;
+    const std::function<std::shared_ptr<nbt>(const std::vector<std::shared_ptr<nbt>>&value)> make_list=make<nbt_list,std::vector<std::shared_ptr<nbt>>>;
+
+    const std::function<std::shared_ptr<nbt_short>(const std::shared_ptr<nbt>&value)> cast_short=cast<nbt_short>;
+    const std::function<std::shared_ptr<nbt_int>(const std::shared_ptr<nbt>&value)> cast_int=cast<nbt_int>;
+    const std::function<std::shared_ptr<nbt_float>(const std::shared_ptr<nbt>&value)> cast_float=cast<nbt_float>;
+    const std::function<std::shared_ptr<nbt_long>(const std::shared_ptr<nbt>&value)> cast_long=cast<nbt_long>;
+    const std::function<std::shared_ptr<nbt_string>(const std::shared_ptr<nbt>&value)> cast_string=cast<nbt_string>;
+    const std::function<std::shared_ptr<nbt_compound>(const std::shared_ptr<nbt>&value)> cast_compound=cast<nbt_compound>;
+    const std::function<std::shared_ptr<nbt_list>(const std::shared_ptr<nbt>&value)> cast_list=cast<nbt_list>;
+
     std::shared_ptr<nbt> read_nbt(std::istream&in){
         int type;
         bin_read(in,&type);
