@@ -13,6 +13,7 @@ find_package (glfw3 REQUIRED)
 
 if(NOT APPLE)
     add_link_options(/usr/lib/libdl.so.2)
+    add_link_options(-lpthread)
 endif()
 
 include_directories(/usr/local/include glad)

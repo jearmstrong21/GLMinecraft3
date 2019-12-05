@@ -10,6 +10,7 @@
 #include <istream>
 #include <ostream>
 #include <vector>
+#include <memory>
 
 namespace nbt {
 

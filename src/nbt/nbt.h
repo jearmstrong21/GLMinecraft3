@@ -10,6 +10,7 @@
 #include <istream>
 #include <map>
 #include <memory>
+#include <functional>
 #include "__nbt_utils.h"
 #include "__nbt.h"
 #include "__nbt_int.h"
@@ -31,7 +32,7 @@ namespace nbt {
 
     template<typename T>
     std::shared_ptr<T> cast(const std::shared_ptr<nbt>&value){
-        return std::shared_ptr<T>((T*)value.get());
+        return std::dynamic_pointer_cast<T>(value);
     }
 
     extern const std::function<std::shared_ptr<nbt>(const short&value)> make_short;
