@@ -67,6 +67,12 @@ set(SOURCE_FILES
         src/nbt/nbt.cpp
 
         src/server/entity.cpp
+
+        SocketLib/Private.cpp
+        SocketLib/TCPSocketStreamBuffer.cpp
+        SocketLib/TCPServer.cpp
+        SocketLib/Networking.cpp
+        SocketLib/HostInfo.cpp
         )
 
 set(MAC_LIBS)
