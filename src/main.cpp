@@ -1,5 +1,6 @@
 #include <iostream>
 #include <csignal>
+#include "staging/select_profile.h"
 //#include <server/registry.h>
 
 #include "gl/gl.h"
@@ -11,14 +12,16 @@
 #include <glm/glm.hpp>
 #include <execinfo.h>
 #include "server/server.h"
+#include "../SocketLib/HostInfo.h"
+#include "../SocketLib/TCPServer.h"
 
 #define SIZE 100
 
 void sig_handler(int sig) {
     //https://stackoverflow.com/questions/9207599/printing-stack-trace-from-a-signal-handler
     int j, nptrs;
-    void *buffer[100];
-    char **strings;
+    void* buffer[100];
+    char** strings;
 
     nptrs = backtrace(buffer, SIZE);
     printf("backtrace() returned %d addresses\n", nptrs);
@@ -43,6 +46,7 @@ static void on_glfw_error(int error, const char* description) {
     fprintf(stderr, "Error: %i,%s\n", error, description);
 }
 
+#ifdef PROFILE_GAME
 int main() {
     std::signal(SIGSEGV, sig_handler);
 
@@ -88,3 +92,60 @@ int main() {
 
     return 0;
 }
+#endif
+
+#ifdef PROFILE_NETWORKING
+
+void received(socketlib::TCPSocketStream::received_params params,
+              socketlib::TCPSocketStream &socket) {
+
+    int cnt=params.available;
+    if(cnt>1024) {
+        cnt=1024;
+    }
+    char data[1024];
+
+    socket.read(data, cnt);
+    std::cout.write (data, cnt);
+
+    params.shouldrecall=true;
+    //If data in the buffer is larger than 1k
+    //this event handler will be called again
+}
+
+void disconnected() {
+    std::cout<<"Disconnected."<<std::endl;
+}
+
+void connect(socketlib::TCPServer::accept_params params) {
+    std::cout << "Connection received from " << params.addrinfo.IPAddress() << std::endl;
+    params.socket << "Hello" << std::endl;
+    params.socket.Close();
+}
+
+int main(int argc, char** argv) {
+    std::signal(SIGSEGV, sig_handler);
+    if (argv[2][0] == 'c') {
+        std::cout << "Starting client." << std::endl;
+        socketlib::TCPSocketStream client;
+
+        client.Received.Register(&received);
+        client.Disconnected.Register(&disconnected);
+        std::cout << "Connecting to port " << argv[1] << std::endl;
+        client.Connect("127.0.0.1", std::string(argv[1]));
+    } else {
+        std::cout << "Starting server" << std::endl;
+        socketlib::TCPServer server;
+        server.Listen(std::string(argv[1]));
+        server.ConnectionReceived.Register(&connect);
+        server.StartAccept();
+        std::cout << "Accepting on port " << argv[1] << std::endl;
+    }
+
+    std::cin.sync();
+    std::cin.ignore(1);
+
+    return 0;
+}
+
+#endif

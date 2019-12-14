@@ -39,19 +39,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake
+CMAKE_COMMAND = /home/paladin/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.7142.39/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E remove -f
+RM = /home/paladin/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.7142.39/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3
+CMAKE_SOURCE_DIR = /home/paladin/Downloads/GLMinecraft3
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug
+CMAKE_BINARY_DIR = /home/paladin/Downloads/GLMinecraft3/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cma
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/home/paladin/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.7142.39/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/home/paladin/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.7142.39/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/paladin/Downloads/GLMinecraft3/cmake-build-debug/CMakeFiles /home/paladin/Downloads/GLMinecraft3/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/paladin/Downloads/GLMinecraft3/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -123,6 +123,222 @@ GLMinecraft3/fast:
 	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/build
 .PHONY : GLMinecraft3/fast
 
+src/block/block.o: src/block/block.cpp.o
+
+.PHONY : src/block/block.o
+
+# target to build an object file
+src/block/block.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/block/block.cpp.o
+.PHONY : src/block/block.cpp.o
+
+src/block/block.i: src/block/block.cpp.i
+
+.PHONY : src/block/block.i
+
+# target to preprocess a source file
+src/block/block.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/block/block.cpp.i
+.PHONY : src/block/block.cpp.i
+
+src/block/block.s: src/block/block.cpp.s
+
+.PHONY : src/block/block.s
+
+# target to generate assembly for a file
+src/block/block.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/block/block.cpp.s
+.PHONY : src/block/block.cpp.s
+
+src/block/blocks.o: src/block/blocks.cpp.o
+
+.PHONY : src/block/blocks.o
+
+# target to build an object file
+src/block/blocks.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/block/blocks.cpp.o
+.PHONY : src/block/blocks.cpp.o
+
+src/block/blocks.i: src/block/blocks.cpp.i
+
+.PHONY : src/block/blocks.i
+
+# target to preprocess a source file
+src/block/blocks.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/block/blocks.cpp.i
+.PHONY : src/block/blocks.cpp.i
+
+src/block/blocks.s: src/block/blocks.cpp.s
+
+.PHONY : src/block/blocks.s
+
+# target to generate assembly for a file
+src/block/blocks.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/block/blocks.cpp.s
+.PHONY : src/block/blocks.cpp.s
+
+src/block/blockstate.o: src/block/blockstate.cpp.o
+
+.PHONY : src/block/blockstate.o
+
+# target to build an object file
+src/block/blockstate.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/block/blockstate.cpp.o
+.PHONY : src/block/blockstate.cpp.o
+
+src/block/blockstate.i: src/block/blockstate.cpp.i
+
+.PHONY : src/block/blockstate.i
+
+# target to preprocess a source file
+src/block/blockstate.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/block/blockstate.cpp.i
+.PHONY : src/block/blockstate.cpp.i
+
+src/block/blockstate.s: src/block/blockstate.cpp.s
+
+.PHONY : src/block/blockstate.s
+
+# target to generate assembly for a file
+src/block/blockstate.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/block/blockstate.cpp.s
+.PHONY : src/block/blockstate.cpp.s
+
+src/block/types/block_dirt.o: src/block/types/block_dirt.cpp.o
+
+.PHONY : src/block/types/block_dirt.o
+
+# target to build an object file
+src/block/types/block_dirt.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/block/types/block_dirt.cpp.o
+.PHONY : src/block/types/block_dirt.cpp.o
+
+src/block/types/block_dirt.i: src/block/types/block_dirt.cpp.i
+
+.PHONY : src/block/types/block_dirt.i
+
+# target to preprocess a source file
+src/block/types/block_dirt.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/block/types/block_dirt.cpp.i
+.PHONY : src/block/types/block_dirt.cpp.i
+
+src/block/types/block_dirt.s: src/block/types/block_dirt.cpp.s
+
+.PHONY : src/block/types/block_dirt.s
+
+# target to generate assembly for a file
+src/block/types/block_dirt.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/block/types/block_dirt.cpp.s
+.PHONY : src/block/types/block_dirt.cpp.s
+
+src/block/types/block_grass.o: src/block/types/block_grass.cpp.o
+
+.PHONY : src/block/types/block_grass.o
+
+# target to build an object file
+src/block/types/block_grass.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/block/types/block_grass.cpp.o
+.PHONY : src/block/types/block_grass.cpp.o
+
+src/block/types/block_grass.i: src/block/types/block_grass.cpp.i
+
+.PHONY : src/block/types/block_grass.i
+
+# target to preprocess a source file
+src/block/types/block_grass.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/block/types/block_grass.cpp.i
+.PHONY : src/block/types/block_grass.cpp.i
+
+src/block/types/block_grass.s: src/block/types/block_grass.cpp.s
+
+.PHONY : src/block/types/block_grass.s
+
+# target to generate assembly for a file
+src/block/types/block_grass.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/block/types/block_grass.cpp.s
+.PHONY : src/block/types/block_grass.cpp.s
+
+src/block/types/block_none.o: src/block/types/block_none.cpp.o
+
+.PHONY : src/block/types/block_none.o
+
+# target to build an object file
+src/block/types/block_none.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/block/types/block_none.cpp.o
+.PHONY : src/block/types/block_none.cpp.o
+
+src/block/types/block_none.i: src/block/types/block_none.cpp.i
+
+.PHONY : src/block/types/block_none.i
+
+# target to preprocess a source file
+src/block/types/block_none.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/block/types/block_none.cpp.i
+.PHONY : src/block/types/block_none.cpp.i
+
+src/block/types/block_none.s: src/block/types/block_none.cpp.s
+
+.PHONY : src/block/types/block_none.s
+
+# target to generate assembly for a file
+src/block/types/block_none.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/block/types/block_none.cpp.s
+.PHONY : src/block/types/block_none.cpp.s
+
+src/block/types/block_stone.o: src/block/types/block_stone.cpp.o
+
+.PHONY : src/block/types/block_stone.o
+
+# target to build an object file
+src/block/types/block_stone.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/block/types/block_stone.cpp.o
+.PHONY : src/block/types/block_stone.cpp.o
+
+src/block/types/block_stone.i: src/block/types/block_stone.cpp.i
+
+.PHONY : src/block/types/block_stone.i
+
+# target to preprocess a source file
+src/block/types/block_stone.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/block/types/block_stone.cpp.i
+.PHONY : src/block/types/block_stone.cpp.i
+
+src/block/types/block_stone.s: src/block/types/block_stone.cpp.s
+
+.PHONY : src/block/types/block_stone.s
+
+# target to generate assembly for a file
+src/block/types/block_stone.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/block/types/block_stone.cpp.s
+.PHONY : src/block/types/block_stone.cpp.s
+
+src/client/block_rendering.o: src/client/block_rendering.cpp.o
+
+.PHONY : src/client/block_rendering.o
+
+# target to build an object file
+src/client/block_rendering.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/client/block_rendering.cpp.o
+.PHONY : src/client/block_rendering.cpp.o
+
+src/client/block_rendering.i: src/client/block_rendering.cpp.i
+
+.PHONY : src/client/block_rendering.i
+
+# target to preprocess a source file
+src/client/block_rendering.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/client/block_rendering.cpp.i
+.PHONY : src/client/block_rendering.cpp.i
+
+src/client/block_rendering.s: src/client/block_rendering.cpp.s
+
+.PHONY : src/client/block_rendering.s
+
+# target to generate assembly for a file
+src/client/block_rendering.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/client/block_rendering.cpp.s
+.PHONY : src/client/block_rendering.cpp.s
+
 src/client/game.o: src/client/game.cpp.o
 
 .PHONY : src/client/game.o
@@ -149,6 +365,33 @@ src/client/game.s: src/client/game.cpp.s
 src/client/game.cpp.s:
 	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/client/game.cpp.s
 .PHONY : src/client/game.cpp.s
+
+src/client/rendered_chunk.o: src/client/rendered_chunk.cpp.o
+
+.PHONY : src/client/rendered_chunk.o
+
+# target to build an object file
+src/client/rendered_chunk.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/client/rendered_chunk.cpp.o
+.PHONY : src/client/rendered_chunk.cpp.o
+
+src/client/rendered_chunk.i: src/client/rendered_chunk.cpp.i
+
+.PHONY : src/client/rendered_chunk.i
+
+# target to preprocess a source file
+src/client/rendered_chunk.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/client/rendered_chunk.cpp.i
+.PHONY : src/client/rendered_chunk.cpp.i
+
+src/client/rendered_chunk.s: src/client/rendered_chunk.cpp.s
+
+.PHONY : src/client/rendered_chunk.s
+
+# target to generate assembly for a file
+src/client/rendered_chunk.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/client/rendered_chunk.cpp.s
+.PHONY : src/client/rendered_chunk.cpp.s
 
 src/gl/gl.o: src/gl/gl.cpp.o
 
@@ -312,32 +555,545 @@ src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
-src/utils.o: src/utils.cpp.o
+src/nbt/__nbt_compound.o: src/nbt/__nbt_compound.cpp.o
 
-.PHONY : src/utils.o
+.PHONY : src/nbt/__nbt_compound.o
 
 # target to build an object file
-src/utils.cpp.o:
-	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/utils.cpp.o
-.PHONY : src/utils.cpp.o
+src/nbt/__nbt_compound.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_compound.cpp.o
+.PHONY : src/nbt/__nbt_compound.cpp.o
 
-src/utils.i: src/utils.cpp.i
+src/nbt/__nbt_compound.i: src/nbt/__nbt_compound.cpp.i
 
-.PHONY : src/utils.i
+.PHONY : src/nbt/__nbt_compound.i
 
 # target to preprocess a source file
-src/utils.cpp.i:
-	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/utils.cpp.i
-.PHONY : src/utils.cpp.i
+src/nbt/__nbt_compound.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_compound.cpp.i
+.PHONY : src/nbt/__nbt_compound.cpp.i
 
-src/utils.s: src/utils.cpp.s
+src/nbt/__nbt_compound.s: src/nbt/__nbt_compound.cpp.s
 
-.PHONY : src/utils.s
+.PHONY : src/nbt/__nbt_compound.s
 
 # target to generate assembly for a file
-src/utils.cpp.s:
-	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/utils.cpp.s
-.PHONY : src/utils.cpp.s
+src/nbt/__nbt_compound.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_compound.cpp.s
+.PHONY : src/nbt/__nbt_compound.cpp.s
+
+src/nbt/__nbt_float.o: src/nbt/__nbt_float.cpp.o
+
+.PHONY : src/nbt/__nbt_float.o
+
+# target to build an object file
+src/nbt/__nbt_float.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_float.cpp.o
+.PHONY : src/nbt/__nbt_float.cpp.o
+
+src/nbt/__nbt_float.i: src/nbt/__nbt_float.cpp.i
+
+.PHONY : src/nbt/__nbt_float.i
+
+# target to preprocess a source file
+src/nbt/__nbt_float.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_float.cpp.i
+.PHONY : src/nbt/__nbt_float.cpp.i
+
+src/nbt/__nbt_float.s: src/nbt/__nbt_float.cpp.s
+
+.PHONY : src/nbt/__nbt_float.s
+
+# target to generate assembly for a file
+src/nbt/__nbt_float.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_float.cpp.s
+.PHONY : src/nbt/__nbt_float.cpp.s
+
+src/nbt/__nbt_int.o: src/nbt/__nbt_int.cpp.o
+
+.PHONY : src/nbt/__nbt_int.o
+
+# target to build an object file
+src/nbt/__nbt_int.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_int.cpp.o
+.PHONY : src/nbt/__nbt_int.cpp.o
+
+src/nbt/__nbt_int.i: src/nbt/__nbt_int.cpp.i
+
+.PHONY : src/nbt/__nbt_int.i
+
+# target to preprocess a source file
+src/nbt/__nbt_int.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_int.cpp.i
+.PHONY : src/nbt/__nbt_int.cpp.i
+
+src/nbt/__nbt_int.s: src/nbt/__nbt_int.cpp.s
+
+.PHONY : src/nbt/__nbt_int.s
+
+# target to generate assembly for a file
+src/nbt/__nbt_int.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_int.cpp.s
+.PHONY : src/nbt/__nbt_int.cpp.s
+
+src/nbt/__nbt_list.o: src/nbt/__nbt_list.cpp.o
+
+.PHONY : src/nbt/__nbt_list.o
+
+# target to build an object file
+src/nbt/__nbt_list.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_list.cpp.o
+.PHONY : src/nbt/__nbt_list.cpp.o
+
+src/nbt/__nbt_list.i: src/nbt/__nbt_list.cpp.i
+
+.PHONY : src/nbt/__nbt_list.i
+
+# target to preprocess a source file
+src/nbt/__nbt_list.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_list.cpp.i
+.PHONY : src/nbt/__nbt_list.cpp.i
+
+src/nbt/__nbt_list.s: src/nbt/__nbt_list.cpp.s
+
+.PHONY : src/nbt/__nbt_list.s
+
+# target to generate assembly for a file
+src/nbt/__nbt_list.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_list.cpp.s
+.PHONY : src/nbt/__nbt_list.cpp.s
+
+src/nbt/__nbt_long.o: src/nbt/__nbt_long.cpp.o
+
+.PHONY : src/nbt/__nbt_long.o
+
+# target to build an object file
+src/nbt/__nbt_long.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_long.cpp.o
+.PHONY : src/nbt/__nbt_long.cpp.o
+
+src/nbt/__nbt_long.i: src/nbt/__nbt_long.cpp.i
+
+.PHONY : src/nbt/__nbt_long.i
+
+# target to preprocess a source file
+src/nbt/__nbt_long.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_long.cpp.i
+.PHONY : src/nbt/__nbt_long.cpp.i
+
+src/nbt/__nbt_long.s: src/nbt/__nbt_long.cpp.s
+
+.PHONY : src/nbt/__nbt_long.s
+
+# target to generate assembly for a file
+src/nbt/__nbt_long.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_long.cpp.s
+.PHONY : src/nbt/__nbt_long.cpp.s
+
+src/nbt/__nbt_short.o: src/nbt/__nbt_short.cpp.o
+
+.PHONY : src/nbt/__nbt_short.o
+
+# target to build an object file
+src/nbt/__nbt_short.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_short.cpp.o
+.PHONY : src/nbt/__nbt_short.cpp.o
+
+src/nbt/__nbt_short.i: src/nbt/__nbt_short.cpp.i
+
+.PHONY : src/nbt/__nbt_short.i
+
+# target to preprocess a source file
+src/nbt/__nbt_short.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_short.cpp.i
+.PHONY : src/nbt/__nbt_short.cpp.i
+
+src/nbt/__nbt_short.s: src/nbt/__nbt_short.cpp.s
+
+.PHONY : src/nbt/__nbt_short.s
+
+# target to generate assembly for a file
+src/nbt/__nbt_short.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_short.cpp.s
+.PHONY : src/nbt/__nbt_short.cpp.s
+
+src/nbt/__nbt_string.o: src/nbt/__nbt_string.cpp.o
+
+.PHONY : src/nbt/__nbt_string.o
+
+# target to build an object file
+src/nbt/__nbt_string.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_string.cpp.o
+.PHONY : src/nbt/__nbt_string.cpp.o
+
+src/nbt/__nbt_string.i: src/nbt/__nbt_string.cpp.i
+
+.PHONY : src/nbt/__nbt_string.i
+
+# target to preprocess a source file
+src/nbt/__nbt_string.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_string.cpp.i
+.PHONY : src/nbt/__nbt_string.cpp.i
+
+src/nbt/__nbt_string.s: src/nbt/__nbt_string.cpp.s
+
+.PHONY : src/nbt/__nbt_string.s
+
+# target to generate assembly for a file
+src/nbt/__nbt_string.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_string.cpp.s
+.PHONY : src/nbt/__nbt_string.cpp.s
+
+src/nbt/__nbt_utils.o: src/nbt/__nbt_utils.cpp.o
+
+.PHONY : src/nbt/__nbt_utils.o
+
+# target to build an object file
+src/nbt/__nbt_utils.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_utils.cpp.o
+.PHONY : src/nbt/__nbt_utils.cpp.o
+
+src/nbt/__nbt_utils.i: src/nbt/__nbt_utils.cpp.i
+
+.PHONY : src/nbt/__nbt_utils.i
+
+# target to preprocess a source file
+src/nbt/__nbt_utils.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_utils.cpp.i
+.PHONY : src/nbt/__nbt_utils.cpp.i
+
+src/nbt/__nbt_utils.s: src/nbt/__nbt_utils.cpp.s
+
+.PHONY : src/nbt/__nbt_utils.s
+
+# target to generate assembly for a file
+src/nbt/__nbt_utils.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_utils.cpp.s
+.PHONY : src/nbt/__nbt_utils.cpp.s
+
+src/nbt/nbt.o: src/nbt/nbt.cpp.o
+
+.PHONY : src/nbt/nbt.o
+
+# target to build an object file
+src/nbt/nbt.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/nbt/nbt.cpp.o
+.PHONY : src/nbt/nbt.cpp.o
+
+src/nbt/nbt.i: src/nbt/nbt.cpp.i
+
+.PHONY : src/nbt/nbt.i
+
+# target to preprocess a source file
+src/nbt/nbt.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/nbt/nbt.cpp.i
+.PHONY : src/nbt/nbt.cpp.i
+
+src/nbt/nbt.s: src/nbt/nbt.cpp.s
+
+.PHONY : src/nbt/nbt.s
+
+# target to generate assembly for a file
+src/nbt/nbt.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/nbt/nbt.cpp.s
+.PHONY : src/nbt/nbt.cpp.s
+
+src/server/entity.o: src/server/entity.cpp.o
+
+.PHONY : src/server/entity.o
+
+# target to build an object file
+src/server/entity.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/server/entity.cpp.o
+.PHONY : src/server/entity.cpp.o
+
+src/server/entity.i: src/server/entity.cpp.i
+
+.PHONY : src/server/entity.i
+
+# target to preprocess a source file
+src/server/entity.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/server/entity.cpp.i
+.PHONY : src/server/entity.cpp.i
+
+src/server/entity.s: src/server/entity.cpp.s
+
+.PHONY : src/server/entity.s
+
+# target to generate assembly for a file
+src/server/entity.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/server/entity.cpp.s
+.PHONY : src/server/entity.cpp.s
+
+src/server/registry.o: src/server/registry.cpp.o
+
+.PHONY : src/server/registry.o
+
+# target to build an object file
+src/server/registry.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/server/registry.cpp.o
+.PHONY : src/server/registry.cpp.o
+
+src/server/registry.i: src/server/registry.cpp.i
+
+.PHONY : src/server/registry.i
+
+# target to preprocess a source file
+src/server/registry.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/server/registry.cpp.i
+.PHONY : src/server/registry.cpp.i
+
+src/server/registry.s: src/server/registry.cpp.s
+
+.PHONY : src/server/registry.s
+
+# target to generate assembly for a file
+src/server/registry.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/server/registry.cpp.s
+.PHONY : src/server/registry.cpp.s
+
+src/utils/noise/noise.o: src/utils/noise/noise.cpp.o
+
+.PHONY : src/utils/noise/noise.o
+
+# target to build an object file
+src/utils/noise/noise.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/utils/noise/noise.cpp.o
+.PHONY : src/utils/noise/noise.cpp.o
+
+src/utils/noise/noise.i: src/utils/noise/noise.cpp.i
+
+.PHONY : src/utils/noise/noise.i
+
+# target to preprocess a source file
+src/utils/noise/noise.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/utils/noise/noise.cpp.i
+.PHONY : src/utils/noise/noise.cpp.i
+
+src/utils/noise/noise.s: src/utils/noise/noise.cpp.s
+
+.PHONY : src/utils/noise/noise.s
+
+# target to generate assembly for a file
+src/utils/noise/noise.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/utils/noise/noise.cpp.s
+.PHONY : src/utils/noise/noise.cpp.s
+
+src/utils/utils.o: src/utils/utils.cpp.o
+
+.PHONY : src/utils/utils.o
+
+# target to build an object file
+src/utils/utils.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/utils/utils.cpp.o
+.PHONY : src/utils/utils.cpp.o
+
+src/utils/utils.i: src/utils/utils.cpp.i
+
+.PHONY : src/utils/utils.i
+
+# target to preprocess a source file
+src/utils/utils.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/utils/utils.cpp.i
+.PHONY : src/utils/utils.cpp.i
+
+src/utils/utils.s: src/utils/utils.cpp.s
+
+.PHONY : src/utils/utils.s
+
+# target to generate assembly for a file
+src/utils/utils.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/utils/utils.cpp.s
+.PHONY : src/utils/utils.cpp.s
+
+src/world/gen/carver/base_carver.o: src/world/gen/carver/base_carver.cpp.o
+
+.PHONY : src/world/gen/carver/base_carver.o
+
+# target to build an object file
+src/world/gen/carver/base_carver.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/base_carver.cpp.o
+.PHONY : src/world/gen/carver/base_carver.cpp.o
+
+src/world/gen/carver/base_carver.i: src/world/gen/carver/base_carver.cpp.i
+
+.PHONY : src/world/gen/carver/base_carver.i
+
+# target to preprocess a source file
+src/world/gen/carver/base_carver.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/base_carver.cpp.i
+.PHONY : src/world/gen/carver/base_carver.cpp.i
+
+src/world/gen/carver/base_carver.s: src/world/gen/carver/base_carver.cpp.s
+
+.PHONY : src/world/gen/carver/base_carver.s
+
+# target to generate assembly for a file
+src/world/gen/carver/base_carver.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/base_carver.cpp.s
+.PHONY : src/world/gen/carver/base_carver.cpp.s
+
+src/world/gen/carver/simple_carver.o: src/world/gen/carver/simple_carver.cpp.o
+
+.PHONY : src/world/gen/carver/simple_carver.o
+
+# target to build an object file
+src/world/gen/carver/simple_carver.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/simple_carver.cpp.o
+.PHONY : src/world/gen/carver/simple_carver.cpp.o
+
+src/world/gen/carver/simple_carver.i: src/world/gen/carver/simple_carver.cpp.i
+
+.PHONY : src/world/gen/carver/simple_carver.i
+
+# target to preprocess a source file
+src/world/gen/carver/simple_carver.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/simple_carver.cpp.i
+.PHONY : src/world/gen/carver/simple_carver.cpp.i
+
+src/world/gen/carver/simple_carver.s: src/world/gen/carver/simple_carver.cpp.s
+
+.PHONY : src/world/gen/carver/simple_carver.s
+
+# target to generate assembly for a file
+src/world/gen/carver/simple_carver.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/simple_carver.cpp.s
+.PHONY : src/world/gen/carver/simple_carver.cpp.s
+
+src/world/gen/features/base_feature.o: src/world/gen/features/base_feature.cpp.o
+
+.PHONY : src/world/gen/features/base_feature.o
+
+# target to build an object file
+src/world/gen/features/base_feature.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/world/gen/features/base_feature.cpp.o
+.PHONY : src/world/gen/features/base_feature.cpp.o
+
+src/world/gen/features/base_feature.i: src/world/gen/features/base_feature.cpp.i
+
+.PHONY : src/world/gen/features/base_feature.i
+
+# target to preprocess a source file
+src/world/gen/features/base_feature.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/world/gen/features/base_feature.cpp.i
+.PHONY : src/world/gen/features/base_feature.cpp.i
+
+src/world/gen/features/base_feature.s: src/world/gen/features/base_feature.cpp.s
+
+.PHONY : src/world/gen/features/base_feature.s
+
+# target to generate assembly for a file
+src/world/gen/features/base_feature.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/world/gen/features/base_feature.cpp.s
+.PHONY : src/world/gen/features/base_feature.cpp.s
+
+src/world/gen/structures/base_structure.o: src/world/gen/structures/base_structure.cpp.o
+
+.PHONY : src/world/gen/structures/base_structure.o
+
+# target to build an object file
+src/world/gen/structures/base_structure.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/world/gen/structures/base_structure.cpp.o
+.PHONY : src/world/gen/structures/base_structure.cpp.o
+
+src/world/gen/structures/base_structure.i: src/world/gen/structures/base_structure.cpp.i
+
+.PHONY : src/world/gen/structures/base_structure.i
+
+# target to preprocess a source file
+src/world/gen/structures/base_structure.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/world/gen/structures/base_structure.cpp.i
+.PHONY : src/world/gen/structures/base_structure.cpp.i
+
+src/world/gen/structures/base_structure.s: src/world/gen/structures/base_structure.cpp.s
+
+.PHONY : src/world/gen/structures/base_structure.s
+
+# target to generate assembly for a file
+src/world/gen/structures/base_structure.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/world/gen/structures/base_structure.cpp.s
+.PHONY : src/world/gen/structures/base_structure.cpp.s
+
+src/world/gen/surface/base_surface.o: src/world/gen/surface/base_surface.cpp.o
+
+.PHONY : src/world/gen/surface/base_surface.o
+
+# target to build an object file
+src/world/gen/surface/base_surface.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/base_surface.cpp.o
+.PHONY : src/world/gen/surface/base_surface.cpp.o
+
+src/world/gen/surface/base_surface.i: src/world/gen/surface/base_surface.cpp.i
+
+.PHONY : src/world/gen/surface/base_surface.i
+
+# target to preprocess a source file
+src/world/gen/surface/base_surface.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/base_surface.cpp.i
+.PHONY : src/world/gen/surface/base_surface.cpp.i
+
+src/world/gen/surface/base_surface.s: src/world/gen/surface/base_surface.cpp.s
+
+.PHONY : src/world/gen/surface/base_surface.s
+
+# target to generate assembly for a file
+src/world/gen/surface/base_surface.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/base_surface.cpp.s
+.PHONY : src/world/gen/surface/base_surface.cpp.s
+
+src/world/gen/surface/simple_grass_surface.o: src/world/gen/surface/simple_grass_surface.cpp.o
+
+.PHONY : src/world/gen/surface/simple_grass_surface.o
+
+# target to build an object file
+src/world/gen/surface/simple_grass_surface.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/simple_grass_surface.cpp.o
+.PHONY : src/world/gen/surface/simple_grass_surface.cpp.o
+
+src/world/gen/surface/simple_grass_surface.i: src/world/gen/surface/simple_grass_surface.cpp.i
+
+.PHONY : src/world/gen/surface/simple_grass_surface.i
+
+# target to preprocess a source file
+src/world/gen/surface/simple_grass_surface.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/simple_grass_surface.cpp.i
+.PHONY : src/world/gen/surface/simple_grass_surface.cpp.i
+
+src/world/gen/surface/simple_grass_surface.s: src/world/gen/surface/simple_grass_surface.cpp.s
+
+.PHONY : src/world/gen/surface/simple_grass_surface.s
+
+# target to generate assembly for a file
+src/world/gen/surface/simple_grass_surface.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/simple_grass_surface.cpp.s
+.PHONY : src/world/gen/surface/simple_grass_surface.cpp.s
+
+src/world/world.o: src/world/world.cpp.o
+
+.PHONY : src/world/world.o
+
+# target to build an object file
+src/world/world.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/world/world.cpp.o
+.PHONY : src/world/world.cpp.o
+
+src/world/world.i: src/world/world.cpp.i
+
+.PHONY : src/world/world.i
+
+# target to preprocess a source file
+src/world/world.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/world/world.cpp.i
+.PHONY : src/world/world.cpp.i
+
+src/world/world.s: src/world/world.cpp.s
+
+.PHONY : src/world/world.s
+
+# target to generate assembly for a file
+src/world/world.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/world/world.cpp.s
+.PHONY : src/world/world.cpp.s
 
 # Help Target
 help:
@@ -346,11 +1102,38 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... edit_cache"
 	@echo "... GLMinecraft3"
+	@echo "... edit_cache"
+	@echo "... src/block/block.o"
+	@echo "... src/block/block.i"
+	@echo "... src/block/block.s"
+	@echo "... src/block/blocks.o"
+	@echo "... src/block/blocks.i"
+	@echo "... src/block/blocks.s"
+	@echo "... src/block/blockstate.o"
+	@echo "... src/block/blockstate.i"
+	@echo "... src/block/blockstate.s"
+	@echo "... src/block/types/block_dirt.o"
+	@echo "... src/block/types/block_dirt.i"
+	@echo "... src/block/types/block_dirt.s"
+	@echo "... src/block/types/block_grass.o"
+	@echo "... src/block/types/block_grass.i"
+	@echo "... src/block/types/block_grass.s"
+	@echo "... src/block/types/block_none.o"
+	@echo "... src/block/types/block_none.i"
+	@echo "... src/block/types/block_none.s"
+	@echo "... src/block/types/block_stone.o"
+	@echo "... src/block/types/block_stone.i"
+	@echo "... src/block/types/block_stone.s"
+	@echo "... src/client/block_rendering.o"
+	@echo "... src/client/block_rendering.i"
+	@echo "... src/client/block_rendering.s"
 	@echo "... src/client/game.o"
 	@echo "... src/client/game.i"
 	@echo "... src/client/game.s"
+	@echo "... src/client/rendered_chunk.o"
+	@echo "... src/client/rendered_chunk.i"
+	@echo "... src/client/rendered_chunk.s"
 	@echo "... src/gl/gl.o"
 	@echo "... src/gl/gl.i"
 	@echo "... src/gl/gl.s"
@@ -369,9 +1152,66 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... src/utils.o"
-	@echo "... src/utils.i"
-	@echo "... src/utils.s"
+	@echo "... src/nbt/__nbt_compound.o"
+	@echo "... src/nbt/__nbt_compound.i"
+	@echo "... src/nbt/__nbt_compound.s"
+	@echo "... src/nbt/__nbt_float.o"
+	@echo "... src/nbt/__nbt_float.i"
+	@echo "... src/nbt/__nbt_float.s"
+	@echo "... src/nbt/__nbt_int.o"
+	@echo "... src/nbt/__nbt_int.i"
+	@echo "... src/nbt/__nbt_int.s"
+	@echo "... src/nbt/__nbt_list.o"
+	@echo "... src/nbt/__nbt_list.i"
+	@echo "... src/nbt/__nbt_list.s"
+	@echo "... src/nbt/__nbt_long.o"
+	@echo "... src/nbt/__nbt_long.i"
+	@echo "... src/nbt/__nbt_long.s"
+	@echo "... src/nbt/__nbt_short.o"
+	@echo "... src/nbt/__nbt_short.i"
+	@echo "... src/nbt/__nbt_short.s"
+	@echo "... src/nbt/__nbt_string.o"
+	@echo "... src/nbt/__nbt_string.i"
+	@echo "... src/nbt/__nbt_string.s"
+	@echo "... src/nbt/__nbt_utils.o"
+	@echo "... src/nbt/__nbt_utils.i"
+	@echo "... src/nbt/__nbt_utils.s"
+	@echo "... src/nbt/nbt.o"
+	@echo "... src/nbt/nbt.i"
+	@echo "... src/nbt/nbt.s"
+	@echo "... src/server/entity.o"
+	@echo "... src/server/entity.i"
+	@echo "... src/server/entity.s"
+	@echo "... src/server/registry.o"
+	@echo "... src/server/registry.i"
+	@echo "... src/server/registry.s"
+	@echo "... src/utils/noise/noise.o"
+	@echo "... src/utils/noise/noise.i"
+	@echo "... src/utils/noise/noise.s"
+	@echo "... src/utils/utils.o"
+	@echo "... src/utils/utils.i"
+	@echo "... src/utils/utils.s"
+	@echo "... src/world/gen/carver/base_carver.o"
+	@echo "... src/world/gen/carver/base_carver.i"
+	@echo "... src/world/gen/carver/base_carver.s"
+	@echo "... src/world/gen/carver/simple_carver.o"
+	@echo "... src/world/gen/carver/simple_carver.i"
+	@echo "... src/world/gen/carver/simple_carver.s"
+	@echo "... src/world/gen/features/base_feature.o"
+	@echo "... src/world/gen/features/base_feature.i"
+	@echo "... src/world/gen/features/base_feature.s"
+	@echo "... src/world/gen/structures/base_structure.o"
+	@echo "... src/world/gen/structures/base_structure.i"
+	@echo "... src/world/gen/structures/base_structure.s"
+	@echo "... src/world/gen/surface/base_surface.o"
+	@echo "... src/world/gen/surface/base_surface.i"
+	@echo "... src/world/gen/surface/base_surface.s"
+	@echo "... src/world/gen/surface/simple_grass_surface.o"
+	@echo "... src/world/gen/surface/simple_grass_surface.i"
+	@echo "... src/world/gen/surface/simple_grass_surface.s"
+	@echo "... src/world/world.o"
+	@echo "... src/world/world.i"
+	@echo "... src/world/world.s"
 .PHONY : help
 
 
