@@ -11,9 +11,8 @@
 #include "client/game.h"
 #include <glm/glm.hpp>
 #include <execinfo.h>
+#include <sys/socket.h>
 #include "server/server.h"
-#include "../SocketLib/HostInfo.h"
-#include "../SocketLib/TCPServer.h"
 
 #define SIZE 100
 
@@ -95,50 +94,16 @@ int main() {
 #endif
 
 #ifdef PROFILE_NETWORKING
-
-void received(socketlib::TCPSocketStream::received_params params,
-              socketlib::TCPSocketStream &socket) {
-
-    int cnt=params.available;
-    if(cnt>1024) {
-        cnt=1024;
-    }
-    char data[1024];
-
-    socket.read(data, cnt);
-    std::cout.write (data, cnt);
-
-    params.shouldrecall=true;
-    //If data in the buffer is larger than 1k
-    //this event handler will be called again
-}
-
-void disconnected() {
-    std::cout<<"Disconnected."<<std::endl;
-}
-
-void connect(socketlib::TCPServer::accept_params params) {
-    std::cout << "Connection received from " << params.addrinfo.IPAddress() << std::endl;
-    params.socket << "Hello" << std::endl;
-    params.socket.Close();
-}
+#include "both.h"
 
 int main(int argc, char** argv) {
-    std::signal(SIGSEGV, sig_handler);
+    for (int i = 0; i < 32; i++) std::signal(i, sig_handler);
     if (argv[2][0] == 'c') {
         std::cout << "Starting client." << std::endl;
-        socketlib::TCPSocketStream client;
-
-        client.Received.Register(&received);
-        client.Disconnected.Register(&disconnected);
-        std::cout << "Connecting to port " << argv[1] << std::endl;
-        client.Connect("127.0.0.1", std::string(argv[1]));
+        networking::client("127.0.0.1", std::string(argv[1]));
     } else {
         std::cout << "Starting server" << std::endl;
-        socketlib::TCPServer server;
-        server.Listen(std::string(argv[1]));
-        server.ConnectionReceived.Register(&connect);
-        server.StartAccept();
+        networking::server(atoi(argv[1]));
         std::cout << "Accepting on port " << argv[1] << std::endl;
     }
 

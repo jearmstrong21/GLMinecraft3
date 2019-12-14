@@ -11,89 +11,53 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3529586-07bd-4d16-8e97-c15a5718eaa2" name="Default Changelist" comment="added registry">
-      <change afterPath="$PROJECT_DIR$/GGE/Utils/Any.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GGE/Utils/BasicGraphics.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GGE/Utils/Binary.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GGE/Utils/Bounds2D.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GGE/Utils/BufferList.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GGE/Utils/Collection.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GGE/Utils/EventChain.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GGE/Utils/FileSystemHelper.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GGE/Utils/GGE Flags.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GGE/Utils/GGE.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GGE/Utils/Iterator.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GGE/Utils/LinkedList.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GGE/Utils/ManagedBuffer.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GGE/Utils/Margins.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GGE/Utils/PAClassList.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GGE/Utils/Point2D.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GGE/Utils/Property.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GGE/Utils/Random.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GGE/Utils/Rectangle2D.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GGE/Utils/Size2D.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GGE/Utils/Utils.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GGE/Utils/ValueList.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SocketLib/Definitions.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SocketLib/HostInfo.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SocketLib/HostInfo.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SocketLib/Networking.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SocketLib/Networking.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SocketLib/Private.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SocketLib/Private.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SocketLib/SocketException.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SocketLib/TCPClient.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SocketLib/TCPServer.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SocketLib/TCPServer.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SocketLib/TCPSocketStream.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SocketLib/TCPSocketStreamBuffer.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SocketLib/TCPSocketStreamBuffer.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SocketLib/pThreads/pthread.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SocketLib/pThreads/pthreadVC2.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SocketLib/pThreads/pthreadVC2.lib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SocketLib/pThreads/sched.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SocketLib/pThreads/semaphore.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/staging/select_profile.h" afterDir="false" />
+    <list default="true" id="d3529586-07bd-4d16-8e97-c15a5718eaa2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/both.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/both.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeCCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeCCompiler.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeCXXCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeCXXCompiler.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeDetermineCompilerABI_C.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeDetermineCompilerABI_CXX.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeSystem.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeSystem.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdC/a.out" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdC/a.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdCXX/a.out" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdCXX/a.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/C.includecache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/src/client/game.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/src/client/game.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/src/gl/gl.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/src/gl/gl.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/src/gl/glad.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/src/gl/glad.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/src/gl/mesh.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/src/gl/mesh.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/src/gl/shader.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/src/gl/shader.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/src/gl/texture.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/src/gl/texture.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/src/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/src/main.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/src/utils.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/GLMinecraft3" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/GLMinecraft3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/GLMinecraft3.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/GLMinecraft3.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GGE/Utils/Any.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GGE/Utils/BasicGraphics.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GGE/Utils/Binary.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GGE/Utils/Bounds2D.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GGE/Utils/BufferList.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GGE/Utils/Collection.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GGE/Utils/EventChain.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GGE/Utils/FileSystemHelper.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GGE/Utils/GGE Flags.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GGE/Utils/GGE.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GGE/Utils/Iterator.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GGE/Utils/LinkedList.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GGE/Utils/ManagedBuffer.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GGE/Utils/Margins.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GGE/Utils/PAClassList.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GGE/Utils/Point2D.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GGE/Utils/Property.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GGE/Utils/Random.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GGE/Utils/Rectangle2D.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GGE/Utils/Size2D.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GGE/Utils/Utils.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GGE/Utils/ValueList.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SocketLib/Definitions.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SocketLib/HostInfo.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SocketLib/HostInfo.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SocketLib/Networking.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SocketLib/Networking.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SocketLib/Private.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SocketLib/Private.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SocketLib/SocketException.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SocketLib/TCPClient.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SocketLib/TCPServer.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SocketLib/TCPServer.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SocketLib/TCPSocketStream.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SocketLib/TCPSocketStreamBuffer.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SocketLib/TCPSocketStreamBuffer.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SocketLib/pThreads/pthread.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SocketLib/pThreads/pthreadVC2.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SocketLib/pThreads/pthreadVC2.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SocketLib/pThreads/sched.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SocketLib/pThreads/semaphore.h" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -122,6 +86,7 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug-Clang" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="ProjectId" id="1TAbZ023WAJAgg8byp62DWS6lhN" />
   <component name="PropertiesComponent">
@@ -140,11 +105,12 @@
     <property name="settings.editor.selected.configurable" value="CMakeSettings" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/world" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/sockets" />
+      <recent name="$PROJECT_DIR$/src/world" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -195,7 +161,8 @@
       <workItem from="1574583643519" duration="1236000" />
       <workItem from="1574585553736" duration="686000" />
       <workItem from="1575571915264" duration="1030000" />
-      <workItem from="1576199478312" duration="3969000" />
+      <workItem from="1576199478312" duration="4361000" />
+      <workItem from="1576353798744" duration="2793000" />
     </task>
     <task id="LOCAL-00001" summary="revert my CMakeList changes if they break ur installation">
       <created>1573249038059</created>
@@ -232,7 +199,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575572947479</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="networking that d ont work">
+      <created>1576204047339</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1576204047340</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -258,6 +232,7 @@
     <MESSAGE value="templates" />
     <MESSAGE value="added base for good worldgen" />
     <MESSAGE value="fixed nbt" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed nbt" />
+    <MESSAGE value="networking that d ont work" />
+    <option name="LAST_COMMIT_MESSAGE" value="networking that d ont work" />
   </component>
 </project>
