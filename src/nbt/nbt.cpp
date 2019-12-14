@@ -22,7 +22,7 @@ namespace nbt {
     const std::function<std::shared_ptr<nbt_compound>(const std::shared_ptr<nbt>&value)> cast_compound=cast<nbt_compound>;
     const std::function<std::shared_ptr<nbt_list>(const std::shared_ptr<nbt>&value)> cast_list=cast<nbt_list>;
 
-    std::shared_ptr<nbt> read_nbt(std::istream&in){
+    std::shared_ptr<nbt> read_nbt(std::istream&in)noexcept{
         int type;
         bin_read(in,&type);
         switch(type){

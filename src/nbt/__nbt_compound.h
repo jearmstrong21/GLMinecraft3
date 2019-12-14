@@ -19,7 +19,7 @@
 
 namespace nbt {
 
-    std::shared_ptr<nbt> read_nbt(std::istream&in);
+    std::shared_ptr<nbt> read_nbt(std::istream&in)noexcept;
 
     struct nbt_compound:nbt{
         nbt_compound(const nbt_compound&)=delete;
