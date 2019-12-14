@@ -39,19 +39,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/paladin/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.7142.39/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake
 
 # The command to remove a file.
-RM = /home/paladin/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.7142.39/bin/cmake/linux/bin/cmake -E remove -f
+RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/paladin/Downloads/GLMinecraft3
+CMAKE_SOURCE_DIR = /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/paladin/Downloads/GLMinecraft3/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/paladin/Downloads/GLMinecraft3/cmake-build-debug
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/paladin/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.7142.39/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/paladin/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.7142.39/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/paladin/Downloads/GLMinecraft3/cmake-build-debug/CMakeFiles /home/paladin/Downloads/GLMinecraft3/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/paladin/Downloads/GLMinecraft3/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -122,6 +122,141 @@ GLMinecraft3: cmake_check_build_system
 GLMinecraft3/fast:
 	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/build
 .PHONY : GLMinecraft3/fast
+
+SocketLib/HostInfo.o: SocketLib/HostInfo.cpp.o
+
+.PHONY : SocketLib/HostInfo.o
+
+# target to build an object file
+SocketLib/HostInfo.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/SocketLib/HostInfo.cpp.o
+.PHONY : SocketLib/HostInfo.cpp.o
+
+SocketLib/HostInfo.i: SocketLib/HostInfo.cpp.i
+
+.PHONY : SocketLib/HostInfo.i
+
+# target to preprocess a source file
+SocketLib/HostInfo.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/SocketLib/HostInfo.cpp.i
+.PHONY : SocketLib/HostInfo.cpp.i
+
+SocketLib/HostInfo.s: SocketLib/HostInfo.cpp.s
+
+.PHONY : SocketLib/HostInfo.s
+
+# target to generate assembly for a file
+SocketLib/HostInfo.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/SocketLib/HostInfo.cpp.s
+.PHONY : SocketLib/HostInfo.cpp.s
+
+SocketLib/Networking.o: SocketLib/Networking.cpp.o
+
+.PHONY : SocketLib/Networking.o
+
+# target to build an object file
+SocketLib/Networking.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/SocketLib/Networking.cpp.o
+.PHONY : SocketLib/Networking.cpp.o
+
+SocketLib/Networking.i: SocketLib/Networking.cpp.i
+
+.PHONY : SocketLib/Networking.i
+
+# target to preprocess a source file
+SocketLib/Networking.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/SocketLib/Networking.cpp.i
+.PHONY : SocketLib/Networking.cpp.i
+
+SocketLib/Networking.s: SocketLib/Networking.cpp.s
+
+.PHONY : SocketLib/Networking.s
+
+# target to generate assembly for a file
+SocketLib/Networking.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/SocketLib/Networking.cpp.s
+.PHONY : SocketLib/Networking.cpp.s
+
+SocketLib/Private.o: SocketLib/Private.cpp.o
+
+.PHONY : SocketLib/Private.o
+
+# target to build an object file
+SocketLib/Private.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/SocketLib/Private.cpp.o
+.PHONY : SocketLib/Private.cpp.o
+
+SocketLib/Private.i: SocketLib/Private.cpp.i
+
+.PHONY : SocketLib/Private.i
+
+# target to preprocess a source file
+SocketLib/Private.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/SocketLib/Private.cpp.i
+.PHONY : SocketLib/Private.cpp.i
+
+SocketLib/Private.s: SocketLib/Private.cpp.s
+
+.PHONY : SocketLib/Private.s
+
+# target to generate assembly for a file
+SocketLib/Private.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/SocketLib/Private.cpp.s
+.PHONY : SocketLib/Private.cpp.s
+
+SocketLib/TCPServer.o: SocketLib/TCPServer.cpp.o
+
+.PHONY : SocketLib/TCPServer.o
+
+# target to build an object file
+SocketLib/TCPServer.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/SocketLib/TCPServer.cpp.o
+.PHONY : SocketLib/TCPServer.cpp.o
+
+SocketLib/TCPServer.i: SocketLib/TCPServer.cpp.i
+
+.PHONY : SocketLib/TCPServer.i
+
+# target to preprocess a source file
+SocketLib/TCPServer.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/SocketLib/TCPServer.cpp.i
+.PHONY : SocketLib/TCPServer.cpp.i
+
+SocketLib/TCPServer.s: SocketLib/TCPServer.cpp.s
+
+.PHONY : SocketLib/TCPServer.s
+
+# target to generate assembly for a file
+SocketLib/TCPServer.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/SocketLib/TCPServer.cpp.s
+.PHONY : SocketLib/TCPServer.cpp.s
+
+SocketLib/TCPSocketStreamBuffer.o: SocketLib/TCPSocketStreamBuffer.cpp.o
+
+.PHONY : SocketLib/TCPSocketStreamBuffer.o
+
+# target to build an object file
+SocketLib/TCPSocketStreamBuffer.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/SocketLib/TCPSocketStreamBuffer.cpp.o
+.PHONY : SocketLib/TCPSocketStreamBuffer.cpp.o
+
+SocketLib/TCPSocketStreamBuffer.i: SocketLib/TCPSocketStreamBuffer.cpp.i
+
+.PHONY : SocketLib/TCPSocketStreamBuffer.i
+
+# target to preprocess a source file
+SocketLib/TCPSocketStreamBuffer.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/SocketLib/TCPSocketStreamBuffer.cpp.i
+.PHONY : SocketLib/TCPSocketStreamBuffer.cpp.i
+
+SocketLib/TCPSocketStreamBuffer.s: SocketLib/TCPSocketStreamBuffer.cpp.s
+
+.PHONY : SocketLib/TCPSocketStreamBuffer.s
+
+# target to generate assembly for a file
+SocketLib/TCPSocketStreamBuffer.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/SocketLib/TCPSocketStreamBuffer.cpp.s
+.PHONY : SocketLib/TCPSocketStreamBuffer.cpp.s
 
 src/block/block.o: src/block/block.cpp.o
 
@@ -1102,8 +1237,23 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... GLMinecraft3"
 	@echo "... edit_cache"
+	@echo "... GLMinecraft3"
+	@echo "... SocketLib/HostInfo.o"
+	@echo "... SocketLib/HostInfo.i"
+	@echo "... SocketLib/HostInfo.s"
+	@echo "... SocketLib/Networking.o"
+	@echo "... SocketLib/Networking.i"
+	@echo "... SocketLib/Networking.s"
+	@echo "... SocketLib/Private.o"
+	@echo "... SocketLib/Private.i"
+	@echo "... SocketLib/Private.s"
+	@echo "... SocketLib/TCPServer.o"
+	@echo "... SocketLib/TCPServer.i"
+	@echo "... SocketLib/TCPServer.s"
+	@echo "... SocketLib/TCPSocketStreamBuffer.o"
+	@echo "... SocketLib/TCPSocketStreamBuffer.i"
+	@echo "... SocketLib/TCPSocketStreamBuffer.s"
 	@echo "... src/block/block.o"
 	@echo "... src/block/block.i"
 	@echo "... src/block/block.s"

@@ -1,3 +1,3 @@
-/home/paladin/Downloads/GLMinecraft3/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/paladin/Downloads/GLMinecraft3/cmake-build-debug/CMakeFiles/GLMinecraft3.dir
-/home/paladin/Downloads/GLMinecraft3/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles/GLMinecraft3.dir

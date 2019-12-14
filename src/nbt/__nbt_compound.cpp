@@ -4,9 +4,6 @@
 
 #include "__nbt_compound.h"
 
-
-#include "__nbt_compound.h"
-
 namespace nbt {
 
     nbt_compound::nbt_compound(std::istream &in,bool read_type) {

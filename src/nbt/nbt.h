@@ -20,6 +20,7 @@
 #include "__nbt_compound.h"
 #include "__nbt_list.h"
 #include "__nbt_short.h"
+#include <memory>
 
 namespace nbt {
 

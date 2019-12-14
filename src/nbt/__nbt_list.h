@@ -14,7 +14,7 @@
 
 namespace nbt {
 
-    std::shared_ptr<nbt> read_nbt(std::istream&in);
+    std::shared_ptr<nbt> read_nbt(std::istream&in)noexcept;
 
     struct nbt_list:nbt{
         std::vector<std::shared_ptr<nbt>>value;

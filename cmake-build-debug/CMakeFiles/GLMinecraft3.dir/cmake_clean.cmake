@@ -1,4 +1,9 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/GLMinecraft3.dir/SocketLib/HostInfo.cpp.o"
+  "CMakeFiles/GLMinecraft3.dir/SocketLib/Networking.cpp.o"
+  "CMakeFiles/GLMinecraft3.dir/SocketLib/Private.cpp.o"
+  "CMakeFiles/GLMinecraft3.dir/SocketLib/TCPServer.cpp.o"
+  "CMakeFiles/GLMinecraft3.dir/SocketLib/TCPSocketStreamBuffer.cpp.o"
   "CMakeFiles/GLMinecraft3.dir/src/block/block.cpp.o"
   "CMakeFiles/GLMinecraft3.dir/src/block/blocks.cpp.o"
   "CMakeFiles/GLMinecraft3.dir/src/block/blockstate.cpp.o"

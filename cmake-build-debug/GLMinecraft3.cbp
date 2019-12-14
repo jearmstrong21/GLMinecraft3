@@ -5,316 +5,342 @@
 		<Option title="GLMinecraft3"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\usr\;CMake Files\..\..\..\..\usr\lib64\;CMake Files\..\..\..\..\usr\lib64\cmake\;CMake Files\..\..\..\..\usr\lib64\cmake\glfw3\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\usr\local\lib\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\glfw3\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/paladin/Downloads/GLMinecraft3/cmake-build-debug"/>
+				<Option working_dir="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/paladin/Downloads/GLMinecraft3/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/paladin/Downloads/GLMinecraft3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/paladin/Downloads/GLMinecraft3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/paladin/Downloads/GLMinecraft3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/paladin/Downloads/GLMinecraft3/cmake-build-debug"/>
+				<Option working_dir="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/paladin/Downloads/GLMinecraft3/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/paladin/Downloads/GLMinecraft3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/paladin/Downloads/GLMinecraft3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/paladin/Downloads/GLMinecraft3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="GLMinecraft3">
-				<Option output="/home/paladin/Downloads/GLMinecraft3/cmake-build-debug/GLMinecraft3" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/paladin/Downloads/GLMinecraft3/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add option="-DGLFW_DLL"/>
-					<Add directory="/home/paladin/Downloads/GLMinecraft3/glad"/>
-					<Add directory="/home/paladin/Downloads/GLMinecraft3/src"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../include/c++/9.2.0"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../include/c++/9.2.0/x86_64-pc-linux-gnu"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../include/c++/9.2.0/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/paladin/Downloads/GLMinecraft3/cmake-build-debug/Makefile&quot;  VERBOSE=1 GLMinecraft3"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/paladin/Downloads/GLMinecraft3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/paladin/Downloads/GLMinecraft3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/paladin/Downloads/GLMinecraft3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="GLMinecraft3/fast">
-				<Option output="/home/paladin/Downloads/GLMinecraft3/cmake-build-debug/GLMinecraft3" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/paladin/Downloads/GLMinecraft3/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add option="-DGLFW_DLL"/>
-					<Add directory="/home/paladin/Downloads/GLMinecraft3/glad"/>
-					<Add directory="/home/paladin/Downloads/GLMinecraft3/src"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../include/c++/9.2.0"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../include/c++/9.2.0/x86_64-pc-linux-gnu"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../include/c++/9.2.0/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/paladin/Downloads/GLMinecraft3/cmake-build-debug/Makefile&quot;  VERBOSE=1 GLMinecraft3/fast"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/paladin/Downloads/GLMinecraft3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/paladin/Downloads/GLMinecraft3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/paladin/Downloads/GLMinecraft3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/paladin/Downloads/GLMinecraft3/cmake-build-debug"/>
+				<Option working_dir="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/paladin/Downloads/GLMinecraft3/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/paladin/Downloads/GLMinecraft3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/paladin/Downloads/GLMinecraft3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/paladin/Downloads/GLMinecraft3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="GLMinecraft3">
+				<Option output="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/GLMinecraft3" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/glad"/>
+					<Add directory="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/Makefile&quot;  VERBOSE=1 GLMinecraft3"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="GLMinecraft3/fast">
+				<Option output="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/GLMinecraft3" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/glad"/>
+					<Add directory="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/Makefile&quot;  VERBOSE=1 GLMinecraft3/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/block/block.cpp">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/SocketLib/HostInfo.cpp">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/block/block.h">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/SocketLib/HostInfo.h">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/block/blocks.cpp">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/SocketLib/Networking.cpp">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/block/blocks.h">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/SocketLib/Networking.h">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/block/blockstate.cpp">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/SocketLib/Private.cpp">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/block/blockstate.h">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/SocketLib/Private.h">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/block/types/block_dirt.cpp">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/SocketLib/TCPServer.cpp">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/block/types/block_dirt.h">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/SocketLib/TCPServer.h">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/block/types/block_grass.cpp">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/SocketLib/TCPSocketStreamBuffer.cpp">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/block/types/block_grass.h">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/SocketLib/TCPSocketStreamBuffer.h">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/block/types/block_none.cpp">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/block/block.cpp">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/block/types/block_none.h">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/block/block.h">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/block/types/block_stone.cpp">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/block/blocks.cpp">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/block/types/block_stone.h">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/block/blocks.h">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/client/block_rendering.cpp">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/block/blockstate.cpp">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/client/block_rendering.h">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/block/blockstate.h">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/client/game.cpp">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/block/types/block_dirt.cpp">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/client/game.h">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/block/types/block_dirt.h">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/client/rendered_chunk.cpp">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/block/types/block_grass.cpp">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/client/rendered_chunk.h">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/block/types/block_grass.h">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/gl/gl.cpp">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/block/types/block_none.cpp">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/gl/gl.h">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/block/types/block_none.h">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/gl/glad.cpp">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/block/types/block_stone.cpp">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/gl/glad.h">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/block/types/block_stone.h">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/gl/mesh.cpp">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/client/block_rendering.cpp">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/gl/mesh.h">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/client/block_rendering.h">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/gl/shader.cpp">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/client/game.cpp">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/gl/shader.h">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/client/game.h">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/gl/texture.cpp">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/client/rendered_chunk.cpp">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/gl/texture.h">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/client/rendered_chunk.h">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/main.cpp">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/gl.cpp">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/nbt/__nbt_compound.cpp">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/gl.h">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/nbt/__nbt_compound.h">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/glad.cpp">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/nbt/__nbt_float.cpp">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/glad.h">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/nbt/__nbt_float.h">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/mesh.cpp">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/nbt/__nbt_int.cpp">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/mesh.h">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/nbt/__nbt_int.h">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/shader.cpp">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/nbt/__nbt_list.cpp">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/shader.h">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/nbt/__nbt_list.h">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/texture.cpp">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/nbt/__nbt_long.cpp">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/texture.h">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/nbt/__nbt_long.h">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/main.cpp">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/nbt/__nbt_short.cpp">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/__nbt_compound.cpp">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/nbt/__nbt_short.h">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/__nbt_compound.h">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/nbt/__nbt_string.cpp">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/__nbt_float.cpp">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/nbt/__nbt_string.h">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/__nbt_float.h">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/nbt/__nbt_utils.cpp">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/__nbt_int.cpp">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/nbt/__nbt_utils.h">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/__nbt_int.h">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/nbt/nbt.cpp">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/__nbt_list.cpp">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/nbt/nbt.h">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/__nbt_list.h">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/server/entity.cpp">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/__nbt_long.cpp">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/server/entity.h">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/__nbt_long.h">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/server/registry.cpp">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/__nbt_short.cpp">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/server/registry.h">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/__nbt_short.h">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/utils/noise/noise.cpp">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/__nbt_string.cpp">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/utils/noise/noise.h">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/__nbt_string.h">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/utils/utils.cpp">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/__nbt_utils.cpp">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/utils/utils.h">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/__nbt_utils.h">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/world/gen/carver/base_carver.cpp">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/nbt.cpp">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/world/gen/carver/base_carver.h">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/nbt.h">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/world/gen/carver/simple_carver.cpp">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/server/entity.cpp">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/world/gen/carver/simple_carver.h">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/server/entity.h">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/world/gen/features/base_feature.cpp">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/server/registry.cpp">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/world/gen/features/base_feature.h">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/server/registry.h">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/world/gen/structures/base_structure.cpp">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/utils/noise/noise.cpp">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/world/gen/structures/base_structure.h">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/utils/noise/noise.h">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/world/gen/surface/base_surface.cpp">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/utils/utils.cpp">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/world/gen/surface/base_surface.h">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/utils/utils.h">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/world/gen/surface/simple_grass_surface.cpp">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/world/gen/carver/base_carver.cpp">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/world/gen/surface/simple_grass_surface.h">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/world/gen/carver/base_carver.h">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/world/world.cpp">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/world/gen/carver/simple_carver.cpp">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/src/world/world.h">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/world/gen/carver/simple_carver.h">
 			<Option target="GLMinecraft3"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/CMakeLists.txt">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/world/gen/features/base_feature.cpp">
+			<Option target="GLMinecraft3"/>
+		</Unit>
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/world/gen/features/base_feature.h">
+			<Option target="GLMinecraft3"/>
+		</Unit>
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/world/gen/structures/base_structure.cpp">
+			<Option target="GLMinecraft3"/>
+		</Unit>
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/world/gen/structures/base_structure.h">
+			<Option target="GLMinecraft3"/>
+		</Unit>
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/world/gen/surface/base_surface.cpp">
+			<Option target="GLMinecraft3"/>
+		</Unit>
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/world/gen/surface/base_surface.h">
+			<Option target="GLMinecraft3"/>
+		</Unit>
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/world/gen/surface/simple_grass_surface.cpp">
+			<Option target="GLMinecraft3"/>
+		</Unit>
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/world/gen/surface/simple_grass_surface.h">
+			<Option target="GLMinecraft3"/>
+		</Unit>
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/world/world.cpp">
+			<Option target="GLMinecraft3"/>
+		</Unit>
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/world/world.h">
+			<Option target="GLMinecraft3"/>
+		</Unit>
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/../../../../usr/lib64/cmake/glfw3/glfw3Config.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib64\cmake\glfw3\"/>
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/../../../../../usr/local/lib/cmake/glfw3/glfw3Config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\glfw3\"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/../../../../usr/lib64/cmake/glfw3/glfw3ConfigVersion.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib64\cmake\glfw3\"/>
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/../../../../../usr/local/lib/cmake/glfw3/glfw3ConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\glfw3\"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/../../../../usr/lib64/cmake/glfw3/glfw3Targets-noconfig.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib64\cmake\glfw3\"/>
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/../../../../../usr/local/lib/cmake/glfw3/glfw3Targets-noconfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\glfw3\"/>
 		</Unit>
-		<Unit filename="/home/paladin/Downloads/GLMinecraft3/../../../../usr/lib64/cmake/glfw3/glfw3Targets.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib64\cmake\glfw3\"/>
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/../../../../../usr/local/lib/cmake/glfw3/glfw3Targets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\glfw3\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>
