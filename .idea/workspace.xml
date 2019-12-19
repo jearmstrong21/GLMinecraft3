@@ -11,54 +11,13 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3529586-07bd-4d16-8e97-c15a5718eaa2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/both.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/both.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/server.cpp" afterDir="false" />
+    <list default="true" id="d3529586-07bd-4d16-8e97-c15a5718eaa2" name="Default Changelist" comment="THIS IS SO EPIC ALEXA PLAY NEON KNIGHTS">
+      <change afterPath="$PROJECT_DIR$/src/networking/message.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GGE/Utils/Any.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GGE/Utils/BasicGraphics.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GGE/Utils/Binary.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GGE/Utils/Bounds2D.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GGE/Utils/BufferList.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GGE/Utils/Collection.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GGE/Utils/EventChain.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GGE/Utils/FileSystemHelper.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GGE/Utils/GGE Flags.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GGE/Utils/GGE.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GGE/Utils/Iterator.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GGE/Utils/LinkedList.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GGE/Utils/ManagedBuffer.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GGE/Utils/Margins.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GGE/Utils/PAClassList.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GGE/Utils/Point2D.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GGE/Utils/Property.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GGE/Utils/Random.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GGE/Utils/Rectangle2D.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GGE/Utils/Size2D.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GGE/Utils/Utils.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GGE/Utils/ValueList.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SocketLib/Definitions.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SocketLib/HostInfo.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SocketLib/HostInfo.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SocketLib/Networking.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SocketLib/Networking.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SocketLib/Private.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SocketLib/Private.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SocketLib/SocketException.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SocketLib/TCPClient.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SocketLib/TCPServer.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SocketLib/TCPServer.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SocketLib/TCPSocketStream.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SocketLib/TCPSocketStreamBuffer.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SocketLib/TCPSocketStreamBuffer.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SocketLib/pThreads/pthread.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SocketLib/pThreads/pthreadVC2.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SocketLib/pThreads/pthreadVC2.lib" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SocketLib/pThreads/sched.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SocketLib/pThreads/semaphore.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-clang/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug-clang/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/client.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/server.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -163,6 +122,9 @@
       <workItem from="1575571915264" duration="1030000" />
       <workItem from="1576199478312" duration="4361000" />
       <workItem from="1576353798744" duration="2793000" />
+      <workItem from="1576357108291" duration="922000" />
+      <workItem from="1576717808998" duration="901000" />
+      <workItem from="1576727225446" duration="835000" />
     </task>
     <task id="LOCAL-00001" summary="revert my CMakeList changes if they break ur installation">
       <created>1573249038059</created>
@@ -206,7 +168,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576204047340</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="THIS IS SO EPIC ALEXA PLAY NEON KNIGHTS">
+      <created>1576357249188</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1576357249188</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,6 +195,8 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="revert my CMakeList changes if they break ur installation" />
     <MESSAGE value="format" />
     <MESSAGE value="added registry" />
@@ -233,6 +204,7 @@
     <MESSAGE value="added base for good worldgen" />
     <MESSAGE value="fixed nbt" />
     <MESSAGE value="networking that d ont work" />
-    <option name="LAST_COMMIT_MESSAGE" value="networking that d ont work" />
+    <MESSAGE value="THIS IS SO EPIC ALEXA PLAY NEON KNIGHTS" />
+    <option name="LAST_COMMIT_MESSAGE" value="THIS IS SO EPIC ALEXA PLAY NEON KNIGHTS" />
   </component>
 </project>
