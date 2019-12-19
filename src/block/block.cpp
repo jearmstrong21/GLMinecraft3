@@ -2,6 +2,7 @@
 // Created by Jack Armstrong on 11/15/19.
 //
 
+#include <boost/array.hpp>
 #include "block.h"
 
 namespace block {
@@ -81,5 +82,29 @@ namespace block {
     }
 
     void chunk::set(glm::ivec3 v, block_state b) { set(v.x, v.y, v.z, b); }
+
+    void chunk::serialize(int section_y, boost::array<long, 4096> &array) {
+        int i=0;
+        for(int x=0;x<16;x++){
+            for(int y=0;y<16;y++){
+                for(int z=0;z<16;z++){
+                    array[i]=palette[data[x][y+section_y*16][z]];
+                    i++;
+                }
+            }
+        }
+    }
+
+    void chunk::read(int section_y, boost::array<long, 4096> &array) {
+        int i=0;
+        for(int x=0;x<16;x++){
+            for(int y=0;y<16;y++){
+                for(int z=0;z<16;z++){
+                    set(x,y+section_y*16,z,array[i]);
+                    i++;
+                }
+            }
+        }
+    }
 
 }

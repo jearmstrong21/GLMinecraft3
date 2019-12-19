@@ -13,6 +13,7 @@
 #include "client/block_rendering.h"
 #include "blockstate.h"
 #include <csignal>
+#include <boost/array.hpp>
 
 namespace block {
 
@@ -30,6 +31,9 @@ namespace block {
         [[nodiscard]] block_state get(glm::ivec3 v)const;
         void set(int x, int y, int z, block_state b);
         void set(glm::ivec3 v, block_state b);
+
+        void serialize(int section_y,boost::array<long,4096>&array);
+        void read(int section_y,boost::array<long,4096>&array);
 
     };
 
