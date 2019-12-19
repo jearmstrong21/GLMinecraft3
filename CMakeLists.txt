@@ -14,8 +14,10 @@ find_package (glfw3 REQUIRED)
 if(NOT APPLE)
     add_link_options(/usr/lib/libdl.so.2)
     add_link_options(-lpthread)
-    add_link_options(-lboost_thread)
 endif()
+
+#add_link_options(-lboost_thread-mt)
+target_link_libraries(boost_thread-mt)
 
 include_directories(/usr/local/include glad)
 include_directories(${GLFW_INCLUDE_DIRS})
@@ -68,6 +70,7 @@ set(SOURCE_FILES
         src/nbt/nbt.cpp
 
         src/server/entity.cpp
+        src/server/server.cpp
         src/client.cpp src/both.h src/server.cpp src/networking/message.h)
 
 set(MAC_LIBS)

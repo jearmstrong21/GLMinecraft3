@@ -525,70 +525,44 @@ CMakeFiles/GLMinecraft3.dir/src/server/entity.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/server/entity.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/server/entity.cpp -o CMakeFiles/GLMinecraft3.dir/src/server/entity.cpp.s
 
-CMakeFiles/GLMinecraft3.dir/SocketLib/Private.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/SocketLib/Private.cpp.o: ../SocketLib/Private.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building CXX object CMakeFiles/GLMinecraft3.dir/SocketLib/Private.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/SocketLib/Private.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/SocketLib/Private.cpp
+CMakeFiles/GLMinecraft3.dir/src/server/server.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
+CMakeFiles/GLMinecraft3.dir/src/server/server.cpp.o: ../src/server/server.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/server/server.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/server/server.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/server/server.cpp
 
-CMakeFiles/GLMinecraft3.dir/SocketLib/Private.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/SocketLib/Private.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/SocketLib/Private.cpp > CMakeFiles/GLMinecraft3.dir/SocketLib/Private.cpp.i
+CMakeFiles/GLMinecraft3.dir/src/server/server.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/server/server.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/server/server.cpp > CMakeFiles/GLMinecraft3.dir/src/server/server.cpp.i
 
-CMakeFiles/GLMinecraft3.dir/SocketLib/Private.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/SocketLib/Private.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/SocketLib/Private.cpp -o CMakeFiles/GLMinecraft3.dir/SocketLib/Private.cpp.s
+CMakeFiles/GLMinecraft3.dir/src/server/server.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/server/server.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/server/server.cpp -o CMakeFiles/GLMinecraft3.dir/src/server/server.cpp.s
 
-CMakeFiles/GLMinecraft3.dir/SocketLib/TCPSocketStreamBuffer.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/SocketLib/TCPSocketStreamBuffer.cpp.o: ../SocketLib/TCPSocketStreamBuffer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object CMakeFiles/GLMinecraft3.dir/SocketLib/TCPSocketStreamBuffer.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/SocketLib/TCPSocketStreamBuffer.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/SocketLib/TCPSocketStreamBuffer.cpp
+CMakeFiles/GLMinecraft3.dir/src/client.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
+CMakeFiles/GLMinecraft3.dir/src/client.cpp.o: ../src/client.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/client.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/client.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/client.cpp
 
-CMakeFiles/GLMinecraft3.dir/SocketLib/TCPSocketStreamBuffer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/SocketLib/TCPSocketStreamBuffer.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/SocketLib/TCPSocketStreamBuffer.cpp > CMakeFiles/GLMinecraft3.dir/SocketLib/TCPSocketStreamBuffer.cpp.i
+CMakeFiles/GLMinecraft3.dir/src/client.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/client.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/client.cpp > CMakeFiles/GLMinecraft3.dir/src/client.cpp.i
 
-CMakeFiles/GLMinecraft3.dir/SocketLib/TCPSocketStreamBuffer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/SocketLib/TCPSocketStreamBuffer.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/SocketLib/TCPSocketStreamBuffer.cpp -o CMakeFiles/GLMinecraft3.dir/SocketLib/TCPSocketStreamBuffer.cpp.s
+CMakeFiles/GLMinecraft3.dir/src/client.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/client.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/client.cpp -o CMakeFiles/GLMinecraft3.dir/src/client.cpp.s
 
-CMakeFiles/GLMinecraft3.dir/SocketLib/TCPServer.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/SocketLib/TCPServer.cpp.o: ../SocketLib/TCPServer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building CXX object CMakeFiles/GLMinecraft3.dir/SocketLib/TCPServer.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/SocketLib/TCPServer.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/SocketLib/TCPServer.cpp
+CMakeFiles/GLMinecraft3.dir/src/server.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
+CMakeFiles/GLMinecraft3.dir/src/server.cpp.o: ../src/server.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/server.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/server.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/server.cpp
 
-CMakeFiles/GLMinecraft3.dir/SocketLib/TCPServer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/SocketLib/TCPServer.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/SocketLib/TCPServer.cpp > CMakeFiles/GLMinecraft3.dir/SocketLib/TCPServer.cpp.i
+CMakeFiles/GLMinecraft3.dir/src/server.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/server.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/server.cpp > CMakeFiles/GLMinecraft3.dir/src/server.cpp.i
 
-CMakeFiles/GLMinecraft3.dir/SocketLib/TCPServer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/SocketLib/TCPServer.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/SocketLib/TCPServer.cpp -o CMakeFiles/GLMinecraft3.dir/SocketLib/TCPServer.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/SocketLib/Networking.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/SocketLib/Networking.cpp.o: ../SocketLib/Networking.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building CXX object CMakeFiles/GLMinecraft3.dir/SocketLib/Networking.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/SocketLib/Networking.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/SocketLib/Networking.cpp
-
-CMakeFiles/GLMinecraft3.dir/SocketLib/Networking.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/SocketLib/Networking.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/SocketLib/Networking.cpp > CMakeFiles/GLMinecraft3.dir/SocketLib/Networking.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/SocketLib/Networking.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/SocketLib/Networking.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/SocketLib/Networking.cpp -o CMakeFiles/GLMinecraft3.dir/SocketLib/Networking.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/SocketLib/HostInfo.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/SocketLib/HostInfo.cpp.o: ../SocketLib/HostInfo.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building CXX object CMakeFiles/GLMinecraft3.dir/SocketLib/HostInfo.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/SocketLib/HostInfo.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/SocketLib/HostInfo.cpp
-
-CMakeFiles/GLMinecraft3.dir/SocketLib/HostInfo.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/SocketLib/HostInfo.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/SocketLib/HostInfo.cpp > CMakeFiles/GLMinecraft3.dir/SocketLib/HostInfo.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/SocketLib/HostInfo.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/SocketLib/HostInfo.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/SocketLib/HostInfo.cpp -o CMakeFiles/GLMinecraft3.dir/SocketLib/HostInfo.cpp.s
+CMakeFiles/GLMinecraft3.dir/src/server.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/server.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/server.cpp -o CMakeFiles/GLMinecraft3.dir/src/server.cpp.s
 
 # Object files for target GLMinecraft3
 GLMinecraft3_OBJECTS = \
@@ -628,11 +602,9 @@ GLMinecraft3_OBJECTS = \
 "CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_utils.cpp.o" \
 "CMakeFiles/GLMinecraft3.dir/src/nbt/nbt.cpp.o" \
 "CMakeFiles/GLMinecraft3.dir/src/server/entity.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/SocketLib/Private.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/SocketLib/TCPSocketStreamBuffer.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/SocketLib/TCPServer.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/SocketLib/Networking.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/SocketLib/HostInfo.cpp.o"
+"CMakeFiles/GLMinecraft3.dir/src/server/server.cpp.o" \
+"CMakeFiles/GLMinecraft3.dir/src/client.cpp.o" \
+"CMakeFiles/GLMinecraft3.dir/src/server.cpp.o"
 
 # External object files for target GLMinecraft3
 GLMinecraft3_EXTERNAL_OBJECTS =
@@ -673,15 +645,13 @@ GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_string.cpp.o
 GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_utils.cpp.o
 GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/nbt/nbt.cpp.o
 GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/server/entity.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/SocketLib/Private.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/SocketLib/TCPSocketStreamBuffer.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/SocketLib/TCPServer.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/SocketLib/Networking.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/SocketLib/HostInfo.cpp.o
+GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/server/server.cpp.o
+GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/client.cpp.o
+GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/server.cpp.o
 GLMinecraft3: CMakeFiles/GLMinecraft3.dir/build.make
-GLMinecraft3: /usr/local/lib/libglfw3.a
+GLMinecraft3: /usr/local/lib/libglfw.3.3.dylib
 GLMinecraft3: CMakeFiles/GLMinecraft3.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Linking CXX executable GLMinecraft3"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Linking CXX executable GLMinecraft3"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/GLMinecraft3.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

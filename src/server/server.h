@@ -16,6 +16,8 @@ namespace server {
         std::shared_ptr<block::world>world;
         std::shared_ptr<entity_manager>entities;
 
+        void setup_server();
+
     };
 
 }

@@ -14,6 +14,7 @@ namespace server {
 //            default:
 //                return
 //        }
+        return std::shared_ptr<entity_type>(nullptr);
     }
 
     std::shared_ptr<nbt::nbt> entity_type_base::initialize() const {

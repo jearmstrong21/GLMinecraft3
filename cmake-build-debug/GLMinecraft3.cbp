@@ -44,9 +44,11 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DGLFW_DLL"/>
+					<Add directory="/usr/local/include"/>
 					<Add directory="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/glad"/>
 					<Add directory="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src"/>
-					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/local/Cellar/glfw/3.3/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.0/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
@@ -67,9 +69,11 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DGLFW_DLL"/>
+					<Add directory="/usr/local/include"/>
 					<Add directory="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/glad"/>
 					<Add directory="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src"/>
-					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/local/Cellar/glfw/3.3/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.0/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
@@ -84,36 +88,6 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/SocketLib/HostInfo.cpp">
-			<Option target="GLMinecraft3"/>
-		</Unit>
-		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/SocketLib/HostInfo.h">
-			<Option target="GLMinecraft3"/>
-		</Unit>
-		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/SocketLib/Networking.cpp">
-			<Option target="GLMinecraft3"/>
-		</Unit>
-		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/SocketLib/Networking.h">
-			<Option target="GLMinecraft3"/>
-		</Unit>
-		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/SocketLib/Private.cpp">
-			<Option target="GLMinecraft3"/>
-		</Unit>
-		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/SocketLib/Private.h">
-			<Option target="GLMinecraft3"/>
-		</Unit>
-		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/SocketLib/TCPServer.cpp">
-			<Option target="GLMinecraft3"/>
-		</Unit>
-		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/SocketLib/TCPServer.h">
-			<Option target="GLMinecraft3"/>
-		</Unit>
-		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/SocketLib/TCPSocketStreamBuffer.cpp">
-			<Option target="GLMinecraft3"/>
-		</Unit>
-		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/SocketLib/TCPSocketStreamBuffer.h">
-			<Option target="GLMinecraft3"/>
-		</Unit>
 		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/block/block.cpp">
 			<Option target="GLMinecraft3"/>
 		</Unit>
@@ -154,6 +128,12 @@
 			<Option target="GLMinecraft3"/>
 		</Unit>
 		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/block/types/block_stone.h">
+			<Option target="GLMinecraft3"/>
+		</Unit>
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/both.h">
+			<Option target="GLMinecraft3"/>
+		</Unit>
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/client.cpp">
 			<Option target="GLMinecraft3"/>
 		</Unit>
 		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/client/block_rendering.cpp">
@@ -261,6 +241,12 @@
 		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/nbt.h">
 			<Option target="GLMinecraft3"/>
 		</Unit>
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/networking/message.h">
+			<Option target="GLMinecraft3"/>
+		</Unit>
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/server.cpp">
+			<Option target="GLMinecraft3"/>
+		</Unit>
 		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/server/entity.cpp">
 			<Option target="GLMinecraft3"/>
 		</Unit>
@@ -271,6 +257,12 @@
 			<Option target="GLMinecraft3"/>
 		</Unit>
 		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/server/registry.h">
+			<Option target="GLMinecraft3"/>
+		</Unit>
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/server/server.cpp">
+			<Option target="GLMinecraft3"/>
+		</Unit>
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/server/server.h">
 			<Option target="GLMinecraft3"/>
 		</Unit>
 		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/utils/noise/noise.cpp">
@@ -336,7 +328,7 @@
 		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/../../../../../usr/local/lib/cmake/glfw3/glfw3ConfigVersion.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\glfw3\"/>
 		</Unit>
-		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/../../../../../usr/local/lib/cmake/glfw3/glfw3Targets-noconfig.cmake">
+		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/../../../../../usr/local/lib/cmake/glfw3/glfw3Targets-release.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\glfw3\"/>
 		</Unit>
 		<Unit filename="/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/../../../../../usr/local/lib/cmake/glfw3/glfw3Targets.cmake">

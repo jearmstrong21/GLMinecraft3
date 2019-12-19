@@ -14,6 +14,7 @@
 #include <boost/enable_shared_from_this.hpp>
 #include <boost/asio.hpp>
 #include "networking/message.h"
+#include "server/server.h"
 
 namespace networking {
     using boost::asio::ip::tcp;

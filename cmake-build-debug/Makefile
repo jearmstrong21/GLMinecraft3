@@ -123,141 +123,6 @@ GLMinecraft3/fast:
 	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/build
 .PHONY : GLMinecraft3/fast
 
-SocketLib/HostInfo.o: SocketLib/HostInfo.cpp.o
-
-.PHONY : SocketLib/HostInfo.o
-
-# target to build an object file
-SocketLib/HostInfo.cpp.o:
-	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/SocketLib/HostInfo.cpp.o
-.PHONY : SocketLib/HostInfo.cpp.o
-
-SocketLib/HostInfo.i: SocketLib/HostInfo.cpp.i
-
-.PHONY : SocketLib/HostInfo.i
-
-# target to preprocess a source file
-SocketLib/HostInfo.cpp.i:
-	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/SocketLib/HostInfo.cpp.i
-.PHONY : SocketLib/HostInfo.cpp.i
-
-SocketLib/HostInfo.s: SocketLib/HostInfo.cpp.s
-
-.PHONY : SocketLib/HostInfo.s
-
-# target to generate assembly for a file
-SocketLib/HostInfo.cpp.s:
-	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/SocketLib/HostInfo.cpp.s
-.PHONY : SocketLib/HostInfo.cpp.s
-
-SocketLib/Networking.o: SocketLib/Networking.cpp.o
-
-.PHONY : SocketLib/Networking.o
-
-# target to build an object file
-SocketLib/Networking.cpp.o:
-	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/SocketLib/Networking.cpp.o
-.PHONY : SocketLib/Networking.cpp.o
-
-SocketLib/Networking.i: SocketLib/Networking.cpp.i
-
-.PHONY : SocketLib/Networking.i
-
-# target to preprocess a source file
-SocketLib/Networking.cpp.i:
-	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/SocketLib/Networking.cpp.i
-.PHONY : SocketLib/Networking.cpp.i
-
-SocketLib/Networking.s: SocketLib/Networking.cpp.s
-
-.PHONY : SocketLib/Networking.s
-
-# target to generate assembly for a file
-SocketLib/Networking.cpp.s:
-	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/SocketLib/Networking.cpp.s
-.PHONY : SocketLib/Networking.cpp.s
-
-SocketLib/Private.o: SocketLib/Private.cpp.o
-
-.PHONY : SocketLib/Private.o
-
-# target to build an object file
-SocketLib/Private.cpp.o:
-	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/SocketLib/Private.cpp.o
-.PHONY : SocketLib/Private.cpp.o
-
-SocketLib/Private.i: SocketLib/Private.cpp.i
-
-.PHONY : SocketLib/Private.i
-
-# target to preprocess a source file
-SocketLib/Private.cpp.i:
-	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/SocketLib/Private.cpp.i
-.PHONY : SocketLib/Private.cpp.i
-
-SocketLib/Private.s: SocketLib/Private.cpp.s
-
-.PHONY : SocketLib/Private.s
-
-# target to generate assembly for a file
-SocketLib/Private.cpp.s:
-	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/SocketLib/Private.cpp.s
-.PHONY : SocketLib/Private.cpp.s
-
-SocketLib/TCPServer.o: SocketLib/TCPServer.cpp.o
-
-.PHONY : SocketLib/TCPServer.o
-
-# target to build an object file
-SocketLib/TCPServer.cpp.o:
-	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/SocketLib/TCPServer.cpp.o
-.PHONY : SocketLib/TCPServer.cpp.o
-
-SocketLib/TCPServer.i: SocketLib/TCPServer.cpp.i
-
-.PHONY : SocketLib/TCPServer.i
-
-# target to preprocess a source file
-SocketLib/TCPServer.cpp.i:
-	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/SocketLib/TCPServer.cpp.i
-.PHONY : SocketLib/TCPServer.cpp.i
-
-SocketLib/TCPServer.s: SocketLib/TCPServer.cpp.s
-
-.PHONY : SocketLib/TCPServer.s
-
-# target to generate assembly for a file
-SocketLib/TCPServer.cpp.s:
-	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/SocketLib/TCPServer.cpp.s
-.PHONY : SocketLib/TCPServer.cpp.s
-
-SocketLib/TCPSocketStreamBuffer.o: SocketLib/TCPSocketStreamBuffer.cpp.o
-
-.PHONY : SocketLib/TCPSocketStreamBuffer.o
-
-# target to build an object file
-SocketLib/TCPSocketStreamBuffer.cpp.o:
-	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/SocketLib/TCPSocketStreamBuffer.cpp.o
-.PHONY : SocketLib/TCPSocketStreamBuffer.cpp.o
-
-SocketLib/TCPSocketStreamBuffer.i: SocketLib/TCPSocketStreamBuffer.cpp.i
-
-.PHONY : SocketLib/TCPSocketStreamBuffer.i
-
-# target to preprocess a source file
-SocketLib/TCPSocketStreamBuffer.cpp.i:
-	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/SocketLib/TCPSocketStreamBuffer.cpp.i
-.PHONY : SocketLib/TCPSocketStreamBuffer.cpp.i
-
-SocketLib/TCPSocketStreamBuffer.s: SocketLib/TCPSocketStreamBuffer.cpp.s
-
-.PHONY : SocketLib/TCPSocketStreamBuffer.s
-
-# target to generate assembly for a file
-SocketLib/TCPSocketStreamBuffer.cpp.s:
-	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/SocketLib/TCPSocketStreamBuffer.cpp.s
-.PHONY : SocketLib/TCPSocketStreamBuffer.cpp.s
-
 src/block/block.o: src/block/block.cpp.o
 
 .PHONY : src/block/block.o
@@ -446,6 +311,33 @@ src/block/types/block_stone.s: src/block/types/block_stone.cpp.s
 src/block/types/block_stone.cpp.s:
 	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/block/types/block_stone.cpp.s
 .PHONY : src/block/types/block_stone.cpp.s
+
+src/client.o: src/client.cpp.o
+
+.PHONY : src/client.o
+
+# target to build an object file
+src/client.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/client.cpp.o
+.PHONY : src/client.cpp.o
+
+src/client.i: src/client.cpp.i
+
+.PHONY : src/client.i
+
+# target to preprocess a source file
+src/client.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/client.cpp.i
+.PHONY : src/client.cpp.i
+
+src/client.s: src/client.cpp.s
+
+.PHONY : src/client.s
+
+# target to generate assembly for a file
+src/client.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/client.cpp.s
+.PHONY : src/client.cpp.s
 
 src/client/block_rendering.o: src/client/block_rendering.cpp.o
 
@@ -933,6 +825,33 @@ src/nbt/nbt.cpp.s:
 	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/nbt/nbt.cpp.s
 .PHONY : src/nbt/nbt.cpp.s
 
+src/server.o: src/server.cpp.o
+
+.PHONY : src/server.o
+
+# target to build an object file
+src/server.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/server.cpp.o
+.PHONY : src/server.cpp.o
+
+src/server.i: src/server.cpp.i
+
+.PHONY : src/server.i
+
+# target to preprocess a source file
+src/server.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/server.cpp.i
+.PHONY : src/server.cpp.i
+
+src/server.s: src/server.cpp.s
+
+.PHONY : src/server.s
+
+# target to generate assembly for a file
+src/server.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/server.cpp.s
+.PHONY : src/server.cpp.s
+
 src/server/entity.o: src/server/entity.cpp.o
 
 .PHONY : src/server/entity.o
@@ -986,6 +905,33 @@ src/server/registry.s: src/server/registry.cpp.s
 src/server/registry.cpp.s:
 	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/server/registry.cpp.s
 .PHONY : src/server/registry.cpp.s
+
+src/server/server.o: src/server/server.cpp.o
+
+.PHONY : src/server/server.o
+
+# target to build an object file
+src/server/server.cpp.o:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/server/server.cpp.o
+.PHONY : src/server/server.cpp.o
+
+src/server/server.i: src/server/server.cpp.i
+
+.PHONY : src/server/server.i
+
+# target to preprocess a source file
+src/server/server.cpp.i:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/server/server.cpp.i
+.PHONY : src/server/server.cpp.i
+
+src/server/server.s: src/server/server.cpp.s
+
+.PHONY : src/server/server.s
+
+# target to generate assembly for a file
+src/server/server.cpp.s:
+	$(MAKE) -f CMakeFiles/GLMinecraft3.dir/build.make CMakeFiles/GLMinecraft3.dir/src/server/server.cpp.s
+.PHONY : src/server/server.cpp.s
 
 src/utils/noise/noise.o: src/utils/noise/noise.cpp.o
 
@@ -1239,21 +1185,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... GLMinecraft3"
-	@echo "... SocketLib/HostInfo.o"
-	@echo "... SocketLib/HostInfo.i"
-	@echo "... SocketLib/HostInfo.s"
-	@echo "... SocketLib/Networking.o"
-	@echo "... SocketLib/Networking.i"
-	@echo "... SocketLib/Networking.s"
-	@echo "... SocketLib/Private.o"
-	@echo "... SocketLib/Private.i"
-	@echo "... SocketLib/Private.s"
-	@echo "... SocketLib/TCPServer.o"
-	@echo "... SocketLib/TCPServer.i"
-	@echo "... SocketLib/TCPServer.s"
-	@echo "... SocketLib/TCPSocketStreamBuffer.o"
-	@echo "... SocketLib/TCPSocketStreamBuffer.i"
-	@echo "... SocketLib/TCPSocketStreamBuffer.s"
 	@echo "... src/block/block.o"
 	@echo "... src/block/block.i"
 	@echo "... src/block/block.s"
@@ -1275,6 +1206,9 @@ help:
 	@echo "... src/block/types/block_stone.o"
 	@echo "... src/block/types/block_stone.i"
 	@echo "... src/block/types/block_stone.s"
+	@echo "... src/client.o"
+	@echo "... src/client.i"
+	@echo "... src/client.s"
 	@echo "... src/client/block_rendering.o"
 	@echo "... src/client/block_rendering.i"
 	@echo "... src/client/block_rendering.s"
@@ -1329,12 +1263,18 @@ help:
 	@echo "... src/nbt/nbt.o"
 	@echo "... src/nbt/nbt.i"
 	@echo "... src/nbt/nbt.s"
+	@echo "... src/server.o"
+	@echo "... src/server.i"
+	@echo "... src/server.s"
 	@echo "... src/server/entity.o"
 	@echo "... src/server/entity.i"
 	@echo "... src/server/entity.s"
 	@echo "... src/server/registry.o"
 	@echo "... src/server/registry.i"
 	@echo "... src/server/registry.s"
+	@echo "... src/server/server.o"
+	@echo "... src/server/server.i"
+	@echo "... src/server/server.s"
 	@echo "... src/utils/noise/noise.o"
 	@echo "... src/utils/noise/noise.i"
 	@echo "... src/utils/noise/noise.s"

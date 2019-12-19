@@ -4,11 +4,6 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/SocketLib/HostInfo.cpp" "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/SocketLib/HostInfo.cpp.o"
-  "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/SocketLib/Networking.cpp" "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/SocketLib/Networking.cpp.o"
-  "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/SocketLib/Private.cpp" "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/SocketLib/Private.cpp.o"
-  "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/SocketLib/TCPServer.cpp" "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/SocketLib/TCPServer.cpp.o"
-  "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/SocketLib/TCPSocketStreamBuffer.cpp" "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/SocketLib/TCPSocketStreamBuffer.cpp.o"
   "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/block/block.cpp" "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/src/block/block.cpp.o"
   "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/block/blocks.cpp" "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/src/block/blocks.cpp.o"
   "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/block/blockstate.cpp" "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/src/block/blockstate.cpp.o"
@@ -16,6 +11,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/block/types/block_grass.cpp" "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/src/block/types/block_grass.cpp.o"
   "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/block/types/block_none.cpp" "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/src/block/types/block_none.cpp.o"
   "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/block/types/block_stone.cpp" "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/src/block/types/block_stone.cpp.o"
+  "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/client.cpp" "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/src/client.cpp.o"
   "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/client/block_rendering.cpp" "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/src/client/block_rendering.cpp.o"
   "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/client/game.cpp" "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/src/client/game.cpp.o"
   "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/client/rendered_chunk.cpp" "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/src/client/rendered_chunk.cpp.o"
@@ -34,8 +30,10 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/__nbt_string.cpp" "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_string.cpp.o"
   "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/__nbt_utils.cpp" "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_utils.cpp.o"
   "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/nbt.cpp" "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/src/nbt/nbt.cpp.o"
+  "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/server.cpp" "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/src/server.cpp.o"
   "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/server/entity.cpp" "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/src/server/entity.cpp.o"
   "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/server/registry.cpp" "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/src/server/registry.cpp.o"
+  "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/server/server.cpp" "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/src/server/server.cpp.o"
   "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/utils/noise/noise.cpp" "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/src/utils/noise/noise.cpp.o"
   "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/utils/utils.cpp" "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/src/utils/utils.cpp.o"
   "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/world/gen/carver/base_carver.cpp" "/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/base_carver.cpp.o"
@@ -48,11 +46,17 @@ set(CMAKE_DEPENDS_CHECK_CXX
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
+# Preprocessor definitions for this target.
+set(CMAKE_TARGET_DEFINITIONS_CXX
+  "GLFW_DLL"
+  )
+
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "/usr/local/include"
   "../glad"
   "../src"
-  "/usr/local/include"
+  "/usr/local/Cellar/glfw/3.3/include"
   )
 
 # Targets to which this target links.
