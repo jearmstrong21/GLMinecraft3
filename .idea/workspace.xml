@@ -11,13 +11,8 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3529586-07bd-4d16-8e97-c15a5718eaa2" name="Default Changelist" comment="THIS IS SO EPIC ALEXA PLAY NEON KNIGHTS">
-      <change afterPath="$PROJECT_DIR$/src/networking/message.h" afterDir="false" />
+    <list default="true" id="d3529586-07bd-4d16-8e97-c15a5718eaa2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug-clang/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug-clang/CMakeFiles/clion-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/client.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/server.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -124,7 +119,8 @@
       <workItem from="1576353798744" duration="2793000" />
       <workItem from="1576357108291" duration="922000" />
       <workItem from="1576717808998" duration="901000" />
-      <workItem from="1576727225446" duration="835000" />
+      <workItem from="1576727225446" duration="1617000" />
+      <workItem from="1576772707938" duration="2035000" />
     </task>
     <task id="LOCAL-00001" summary="revert my CMakeList changes if they break ur installation">
       <created>1573249038059</created>
@@ -175,7 +171,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576357249188</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="despacito">
+      <created>1576728254489</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1576728254489</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -205,6 +208,7 @@
     <MESSAGE value="fixed nbt" />
     <MESSAGE value="networking that d ont work" />
     <MESSAGE value="THIS IS SO EPIC ALEXA PLAY NEON KNIGHTS" />
-    <option name="LAST_COMMIT_MESSAGE" value="THIS IS SO EPIC ALEXA PLAY NEON KNIGHTS" />
+    <MESSAGE value="despacito" />
+    <option name="LAST_COMMIT_MESSAGE" value="despacito" />
   </component>
 </project>

@@ -14,10 +14,8 @@ find_package (glfw3 REQUIRED)
 if(NOT APPLE)
     add_link_options(/usr/lib/libdl.so.2)
     add_link_options(-lpthread)
+    add_link_options(-lboost_thread)
 endif()
-
-#add_link_options(-lboost_thread-mt)
-target_link_libraries(boost_thread-mt)
 
 include_directories(/usr/local/include glad)
 include_directories(${GLFW_INCLUDE_DIRS})
@@ -26,6 +24,8 @@ if(APPLE)
     find_library(COCOA_LIBRARY Cocoa REQUIRED)
     find_library(IOKIT_LIBRARY IOKit REQUIRED)
     find_library(COREVID_LIBRARY CoreVideo REQUIRED)
+
+    target_link_libraries(boost_thread-mt)
 endif()
 
 include_directories(src)
