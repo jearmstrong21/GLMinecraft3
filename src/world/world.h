@@ -15,7 +15,6 @@
 #define WORLD_SIZE 16
 
 namespace block {
-
     struct world {
 
         std::shared_ptr<chunk> map[WORLD_SIZE][WORLD_SIZE];
@@ -40,4 +39,4 @@ namespace block {
 
 }
 
-#endif //GLMINECRAFT3_WORLD_H
+#endif //GLMINECRAFT3_CLIENT_WORLD_H
