@@ -24,8 +24,6 @@ if(APPLE)
     find_library(COCOA_LIBRARY Cocoa REQUIRED)
     find_library(IOKIT_LIBRARY IOKit REQUIRED)
     find_library(COREVID_LIBRARY CoreVideo REQUIRED)
-
-    target_link_libraries(boost_thread-mt)
 endif()
 
 include_directories(src)
@@ -83,6 +81,9 @@ if(APPLE)
             )
 endif()
 
+if(APPLE)
+    link_libraries(/usr/local/lib/libboost_thread-mt.dylib)
+endif()
 add_executable(GLMinecraft3 ${SOURCE_FILES})
 target_link_libraries (GLMinecraft3
         ${OPENGL_LIBRARIES}
