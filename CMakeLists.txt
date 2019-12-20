@@ -69,7 +69,7 @@ set(SOURCE_FILES
 
         src/server/entity.cpp
         src/server/server.cpp
-        src/client.cpp src/both.h src/server.cpp src/networking/message.h)
+        src/client.cpp src/both.h src/server.cpp src/networking/message.h src/client/client_world.cpp src/client/client_world.h src/utils/eventable.cpp src/utils/eventable.h)
 
 set(MAC_LIBS)
 
