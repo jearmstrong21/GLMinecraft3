@@ -29,7 +29,7 @@ namespace networking {
         glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
         glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GLFW_TRUE);
         glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-        GLFWwindow* window = glfwCreateWindow(500, 500, "GLMinecraft3", nullptr, nullptr);
+        GLFWwindow* window = glfwCreateWindow(1000, 1000, "GLMinecraft3", nullptr, nullptr);
 
         glfwMakeContextCurrent(window);
         gladLoadGLLoader((GLADloadproc) glfwGetProcAddress);

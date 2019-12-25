@@ -16,6 +16,64 @@ namespace client {
         world=std::make_shared<block::world>();
         shader = std::make_shared<gl::shader>("test", "test");
         texture = std::make_shared<gl::texture>("1.8_textures_0.png");
+        basic_shader=std::make_shared<gl::shader>("basic","basic");
+        gl::mesh_data cube_data;
+        cube_data.buffers.push_back({3,{
+            // 000 001 010 011 100 101 110 111
+
+            0,0,0, 1,0,0,
+            0,0,0, 0,1,0,
+            0,0,0, 0,0,1,
+
+            0,0,1, 1,0,0,
+            0,0,1, 0,1,0,
+            0,0,1, 0,0,0,
+
+            0,1,0, 1,1,0,
+            0,1,0, 0,0,0,
+            0,1,0, 0,1,1,
+
+            0,1,1, 1,1,1,
+            0,1,1, 0,0,1,
+            0,1,1, 0,1,0,
+
+            1,0,0, 0,0,0,
+            1,0,0, 1,1,0,
+            1,0,0, 1,0,1,
+
+            1,1,0, 0,1,0,
+            1,1,0, 1,0,0,
+            1,1,0, 1,1,1,
+
+            1,1,1, 0,1,1,
+            1,1,1, 1,0,1,
+            1,1,1, 1,1,0,
+
+        }});
+        cube_data.tri={
+            0,1,
+            2,3,
+            4,5,
+            6,7,
+            8,9,
+            10,11,
+            12,13,
+            14,15,
+            16,17,
+            18,19,
+            20,21,
+            22,23,
+            24,25,
+            26,27,
+            28,29,
+            30,31,
+            32,33,
+            34,35,
+            36,37,
+            38,39,
+            40,41
+        };
+        basic_cube=std::make_shared<gl::mesh>(&cube_data);
     }
 
     void game::loop() {
@@ -40,8 +98,19 @@ namespace client {
 
         for (int x = 0; x < WORLD_SIZE; x++) {
             for (int z = 0; z < WORLD_SIZE; z++) {
-//                if (rendered_world[x][z] != nullptr)
                 rendered_world[x][z]->render(shader);
+            }
+        }
+
+        basic_shader->bind();
+        basic_shader->uniform4x4("perspective", p);
+        basic_shader->uniform4x4("view", v);
+        for(int x=0;x<WORLD_SIZE;x++){
+            for(int y=0;y<16;y++){
+                for(int z=0;z<WORLD_SIZE;z++){
+                    basic_shader->uniform4x4("mode",glm::translate(glm::mat4(1),{x*16,y*16,z*16}));
+                    basic_cube->render_lines();
+                }
             }
         }
 
@@ -56,15 +125,6 @@ namespace client {
 
     void game::download_world() {
         try {
-//            for(int x=0;x<WORLD_SIZE*16;x++){
-//                for(int y=0;y<256;y++){
-//                    for(int z=0;z<WORLD_SIZE*16;z++){
-//                        if(rand()%10==5){
-//                            world->set(x,y,z,block::STONE.defaultState);
-//                        }
-//                    }
-//                }
-//            }
             boost::asio::io_context io_context;
 
             boost::asio::ip::tcp::resolver resolver(io_context);
@@ -74,11 +134,13 @@ namespace client {
             boost::asio::connect(socket,endpoints);
 
             boost::system::error_code err;
-            boost::array<long, 4096>arr{};
             for(int x=0;x<WORLD_SIZE;x++) {
                 for (int y = 0; y < 16; y++) {
                     for (int z = 0; z < WORLD_SIZE; z++) {
-                        size_t len=socket.read_some(boost::asio::buffer(arr),err);
+                        boost::array<long, 4096>arr{};
+                        size_t len = boost::asio::read(socket, boost::asio::buffer(arr));
+//                        printf("%zu %zu\n",len,sizeof(long),sizeof(long)*4096);
+//                        boost::asio::read(socket,arr);
                         if(err==boost::asio::error::eof){
                             printf("UNEXPECTED EOF %i %i %i\n",x,y,z);
                             std::raise(11);

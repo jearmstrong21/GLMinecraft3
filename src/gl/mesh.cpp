@@ -40,6 +40,7 @@ namespace gl {
 
     void mesh::render_triangles() {
         glBindVertexArray(vao);
+//        glDrawElements(GL_LINES,vert_count,GL_UNSIGNED_INT,0);
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,ebo);
         glDrawElements(GL_TRIANGLES, vert_count, GL_UNSIGNED_INT, 0);
     }
@@ -50,6 +51,12 @@ namespace gl {
 
     int mesh::vert_num() {
         return vert_count;
+    }
+
+    void mesh::render_lines() {
+        glBindVertexArray(vao);
+//        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,ebo);
+        glDrawArrays(GL_LINES,GL_UNSIGNED_INT,0);
     }
 
 }

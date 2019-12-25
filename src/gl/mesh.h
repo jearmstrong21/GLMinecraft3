@@ -21,6 +21,7 @@ namespace gl {
         ~mesh();
 
         void render_triangles();
+        void render_lines();
         int vao_id();
         int vert_num();
     };

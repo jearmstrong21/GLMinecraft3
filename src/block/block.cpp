@@ -71,7 +71,6 @@ namespace block {
 
     void chunk::set(int x, int y, int z, block_state b) {
         if (in_bounds(x, y, z)) {
-//                printf("SET %i,%i,%i: %i\n",x,y,z,b);
             if (palette_set.count(b) == 0) {
                 palette.push_back(b);
                 palette_set.insert(b);
