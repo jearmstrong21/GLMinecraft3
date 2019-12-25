@@ -9,13 +9,9 @@
 
 namespace block {
 
-    world::world() {
+    void world::generate_world() {
+        printf("GENERATE WORLD THIS SHOULD ONLY PRINT ON SERVER\n");
         int seed = time(0);
-        for (int x = 0; x < WORLD_SIZE; x++) {
-            for (int z = 0; z < WORLD_SIZE; z++) {
-                map[x][z] = std::make_shared<chunk>();
-            }
-        }
 
         std::shared_ptr<utils::noise::perlin> elevNoise = std::make_shared<utils::noise::perlin>(seed + 0);
         std::shared_ptr<utils::noise::perlin> roughNoise = std::make_shared<utils::noise::perlin>(seed + 1);
@@ -154,6 +150,14 @@ namespace block {
     block_context world::get_block_context(glm::ivec3 p) const {
         return block_context{get(p.x - 1, p.y, p.z), get(p.x + 1, p.y, p.z), get(p.x, p.y - 1, p.z),
                              get(p.x, p.y + 1, p.z), get(p.x, p.y, p.z - 1), get(p.x, p.y, p.z + 1), get(p), p};
+    }
+
+    world::world() {
+        for (int x = 0; x < WORLD_SIZE; x++) {
+            for (int z = 0; z < WORLD_SIZE; z++) {
+                map[x][z] = std::make_shared<chunk>();
+            }
+        }
     }
 
 }

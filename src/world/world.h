@@ -21,6 +21,8 @@ namespace block {
 
         world();
 
+        void generate_world();
+
         [[nodiscard]] bool in_bounds(int x, int y, int z)const;
 
         [[nodiscard]] bool in_bounds(glm::ivec3 v)const;

@@ -4,6 +4,7 @@
 
 #include <boost/array.hpp>
 #include "block.h"
+#include "blocks.h"
 
 namespace block {
 

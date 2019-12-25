@@ -11,8 +11,8 @@
 #include <string>
 
 namespace networking {
-    int client(std::string host, std::string port);
-    int server(int port);
+    int client();
+    int server();
 }
 
 #endif //GLMINECRAFT3_BOTH_H

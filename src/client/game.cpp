@@ -3,8 +3,8 @@
 //
 
 #include "game.h"
-#include "client_world.h"
 #include <thread>
+#include <boost/asio.hpp>
 
 namespace client {
 
@@ -12,60 +12,10 @@ namespace client {
         this->window = window;
     }
 
-    void on_chunk_load(std::shared_ptr<eventable<std::string>> world) {
-        // world instanceof client_world
-        std::cout << typeid(world).name();
-    }
-
     void game::initialize() {
-        std::clock_t start, end;
-
-        start = std::clock();
-        std::shared_ptr<client_world> world(new client_world());
-        end = std::clock();
-        printf("WORLDINIT took %f\n", (end - start) / double(CLOCKS_PER_SEC));
-
-
-        std::shared_ptr<eventable<std::string>> x = world;
-//        world->bind("chunk_load", &on_chunk_load);
-//        start = std::clock();
-//        std::vector<glm::ivec2> chunksToMesh;
-//        for (int x = 0; x < WORLD_SIZE; x++) {
-//            for (int z = 0; z < WORLD_SIZE; z++) {
-//                chunksToMesh.emplace_back(x, z);
-//            }
-//        }
-//        //1.30S 1T
-//        //1.91S 2T
-//        //2.49S 256T
-//        int numThreads = 1;
-//        int threadSpan = chunksToMesh.size() / numThreads;
-//        std::vector<std::thread> threads(numThreads);
-//        for (int i = 0; i < numThreads; i++) {
-//            threads.emplace_back([&](int threadIndex) {
-//                for (int t = threadIndex * threadSpan; t < (threadIndex + 1) * threadSpan; t++) {
-//                    glm::ivec2 v = chunksToMesh[t];
-//                    rendered_world[v.x][v.y] = std::make_shared<rendered_chunk>(v);
-//                    rendered_world[v.x][v.y]->take_chunk(world, world->map[v.x][v.y]);
-//                }
-//            }, i);
-//        }
-//        for (auto& t:threads) {
-//            t.join();
-//        }
-//        end = std::clock();
-//        printf("RENDER took %f\n", (end - start) / double(CLOCKS_PER_SEC));
-//
-//        start = std::clock();
-        shader = std::shared_ptr<gl::shader>(new gl::shader("test", "test"));
-        texture = std::shared_ptr<gl::texture>(new gl::texture("1.8_textures_0.png"));
-//        for (int x = 0; x < WORLD_SIZE; x++) {
-//            for (int z = 0; z < WORLD_SIZE; z++) {
-//                rendered_world[x][z]->render_chunk();
-//            }
-//        }
-//        end = std::clock();
-//        printf("GLINIT took %f\n", (end - start) / double(CLOCKS_PER_SEC));
+        world=std::make_shared<block::world>();
+        shader = std::make_shared<gl::shader>("test", "test");
+        texture = std::make_shared<gl::texture>("1.8_textures_0.png");
     }
 
     void game::loop() {
@@ -87,10 +37,11 @@ namespace client {
         shader->uniform4x4("perspective", p);
         shader->uniform4x4("view", v);
         shader->texture("tex", texture, 0);
+
         for (int x = 0; x < WORLD_SIZE; x++) {
             for (int z = 0; z < WORLD_SIZE; z++) {
-                if (rendered_world[x][z] != nullptr)
-                    rendered_world[x][z]->render(shader);
+//                if (rendered_world[x][z] != nullptr)
+                rendered_world[x][z]->render(shader);
             }
         }
 
@@ -101,6 +52,57 @@ namespace client {
 
     void game::end() {
 
+    }
+
+    void game::download_world() {
+        try {
+//            for(int x=0;x<WORLD_SIZE*16;x++){
+//                for(int y=0;y<256;y++){
+//                    for(int z=0;z<WORLD_SIZE*16;z++){
+//                        if(rand()%10==5){
+//                            world->set(x,y,z,block::STONE.defaultState);
+//                        }
+//                    }
+//                }
+//            }
+            boost::asio::io_context io_context;
+
+            boost::asio::ip::tcp::resolver resolver(io_context);
+            boost::asio::ip::tcp::resolver::results_type endpoints=resolver.resolve("localhost","daytime");
+
+            boost::asio::ip::tcp::socket socket(io_context);
+            boost::asio::connect(socket,endpoints);
+
+            boost::system::error_code err;
+            boost::array<long, 4096>arr{};
+            for(int x=0;x<WORLD_SIZE;x++) {
+                for (int y = 0; y < 16; y++) {
+                    for (int z = 0; z < WORLD_SIZE; z++) {
+                        size_t len=socket.read_some(boost::asio::buffer(arr),err);
+                        if(err==boost::asio::error::eof){
+                            printf("UNEXPECTED EOF %i %i %i\n",x,y,z);
+                            std::raise(11);
+                        }else if(err){
+                            throw boost::system::system_error(err);
+                        }
+                        world->map[x][z]->read(y,arr);
+                    }
+                }
+            }
+
+
+
+            for (int x = 0; x < WORLD_SIZE; x++) {
+                for (int z = 0; z < WORLD_SIZE; z++) {
+                    rendered_world[x][z]=std::make_shared<rendered_chunk>(glm::ivec2{x,z});
+                    rendered_world[x][z]->take_chunk(world,world->map[x][z]);
+                    rendered_world[x][z]->render_chunk();
+                }
+            }
+        }catch(std::exception&e){
+            std::cerr<<"client ex caught: "<<e.what()<<"\n";
+            std::raise(11);
+        }
     }
 
 }

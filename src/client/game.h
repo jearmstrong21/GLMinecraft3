@@ -23,6 +23,7 @@ namespace client {
 
         std::shared_ptr<gl::shader>shader;
         std::shared_ptr<gl::texture>texture;
+        std::shared_ptr<block::world>world;
         std::shared_ptr<rendered_chunk>rendered_world[WORLD_SIZE][WORLD_SIZE];
 
         GLFWwindow* window;
@@ -30,6 +31,7 @@ namespace client {
         explicit game(GLFWwindow* window);
 
         void initialize();
+        void download_world();
 
         void loop();
 

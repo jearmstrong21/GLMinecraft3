@@ -2,149 +2,64 @@
 // Created by paladin on 12/14/19.
 //
 
-#include "both.h"
 #include <cstdlib>
 #include <deque>
-#include <iostream>
-#include <boost/bind.hpp>
 #include <boost/asio.hpp>
-#include <boost/thread.hpp>
-#include "networking/message.h"
+#include "gl/gl.h"
+#include "client/game.h"
+
 
 namespace networking {
-    using boost::asio::ip::tcp;
 
-    typedef std::deque<chat_message> chat_message_queue;
+#define SIZE 100
 
-    class chat_client {
-    public:
-        chat_client(boost::asio::io_service& io_service,
-                    tcp::resolver::iterator endpoint_iterator)
-                : io_service_(io_service),
-                  socket_(io_service) {
-            tcp::endpoint endpoint = *endpoint_iterator;
-            socket_.async_connect(endpoint,
-                                  boost::bind(&chat_client::handle_connect, this,
-                                              boost::asio::placeholders::error, ++endpoint_iterator));
+
+    static void on_glfw_error(int error, const char* description) {
+        fprintf(stderr, "Error: %i,%s\n", error, description);
+    }
+
+
+    int client() {
+        glfwSetErrorCallback(on_glfw_error);
+        if (!glfwInit()) {
+            printf("GLFW NOT INITIALIZED\n");
+            exit(EXIT_FAILURE);
         }
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
+        glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GLFW_TRUE);
+        glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+        GLFWwindow* window = glfwCreateWindow(500, 500, "GLMinecraft3", nullptr, nullptr);
 
-        void write(const chat_message& msg) {
-            io_service_.post(boost::bind(&chat_client::do_write, this, msg));
-        }
+        glfwMakeContextCurrent(window);
+        gladLoadGLLoader((GLADloadproc) glfwGetProcAddress);
+        glfwSwapInterval(1);
 
-        void close() {
-            io_service_.post(boost::bind(&chat_client::do_close, this));
-        }
+        gl_check_error();
 
-    private:
+        bool is_first_frame = true;
 
-        void handle_connect(const boost::system::error_code& error,
-                            tcp::resolver::iterator endpoint_iterator) {
-            if (!error) {
-                boost::asio::async_read(socket_,
-                                        boost::asio::buffer(read_msg_.data(), chat_message::header_length),
-                                        boost::bind(&chat_client::handle_read_header, this,
-                                                    boost::asio::placeholders::error));
-            } else if (endpoint_iterator != tcp::resolver::iterator()) {
-                socket_.close();
-                tcp::endpoint endpoint = *endpoint_iterator;
-                socket_.async_connect(endpoint,
-                                      boost::bind(&chat_client::handle_connect, this,
-                                                  boost::asio::placeholders::error, ++endpoint_iterator));
-            }
-        }
+        client::game game(window);
+        game.initialize();
+        game.download_world();
 
-        void handle_read_header(const boost::system::error_code& error) {
-            if (!error && read_msg_.decode_header()) {
-                boost::asio::async_read(socket_,
-                                        boost::asio::buffer(read_msg_.body(), read_msg_.body_length()),
-                                        boost::bind(&chat_client::handle_read_body, this,
-                                                    boost::asio::placeholders::error));
-            } else {
-                do_close();
-            }
-        }
+        while (!glfwWindowShouldClose(window)) {
+            glGetError();
 
-        void handle_read_body(const boost::system::error_code& error) {
-            if (!error) {
-                std::cout.write(read_msg_.body(), read_msg_.body_length());
-                std::cout << "\n";
-                boost::asio::async_read(socket_,
-                                        boost::asio::buffer(read_msg_.data(), chat_message::header_length),
-                                        boost::bind(&chat_client::handle_read_header, this,
-                                                    boost::asio::placeholders::error));
-            } else {
-                do_close();
-            }
-        }
+            game.loop();
 
-        void do_write(chat_message msg) {
-            bool write_in_progress = !write_msgs_.empty();
-            write_msgs_.push_back(msg);
-            if (!write_in_progress) {
-                boost::asio::async_write(socket_,
-                                         boost::asio::buffer(write_msgs_.front().data(),
-                                                             write_msgs_.front().length()),
-                                         boost::bind(&chat_client::handle_write, this,
-                                                     boost::asio::placeholders::error));
-            }
-        }
+            glfwSwapBuffers(window);
+            glfwPollEvents();
 
-        void handle_write(const boost::system::error_code& error) {
-            if (!error) {
-                write_msgs_.pop_front();
-                if (!write_msgs_.empty()) {
-                    boost::asio::async_write(socket_,
-                                             boost::asio::buffer(write_msgs_.front().data(),
-                                                                 write_msgs_.front().length()),
-                                             boost::bind(&chat_client::handle_write, this,
-                                                         boost::asio::placeholders::error));
-                }
-            } else {
-                do_close();
-            }
-        }
-
-        void do_close() {
-            socket_.close();
-        }
-
-    private:
-        boost::asio::io_service& io_service_;
-        tcp::socket socket_;
-        chat_message read_msg_;
-        chat_message_queue write_msgs_;
-    };
-
-    int client(std::string host, std::string port) {
-        try {
-
-            boost::asio::io_service io_service;
-
-            tcp::resolver resolver(io_service);
-            tcp::resolver::query query(host, port);
-            tcp::resolver::iterator iterator = resolver.resolve(query);
-
-            chat_client c(io_service, iterator);
-
-            boost::thread t(boost::bind(&boost::asio::io_service::run, &io_service));
-
-            char line[chat_message::max_body_length + 1];
-            while (std::cin.getline(line, chat_message::max_body_length + 1)) {
-                using namespace std; // For strlen and memcpy.
-                chat_message msg;
-                msg.body_length(strlen(line));
-                memcpy(msg.body(), line, msg.body_length());
-                msg.encode_header();
-                c.write(msg);
+            if (is_first_frame) {
+                glfwSetWindowPos(window, 150, 150);
+                is_first_frame = false;
             }
 
-            c.close();
-            t.join();
+            gl_check_error();
         }
-        catch (std::exception& e) {
-            std::cerr << "Exception: " << e.what() << "\n";
-        }
+        game.end();
+        glfwTerminate();
 
         return 0;
     }
