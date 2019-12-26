@@ -2,32 +2,52 @@ cmake_minimum_required(VERSION 3.15)
 project(GLMinecraft3)
 
 set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_MODULE_PATH /usr/local/lib/cmake)
-set(CMAKE_PREFIX_PATH /usr/local/lib/cmake/glfw3)
 
 set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3")
 
-find_package (PkgConfig REQUIRED)
-find_package (OpenGL REQUIRED)
-find_package (glfw3 REQUIRED)
-
-if(NOT APPLE)
-    add_link_options(/usr/lib/libdl.so.2)
-    add_link_options(-lpthread)
-    add_link_options(-lboost_thread)
-endif()
-
 include_directories(/usr/local/include glad)
-include_directories(${GLFW_INCLUDE_DIRS})
-
-if(APPLE)
-    find_library(COCOA_LIBRARY Cocoa REQUIRED)
-    find_library(IOKIT_LIBRARY IOKit REQUIRED)
-    find_library(COREVID_LIBRARY CoreVideo REQUIRED)
-endif()
-
 include_directories(src)
+
+add_executable(embedfile __embed_file.c)
+#execute_process(COMMAND embedfile )
+add_custom_command(
+        OUTPUT ../src/gen_assets/SHADER_chunk_vert.c
+        COMMAND embedfile SHADER_chunk_vert ../src/assets/shaders/chunk.vert
+        DEPENDS src/assets/shaders/chunk.vert
+)
+add_custom_command(
+        OUTPUT ../src/gen_assets/SHADER_chunk_frag.c
+        COMMAND embedfile SHADER_chunk_frag ../src/assets/shaders/chunk.frag
+        DEPENDS src/assets/shaders/chunk.frag
+)
+add_custom_command(
+        OUTPUT ../src/gen_assets/SHADER_wireframe_vert.c
+        COMMAND embedfile SHADER_wireframe_vert ../src/assets/shaders/wireframe.vert
+        DEPENDS src/assets/shaders/wireframe.vert
+)
+add_custom_command(
+        OUTPUT ../src/gen_assets/SHADER_wireframe_frag.c
+        COMMAND embedfile SHADER_wireframe_frag ../src/assets/shaders/wireframe.frag
+        DEPENDS src/assets/shaders/wireframe.frag
+)
+add_custom_command(
+        OUTPUT ../src/gen_assets/TEXTURE_1_8_textures_0_png.c
+        COMMAND embedfile TEXTURE_1_8_textures_0_png ../src/assets/textures/1.8_textures_0.png
+        DEPENDS src/assets/textures/1.8_textures_0.png
+)
+#
+#src/gen_assets/SHADER_chunk_vert.c
+#src/gen_assets/SHADER_chunk_frag.c
+#src/gen_assets/SHADER_wireframe_vert.c
+#src/gen_assets/SHADER_wireframe_frag.c
+#
 set(SOURCE_FILES
+        src/gen_assets/SHADER_chunk_vert.c
+        src/gen_assets/SHADER_chunk_frag.c
+        src/gen_assets/SHADER_wireframe_vert.c
+        src/gen_assets/SHADER_wireframe_frag.c
+        src/gen_assets/TEXTURE_1_8_textures_0_png.c
+
         src/main.cpp
         src/utils/utils.cpp
         src/utils/noise/noise.cpp
@@ -75,25 +95,34 @@ set(SOURCE_FILES
         src/both.h
         )
 
-set(MAC_LIBS)
-
 if(APPLE)
-    set(MAC_LIBS
-            ${COCOA_LIBRARY}
-            ${COREVID_LIBRARY}
-            ${IOKIT_LIBRARY}
-            )
+    include_directories(/usr/local/include/GLFW)
+    include_directories(/usr/local/include/GL)
+
+    find_library(COCOA_LIBRARY Cocoa REQUIRED)
+    find_library(IOKIT_LIBRARY IOKit REQUIRED)
+    find_library(COREVID_LIBRARY CoreVideo REQUIRED)
+
+    link_libraries(${COCOA_LIBRARY})
+    link_libraries(${IOKIT_LIBRARY})
+    link_libraries(${COREVID_LIBRARY})
+
+    link_libraries(/usr/local/lib/libboost_thread-mt.a)
+    link_libraries(/usr/local/lib/libboost_program_options-mt.a)
+    link_libraries(/usr/local/lib/libglfw3.a)
 endif()
 
-if(APPLE)
-    link_libraries(/usr/local/lib/libboost_thread-mt.dylib)
-    link_libraries(/usr/local/lib/libboost_program_options-mt.dylib)
+if(NOT APPLE)
+    find_package (PkgConfig REQUIRED)
+    find_package (OpenGL REQUIRED)
+    find_package (glfw3 REQUIRED)
+    add_link_options(/usr/lib/libdl.so.2)
+    add_link_options(-lpthread)
+    add_link_options(-lboost_thread)
+    add_link_options(-lboost_program_options)
+    include_directories(${GLFW_INCLUDE_DIRS})
 endif()
+
+
 add_executable(GLMinecraft3 ${SOURCE_FILES})
-target_link_libraries (GLMinecraft3
-        ${OPENGL_LIBRARIES}
-#        ${COCOA_LIBRARY}
-#        ${COREVID_LIBRARY}
-#        ${IOKIT_LIBRARY}
-        ${MAC_LIBS}
-        ${GLFW3_LIBRARY} glfw)
+target_link_libraries (GLMinecraft3)

@@ -12,7 +12,7 @@
 #include "utils/noise/noise.h"
 #include "utils/utils.h"
 
-#define WORLD_SIZE 16
+#define WORLD_SIZE 2
 
 namespace block {
     struct world {

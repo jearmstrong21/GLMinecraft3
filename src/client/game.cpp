@@ -6,6 +6,21 @@
 #include <thread>
 #include <boost/asio.hpp>
 
+extern "C" const unsigned char TEXTURE_1_8_textures_0_png[];
+extern "C" const size_t TEXTURE_1_8_textures_0_png_len;
+
+extern "C" const unsigned char SHADER_chunk_frag[];
+extern "C" const size_t SHADER_chunk_frag_len;
+
+extern "C" const unsigned char SHADER_chunk_vert[];
+extern "C" const size_t SHADER_chunk_vert_len;
+
+extern "C" const unsigned char SHADER_wireframe_frag[];
+extern "C" const size_t SHADER_wireframe_frag_len;
+
+extern "C" const unsigned char SHADER_wireframe_vert[];
+extern "C" const size_t SHADER_wireframe_vert_len;
+
 namespace client {
 
     game::game(GLFWwindow* window) {
@@ -14,9 +29,9 @@ namespace client {
 
     void game::initialize() {
         world=std::make_shared<block::world>();
-        shader = std::make_shared<gl::shader>("test", "test");
-        texture = std::make_shared<gl::texture>("1.8_textures_0.png");
-        basic_shader=std::make_shared<gl::shader>("basic","basic");
+        shader = std::make_shared<gl::shader>(SHADER_chunk_vert,SHADER_chunk_vert_len,SHADER_chunk_frag,SHADER_chunk_frag_len);
+        texture = std::make_shared<gl::texture>(TEXTURE_1_8_textures_0_png,TEXTURE_1_8_textures_0_png_len);
+        basic_shader=std::make_shared<gl::shader>(SHADER_wireframe_vert,SHADER_wireframe_vert_len,SHADER_wireframe_frag,SHADER_wireframe_frag_len);
         gl::mesh_data cube_data;
         cube_data.buffers.push_back({3,{
             // 000 001 010 011 100 101 110 111
@@ -87,7 +102,7 @@ namespace client {
 
         glm::mat4 p = glm::perspective(80.0F, 1.0F, 0.01F, 1000.0F);
         glm::mat4 v = glm::lookAt(glm::vec3(cos(glfwGetTime() * 0.25) * 16 * WORLD_SIZE / 2 + 16 * WORLD_SIZE / 2,
-                                            sin(glfwGetTime() * 0.25) * 32 + 64,
+                                            sin(glfwGetTime() * 0.25) * 32 + 32,
                                             sin(glfwGetTime() * 0.25) * 16 * WORLD_SIZE / 2 + 16 * WORLD_SIZE / 2),
                                   glm::vec3(WORLD_SIZE * 8, 60, WORLD_SIZE * 8), glm::vec3(0, -1, 0));
 
@@ -125,6 +140,7 @@ namespace client {
 
     void game::download_world(std::string host,std::string port) {
         try {
+            printf("START WORLD DOWNLOAD\n");
             boost::asio::io_context io_context;
 
             boost::asio::ip::tcp::resolver resolver(io_context);
@@ -135,6 +151,8 @@ namespace client {
             boost::asio::connect(socket,endpoints);
 
             boost::system::error_code err;
+
+            printf("START READ\n");
             for(int x=0;x<WORLD_SIZE;x++) {
                 for (int y = 0; y < 16; y++) {
                     for (int z = 0; z < WORLD_SIZE; z++) {
@@ -149,12 +167,14 @@ namespace client {
                             throw boost::system::system_error(err);
                         }
                         world->map[x][z]->read(y,arr);
+                        printf("RECIEVED CHUNK %i %i %i\n",x,y,z);
                     }
                 }
             }
+            printf("END READ\n");
 
 
-
+            printf("START WORLD RENDER\n");
             for (int x = 0; x < WORLD_SIZE; x++) {
                 for (int z = 0; z < WORLD_SIZE; z++) {
                     rendered_world[x][z]=std::make_shared<rendered_chunk>(glm::ivec2{x,z});
@@ -162,6 +182,7 @@ namespace client {
                     rendered_world[x][z]->render_chunk();
                 }
             }
+            printf("END WORLD RENDER\n");
         }catch(std::exception&e){
             std::cerr<<"client ex caught: "<<e.what()<<"\n";
             std::raise(11);

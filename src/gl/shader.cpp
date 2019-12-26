@@ -6,30 +6,30 @@
 
 namespace gl {
 
-    shader::shader(const std::string& vert, const std::string& frag) {
-        std::string vert_code= utils::load_file("../src/assets/shaders/" + vert + ".vert");
-        std::string frag_code= utils::load_file("../src/assets/shaders/" + frag + ".frag");
-        const char*vertex_shader_source=vert_code.c_str();
-        const char*fragment_shader_source=frag_code.c_str();
+    shader::shader(const unsigned char*vertData,const int vertLen,const unsigned char*fragData,const int fragLen) {
         int vertex_shader=glCreateShader(GL_VERTEX_SHADER);
-        glShaderSource(vertex_shader, 1, &vertex_shader_source, nullptr);
+        auto vd= reinterpret_cast<const GLchar*>(vertData);
+//        printf("<%s>\n",vd);
+        glShaderSource(vertex_shader, 1, &vd, &vertLen);
         glCompileShader(vertex_shader);
         int success;
         char info_log[512];
         glGetShaderiv(vertex_shader, GL_COMPILE_STATUS, &success);
         if(!success){
             glGetShaderInfoLog(vertex_shader, 512, nullptr, info_log);
-            printf("\n\n%s,%s: %s\n", vert.c_str(), frag.c_str(), info_log);
+            printf("VERTEX\n\n%s\n", info_log);
             ASSERT_OR_EXIT(false,"VERTEX SHADER FAILED");
         }
 
         int fragment_shader=glCreateShader(GL_FRAGMENT_SHADER);
-        glShaderSource(fragment_shader, 1, &fragment_shader_source, nullptr);
+        auto fd= reinterpret_cast<const GLchar*>(fragData);
+//        fd[fragLen-1]='\0';
+        glShaderSource(fragment_shader, 1, &fd, nullptr);
         glCompileShader(fragment_shader);
         glGetShaderiv(fragment_shader, GL_COMPILE_STATUS, &success);
         if(!success){
             glGetShaderInfoLog(fragment_shader, 512, nullptr, info_log);
-            printf("\n\n%s,%s: %s\n", vert.c_str(), frag.c_str(), info_log);
+            printf("FRAGMENT\n\n%s\n", info_log);
             ASSERT_OR_EXIT(false,"FRAGMENT SHADER FAILED");
         }
 
@@ -40,7 +40,7 @@ namespace gl {
         glGetProgramiv(id,GL_LINK_STATUS,&success);
         if(!success){
             glGetProgramInfoLog(id, 512, nullptr, info_log);
-            printf("\n\n%s,%s: %s\n", vert.c_str(), frag.c_str(), info_log);
+            printf("\n\n%s\n", info_log);
             ASSERT_OR_EXIT(false,"SHADER LINK FAILED");
         }
         glDeleteShader(vertex_shader);

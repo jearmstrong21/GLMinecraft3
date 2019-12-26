@@ -15,7 +15,7 @@ namespace gl {
         GLuint id;
 
     public:
-        texture(const std::string &filename);
+        texture(const unsigned char*_data,int _len);
 
         ~texture();
 

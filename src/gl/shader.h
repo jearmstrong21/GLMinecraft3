@@ -16,7 +16,7 @@ namespace gl {
     private:
         int id;
     public:
-        shader(const std::string& vert, const std::string& frag);
+        shader(const unsigned char*vertData,const int vertLen,const unsigned char*fragData,const int fragLen);
 
         ~shader();
 
