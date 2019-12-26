@@ -123,12 +123,13 @@ namespace client {
 
     }
 
-    void game::download_world(std::string host) {
+    void game::download_world(std::string host,std::string port) {
         try {
             boost::asio::io_context io_context;
 
             boost::asio::ip::tcp::resolver resolver(io_context);
-            boost::asio::ip::tcp::resolver::results_type endpoints=resolver.resolve(host,"daytime");
+            boost::asio::ip::tcp::resolver::query query(host,port);
+            boost::asio::ip::tcp::resolver::results_type endpoints=resolver.resolve(query);
 
             boost::asio::ip::tcp::socket socket(io_context);
             boost::asio::connect(socket,endpoints);

@@ -35,8 +35,10 @@ int main(int argc, char** argv) {
     boost::program_options::options_description desc("Allowed options");
     desc.add_options()
     ("help","produce help message")
-    ("client",boost::program_options::value<std::string>(),"connect client to host")
-    ("server",boost::program_options::value<int>(),"run server on port");
+    ("client","run GLMC3 client on specified host and port")
+    ("server","run GLMC3 server on specified port")
+    ("host",boost::program_options::value<std::string>())
+    ("port",boost::program_options::value<int>());
 
     boost::program_options::variables_map vm;
     boost::program_options::store(boost::program_options::parse_command_line(argc,argv,desc),vm);
@@ -47,20 +49,40 @@ int main(int argc, char** argv) {
     }
 
     if(vm.count("client")&&vm.count("server")){
-        std::cout<<"Both server and client are not currently supported.";
+        std::cout<<"Both server and client are not currently supported.\n";
         std::cout<<desc<<"\n";
         return 1;
     }
 
     if(vm.count("client")){
-        std::cout<<"Starting client on host "<<vm["client"].as<std::string>()<<"\n";
-        networking::client(vm["client"].as<std::string>());
+        if(!vm.count("host") && !vm.count("port")){
+            std::cout<<"Specify host and port to connect to.\n";
+            std::cout<<desc<<"\n";
+            return 1;
+        }
+        if(!vm.count("host")){
+            std::cout<<"Specify host to connect to.\n";
+            std::cout<<desc<<"\n";
+            return 1;
+        }
+        if(!vm.count("port")){
+            std::cout<<"Specify port to connect to.\n";
+            std::cout<<desc<<"\n";
+            return 1;
+        }
+        std::cout<<"Starting client on host "<<vm["host"].as<std::string>()<<" and port "<<vm["port"].as<int>()<<"\n";
+        networking::client(vm["host"].as<std::string>(),std::to_string(vm["port"].as<int>()));
         return 0;
     }
 
     if(vm.count("server")){
-        std::cout<<"Starting server on client "<<vm["server"].as<int>()<<"\n";
-        networking::server(vm["server"].as<int>());
+        if(!vm.count("port")){
+            std::cout<<"Specify port to run on.\n";
+            std::cout<<desc<<"\n";
+            return 1;
+        }
+        std::cout<<"Starting server on port "<<vm["port"].as<int>()<<"\n";
+        networking::server(vm["port"].as<int>());
         return 0;
     }
 

@@ -11,7 +11,7 @@
 #include <string>
 
 namespace networking {
-    int client(std::string host);
+    int client(std::string host,std::string port);
     int server(int port);
 }
 

@@ -7,7 +7,7 @@
 #include <boost/asio.hpp>
 #include "gl/gl.h"
 #include "client/game.h"
-
+#include "both.h"
 
 namespace networking {
 
@@ -19,7 +19,7 @@ namespace networking {
     }
 
 
-    int client(std::string host) {
+    int client(std::string host,std::string port) {
         glfwSetErrorCallback(on_glfw_error);
         if (!glfwInit()) {
             printf("GLFW NOT INITIALIZED\n");
@@ -41,7 +41,7 @@ namespace networking {
 
         client::game game(window);
         game.initialize();
-        game.download_world(host);
+        game.download_world(host,port);
 
         while (!glfwWindowShouldClose(window)) {
             glGetError();

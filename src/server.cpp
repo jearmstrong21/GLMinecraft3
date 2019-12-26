@@ -6,6 +6,7 @@
 #include <iostream>
 #include <boost/asio.hpp>
 #include "world/world.h"
+#include "both.h"
 
 namespace networking {
 
