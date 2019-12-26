@@ -69,7 +69,11 @@ set(SOURCE_FILES
 
         src/server/entity.cpp
         src/server/server.cpp
-        src/client.cpp src/both.h src/server.cpp src/networking/message.h src/utils/eventable.cpp src/utils/eventable.h)
+
+        src/server.cpp
+        src/client.cpp
+        src/both.h
+        )
 
 set(MAC_LIBS)
 
@@ -83,6 +87,7 @@ endif()
 
 if(APPLE)
     link_libraries(/usr/local/lib/libboost_thread-mt.dylib)
+    link_libraries(/usr/local/lib/libboost_program_options-mt.dylib)
 endif()
 add_executable(GLMinecraft3 ${SOURCE_FILES})
 target_link_libraries (GLMinecraft3

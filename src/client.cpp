@@ -19,7 +19,7 @@ namespace networking {
     }
 
 
-    int client() {
+    int client(std::string host) {
         glfwSetErrorCallback(on_glfw_error);
         if (!glfwInit()) {
             printf("GLFW NOT INITIALIZED\n");
@@ -41,7 +41,7 @@ namespace networking {
 
         client::game game(window);
         game.initialize();
-        game.download_world();
+        game.download_world(host);
 
         while (!glfwWindowShouldClose(window)) {
             glGetError();

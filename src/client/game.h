@@ -33,7 +33,7 @@ namespace client {
         explicit game(GLFWwindow* window);
 
         void initialize();
-        void download_world();
+        void download_world(std::string host);
 
         void loop();
 

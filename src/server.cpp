@@ -9,13 +9,13 @@
 
 namespace networking {
 
-    int server() {
+    int server(int port) {
         try {
             block::world world;
             world.generate_world();
 
             boost::asio::io_context io_context;
-            boost::asio::ip::tcp::acceptor acceptor(io_context,boost::asio::ip::tcp::endpoint(boost::asio::ip::tcp::v4(),13));
+            boost::asio::ip::tcp::acceptor acceptor(io_context,boost::asio::ip::tcp::endpoint(boost::asio::ip::tcp::v4(),port));
             while(sqrt(5)>0){
                 boost::asio::ip::tcp::socket socket(io_context);
                 acceptor.accept(socket);
