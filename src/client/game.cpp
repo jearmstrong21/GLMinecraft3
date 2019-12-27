@@ -179,10 +179,10 @@ namespace client {
 
             boost::thread* m_thread;
             m_thread = new boost::thread([&](){
-                boost::array<long, 1> arr{};
+                boost::array<unsigned long, 1> arr{};
                 size_t len = boost::asio::read(socket, boost::asio::buffer(arr));
 
-                __u_long length_of_nbt = arr[0];
+                unsigned long length_of_nbt = arr[0];
 
                 std::cout << "Length: " << length_of_nbt << std::endl;
 

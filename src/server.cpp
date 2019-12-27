@@ -55,7 +55,7 @@ namespace networking {
 
                 std::cout << "Writing value " << test->to_str(" ") << std::endl;
 
-                boost::array<__u_long, 1> sz{
+                boost::array<unsigned long, 1> sz{
                         a.str().length()
                 };
 
