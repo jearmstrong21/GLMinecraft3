@@ -205,6 +205,7 @@ namespace client {
 //            });
 
 
+
             printf("START WORLD RENDER\n");
             for (int x = 0; x < WORLD_SIZE; x++) {
                 for (int z = 0; z < WORLD_SIZE; z++) {
