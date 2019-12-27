@@ -177,32 +177,32 @@ namespace client {
             }
             printf("END READ\n");
 
-            boost::thread* m_thread;
-            m_thread = new boost::thread([&](){
-                boost::array<long, 1> arr{};
-                size_t len = boost::asio::read(socket, boost::asio::buffer(arr));
-
-                __u_long length_of_nbt = arr[0];
-
-                std::cout << "Length: " << length_of_nbt << std::endl;
-
-                boost::asio::streambuf read_buffer;
-
-                len = boost::asio::read(socket, read_buffer,
-                                                      boost::asio::transfer_exactly(length_of_nbt));
-
-                boost::asio::streambuf::const_buffers_type bufs = read_buffer.data();
-                std::string str(boost::asio::buffers_begin(bufs),
-                                boost::asio::buffers_begin(bufs) + length_of_nbt);
-
-                std::istringstream stream(str);
-
-                std::shared_ptr<nbt::nbt> nbt_obj = nbt::read_nbt(stream);
-
-                std::cout << nbt_obj->to_str(" ") << std::endl;
-
-//                delete[] despacito;
-            });
+//            boost::thread* m_thread;
+//            m_thread = new boost::thread([&](){
+//                boost::array<long, 1> arr{};
+//                size_t len = boost::asio::read(socket, boost::asio::buffer(arr));
+//
+//                unsigned long length_of_nbt = arr[0];
+//
+//                std::cout << "Length: " << length_of_nbt << std::endl;
+//
+//                boost::asio::streambuf read_buffer;
+//
+//                len = boost::asio::read(socket, read_buffer,
+//                                                      boost::asio::transfer_exactly(length_of_nbt));
+//
+//                boost::asio::streambuf::const_buffers_type bufs = read_buffer.data();
+//                std::string str(boost::asio::buffers_begin(bufs),
+//                                boost::asio::buffers_begin(bufs) + length_of_nbt);
+//
+//                std::istringstream stream(str);
+//
+//                std::shared_ptr<nbt::nbt> nbt_obj = nbt::read_nbt(stream);
+//
+//                std::cout << nbt_obj->to_str(" ") << std::endl;
+//
+////                delete[] despacito;
+//            });
 
 
             printf("START WORLD RENDER\n");

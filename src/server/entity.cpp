@@ -2,6 +2,7 @@
 // Created by Jack Armstrong on 11/26/19.
 //
 
+#include <iostream>
 #include "entity.h"
 
 namespace server {
@@ -24,11 +25,12 @@ namespace server {
             {"velocity",nbt::make_list({nbt::make_float(0),nbt::make_float(0),nbt::make_float(0)})},
             {"motion",nbt::make_list({nbt::make_float(0),nbt::make_float(0),nbt::make_float(0)})},
             {"rotation",nbt::make_list({nbt::make_float(0),nbt::make_float(0)})},
-            {"bb_size",nbt::make_list({nbt::make_float(0),nbt::make_float(0),nbt::make_float(0)})}
+            {"bb_size",nbt::make_list({nbt::make_float(0),nbt::make_float(0),nbt::make_float(0)})},
+            //todo health
         });
     }
 
-    std::shared_ptr<nbt::nbt> entity_type_mob::initialize() const {
+    std::shared_ptr<nbt::nbt> entity_type_player::initialize() const {
         std::shared_ptr<nbt::nbt>res=entity_type_base::initialize();
         nbt::merge(res,nbt::make_compound({
             {"name",nbt::make_string("default name")},
@@ -40,27 +42,15 @@ namespace server {
         return res;
     }
 
-    std::shared_ptr<nbt::nbt> entity_type_zombie::initialize() const {
-        std::shared_ptr<nbt::nbt>res = entity_type_mob::initialize();
-        nbt::merge(res,nbt::make_compound({
-            {"name",nbt::make_string("Zombie")},
-            {"health",nbt::make_compound({
-                {"amount",nbt::make_float(20)},
-                {"max",nbt::make_float(20)}
-            })}
-        }));
-        return res;
+    void entity_type_player::update(std::shared_ptr<nbt::nbt> data, server *server) const {
+        std::cout<<"update player\n";
     }
 
-    void entity_type_zombie::update(std::shared_ptr<nbt::nbt> data, server *server) const {
-
+    void entity_type_player::initialize_render() const {
+        std::cout<<"init rendd play\n";
     }
 
-    void entity_type_zombie::initialize_render() const {
-
-    }
-
-    void entity_type_zombie::render(std::shared_ptr<nbt::nbt> entity) const {
-
+    void entity_type_player::render(std::shared_ptr<nbt::nbt> entity) const {
+        std::cout<<"rend play\n";
     }
 }

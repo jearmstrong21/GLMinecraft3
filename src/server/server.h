@@ -6,7 +6,7 @@
 #define GLMINECRAFT3_SERVER_H
 
 #include "world/world.h"
-#include "entity_manager.h"
+//#include "entity_manager.h"
 #include "entity.h"
 
 namespace server {
@@ -14,7 +14,7 @@ namespace server {
     struct server {
 
         std::shared_ptr<block::world>world;
-        std::shared_ptr<entity_manager>entities;
+//        std::shared_ptr<entity_manager>entities;
 
         void setup_server();
 

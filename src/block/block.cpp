@@ -47,7 +47,7 @@ namespace block {
     }
 
     void block::render(gl::mesh_data *md, block_context ctx) const noexcept {
-        printf("le wot, %i\n", ctx.self);
+        printf("le wot, %li\n", ctx.self);
         std::raise(11);
     }
 

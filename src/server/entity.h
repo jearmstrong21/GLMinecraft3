@@ -7,7 +7,7 @@
 
 #include <glm/glm.hpp>
 #include <nbt/nbt.h>
-#include "entity_ids.h"
+//#include "entity_ids.h"
 namespace server {
 
     struct server;
@@ -28,11 +28,7 @@ namespace server {
         [[nodiscard]] std::shared_ptr<nbt::nbt> initialize() const override;
     };
 
-    struct entity_type_mob: entity_type_base{
-        [[nodiscard]] std::shared_ptr<nbt::nbt> initialize()const override;
-    };
-
-    struct entity_type_zombie: entity_type_mob {
+    struct entity_type_player: entity_type_base {
         [[nodiscard]] std::shared_ptr<nbt::nbt> initialize()const override;
         void update(std::shared_ptr<nbt::nbt>data,server*server)const override;
 
