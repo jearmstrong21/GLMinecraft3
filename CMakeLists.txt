@@ -121,6 +121,8 @@ if(NOT APPLE)
     add_link_options(-lboost_thread)
     add_link_options(-lboost_program_options)
     include_directories(${GLFW_INCLUDE_DIRS})
+
+    add_link_options(/usr/lib/libglfw.so)
 endif()
 
 

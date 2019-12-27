@@ -3,6 +3,7 @@
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
       <config projectName="GLMinecraft3" targetName="GLMinecraft3" />
+      <config projectName="GLMinecraft3" targetName="embedfile" />
     </generated>
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
@@ -12,16 +13,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3529586-07bd-4d16-8e97-c15a5718eaa2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/client/client_world.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/client_world.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/eventable.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/eventable.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/game.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/game.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/staging/select_profile.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/staging/select_profile.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/world/gen/features/base_feature.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/gen/features/base_feature.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/world/world.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/world.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/server.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -90,13 +85,18 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="CMake Application.GLMinecraft3 (client)">
-    <configuration name="GLMinecraft3 (client)" type="CMakeRunConfiguration" factoryName="Application" singleton="false" PROGRAM_PARAMS="8080 c" PASS_PARENT_ENVS_2="true" PROJECT_NAME="GLMinecraft3" TARGET_NAME="GLMinecraft3" CONFIG_NAME="Debug-Clang" RUN_TARGET_PROJECT_NAME="GLMinecraft3" RUN_TARGET_NAME="GLMinecraft3">
+  <component name="RunManager" selected="CMake Application.GLMinecraft3 (server)">
+    <configuration name="GLMinecraft3 (client)" type="CMakeRunConfiguration" factoryName="Application" singleton="false" PROGRAM_PARAMS="--client --port 8080 --host &quot;localhost&quot;" PASS_PARENT_ENVS_2="true" PROJECT_NAME="GLMinecraft3" TARGET_NAME="GLMinecraft3" CONFIG_NAME="Debug-Clang" RUN_TARGET_PROJECT_NAME="GLMinecraft3" RUN_TARGET_NAME="GLMinecraft3">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GLMinecraft3 (server)" type="CMakeRunConfiguration" factoryName="Application" singleton="false" PROGRAM_PARAMS="8080 s" PASS_PARENT_ENVS_2="true" PROJECT_NAME="GLMinecraft3" TARGET_NAME="GLMinecraft3" CONFIG_NAME="Debug-Clang" RUN_TARGET_PROJECT_NAME="GLMinecraft3" RUN_TARGET_NAME="GLMinecraft3">
+    <configuration name="GLMinecraft3 (server)" type="CMakeRunConfiguration" factoryName="Application" singleton="false" PROGRAM_PARAMS="--server --port 8080" PASS_PARENT_ENVS_2="true" PROJECT_NAME="GLMinecraft3" TARGET_NAME="GLMinecraft3" CONFIG_NAME="Debug-Clang" RUN_TARGET_PROJECT_NAME="GLMinecraft3" RUN_TARGET_NAME="GLMinecraft3">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="embedfile" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="GLMinecraft3" TARGET_NAME="embedfile" CONFIG_NAME="Debug-Clang" RUN_TARGET_PROJECT_NAME="GLMinecraft3" RUN_TARGET_NAME="embedfile">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -104,6 +104,7 @@
     <list>
       <item itemvalue="CMake Application.GLMinecraft3 (server)" />
       <item itemvalue="CMake Application.GLMinecraft3 (client)" />
+      <item itemvalue="CMake Application.embedfile" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -131,7 +132,8 @@
       <workItem from="1576357108291" duration="922000" />
       <workItem from="1576717808998" duration="901000" />
       <workItem from="1576727225446" duration="1617000" />
-      <workItem from="1576772707938" duration="7828000" />
+      <workItem from="1576772707938" duration="7950000" />
+      <workItem from="1577472352252" duration="5762000" />
     </task>
     <task id="LOCAL-00001" summary="revert my CMakeList changes if they break ur installation">
       <created>1573249038059</created>
@@ -196,7 +198,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576776651258</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="stuff doesnt compile idk why">
+      <created>1576784467409</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1576784467409</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -228,6 +237,7 @@
     <MESSAGE value="THIS IS SO EPIC ALEXA PLAY NEON KNIGHTS" />
     <MESSAGE value="despacito" />
     <MESSAGE value="fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix" />
+    <MESSAGE value="stuff doesnt compile idk why" />
+    <option name="LAST_COMMIT_MESSAGE" value="stuff doesnt compile idk why" />
   </component>
 </project>
