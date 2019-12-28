@@ -34,6 +34,8 @@ namespace client {
 
 //        void download_world(const std::string& host,std::string port);
         void read_packet();
+        void send_packet(std::shared_ptr<nbt::nbt>data);
+        std::vector<std::shared_ptr<nbt::nbt>>write_msgs;
 
         boost::asio::io_context io_context;
         boost::asio::ip::tcp::socket socket;
@@ -43,6 +45,9 @@ namespace client {
         void loop();
 
         void end();
+
+    private:
+        void do_write();
 
     };
 

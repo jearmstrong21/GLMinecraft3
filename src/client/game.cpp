@@ -122,6 +122,11 @@ namespace client {
             }
         }
         printf("END WORLD RENDER\n");
+
+        send_packet(nbt::make_compound({
+                                               {"source",nbt::make_string("game.cpp line 127")},
+                                               {"additional info",nbt::make_string("BOOP HAHA GOT UR NOSE")}
+        }));
     }
 
     void game::loop() {
@@ -150,18 +155,6 @@ namespace client {
             }
         }
 
-//        basic_shader->bind();
-//        basic_shader->uniform4x4("perspective", p);
-//        basic_shader->uniform4x4("view", v);
-//        for (int x = 0; x < WORLD_SIZE; x++) {
-//            for (int y = 0; y < 16; y++) {
-//                for (int z = 0; z < WORLD_SIZE; z++) {
-//                    basic_shader->uniform4x4("mode", glm::translate(glm::mat4(1), {x * 16, y * 16, z * 16}));
-//                    basic_cube->render_lines();
-//                }
-//            }
-//        }
-
         if (glfwGetKey(window, GLFW_KEY_Q)) {
             std::raise(11);
         }
@@ -187,6 +180,26 @@ namespace client {
                 std::cout<<obj->to_str("")<<"\n";
             }
         });
+    }
+
+    void game::send_packet(std::shared_ptr<nbt::nbt> data) {
+//        boost::asio::post(io_context,[this,data](){
+            bool wip=!write_msgs.empty();
+            write_msgs.push_back(data);
+            if(!wip){
+                do_write();
+            }
+//        });
+    }
+
+    void game::do_write() {
+        std::stringstream a;
+        write_msgs[0]->write(a);
+        boost::array<unsigned long,1>size{a.str().length()};
+        boost::asio::write(socket,boost::asio::buffer(size));
+        boost::asio::write(socket,boost::asio::buffer(a.str()));
+        write_msgs.erase(write_msgs.begin());
+        if(!write_msgs.empty())do_write();
     }
 
 }

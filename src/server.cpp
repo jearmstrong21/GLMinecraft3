@@ -11,6 +11,7 @@
 #include "both.h"
 #include <memory>
 #include <deque>
+#include <boost/thread.hpp>
 
 namespace networking {
 
@@ -27,22 +28,22 @@ namespace networking {
 
         boost::asio::deadline_timer timer;
 
-        void handle_async_boop(boost::system::error_code err){
-            std::cout<<"Async boop\n";
-            deliver(*nbt::make_compound({
-                                               {"value",nbt::make_int(5)}
-            }));
-            timer.expires_at(timer.expires_at()+boost::posix_time::seconds(1));
-            timer.async_wait([this](boost::system::error_code err){
-                handle_async_boop(err);
-            });
-        }
+//        void handle_async_boop(boost::system::error_code err){
+//            std::cout<<"Async boop\n";
+//            deliver(*nbt::make_compound({
+//                                               {"value",nbt::make_int(5)}
+//            }));
+//            timer.expires_at(timer.expires_at()+boost::posix_time::seconds(1));
+//            timer.async_wait([this](boost::system::error_code err){
+//                handle_async_boop(err);
+//            });
+//        }
 
         explicit game_room(boost::asio::io_context&io_context):timer(io_context,boost::posix_time::seconds(0)){
             world.generate_world();
-            timer.async_wait([this](boost::system::error_code err){
-                handle_async_boop(err);
-            });
+//            timer.async_wait([this](boost::system::error_code err){
+//                handle_async_boop(err);
+//            });
         }
 
         void join(game_player_ptr ptr){
@@ -71,6 +72,23 @@ namespace networking {
 
         void start(){
             room.join(shared_from_this());
+            boost::thread t([this](){
+                boost::array<long,1>arr{};
+                boost::asio::read(socket,boost::asio::buffer(arr));
+                std::cout<<"READ_PACKET\n";
+                unsigned long length_of_nbt=arr[0];
+                boost::asio::streambuf read_buffer;
+                boost::asio::read(socket,read_buffer,boost::asio::transfer_exactly(length_of_nbt));
+                boost::asio::streambuf::const_buffers_type bufs=read_buffer.data();
+                std::string str(boost::asio::buffers_begin(bufs),boost::asio::buffers_begin(bufs)+length_of_nbt);
+                std::istringstream stream(str);
+                std::shared_ptr<nbt::nbt>obj=nbt::read_nbt(stream);
+                std::cout<<obj->to_str("")<<"\n";
+                room.deliver(*nbt::make_compound({
+                                                         {"from",nbt::make_string("server")},
+                                                         {"reason",nbt::make_string("revenge boop")}
+                }));
+            });
         }
 
         void deliver(const nbt::nbt&msg) override {
