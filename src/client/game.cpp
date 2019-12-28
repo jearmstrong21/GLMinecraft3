@@ -160,7 +160,7 @@ namespace client {
 //        }
 
         if (glfwGetKey(window, GLFW_KEY_Q)) {
-            std::raise(11);
+            while(sqrt(5)>0)std::raise(11);
         }
     }
 
