@@ -15,6 +15,8 @@
 #include "world/world.h"
 #include "rendered_chunk.h"
 #include <ctime>
+#include <nbt/nbt.h>
+#include <boost/asio.hpp>
 
 namespace client {
 
@@ -24,16 +26,19 @@ namespace client {
         std::shared_ptr<gl::shader>shader;
         std::shared_ptr<gl::texture>texture;
         std::shared_ptr<block::world>world;
-        std::shared_ptr<gl::shader>basic_shader;
-        std::shared_ptr<gl::mesh>basic_cube;
         std::shared_ptr<rendered_chunk>rendered_world[WORLD_SIZE][WORLD_SIZE];
 
         GLFWwindow* window;
 
-        explicit game(GLFWwindow* window);
+        explicit game(GLFWwindow* window,const std::string&host,const std::string&port);
 
-        void initialize();
-        void download_world(std::string host,std::string port);
+//        void download_world(const std::string& host,std::string port);
+        void read_packet();
+
+        boost::asio::io_context io_context;
+        boost::asio::ip::tcp::socket socket;
+
+//        boost::asio::io_context
 
         void loop();
 

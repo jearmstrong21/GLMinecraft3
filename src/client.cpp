@@ -39,9 +39,7 @@ namespace networking {
 
         bool is_first_frame = true;
 
-        client::game game(window);
-        game.initialize();
-        game.download_world(host,port);
+        client::game game(window,host,port);
 
         while (!glfwWindowShouldClose(window)) {
             glGetError();
