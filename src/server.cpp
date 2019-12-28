@@ -73,21 +73,23 @@ namespace networking {
         void start(){
             room.join(shared_from_this());
             boost::thread t([this](){
-                boost::array<long,1>arr{};
-                boost::asio::read(socket,boost::asio::buffer(arr));
-                std::cout<<"READ_PACKET\n";
-                unsigned long length_of_nbt=arr[0];
-                boost::asio::streambuf read_buffer;
-                boost::asio::read(socket,read_buffer,boost::asio::transfer_exactly(length_of_nbt));
-                boost::asio::streambuf::const_buffers_type bufs=read_buffer.data();
-                std::string str(boost::asio::buffers_begin(bufs),boost::asio::buffers_begin(bufs)+length_of_nbt);
-                std::istringstream stream(str);
-                std::shared_ptr<nbt::nbt>obj=nbt::read_nbt(stream);
-                std::cout<<obj->to_str("")<<"\n";
-                room.deliver(*nbt::make_compound({
-                                                         {"from",nbt::make_string("server")},
-                                                         {"reason",nbt::make_string("revenge boop")}
-                }));
+                while(sqrt(5)>0) {
+                    boost::array<long, 1> arr{};
+                    boost::asio::read(socket, boost::asio::buffer(arr));
+                    std::cout << "READ_PACKET\n";
+                    unsigned long length_of_nbt = arr[0];
+                    boost::asio::streambuf read_buffer;
+                    boost::asio::read(socket, read_buffer, boost::asio::transfer_exactly(length_of_nbt));
+                    boost::asio::streambuf::const_buffers_type bufs = read_buffer.data();
+                    std::string str(boost::asio::buffers_begin(bufs), boost::asio::buffers_begin(bufs) + length_of_nbt);
+                    std::istringstream stream(str);
+                    std::shared_ptr<nbt::nbt> obj = nbt::read_nbt(stream);
+                    std::cout << obj->to_str("") << "\n";
+                    room.deliver(*nbt::make_compound({
+                                                             {"from",   nbt::make_string("server")},
+                                                             {"reason", nbt::make_string("revenge boop")}
+                                                     }));
+                }
             });
         }
 

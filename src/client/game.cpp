@@ -122,11 +122,6 @@ namespace client {
             }
         }
         printf("END WORLD RENDER\n");
-
-        send_packet(nbt::make_compound({
-                                               {"source",nbt::make_string("game.cpp line 127")},
-                                               {"additional info",nbt::make_string("BOOP HAHA GOT UR NOSE")}
-        }));
     }
 
     void game::loop() {
@@ -154,6 +149,15 @@ namespace client {
                 rendered_world[x][z]->render(shader);
             }
         }
+
+//        if(glfwGetKey(window,GLFW_KEY_B)==GLFW_PRESS){
+//            std::cout<<"SENDING BOOP\n";
+            send_packet(nbt::make_compound({
+                                                   {"source",nbt::make_string("game.cpp line 127")},
+                                                   {"additional info",nbt::make_string("BOOP HAHA GOT UR NOSE")}
+            }));
+        std::cout<<"WRITEMSGS SIZE: "<<write_msgs.size()<<"\n";
+//        }
 
         if (glfwGetKey(window, GLFW_KEY_Q)) {
             std::raise(11);
