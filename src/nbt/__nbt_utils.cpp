@@ -12,7 +12,7 @@ namespace nbt {
         bin_read<int>(in,&i);
         if(i!=expected){
             printf("NBT PARSE ERROR %i %i\n",i,expected);
-            std::raise(11);
+            std::exit(11);
         }
     }
 
