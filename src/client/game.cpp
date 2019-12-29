@@ -141,11 +141,34 @@ namespace client {
         glm::vec3 curPos{nbt::cast_float(nbt_cur_pos->value[0])->value,nbt::cast_float(nbt_cur_pos->value[1])->value,nbt::cast_float(nbt_cur_pos->value[2])->value};
         glm::vec3 eyePos{curPos.x-5,curPos.y+3,curPos.z-2};
 
+        glm::vec3 lookAt=curPos;
+        glm::vec3 lookFrom=eyePos;
+
+        if(freecam){
+            lookFrom=freecamPos;
+            glm::vec3 forward{1,0,0};
+            lookAt=freecamPos+forward;
+            float dt=0.5;
+            if(glfwGetKey(window,GLFW_KEY_W)==GLFW_PRESS){
+                freecamPos+=forward*dt;
+            }
+            if(glfwGetKey(window,GLFW_KEY_S)==GLFW_PRESS){
+                freecamPos-=forward*dt;
+            }
+            glm::vec3 left=glm::cross(forward,glm::vec3{0,-1,0});
+            if(glfwGetKey(window,GLFW_KEY_A)==GLFW_PRESS){
+                freecamPos+=left*dt;
+            }
+            if(glfwGetKey(window,GLFW_KEY_D)==GLFW_PRESS){
+                freecamPos-=left*dt;
+            }
+        }
+
 //        glm::mat4 v = glm::lookAt(glm::vec3(cos(glfwGetTime() * 0.25) * 16 * WORLD_SIZE / 2 + 16 * WORLD_SIZE / 2,
 //                                            sin(glfwGetTime() * 0.25) * 32 + 32,
 //                                            sin(glfwGetTime() * 0.25) * 16 * WORLD_SIZE / 2 + 16 * WORLD_SIZE / 2),
 //                                  glm::vec3(WORLD_SIZE * 8, 20, WORLD_SIZE * 8), glm::vec3(0, -1, 0));
-        glm::mat4 v=glm::lookAt(eyePos,curPos,{0,-1,0});
+        glm::mat4 v=glm::lookAt(lookFrom,lookAt,{0,-1,0});
 
         shader->bind();
         shader->uniform4x4("perspective", p);
@@ -170,15 +193,17 @@ namespace client {
             wireframe_mesh->render_lines();
         }
 
-        std::shared_ptr<nbt::nbt>interaction_packet=nbt::make_compound({
-            {"movement",nbt::make_compound({
-                {"left",nbt::make_short(glfwGetKey(window,GLFW_KEY_A)==GLFW_PRESS)},
-                {"right",nbt::make_short(glfwGetKey(window,GLFW_KEY_D)==GLFW_PRESS)},
-                {"back",nbt::make_short(glfwGetKey(window,GLFW_KEY_S)==GLFW_PRESS)},
-                {"front",nbt::make_short(glfwGetKey(window,GLFW_KEY_W)==GLFW_PRESS)},
-            })}
-        });
-        send_packet(interaction_packet);
+        if(!freecam){
+            std::shared_ptr<nbt::nbt>interaction_packet=nbt::make_compound({
+                {"movement",nbt::make_compound({
+                    {"left",nbt::make_short(glfwGetKey(window,GLFW_KEY_A)==GLFW_PRESS)},
+                    {"right",nbt::make_short(glfwGetKey(window,GLFW_KEY_D)==GLFW_PRESS)},
+                    {"back",nbt::make_short(glfwGetKey(window,GLFW_KEY_S)==GLFW_PRESS)},
+                    {"front",nbt::make_short(glfwGetKey(window,GLFW_KEY_W)==GLFW_PRESS)},
+                })}
+            });
+            send_packet(interaction_packet);
+        }
 
         if (glfwGetKey(window, GLFW_KEY_Q)) {
 #ifdef I_LOVE_CANCER
