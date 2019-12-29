@@ -52,7 +52,6 @@ namespace nbt {
     extern const std::function<std::shared_ptr<nbt_compound>(const std::shared_ptr<nbt>&value)> cast_compound;
     extern const std::function<std::shared_ptr<nbt_list>(const std::shared_ptr<nbt>&value)> cast_list;
 
-
     void merge(std::shared_ptr<nbt>target,std::shared_ptr<nbt>extra);
 
 }

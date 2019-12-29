@@ -20,8 +20,6 @@ namespace block {
         double roughZoom = 0.0025;
         double detailZoom = 0.1;
 
-        //(elevation + (roughness*detail))*64+64
-
         int SCALE_FACTOR = 8;
 
         const int SIZE = WORLD_SIZE * 16 / SCALE_FACTOR + 1;
@@ -30,44 +28,20 @@ namespace block {
         double roughPoints[SIZE][SIZE];
         double detailPoints[SIZE][SIZE];
 
-        //1T 0.1
-        //2T 0.12
-        //4T 0.12
-
-
-        int numThreadSize=1;
-        int threadSpan=SIZE/numThreadSize+1;
-        std::vector<std::thread>threads;
-        for(int __tx=0;__tx<numThreadSize;__tx++){
-            for(int __tz=0;__tz<numThreadSize;__tz++){
-                threads.emplace_back([&](int tx,int tz){
-                    printf("S%i,%i\n",tx,tz);
-                    int x0=threadSpan*tx;
-                    int z0=threadSpan*tz;
-                    int x1=threadSpan*tx+threadSpan;
-                    int z1=threadSpan*tz+threadSpan;
-                    for(int x=x0;x<x1;x++){
-                        for(int z=z0;z<z1;z++){
-                            if(x<0||z<0||x>=SIZE||z>=SIZE)continue;
-                            int rx=x*SCALE_FACTOR;
-                            int rz=z*SCALE_FACTOR;
-                            elevPoints[x][z] = elevNoise->get(rx * elevZoom, 0, rz * elevZoom);
-                            roughPoints[x][z] = roughNoise->get(rx * roughZoom, 0, rz * roughZoom);
-                            detailPoints[x][z] = detailNoise->get(rx * detailZoom, 0, rz * detailZoom);
-                        }
-                    }
-                    printf("E%i,%i\n",tx,tz);
-                },__tx,__tz);
+        for(int x=0;x<SIZE;x++){
+            for(int z=0;z<SIZE;z++){
+                int rx=x*SCALE_FACTOR;
+                int rz=z*SCALE_FACTOR;
+                elevPoints[x][z] = elevNoise->get(rx * elevZoom, 0, rz * elevZoom);
+                roughPoints[x][z] = roughNoise->get(rx * roughZoom, 0, rz * roughZoom);
+                detailPoints[x][z] = detailNoise->get(rx * detailZoom, 0, rz * detailZoom);
             }
-        }
-        for(auto&t:threads){
-            t.join();
         }
 
         auto interpolate = [&](int x, int z, int type) {
             int x0 = x / SCALE_FACTOR;
             int z0 = z / SCALE_FACTOR;
-            double h00, h01, h10, h11;
+            double h00=-1, h01=-1, h10=-1, h11=-1;
             if (type == 0) {
                 h00 = elevPoints[x0][z0];
                 h01 = elevPoints[x0][z0 + 1];
@@ -100,22 +74,15 @@ namespace block {
 
         for (int x = 0; x < WORLD_SIZE * 16; x++) {
             for (int z = 0; z < WORLD_SIZE * 16; z++) {
-
-//                int h=(int)interpolate(x,z,0);
                 double elev = interpolate(x, z, 0);
                 double rough = interpolate(x, z, 1);
                 double detail = interpolate(x, z, 2);
-//                    elev = 2 * elev - 1;
-//                    rough = 2 * rough - 1;
-//                    detail = 2 * detail - 1;
-//                int h = (int) ((elev + rough * detail) * 64 + 64);
+
+                elev+=rough*detail;
+
                 int h=(int)(elev*64+64);
                 if(h<0)h=0;
                 if(h>=256)h=256;
-
-                // TODO: better height calc
-//                if (h < 10)h = 10;
-//                if (h > 100)h = 100;
 
                 for (int y = 0; y <= h; y++) {
                     block_state bs = surface.get_for_location(x, y, z, h);

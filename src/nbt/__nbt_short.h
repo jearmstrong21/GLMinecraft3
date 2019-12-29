@@ -20,8 +20,8 @@ namespace nbt {
         ~nbt_short()override;
         void write(std::ostream&out)const override;
         void read(std::istream&in,bool read_type)override;
-        nbt_type type()const override;
-        std::string to_str(std::string indent)const override;
+        [[nodiscard]] nbt_type type()const override;
+        [[nodiscard]] std::string to_str(std::string indent)const override;
     };
 
 }

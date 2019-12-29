@@ -34,17 +34,16 @@ namespace networking {
         server::entity_type_player entity_type_player;
 
         void frame_handler(boost::system::error_code err){
-            std::cout<<"Frame\n";
             auto nbt_entities=new nbt::nbt_compound();
             for(const auto& e:entities){
                 nbt_entities->value[e.first]=e.second;
-                nbt::cast_float(nbt::cast_list(nbt::cast_compound(e.second)->value["position"])->value[0])->value+=1;
+                nbt::cast_float(nbt::cast_list(nbt::cast_compound(e.second)->value["position"])->value[0])->value+=0.1F;
             }
             broadcast_to_all(nbt::make_compound({
                 {"entities",std::shared_ptr<nbt::nbt>(nbt_entities)}
             }));
-            std::cout<<"Broadcast entity list\n";
-            timer.expires_at(timer.expires_at()+boost::posix_time::seconds(1));
+            int FPS=30;
+            timer.expires_at(timer.expires_at()+boost::posix_time::milliseconds((int)(1000/FPS)));
             timer.async_wait([this](boost::system::error_code err){
                 frame_handler(err);
             });
@@ -68,7 +67,10 @@ namespace networking {
 
         void join(const game_player_ptr& ptr){
             ptr->send_world(world);
-            std::string id=spawn_entity(entity_type_player.initialize());
+            std::shared_ptr<nbt::nbt>entity=entity_type_player.initialize();
+            nbt::cast_compound(entity)->value["position"]=nbt::make_list({nbt::make_float(8),nbt::make_float(8),nbt::make_float(8)});
+            std::string id=spawn_entity(entity);
+            nbt::cast_compound(entity)->value["name"]=nbt::make_string(id);
             ptr->deliver(nbt::make_compound({
                 {"player_id",nbt::make_string(id)}
             }));
@@ -124,10 +126,7 @@ namespace networking {
                     std::istringstream stream(str);
                     std::shared_ptr<nbt::nbt> obj = nbt::read_nbt(stream);
                     std::cout << obj->to_str("") << "\n";
-//                    room.deliver(nbt::make_compound({
-//                                                             {"from",   nbt::make_string("server")},
-//                                                             {"reason", nbt::make_string("revenge boop")}
-//                                                     }));
+                    // TODO: THIS IS WHERE WE HANDLE ANY PACKETS FROM THE CLIENT: OBJ
                 }
             });
         }
@@ -138,7 +137,6 @@ namespace networking {
             boost::array<unsigned long,1>size{a.str().length()};
             boost::asio::write(socket,boost::asio::buffer(size));
             boost::asio::write(socket,boost::asio::buffer(a.str()));
-//            std::cout<<"Attempt to deliver "<<msg.to_str("")<<"\n";
         }
 
         void send_world(const block::world&world) override{

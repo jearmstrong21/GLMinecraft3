@@ -8,7 +8,7 @@
 
 namespace gl {
 
-    texture::texture(const unsigned char*_data,int _len) {
+    texture::texture(const unsigned char*_data,int _len): id(-1) {
         glGenTextures(1,&id);
         glBindTexture(GL_TEXTURE_2D,id);
         glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_S,GL_CLAMP_TO_EDGE);
@@ -22,7 +22,7 @@ namespace gl {
         unsigned char*data=stbi_load_from_memory(_data,_len,&w,&h,&chn,0);
 
         GLenum frmt=GL_RGBA;
-        printf("Loaded file with dimensions %ix%i and channels %i\n",w,h,chn);
+//        printf("Loaded file with dimensions %ix%i and channels %i\n",w,h,chn);
         if(chn==3)frmt=GL_RGB;
 
         if(data){

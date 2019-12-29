@@ -1,5 +1,5 @@
 #version 410 core
-out vec4 FragColor;
+out vec4 frag_color;
 in vec2 uv0;
 in vec2 uv1;
 in vec3 col0;
@@ -12,7 +12,7 @@ void main(){
   if(second.w>0.2){
     result=second;
   }
-  FragColor=vec4(result.xyz,1);
+  frag_color=vec4(result.xyz,1);
 //  FragColor=texture(tex,uv);
 //  FragColor=vec4(uv,0,1);
 }

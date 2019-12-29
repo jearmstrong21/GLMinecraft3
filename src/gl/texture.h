@@ -12,7 +12,7 @@ namespace gl {
 
     class texture {
     private:
-        GLuint id;
+        GLuint id{};
 
     public:
         texture(const unsigned char*_data,int _len);

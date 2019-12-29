@@ -88,7 +88,6 @@ set(SOURCE_FILES
         src/nbt/nbt.cpp
 
         src/server/entity.cpp
-        src/server/server.cpp
 
         src/server.cpp
         src/client.cpp

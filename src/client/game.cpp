@@ -24,109 +24,100 @@ extern "C" const size_t SHADER_wireframe_vert_len;
 
 namespace client {
 
-    game::game(GLFWwindow *window, const std::string &host, const std::string &port): socket(io_context) {
-        this->window = window;
-//        world = std::make_shared<block::world>();
-
-        try {
-            printf("START WORLD DOWNLOAD\n");
-
-            boost::asio::ip::tcp::resolver resolver(io_context);
-            boost::asio::ip::tcp::resolver::query query(host, port);
-            boost::asio::ip::tcp::resolver::results_type endpoints = resolver.resolve(query);
-
-            boost::asio::connect(socket, endpoints);
-
-            boost::system::error_code err;
-
-            printf("START READ\n");
-            for (int x = 0;x < WORLD_SIZE; x++) {
-                for (int y = 0; y < 16; y++) {
-                    for (int z = 0; z < WORLD_SIZE; z++) {
-                        boost::array<long, 4096> arr{};
-                        size_t len = boost::asio::read(socket, boost::asio::buffer(arr),err);
-                        if (err == boost::asio::error::eof) {
-                            printf("UNEXPECTED EOF %i %i %i\n", x, y, z);
-                            std::raise(11);
-                        } else if (err) {
-                            throw boost::system::system_error(err);
-                        }
-                        world.map[x][z]->read(y, arr);
-                        printf("RECEIVED CHUNK %i %i %i\n", x, y, z);
+    void game::download_world(){
+        boost::system::error_code err;
+        for (int x = 0;x < WORLD_SIZE; x++) {
+            for (int y = 0; y < 16; y++) {
+                for (int z = 0; z < WORLD_SIZE; z++) {
+                    boost::array<long, 4096> arr{};
+                    size_t len = boost::asio::read(socket, boost::asio::buffer(arr),err);
+                    if (err == boost::asio::error::eof) {
+                        printf("UNEXPECTED EOF WHILE READING CHUNKS %i %i %i\n", x, y, z);
+                        std::raise(11);
+                    } else if (err) {
+                        throw boost::system::system_error(err);
                     }
+                    world.map[x][z]->read(y, arr);
                 }
             }
-            printf("END READ\n");
-            {
-                boost::array<long,1>arr{};
-                boost::asio::read(socket,boost::asio::buffer(arr));
-//                std::cout<<"READ_PACKET\n";
-                unsigned long length_of_nbt=arr[0];
-                boost::asio::streambuf read_buffer;
-                boost::asio::read(socket,read_buffer,boost::asio::transfer_exactly(length_of_nbt));
-                boost::asio::streambuf::const_buffers_type bufs=read_buffer.data();
-                std::string str(boost::asio::buffers_begin(bufs),boost::asio::buffers_begin(bufs)+length_of_nbt);
-                std::istringstream stream(str);
-                std::shared_ptr<nbt::nbt_compound>welcome_packet=nbt::cast_compound(nbt::read_nbt(stream));
-                player_id=nbt::cast_string(welcome_packet->value["player_id"])->value;
-            }
+        }
+    }
 
-            read_packet();
+    void game::connect_to_server(const std::string&host,const std::string&port){
+        boost::asio::ip::tcp::resolver resolver(io_context);
+        boost::asio::ip::tcp::resolver::query query(host, port);
+        boost::asio::ip::tcp::resolver::results_type endpoints = resolver.resolve(query);
 
-            io_context.run();
+        boost::asio::connect(socket, endpoints);
+    }
 
-        } catch (
-                std::exception &e
-        ) {
-            std::cerr << "client ex caught: " << e.
+    game::game(GLFWwindow *window, const std::string &host, const std::string &port): socket(io_context) {
+        this->window = window;
 
-                    what()
+        try {
+            printf("**************************************************\n\nBEGIN CONNECTION TO SERVER\n\n**************************************************\n\n");
 
-                      << "\n";
+            connect_to_server(host,port);
+            download_world();
+            read_welcome_packet();
+
+        } catch (std::exception &e) {
+            std::cerr << "client ex caught in initial connection: " << e.what()<< "\n";
             std::raise(11);
         }
-        shader = new gl::shader(SHADER_chunk_vert, SHADER_chunk_vert_len, SHADER_chunk_frag,
-                                              SHADER_chunk_frag_len);
+
+
+        render_world();
+
+        read_packet();
+
+        io_context.run();
+
+        initialize_gl();
+
+    }
+
+    void game::initialize_gl() {
+        shader = new gl::shader(SHADER_chunk_vert, SHADER_chunk_vert_len, SHADER_chunk_frag,SHADER_chunk_frag_len);
         texture = new gl::texture(TEXTURE_1_8_textures_0_png, TEXTURE_1_8_textures_0_png_len);
         wireframe_shader=new gl::shader(SHADER_wireframe_vert,SHADER_wireframe_vert_len,SHADER_wireframe_frag,SHADER_wireframe_frag_len);
         gl::mesh_data data{
-                {
-                        {3,{
-                            0,0,0, 1,0,0,
-                            0,0,0, 0,1,0,
-                            0,0,0, 0,0,1,
+            {{3,{
+                    0,0,0, 1,0,0,
+                    0,0,0, 0,1,0,
+                    0,0,0, 0,0,1,
 
-                            1,0,0, 1,1,0,
-                            1,0,0, 1,0,1,
+                    1,0,0, 1,1,0,
+                    1,0,0, 1,0,1,
 
-                            0,1,0, 1,1,0,
-                            0,1,0, 0,1,1,
+                    0,1,0, 1,1,0,
+                    0,1,0, 0,1,1,
 
-                            0,0,1, 1,0,1,
-                            0,0,1, 0,1,1,
+                    0,0,1, 1,0,1,
+                    0,0,1, 0,1,1,
 
-                            0,1,1, 1,1,1,
-                            1,0,1, 1,1,1,
-                            1,1,0, 1,1,1
-                        }}
-                    },
+                    0,1,1, 1,1,1,
+                    1,0,1, 1,1,1,
+                    1,1,0, 1,1,1
+                }}},
                 {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23}
         };
         wireframe_mesh=new gl::mesh(&data);
+    }
 
-        printf("START WORLD RENDER\n");
+    void game::render_world(){
         for (int x = 0;x < WORLD_SIZE; x++) {
             for (int z = 0;z < WORLD_SIZE; z++) {
                 rendered_world[x][z] =std::make_shared<rendered_chunk>(glm::ivec2{x, z});
                 rendered_world[x][z]->take_chunk(world, world.map[x][z]);
                 rendered_world[x][z]->render_chunk();
-
             }
         }
-        printf("END WORLD RENDER\n");
+        std::cout<<"Rendered world\n";
     }
 
     void game::loop() {
+        std::lock_guard<std::mutex>guard(protect_game_state);
         int width, height;
         glfwGetFramebufferSize(window, &width, &height);
 
@@ -177,11 +168,11 @@ namespace client {
     }
 
     void game::read_packet() {
+        std::cout<<"packet read initiated\n";
         boost::thread t([this](){
             while(sqrt(5)>0){
                 boost::array<long,1>arr{};
                 boost::asio::read(socket,boost::asio::buffer(arr));
-//                std::cout<<"READ_PACKET\n";
                 unsigned long length_of_nbt=arr[0];
                 boost::asio::streambuf read_buffer;
                 boost::asio::read(socket,read_buffer,boost::asio::transfer_exactly(length_of_nbt));
@@ -189,37 +180,23 @@ namespace client {
                 std::string str(boost::asio::buffers_begin(bufs),boost::asio::buffers_begin(bufs)+length_of_nbt);
                 std::istringstream stream(str);
                 std::shared_ptr<nbt::nbt>obj=nbt::read_nbt(stream);
-
                 load_game_update(obj);
-
-//                std::cout<<obj->to_str("")<<"\n";
             }
         });
     }
 
-    void game::send_packet(std::shared_ptr<nbt::nbt> data) {
-//        boost::asio::post(io_context,[this,data](){
-            bool wip=!write_msgs.empty();
-            write_msgs.push_back(data);
-            if(!wip){
-                do_write();
-            }
-//        });
-    }
-
-    void game::do_write() {
+    void game::send_packet(const std::shared_ptr<nbt::nbt>& data) {
         std::stringstream a;
-        write_msgs[0]->write(a);
+        data->write(a);
         boost::array<unsigned long,1>size{a.str().length()};
         boost::asio::write(socket,boost::asio::buffer(size));
         boost::asio::write(socket,boost::asio::buffer(a.str()));
-        write_msgs.erase(write_msgs.begin());
-        if(!write_msgs.empty())do_write();
     }
 
     void game::load_game_update(const std::shared_ptr<nbt::nbt> &obj) {
+        std::lock_guard<std::mutex>guard(protect_game_state);
         std::shared_ptr<nbt::nbt_compound> compound=nbt::cast_compound(obj);
-        //entity load
+
         {
             std::shared_ptr<nbt::nbt_compound>nbt_ent=nbt::cast_compound(compound->value["entities"]);
             entities.clear();
@@ -228,6 +205,21 @@ namespace client {
             }
         }
 
+    }
+
+    void game::read_welcome_packet() {
+        boost::array<long,1>arr{};
+        boost::asio::read(socket,boost::asio::buffer(arr));
+        unsigned long length_of_nbt=arr[0];
+        boost::asio::streambuf read_buffer;
+        boost::asio::read(socket,read_buffer,boost::asio::transfer_exactly(length_of_nbt));
+        boost::asio::streambuf::const_buffers_type bufs=read_buffer.data();
+        std::string str(boost::asio::buffers_begin(bufs),boost::asio::buffers_begin(bufs)+length_of_nbt);
+        std::istringstream stream(str);
+        std::shared_ptr<nbt::nbt_compound>welcome_packet=nbt::cast_compound(nbt::read_nbt(stream));
+        player_id=nbt::cast_string(welcome_packet->value["player_id"])->value;
+        std::cout<<"Welcome packet recieved:\n";
+        std::cout<<"\tplayer_id = <"<<player_id<<">\n";
     }
 
 }

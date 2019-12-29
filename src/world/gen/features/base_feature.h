@@ -22,7 +22,7 @@ namespace world::gen {
     public:
         explicit base_feature(uint32_t seed);
         virtual void build()=0;
-        // TODO: add argument (we need to pass set function from client_world)
+        // TODO: add argument (we need to pass set function from world)
     };
 }
 

@@ -89,9 +89,5 @@ int main(int argc, char** argv) {
     std::cout<<"Select an option.\n";
     std::cout<<desc<<"\n";
 
-    //whats this stuff doing here
-//    std::cin.sync();
-//    std::cin.ignore(1);
-
     return 0;
 }

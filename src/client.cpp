@@ -11,15 +11,12 @@
 
 namespace networking {
 
-#define SIZE 100
-
-
     static void on_glfw_error(int error, const char* description) {
         fprintf(stderr, "Error: %i,%s\n", error, description);
     }
 
 
-    int client(std::string host,std::string port) {
+    int client(const std::string& host,const std::string& port) {
         glfwSetErrorCallback(on_glfw_error);
         if (!glfwInit()) {
             printf("GLFW NOT INITIALIZED\n");

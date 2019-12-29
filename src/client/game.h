@@ -17,48 +17,50 @@
 #include <ctime>
 #include <nbt/nbt.h>
 #include <boost/asio.hpp>
+#include <mutex>
 
+//**********
 namespace client {
 
     class game {
     private:
+        /********** OPENGL **********/
         gl::shader*shader;
         gl::texture*texture;
         gl::shader*wireframe_shader;
         gl::mesh*wireframe_mesh;
+
+        void render_world();
+        void initialize_gl();
+
+        /********** GAME STATE **********/
         block::world world;
         std::map<std::string,std::shared_ptr<nbt::nbt>>entities;
-        void load_game_update(const std::shared_ptr<nbt::nbt>&obj);
         std::string player_id;
-    public:
+        std::mutex protect_game_state;
 
-//        std::shared_ptr<gl::shader>shader;
-//        std::shared_ptr<gl::texture>texture;
-//        std::shared_ptr<gl::shader>wireframe_shader;
-//        std::shared_ptr<gl::mesh>wireframe_mesh;
-//        std::shared_ptr<block::world>world;
+        void load_game_update(const std::shared_ptr<nbt::nbt>&obj);
+
+        /********** NETWORKING **********/
+        boost::asio::io_context io_context;
+        boost::asio::ip::tcp::socket socket;
+
+        void read_packet();
+        void send_packet(const std::shared_ptr<nbt::nbt>&data);
+        void download_world();
+        void read_welcome_packet();
+        void connect_to_server(const std::string&host,const std::string&port);
+
+    public:
         std::shared_ptr<rendered_chunk>rendered_world[WORLD_SIZE][WORLD_SIZE];
 
         GLFWwindow* window;
 
         explicit game(GLFWwindow* window,const std::string&host,const std::string&port);
 
-//        void download_world(const std::string& host,std::string port);
-        void read_packet();
-        void send_packet(std::shared_ptr<nbt::nbt>data);
-        std::vector<std::shared_ptr<nbt::nbt>>write_msgs;
-
-        boost::asio::io_context io_context;
-        boost::asio::ip::tcp::socket socket;
-
-//        boost::asio::io_context
-
         void loop();
 
         void end();
-
-    private:
-        void do_write();
 
     };
 
