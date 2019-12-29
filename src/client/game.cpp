@@ -103,6 +103,7 @@ namespace client {
                 {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23}
         };
         wireframe_mesh=new gl::mesh(&data);
+        glfwSetKeyCallback(window,glfw_key_callback);
     }
 
     void game::render_world(){
@@ -137,6 +138,11 @@ namespace client {
 //                                            sin(glfwGetTime() * 0.25) * 16 * WORLD_SIZE / 2 + 16 * WORLD_SIZE / 2),
 //                                  glm::vec3(WORLD_SIZE * 8, 20, WORLD_SIZE * 8), glm::vec3(0, -1, 0));
         glm::mat4 v=glm::lookAt(eyePos,curPos,{0,-1,0});
+
+        if(is_key_triggered['U']){
+            is_key_triggered['U']=false;
+
+        }
 
         shader->bind();
         shader->uniform4x4("perspective", p);
@@ -174,6 +180,11 @@ namespace client {
         if (glfwGetKey(window, GLFW_KEY_Q)) {
             while(sqrt(5)>0)std::raise(11);
         }
+
+    }
+
+    void glfw_key_callback(GLFWwindow*window,int key,int scancode,int action,int mods){
+        if(action==GLFW_PRESS)is_key_triggered[key]=true;
     }
 
     void game::end() {

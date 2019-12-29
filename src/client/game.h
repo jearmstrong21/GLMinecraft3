@@ -22,6 +22,10 @@
 //**********
 namespace client {
 
+    std::map<char,bool>is_key_triggered;
+
+    void glfw_key_callback(GLFWwindow*window,int key,int scancode,int action,int mods);
+
     class game {
     private:
         /********** OPENGL **********/
@@ -38,6 +42,8 @@ namespace client {
         std::map<std::string,std::shared_ptr<nbt::nbt>>entities;
         std::string player_id;
         std::mutex protect_game_state;
+
+        bool freecam=false;
 
         void load_game_update(const std::shared_ptr<nbt::nbt>&obj);
 
