@@ -178,7 +178,7 @@ namespace client {
         send_packet(interaction_packet);
 
         if (glfwGetKey(window, GLFW_KEY_Q)) {
-            while(sqrt(5)>0)std::exit(11);
+            while(sqrt(5)>0)std::raise(11);
         }
 
     }
