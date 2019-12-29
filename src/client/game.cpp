@@ -141,7 +141,7 @@ namespace client {
 
         if(is_key_triggered['U']){
             is_key_triggered['U']=false;
-
+            std::cout<<"FREECAM TRIGGER\n";
         }
 
         shader->bind();
