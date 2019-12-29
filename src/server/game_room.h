@@ -56,7 +56,9 @@ namespace server {
         }
 
         std::string get_next_entity_id() {
-            return std::string((char*)boost::uuids::random_generator()().data);
+            std::stringstream str;
+            str << boost::uuids::random_generator()();
+            return str.str();
         }
 
         std::string spawn_entity(const std::shared_ptr<nbt::nbt>& e) {
