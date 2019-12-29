@@ -33,7 +33,7 @@ namespace client {
                     size_t len = boost::asio::read(socket, boost::asio::buffer(arr),err);
                     if (err == boost::asio::error::eof) {
                         printf("UNEXPECTED EOF WHILE READING CHUNKS %i %i %i\n", x, y, z);
-                        std::raise(11);
+                        std::exit(11);
                     } else if (err) {
                         throw boost::system::system_error(err);
                     }
@@ -63,7 +63,7 @@ namespace client {
 
         } catch (std::exception &e) {
             std::cerr << "client ex caught in initial connection: " << e.what()<< "\n";
-            std::raise(11);
+            std::exit(11);
         }
 
 
@@ -172,7 +172,7 @@ namespace client {
         send_packet(interaction_packet);
 
         if (glfwGetKey(window, GLFW_KEY_Q)) {
-            while(sqrt(5)>0)std::raise(11);
+            while(sqrt(5)>0)std::exit(11);
         }
     }
 
