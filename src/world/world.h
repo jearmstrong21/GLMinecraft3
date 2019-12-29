@@ -9,6 +9,7 @@
 #include <vector>
 #include <memory>
 #include <glm/glm.hpp>
+#include <world/gen/world_generator.h>
 #include "utils/noise/noise.h"
 #include "utils/utils.h"
 
@@ -37,6 +38,7 @@ namespace block {
 
         [[nodiscard]] block_context get_block_context(glm::ivec3 p)const;
 
+        world_generator generator;
     };
 
 }

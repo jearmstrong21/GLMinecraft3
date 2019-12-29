@@ -92,7 +92,7 @@ set(SOURCE_FILES
         src/server.cpp
         src/client.cpp
         src/both.h
-        )
+        src/world/gen/world_generator.cpp src/world/gen/world_generator.h)
 
 if(APPLE)
     include_directories(/usr/local/include/GLFW)
