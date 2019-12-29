@@ -78,9 +78,26 @@ namespace client {
         wireframe_shader=std::make_shared<gl::shader>(SHADER_wireframe_vert,SHADER_wireframe_vert_len,SHADER_wireframe_frag,SHADER_wireframe_frag_len);
         gl::mesh_data data{
                 {
-                        {3,{0,0,0, 16,0,0, 0,16,0, 16,16,0}}
+                        {3,{
+                            0,0,0, 1,0,0,
+                            0,0,0, 0,1,0,
+                            0,0,0, 0,0,1,
+
+                            1,0,0, 1,1,0,
+                            1,0,0, 1,0,1,
+
+                            0,1,0, 1,1,0,
+                            0,1,0, 0,1,1,
+
+                            0,0,1, 1,0,1,
+                            0,0,1, 0,1,1,
+
+                            0,1,1, 1,1,1,
+                            1,0,1, 1,1,1,
+                            1,1,0, 1,1,1
+                        }}
                     },
-                {0,1,2, 1,2,3}
+                {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23}
         };
         wireframe_mesh=std::make_shared<gl::mesh>(&data);
 
@@ -132,6 +149,11 @@ namespace client {
             }
         }
 
+        wireframe_shader->bind();
+        wireframe_shader->uniform4x4("perspective", p);
+        wireframe_shader->uniform4x4("view", v);
+        wireframe_shader->uniform4x4("model",glm::mat4(1));
+        wireframe_mesh->render_lines();
 //        if(glfwGetKey(window,GLFW_KEY_B)==GLFW_PRESS){
 //            std::cout<<"SENDING BOOP\n";
             send_packet(nbt::make_compound({
