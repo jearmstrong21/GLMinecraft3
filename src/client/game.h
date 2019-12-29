@@ -21,48 +21,50 @@
 
 //**********
 namespace client {
-
-    std::map<char,bool>is_key_triggered;
-
-    void glfw_key_callback(GLFWwindow*window,int key,int scancode,int action,int mods);
+    void glfw_key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
 
     class game {
     private:
         /********** OPENGL **********/
-        gl::shader*shader;
-        gl::texture*texture;
-        gl::shader*wireframe_shader;
-        gl::mesh*wireframe_mesh;
+        gl::shader* shader;
+        gl::texture* texture;
+        gl::shader* wireframe_shader;
+        gl::mesh* wireframe_mesh;
 
         void render_world();
+
         void initialize_gl();
 
         /********** GAME STATE **********/
         block::world world;
-        std::map<std::string,std::shared_ptr<nbt::nbt>>entities;
+        std::map<std::string, std::shared_ptr<nbt::nbt>> entities;
         std::string player_id;
         std::mutex protect_game_state;
 
-        bool freecam=false;
+        bool freecam = false;
 
-        void load_game_update(const std::shared_ptr<nbt::nbt>&obj);
+        void load_game_update(const std::shared_ptr<nbt::nbt>& obj);
 
         /********** NETWORKING **********/
         boost::asio::io_context io_context;
         boost::asio::ip::tcp::socket socket;
 
         void read_packet();
-        void send_packet(const std::shared_ptr<nbt::nbt>&data);
+
+        void send_packet(const std::shared_ptr<nbt::nbt>& data);
+
         void download_world();
+
         void read_welcome_packet();
-        void connect_to_server(const std::string&host,const std::string&port);
+
+        void connect_to_server(const std::string& host, const std::string& port);
 
     public:
-        std::shared_ptr<rendered_chunk>rendered_world[WORLD_SIZE][WORLD_SIZE];
+        std::shared_ptr<rendered_chunk> rendered_world[WORLD_SIZE][WORLD_SIZE];
 
         GLFWwindow* window;
 
-        explicit game(GLFWwindow* window,const std::string&host,const std::string&port);
+        explicit game(GLFWwindow* window, const std::string& host, const std::string& port);
 
         void loop();
 

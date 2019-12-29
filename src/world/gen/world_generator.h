@@ -6,9 +6,11 @@
 #define GLMINECRAFT3_WORLD_GENERATOR_H
 
 
-#include <world/world.h>
+//#include "world/world.h"
 
 namespace block {
+    class world;
+
     struct world_generator {
         void generate_world(world*);
     };
