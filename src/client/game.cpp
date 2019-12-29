@@ -109,7 +109,10 @@ namespace client {
                 {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23}
         };
         wireframe_mesh=new gl::mesh(&data);
-        glfwSetKeyCallback(window,glfw_key_callback);
+        glfwSetWindowUserPointer(window,this);
+        glfwSetKeyCallback(window,[](GLFWwindow*w,int key,int scancode,int actions,int mods){
+            ((game*)glfwGetWindowUserPointer(w))->glfw_key_press_callback(key,scancode,actions,mods);
+        });
     }
 
     void game::render_world(){
@@ -144,11 +147,6 @@ namespace client {
 //                                            sin(glfwGetTime() * 0.25) * 16 * WORLD_SIZE / 2 + 16 * WORLD_SIZE / 2),
 //                                  glm::vec3(WORLD_SIZE * 8, 20, WORLD_SIZE * 8), glm::vec3(0, -1, 0));
         glm::mat4 v=glm::lookAt(eyePos,curPos,{0,-1,0});
-
-        if(is_key_triggered['U']){
-            is_key_triggered['U']=false;
-            std::cout<<"FREECAM TRIGGER\n";
-        }
 
         shader->bind();
         shader->uniform4x4("perspective", p);
@@ -191,10 +189,6 @@ namespace client {
 #endif
         }
 
-    }
-
-    void glfw_key_callback(GLFWwindow*window,int key,int scancode,int action,int mods){
-        if(action==GLFW_PRESS)is_key_triggered[key]=true;
     }
 
     void game::end() {
@@ -264,6 +258,14 @@ namespace client {
         player_id=nbt::cast_string(welcome_packet->value["player_id"])->value;
         std::cout<<"Welcome packet recieved:\n";
         std::cout<<"\tplayer_id = <"<<player_id<<">\n";
+    }
+
+    void game::glfw_key_press_callback(int key,int scancode,int actions,int mods) {
+        if(key=='U'&&actions==GLFW_PRESS){
+            freecam=!freecam;
+            std::shared_ptr<nbt::nbt_list>nbt_cur_pos=nbt::cast_list(nbt::cast_compound(entities[player_id])->value["position"]);
+            freecamPos={nbt::cast_float(nbt_cur_pos->value[0])->value,nbt::cast_float(nbt_cur_pos->value[1])->value,nbt::cast_float(nbt_cur_pos->value[2])->value};
+        }
     }
 
 }

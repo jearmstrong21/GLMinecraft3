@@ -22,12 +22,9 @@
 //**********
 namespace client {
 
-    std::map<char,bool>is_key_triggered;
-
-    void glfw_key_callback(GLFWwindow*window,int key,int scancode,int action,int mods);
-
     class game {
     private:
+        void glfw_key_press_callback(int key,int scancode,int actions,int mods);
         /********** OPENGL **********/
         gl::shader*shader;
         gl::texture*texture;
@@ -44,6 +41,7 @@ namespace client {
         std::mutex protect_game_state;
 
         bool freecam=false;
+        glm::vec3 freecamPos;
 
         void load_game_update(const std::shared_ptr<nbt::nbt>&obj);
 
