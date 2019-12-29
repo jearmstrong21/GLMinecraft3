@@ -41,7 +41,7 @@ int main(int argc, char** argv)
     strcat(targetfile,".c");
     printf("**** EMBED FILE %s %s %s %s ****\n",sym,argv[2],cwd,targetfile);
     FILE* out = open_or_exit(targetfile,"w");
-    fprintf(out, "// Auto-generated");
+    fprintf(out, "// Auto-generated\n");
     fprintf(out, "#include <stdlib.h>\n");
     fprintf(out, "const unsigned char %s[] = {\n", sym);
 
