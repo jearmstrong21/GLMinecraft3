@@ -59,7 +59,7 @@ set(SOURCE_FILES
         src/client/game.cpp
         src/client/block_rendering.cpp
         src/client/rendered_chunk.cpp
-        src/server/registry.cpp
+        src/utils/registry.cpp
         src/block/blockstate.cpp
         src/block/block.cpp
         src/world/world.cpp
@@ -87,7 +87,7 @@ set(SOURCE_FILES
         src/nbt/__nbt_utils.cpp
         src/nbt/nbt.cpp
 
-        src/server/entity.cpp
+        src/entity/entity.cpp
 
         src/server.cpp
         src/client.cpp
