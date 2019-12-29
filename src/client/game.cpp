@@ -29,7 +29,6 @@ extern "C" const unsigned char SHADER_wireframe_vert[];
 extern "C" const size_t SHADER_wireframe_vert_len;
 
 namespace client {
-
     void game::download_world(){
         boost::system::error_code err;
         for (int x = 0;x < WORLD_SIZE; x++) {

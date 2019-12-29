@@ -9,7 +9,7 @@
 #include <vector>
 #include <memory>
 #include <glm/glm.hpp>
-#include <world/gen/world_generator.h>
+#include "world/gen/world_generator.h"
 #include "utils/noise/noise.h"
 #include "utils/utils.h"
 
