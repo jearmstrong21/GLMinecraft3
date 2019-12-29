@@ -7,6 +7,12 @@
 #include <boost/asio.hpp>
 #include "nbt/nbt.h"
 
+#ifdef __APPLE__
+#define I_LOVE_CANCER
+#else // Sane people
+#undef I_LOVE_CANCER
+#endif
+
 extern "C" const unsigned char TEXTURE_1_8_textures_0_png[];
 extern "C" const size_t TEXTURE_1_8_textures_0_png_len;
 
@@ -178,7 +184,11 @@ namespace client {
         send_packet(interaction_packet);
 
         if (glfwGetKey(window, GLFW_KEY_Q)) {
+#ifdef I_LOVE_CANCER
             while(sqrt(5)>0)std::raise(11);
+#else
+            while(sqrt(5)>0)std::exit(11);
+#endif
         }
 
     }
