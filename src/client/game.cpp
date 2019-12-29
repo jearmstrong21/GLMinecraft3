@@ -62,32 +62,6 @@ namespace client {
 
             io_context.run();
 
-//            boost::thread* m_thread;
-//            m_thread = new boost::thread([&socket](){
-//                boost::array<long, 1> arr{};
-//                size_t len = boost::asio::read(socket, boost::asio::buffer(arr));
-//
-//                unsigned long length_of_nbt = arr[0];
-//
-//                std::cout << "Length: " << length_of_nbt << std::endl;
-//
-//                boost::asio::streambuf read_buffer;
-//
-//                len = boost::asio::read(socket, read_buffer,
-//                                                      boost::asio::transfer_exactly(length_of_nbt));
-//
-//                boost::asio::streambuf::const_buffers_type bufs = read_buffer.data();
-//                std::string str(boost::asio::buffers_begin(bufs),
-//                                boost::asio::buffers_begin(bufs) + length_of_nbt);
-//
-//                std::istringstream stream(str);
-//
-//                std::shared_ptr<nbt::nbt> nbt_obj = nbt::read_nbt(stream);
-//
-//                std::cout << nbt_obj->to_str(" ") << std::endl;
-//
-////                delete[] despacito;
-//            });
         } catch (
                 std::exception &e
         ) {
@@ -101,6 +75,14 @@ namespace client {
         shader = std::make_shared<gl::shader>(SHADER_chunk_vert, SHADER_chunk_vert_len, SHADER_chunk_frag,
                                               SHADER_chunk_frag_len);
         texture = std::make_shared<gl::texture>(TEXTURE_1_8_textures_0_png, TEXTURE_1_8_textures_0_png_len);
+        wireframe_shader=std::make_shared<gl::shader>(SHADER_wireframe_vert,SHADER_wireframe_vert_len,SHADER_wireframe_frag,SHADER_wireframe_frag_len);
+        gl::mesh_data data{
+                {
+                        {3,{0,0,0, 16,0,0, 0,16,0, 16,16,0}}
+                    },
+                {0,1,2, 1,2,3}
+        };
+        wireframe_mesh=std::make_shared<gl::mesh>(&data);
 
         printf("START WORLD RENDER\n");
         for (
@@ -137,7 +119,7 @@ namespace client {
         glm::mat4 v = glm::lookAt(glm::vec3(cos(glfwGetTime() * 0.25) * 16 * WORLD_SIZE / 2 + 16 * WORLD_SIZE / 2,
                                             sin(glfwGetTime() * 0.25) * 32 + 32,
                                             sin(glfwGetTime() * 0.25) * 16 * WORLD_SIZE / 2 + 16 * WORLD_SIZE / 2),
-                                  glm::vec3(WORLD_SIZE * 8, 60, WORLD_SIZE * 8), glm::vec3(0, -1, 0));
+                                  glm::vec3(WORLD_SIZE * 8, 20, WORLD_SIZE * 8), glm::vec3(0, -1, 0));
 
         shader->bind();
         shader->uniform4x4("perspective", p);

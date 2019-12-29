@@ -49,10 +49,12 @@ namespace networking {
         void join(game_player_ptr ptr){
             ptr->send_world(world);
             players.insert(ptr);
+            std::cout<<"PLAYER JOINED\n";
             //send world and shit
         }
         void leave(game_player_ptr ptr){
             players.erase(ptr);
+            std::cout<<"PLAYER LEFT\n";
         }
         void deliver(const nbt::nbt&msg){
             for(const auto& p:players)p->deliver(msg);
@@ -75,16 +77,25 @@ namespace networking {
             boost::thread t([this](){
                 while(sqrt(5)>0) {
                     boost::array<long, 1> arr{};
-                    boost::asio::read(socket, boost::asio::buffer(arr));
-                    std::cout << "READ_PACKET\n";
+                    boost::system::error_code err;
+                    boost::asio::read(socket, boost::asio::buffer(arr),err);
+                    if(err){
+                        room.leave(shared_from_this());
+                        return;
+                    }
+//                    std::cout << "READ_PACKET\n";
                     unsigned long length_of_nbt = arr[0];
                     boost::asio::streambuf read_buffer;
-                    boost::asio::read(socket, read_buffer, boost::asio::transfer_exactly(length_of_nbt));
+                    boost::asio::read(socket, read_buffer, boost::asio::transfer_exactly(length_of_nbt),err);
+                    if(err){
+                        room.leave(shared_from_this());
+                        return;
+                    }
                     boost::asio::streambuf::const_buffers_type bufs = read_buffer.data();
                     std::string str(boost::asio::buffers_begin(bufs), boost::asio::buffers_begin(bufs) + length_of_nbt);
                     std::istringstream stream(str);
                     std::shared_ptr<nbt::nbt> obj = nbt::read_nbt(stream);
-                    std::cout << obj->to_str("") << "\n";
+//                    std::cout << obj->to_str("") << "\n";
                     room.deliver(*nbt::make_compound({
                                                              {"from",   nbt::make_string("server")},
                                                              {"reason", nbt::make_string("revenge boop")}
@@ -99,7 +110,7 @@ namespace networking {
             boost::array<unsigned long,1>size{a.str().length()};
             boost::asio::write(socket,boost::asio::buffer(size));
             boost::asio::write(socket,boost::asio::buffer(a.str()));
-            std::cout<<"Attempt to deliver "<<msg.to_str("")<<"\n";
+//            std::cout<<"Attempt to deliver "<<msg.to_str("")<<"\n";
         }
 
         void send_world(const block::world&world) override{

@@ -25,6 +25,8 @@ namespace client {
 
         std::shared_ptr<gl::shader>shader;
         std::shared_ptr<gl::texture>texture;
+        std::shared_ptr<gl::shader>wireframe_shader;
+        std::shared_ptr<gl::mesh>wireframe_mesh;
         std::shared_ptr<block::world>world;
         std::shared_ptr<rendered_chunk>rendered_world[WORLD_SIZE][WORLD_SIZE];
 
