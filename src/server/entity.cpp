@@ -33,11 +33,7 @@ namespace server {
     std::shared_ptr<nbt::nbt> entity_type_player::initialize() const {
         std::shared_ptr<nbt::nbt>res=entity_type_base::initialize();
         nbt::merge(res,nbt::make_compound({
-            {"name",nbt::make_string("default name")},
-            {"health",nbt::make_compound({
-                {"amount",nbt::make_float(0)},
-                {"max",nbt::make_float(0)}
-            })}
+            {"name",nbt::make_string("default name")}
         }));
         return res;
     }

@@ -21,13 +21,22 @@
 namespace client {
 
     class game {
+    private:
+        gl::shader*shader;
+        gl::texture*texture;
+        gl::shader*wireframe_shader;
+        gl::mesh*wireframe_mesh;
+        block::world world;
+        std::map<std::string,std::shared_ptr<nbt::nbt>>entities;
+        void load_game_update(const std::shared_ptr<nbt::nbt>&obj);
+        std::string player_id;
     public:
 
-        std::shared_ptr<gl::shader>shader;
-        std::shared_ptr<gl::texture>texture;
-        std::shared_ptr<gl::shader>wireframe_shader;
-        std::shared_ptr<gl::mesh>wireframe_mesh;
-        std::shared_ptr<block::world>world;
+//        std::shared_ptr<gl::shader>shader;
+//        std::shared_ptr<gl::texture>texture;
+//        std::shared_ptr<gl::shader>wireframe_shader;
+//        std::shared_ptr<gl::mesh>wireframe_mesh;
+//        std::shared_ptr<block::world>world;
         std::shared_ptr<rendered_chunk>rendered_world[WORLD_SIZE][WORLD_SIZE];
 
         GLFWwindow* window;

@@ -25,8 +25,9 @@ namespace gl {
         [[nodiscard]] int program_id();
 
         void uniform4x4(const std::string& name, glm::mat4 value);
+        void uniform3(const std::string&name,glm::vec3 value);
 
-        void texture(const std::string& name, std::shared_ptr<gl::texture> texture, int unit);
+        void texture(const std::string& name, gl::texture* texture, int unit);
     };
 
 }

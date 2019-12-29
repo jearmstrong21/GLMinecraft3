@@ -10,14 +10,15 @@
 #include "world/world.h"
 #include "both.h"
 #include <memory>
-#include <deque>
+#include "server/entity.h"
 #include <boost/thread.hpp>
 
 namespace networking {
 
-    struct game_player{
+    struct game_player {
+        std::string entity_id;
         virtual ~game_player()= default;
-        virtual void deliver(const nbt::nbt& msg)=0;
+        virtual void deliver(const std::shared_ptr<nbt::nbt>& msg)=0;
         virtual void send_world(const block::world&world)=0;
     };
 
@@ -25,42 +26,69 @@ namespace networking {
 
     struct game_room {
         block::world world;
+        std::map<std::string,std::shared_ptr<nbt::nbt>>entities;
+        std::set<game_player_ptr>players;
 
         boost::asio::deadline_timer timer;
 
-//        void handle_async_boop(boost::system::error_code err){
-//            std::cout<<"Async boop\n";
-//            deliver(*nbt::make_compound({
-//                                               {"value",nbt::make_int(5)}
-//            }));
-//            timer.expires_at(timer.expires_at()+boost::posix_time::seconds(1));
-//            timer.async_wait([this](boost::system::error_code err){
-//                handle_async_boop(err);
-//            });
-//        }
+        server::entity_type_player entity_type_player;
+
+        void frame_handler(boost::system::error_code err){
+            std::cout<<"Frame\n";
+            auto nbt_entities=new nbt::nbt_compound();
+            for(const auto& e:entities){
+                nbt_entities->value[e.first]=e.second;
+                nbt::cast_float(nbt::cast_list(nbt::cast_compound(e.second)->value["position"])->value[0])->value+=1;
+            }
+            broadcast_to_all(nbt::make_compound({
+                {"entities",std::shared_ptr<nbt::nbt>(nbt_entities)}
+            }));
+            std::cout<<"Broadcast entity list\n";
+            timer.expires_at(timer.expires_at()+boost::posix_time::seconds(1));
+            timer.async_wait([this](boost::system::error_code err){
+                frame_handler(err);
+            });
+        }
 
         explicit game_room(boost::asio::io_context&io_context):timer(io_context,boost::posix_time::seconds(0)){
             world.generate_world();
-//            timer.async_wait([this](boost::system::error_code err){
-//                handle_async_boop(err);
-//            });
+            frame_handler(boost::system::error_code());
         }
 
-        void join(game_player_ptr ptr){
+        std::string get_next_entity_id(){
+            return std::to_string(rand()%100000);//used as player ID and entity ID
+        }
+
+        std::string spawn_entity(const std::shared_ptr<nbt::nbt>&e){
+            std::string i=get_next_entity_id();
+            nbt::cast_compound(e)->value["id"]=nbt::make_string(i);
+            entities[i]=e;
+            return i;
+        }
+
+        void join(const game_player_ptr& ptr){
             ptr->send_world(world);
+            std::string id=spawn_entity(entity_type_player.initialize());
+            ptr->deliver(nbt::make_compound({
+                {"player_id",nbt::make_string(id)}
+            }));
             players.insert(ptr);
-            std::cout<<"PLAYER JOINED\n";
-            //send world and shit
+            ptr->entity_id=id;
+            std::cout<<"PLAYER "<<ptr->entity_id<<" JOINED\n";
         }
-        void leave(game_player_ptr ptr){
+
+        void kill_entity(std::string id) {
+            entities.erase(id);
+        }
+
+        void leave(const game_player_ptr& ptr){
             players.erase(ptr);
-            std::cout<<"PLAYER LEFT\n";
+            kill_entity(ptr->entity_id);
+            std::cout<<"PLAYER "<<ptr->entity_id<<" LEFT\n";
         }
-        void deliver(const nbt::nbt&msg){
+        void broadcast_to_all(const std::shared_ptr<nbt::nbt>&msg){
             for(const auto& p:players)p->deliver(msg);
         }
-
-        std::set<game_player_ptr>players;
     };
 
     struct network_session: game_player, std::enable_shared_from_this<network_session> {
@@ -95,18 +123,18 @@ namespace networking {
                     std::string str(boost::asio::buffers_begin(bufs), boost::asio::buffers_begin(bufs) + length_of_nbt);
                     std::istringstream stream(str);
                     std::shared_ptr<nbt::nbt> obj = nbt::read_nbt(stream);
-//                    std::cout << obj->to_str("") << "\n";
-                    room.deliver(*nbt::make_compound({
-                                                             {"from",   nbt::make_string("server")},
-                                                             {"reason", nbt::make_string("revenge boop")}
-                                                     }));
+                    std::cout << obj->to_str("") << "\n";
+//                    room.deliver(nbt::make_compound({
+//                                                             {"from",   nbt::make_string("server")},
+//                                                             {"reason", nbt::make_string("revenge boop")}
+//                                                     }));
                 }
             });
         }
 
-        void deliver(const nbt::nbt&msg) override {
+        void deliver(const std::shared_ptr<nbt::nbt>&msg) override {
             std::stringstream a;
-            msg.write(a);
+            msg->write(a);
             boost::array<unsigned long,1>size{a.str().length()};
             boost::asio::write(socket,boost::asio::buffer(size));
             boost::asio::write(socket,boost::asio::buffer(a.str()));

@@ -22,12 +22,12 @@ namespace client {
 
         explicit rendered_chunk(glm::ivec2 cpos);
 
-        void take_chunk(const std::shared_ptr<block::world>&world, const std::shared_ptr<block::chunk>&chunk, int section= -1);
+        void take_chunk(const block::world&world, const std::shared_ptr<block::chunk>&chunk, int section= -1);
         void render_chunk(int section=-1);
-        void render(const std::shared_ptr<gl::shader>& shader);
+        void render(gl::shader* shader);
 
     private:
-        void take_chunk_section(const std::shared_ptr<block::world>&world, const std::shared_ptr<block::chunk>&chunk, int section);
+        void take_chunk_section(const block::world&world, const std::shared_ptr<block::chunk>&chunk, int section);
         void render_chunk_section(int section);
 
     };

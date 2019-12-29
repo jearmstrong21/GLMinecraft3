@@ -26,7 +26,7 @@ namespace client {
 
     game::game(GLFWwindow *window, const std::string &host, const std::string &port): socket(io_context) {
         this->window = window;
-        world = std::make_shared<block::world>();
+//        world = std::make_shared<block::world>();
 
         try {
             printf("START WORLD DOWNLOAD\n");
@@ -51,12 +51,25 @@ namespace client {
                         } else if (err) {
                             throw boost::system::system_error(err);
                         }
-                        world->map[x][z]->read(y, arr);
+                        world.map[x][z]->read(y, arr);
                         printf("RECEIVED CHUNK %i %i %i\n", x, y, z);
                     }
                 }
             }
             printf("END READ\n");
+            {
+                boost::array<long,1>arr{};
+                boost::asio::read(socket,boost::asio::buffer(arr));
+//                std::cout<<"READ_PACKET\n";
+                unsigned long length_of_nbt=arr[0];
+                boost::asio::streambuf read_buffer;
+                boost::asio::read(socket,read_buffer,boost::asio::transfer_exactly(length_of_nbt));
+                boost::asio::streambuf::const_buffers_type bufs=read_buffer.data();
+                std::string str(boost::asio::buffers_begin(bufs),boost::asio::buffers_begin(bufs)+length_of_nbt);
+                std::istringstream stream(str);
+                std::shared_ptr<nbt::nbt_compound>welcome_packet=nbt::cast_compound(nbt::read_nbt(stream));
+                player_id=nbt::cast_string(welcome_packet->value["player_id"])->value;
+            }
 
             read_packet();
 
@@ -72,10 +85,10 @@ namespace client {
                       << "\n";
             std::raise(11);
         }
-        shader = std::make_shared<gl::shader>(SHADER_chunk_vert, SHADER_chunk_vert_len, SHADER_chunk_frag,
+        shader = new gl::shader(SHADER_chunk_vert, SHADER_chunk_vert_len, SHADER_chunk_frag,
                                               SHADER_chunk_frag_len);
-        texture = std::make_shared<gl::texture>(TEXTURE_1_8_textures_0_png, TEXTURE_1_8_textures_0_png_len);
-        wireframe_shader=std::make_shared<gl::shader>(SHADER_wireframe_vert,SHADER_wireframe_vert_len,SHADER_wireframe_frag,SHADER_wireframe_frag_len);
+        texture = new gl::texture(TEXTURE_1_8_textures_0_png, TEXTURE_1_8_textures_0_png_len);
+        wireframe_shader=new gl::shader(SHADER_wireframe_vert,SHADER_wireframe_vert_len,SHADER_wireframe_frag,SHADER_wireframe_frag_len);
         gl::mesh_data data{
                 {
                         {3,{
@@ -99,24 +112,14 @@ namespace client {
                     },
                 {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23}
         };
-        wireframe_mesh=std::make_shared<gl::mesh>(&data);
+        wireframe_mesh=new gl::mesh(&data);
 
         printf("START WORLD RENDER\n");
-        for (
-                int x = 0;
-                x < WORLD_SIZE; x++) {
-            for (
-                    int z = 0;
-                    z < WORLD_SIZE; z++) {
-                rendered_world[x][z] =
-                        std::make_shared<rendered_chunk>(glm::ivec2{x, z}
-                        );
-                rendered_world[x][z]->
-                        take_chunk(world, world
-                        ->map[x][z]);
-                rendered_world[x][z]->
-
-                        render_chunk();
+        for (int x = 0;x < WORLD_SIZE; x++) {
+            for (int z = 0;z < WORLD_SIZE; z++) {
+                rendered_world[x][z] =std::make_shared<rendered_chunk>(glm::ivec2{x, z});
+                rendered_world[x][z]->take_chunk(world, world.map[x][z]);
+                rendered_world[x][z]->render_chunk();
 
             }
         }
@@ -152,16 +155,14 @@ namespace client {
         wireframe_shader->bind();
         wireframe_shader->uniform4x4("perspective", p);
         wireframe_shader->uniform4x4("view", v);
-        wireframe_shader->uniform4x4("model",glm::mat4(1));
-        wireframe_mesh->render_lines();
-//        if(glfwGetKey(window,GLFW_KEY_B)==GLFW_PRESS){
-//            std::cout<<"SENDING BOOP\n";
-            send_packet(nbt::make_compound({
-                                                   {"source",nbt::make_string("game.cpp line 127")},
-                                                   {"additional info",nbt::make_string("BOOP HAHA GOT UR NOSE")}
-            }));
-        std::cout<<"WRITEMSGS SIZE: "<<write_msgs.size()<<"\n";
-//        }
+        for(const auto& e:entities){
+            std::shared_ptr<nbt::nbt_compound>ent=nbt::cast_compound(e.second);
+            std::shared_ptr<nbt::nbt_list>pos=nbt::cast_list(ent->value["position"]);
+            wireframe_shader->uniform4x4("model",glm::translate(glm::mat4(1),glm::vec3{nbt::cast_float(pos->value[0])->value,nbt::cast_float(pos->value[1])->value,nbt::cast_float(pos->value[2])->value}));
+            wireframe_shader->uniform3("color",glm::vec3{0,0,0});
+            if(e.first==player_id)wireframe_shader->uniform3("color",{1,0,0});
+            wireframe_mesh->render_lines();
+        }
 
         if (glfwGetKey(window, GLFW_KEY_Q)) {
             while(sqrt(5)>0)std::raise(11);
@@ -169,7 +170,10 @@ namespace client {
     }
 
     void game::end() {
-
+        delete shader;
+        delete texture;
+        delete wireframe_shader;
+        delete wireframe_mesh;
     }
 
     void game::read_packet() {
@@ -177,7 +181,7 @@ namespace client {
             while(sqrt(5)>0){
                 boost::array<long,1>arr{};
                 boost::asio::read(socket,boost::asio::buffer(arr));
-                std::cout<<"READ_PACKET\n";
+//                std::cout<<"READ_PACKET\n";
                 unsigned long length_of_nbt=arr[0];
                 boost::asio::streambuf read_buffer;
                 boost::asio::read(socket,read_buffer,boost::asio::transfer_exactly(length_of_nbt));
@@ -185,7 +189,10 @@ namespace client {
                 std::string str(boost::asio::buffers_begin(bufs),boost::asio::buffers_begin(bufs)+length_of_nbt);
                 std::istringstream stream(str);
                 std::shared_ptr<nbt::nbt>obj=nbt::read_nbt(stream);
-                std::cout<<obj->to_str("")<<"\n";
+
+                load_game_update(obj);
+
+//                std::cout<<obj->to_str("")<<"\n";
             }
         });
     }
@@ -208,6 +215,19 @@ namespace client {
         boost::asio::write(socket,boost::asio::buffer(a.str()));
         write_msgs.erase(write_msgs.begin());
         if(!write_msgs.empty())do_write();
+    }
+
+    void game::load_game_update(const std::shared_ptr<nbt::nbt> &obj) {
+        std::shared_ptr<nbt::nbt_compound> compound=nbt::cast_compound(obj);
+        //entity load
+        {
+            std::shared_ptr<nbt::nbt_compound>nbt_ent=nbt::cast_compound(compound->value["entities"]);
+            entities.clear();
+            for(const auto& p:nbt_ent->value){
+                entities[p.first]=p.second;
+            }
+        }
+
     }
 
 }
