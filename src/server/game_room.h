@@ -21,23 +21,32 @@ namespace server {
 
         entity_type_player entity_type_player;
 
-        void frame_handler(boost::system::error_code err){
+        std::mutex protect_game_state;
+
+        std::shared_ptr<nbt::nbt> get_entity_list(){
             auto nbt_entities=new nbt::nbt_compound();
             for(const auto& e:entities){
                 nbt_entities->value[e.first]=e.second;
-                nbt::cast_float(nbt::cast_list(nbt::cast_compound(e.second)->value["position"])->value[0])->value+=0.1F;
             }
-            broadcast_to_all(nbt::make_compound({
-                                                        {"entities",std::shared_ptr<nbt::nbt>(nbt_entities)}
-                                                }));
-            int FPS=30;
+            return std::shared_ptr<nbt::nbt>(nbt_entities);
+        }
+
+        void frame_handler(boost::system::error_code err){
+            {
+                std::lock_guard<std::mutex> guard(protect_game_state);
+                broadcast_to_all(nbt::make_compound({
+                    {"entities", get_entity_list()}
+                }));
+//                std::cout<<"frame_handler\n";
+            }
+            int FPS = 30;
             timer.expires_at(timer.expires_at()+boost::posix_time::milliseconds((int)(1000/FPS)));
             timer.async_wait([this](boost::system::error_code err){
                 frame_handler(err);
             });
         }
 
-        explicit game_room(boost::asio::io_context&io_context):timer(io_context,boost::posix_time::seconds(0)){
+        explicit game_room(boost::asio::io_context&io_context):timer(io_context,boost::posix_time::milliseconds(0)){
             world.generate_world();
             frame_handler(boost::system::error_code());
         }
@@ -54,17 +63,40 @@ namespace server {
         }
 
         void join(const server_player_ptr& ptr){
+            std::lock_guard<std::mutex> guard(protect_game_state);
             ptr->send_world(world);
             std::shared_ptr<nbt::nbt>entity=entity_type_player.initialize();
             nbt::cast_compound(entity)->value["position"]=nbt::make_list({nbt::make_float(8),nbt::make_float(8),nbt::make_float(8)});
             std::string id=spawn_entity(entity);
             nbt::cast_compound(entity)->value["name"]=nbt::make_string(id);
             ptr->deliver(nbt::make_compound({
-                                                    {"player_id",nbt::make_string(id)}
-                                            }));
+                {"player_id",nbt::make_string(id)},
+                {"entities",get_entity_list()}
+            }));
             players.insert(ptr);
             ptr->entity_id=id;
             std::cout<<"PLAYER "<<ptr->entity_id<<" JOINED\n";
+        }
+
+        void handle_player_interaction_packet(const server_player_ptr&player,const std::shared_ptr<nbt::nbt>data){
+            std::shared_ptr<nbt::nbt_compound>compound=nbt::cast_compound(data);
+            {
+                std::shared_ptr<nbt::nbt_compound>movement=nbt::cast_compound(compound->value["movement"]);
+                bool left=nbt::cast_short(movement->value["left"])->value;
+                bool right=nbt::cast_short(movement->value["right"])->value;
+                bool front=nbt::cast_short(movement->value["front"])->value;
+                bool back=nbt::cast_short(movement->value["back"])->value;
+                if(left||right||front||back){
+                    std::lock_guard<std::mutex> guard(protect_game_state);
+                    std::shared_ptr<nbt::nbt_compound>ent=nbt::cast_compound(entities[player->entity_id]);
+                    std::shared_ptr<nbt::nbt_list>pos=nbt::cast_list(ent->value["position"]);
+                    float d=0.1F;
+                    if(left)nbt::cast_float(pos->value[0])->value-=d;
+                    if(right)nbt::cast_float(pos->value[0])->value+=d;
+                    if(front)nbt::cast_float(pos->value[2])->value-=d;
+                    if(back)nbt::cast_float(pos->value[2])->value+=d;
+                }
+            }
         }
 
         void kill_entity(const std::string& id) {

@@ -44,7 +44,8 @@ namespace server {
                     std::string str(boost::asio::buffers_begin(bufs), boost::asio::buffers_begin(bufs) + length_of_nbt);
                     std::istringstream stream(str);
                     std::shared_ptr<nbt::nbt> obj = nbt::read_nbt(stream);
-                    std::cout << obj->to_str("") << "\n";
+//                    std::cout << obj->to_str("") << "\n";
+                    room.handle_player_interaction_packet(shared_from_this(),obj);
                     // TODO: THIS IS WHERE WE HANDLE ANY PACKETS FROM THE CLIENT: OBJ
                 }
             });

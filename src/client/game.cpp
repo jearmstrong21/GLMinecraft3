@@ -127,10 +127,16 @@ namespace client {
         glEnable(GL_DEPTH_TEST);
 
         glm::mat4 p = glm::perspective(80.0F, 1.0F, 0.01F, 1000.0F);
-        glm::mat4 v = glm::lookAt(glm::vec3(cos(glfwGetTime() * 0.25) * 16 * WORLD_SIZE / 2 + 16 * WORLD_SIZE / 2,
-                                            sin(glfwGetTime() * 0.25) * 32 + 32,
-                                            sin(glfwGetTime() * 0.25) * 16 * WORLD_SIZE / 2 + 16 * WORLD_SIZE / 2),
-                                  glm::vec3(WORLD_SIZE * 8, 20, WORLD_SIZE * 8), glm::vec3(0, -1, 0));
+
+        std::shared_ptr<nbt::nbt_list>nbt_cur_pos=nbt::cast_list(nbt::cast_compound(entities[player_id])->value["position"]);
+        glm::vec3 curPos{nbt::cast_float(nbt_cur_pos->value[0])->value,nbt::cast_float(nbt_cur_pos->value[1])->value,nbt::cast_float(nbt_cur_pos->value[2])->value};
+        glm::vec3 eyePos{curPos.x-5,curPos.y+3,curPos.z-2};
+
+//        glm::mat4 v = glm::lookAt(glm::vec3(cos(glfwGetTime() * 0.25) * 16 * WORLD_SIZE / 2 + 16 * WORLD_SIZE / 2,
+//                                            sin(glfwGetTime() * 0.25) * 32 + 32,
+//                                            sin(glfwGetTime() * 0.25) * 16 * WORLD_SIZE / 2 + 16 * WORLD_SIZE / 2),
+//                                  glm::vec3(WORLD_SIZE * 8, 20, WORLD_SIZE * 8), glm::vec3(0, -1, 0));
+        glm::mat4 v=glm::lookAt(eyePos,curPos,{0,-1,0});
 
         shader->bind();
         shader->uniform4x4("perspective", p);
@@ -154,6 +160,16 @@ namespace client {
             if(e.first==player_id)wireframe_shader->uniform3("color",{1,0,0});
             wireframe_mesh->render_lines();
         }
+
+        std::shared_ptr<nbt::nbt>interaction_packet=nbt::make_compound({
+            {"movement",nbt::make_compound({
+                {"left",nbt::make_short(glfwGetKey(window,GLFW_KEY_A)==GLFW_PRESS)},
+                {"right",nbt::make_short(glfwGetKey(window,GLFW_KEY_D)==GLFW_PRESS)},
+                {"back",nbt::make_short(glfwGetKey(window,GLFW_KEY_S)==GLFW_PRESS)},
+                {"front",nbt::make_short(glfwGetKey(window,GLFW_KEY_W)==GLFW_PRESS)},
+            })}
+        });
+        send_packet(interaction_packet);
 
         if (glfwGetKey(window, GLFW_KEY_Q)) {
             while(sqrt(5)>0)std::raise(11);
@@ -217,6 +233,13 @@ namespace client {
         std::string str(boost::asio::buffers_begin(bufs),boost::asio::buffers_begin(bufs)+length_of_nbt);
         std::istringstream stream(str);
         std::shared_ptr<nbt::nbt_compound>welcome_packet=nbt::cast_compound(nbt::read_nbt(stream));
+
+        std::shared_ptr<nbt::nbt_compound>nbt_ent=nbt::cast_compound(welcome_packet->value["entities"]);
+        entities.clear();
+        for(const auto& p:nbt_ent->value){
+            entities[p.first]=p.second;
+        }
+
         player_id=nbt::cast_string(welcome_packet->value["player_id"])->value;
         std::cout<<"Welcome packet recieved:\n";
         std::cout<<"\tplayer_id = <"<<player_id<<">\n";
