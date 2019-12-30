@@ -191,7 +191,7 @@ namespace client {
             if(glfwGetKey(window,GLFW_KEY_LEFT_SHIFT)==GLFW_PRESS)freecamPos.y-=dt;
         }
 
-        text_rend->render_character();
+        text_rend->render_string("Hello World",300,500);
 
         glm::mat4 v=glm::lookAt(lookFrom,lookAt,{0,-1,0});
 

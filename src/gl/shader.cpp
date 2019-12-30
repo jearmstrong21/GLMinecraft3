@@ -70,6 +70,10 @@ namespace gl {
         glUniform3f(glGetUniformLocation(id,name.c_str()),value.x,value.y,value.z);
     }
 
+    void shader::uniform2(const std::string&name,glm::vec2 value){
+        glUniform2f(glGetUniformLocation(id,name.c_str()),value.x,value.y);
+    }
+
     void shader::texture(const std::string &name, gl::texture* texture, int unit) {
         texture->bind(unit);
         glUniform1i(glGetUniformLocation(id,name.c_str()),unit);

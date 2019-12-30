@@ -26,6 +26,7 @@ namespace gl {
 
         void uniform4x4(const std::string& name, glm::mat4 value);
         void uniform3(const std::string&name,glm::vec3 value);
+        void uniform2(const std::string&name,glm::vec2 value);
 
         void texture(const std::string& name, gl::texture* texture, int unit);
     };
