@@ -40,6 +40,7 @@ namespace client {
         void render_world();
         void initialize_gl();
         void glfw_key_press_callback(int key,int scancode,int actions,int mods);
+        void render_chat();
 
         /********** GAME STATE **********/
         block::world world;
@@ -49,9 +50,15 @@ namespace client {
 
         bool freecam=false;
         glm::vec3 freecamPos;
-        glm::vec3 freecamLookdir;
+        glm::vec3 lookdir;
+        std::string curchatbuffer;
+        bool is_chat_open=false;
+        bool ignore_character=true;
+        std::string chattosend;
+        std::vector<std::string>chathistory;
 
         void load_game_update(const std::shared_ptr<nbt::nbt>& obj);
+        void handle_char(char c);
 
         /********** NETWORKING **********/
         boost::asio::io_context io_context;

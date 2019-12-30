@@ -133,11 +133,23 @@ namespace client {
             float dy=utils::map(diff.x,-10.0f,10.0f,pi,-pi);
             p->rotX=utils::clamp(0.01f*dx,-pi*0.49f,pi*0.49f);
             p->rotY=0.01f*dy;
-            p->freecamLookdir={0,0,1};
-            p->freecamLookdir=glm::rotateX(p->freecamLookdir,p->rotX);
-            p->freecamLookdir=glm::rotateY(p->freecamLookdir,p->rotY);
-//            std::cout<<x<<" "<<y<<" "<<dx<<" "<<dy<<" "<<p->rotX<<","<<p->rotY<<" "<<p->freecamLookdir.x<<" "<<p->freecamLookdir.y<<" "<<p->freecamLookdir.z<<"\n";
+            p->lookdir={0, 0, 1};
+            p->lookdir=glm::rotateX(p->lookdir, p->rotX);
+            p->lookdir=glm::rotateY(p->lookdir, p->rotY);
+//            std::cout<<x<<" "<<y<<" "<<dx<<" "<<dy<<" "<<p->rotX<<","<<p->rotY<<" "<<p->lookdir.x<<" "<<p->lookdir.y<<" "<<p->lookdir.z<<"\n";
         });
+        glfwSetCharCallback(window,[](GLFWwindow*w,unsigned int codepoint){
+            auto p=(game*)glfwGetWindowUserPointer(w);
+            p->handle_char(codepoint);
+        });
+    }
+
+    void game::handle_char(char c){
+        if(ignore_character){
+            ignore_character=false;
+            return;
+        }
+        curchatbuffer+=c;
     }
 
     void game::render_world(){
@@ -167,31 +179,33 @@ namespace client {
         glm::vec3 curPos{nbt::cast_float(nbt_cur_pos->value[0])->value,nbt::cast_float(nbt_cur_pos->value[1])->value,nbt::cast_float(nbt_cur_pos->value[2])->value};
 
         glm::vec3 lookAt=curPos;
-        glm::vec3 lookFrom=curPos-freecamLookdir;
+        glm::vec3 lookFrom= curPos - lookdir;
 
         if(freecam){
             lookFrom=freecamPos;
-            glm::vec3 forward=freecamLookdir;
+            glm::vec3 forward=lookdir;
             lookAt=freecamPos+forward;
-            float dt=0.5;
-            if(glfwGetKey(window,GLFW_KEY_W)==GLFW_PRESS){
-                freecamPos+=forward*dt;
+            if(!is_chat_open){
+                float dt=0.5;
+                if(glfwGetKey(window,GLFW_KEY_W)==GLFW_PRESS){
+                    freecamPos+=forward*dt;
+                }
+                if(glfwGetKey(window,GLFW_KEY_S)==GLFW_PRESS){
+                    freecamPos-=forward*dt;
+                }
+                glm::vec3 left=glm::cross(forward,glm::vec3{0,-1,0});
+                if(glfwGetKey(window,GLFW_KEY_A)==GLFW_PRESS){
+                    freecamPos+=left*dt;
+                }
+                if(glfwGetKey(window,GLFW_KEY_D)==GLFW_PRESS){
+                    freecamPos-=left*dt;
+                }
+                if(glfwGetKey(window,GLFW_KEY_SPACE)==GLFW_PRESS)freecamPos.y+=dt;
+                if(glfwGetKey(window,GLFW_KEY_LEFT_SHIFT)==GLFW_PRESS)freecamPos.y-=dt;
             }
-            if(glfwGetKey(window,GLFW_KEY_S)==GLFW_PRESS){
-                freecamPos-=forward*dt;
-            }
-            glm::vec3 left=glm::cross(forward,glm::vec3{0,-1,0});
-            if(glfwGetKey(window,GLFW_KEY_A)==GLFW_PRESS){
-                freecamPos+=left*dt;
-            }
-            if(glfwGetKey(window,GLFW_KEY_D)==GLFW_PRESS){
-                freecamPos-=left*dt;
-            }
-            if(glfwGetKey(window,GLFW_KEY_SPACE)==GLFW_PRESS)freecamPos.y+=dt;
-            if(glfwGetKey(window,GLFW_KEY_LEFT_SHIFT)==GLFW_PRESS)freecamPos.y-=dt;
         }
 
-        text_rend->render_string("Hello World",300,500);
+        render_chat();
 
         glm::mat4 v=glm::lookAt(lookFrom,lookAt,{0,-1,0});
 
@@ -228,18 +242,20 @@ namespace client {
         if(!freecam){
             std::shared_ptr<nbt::nbt>interaction_packet=nbt::make_compound({
                 {"movement",nbt::make_compound({
-                    {"left",nbt::make_short(glfwGetKey(window,GLFW_KEY_A)==GLFW_PRESS)},
-                    {"right",nbt::make_short(glfwGetKey(window,GLFW_KEY_D)==GLFW_PRESS)},
-                    {"back",nbt::make_short(glfwGetKey(window,GLFW_KEY_S)==GLFW_PRESS)},
-                    {"front",nbt::make_short(glfwGetKey(window,GLFW_KEY_W)==GLFW_PRESS)},
-                    {"sprint",nbt::make_short(glfwGetKey(window,GLFW_KEY_LEFT_CONTROL)==GLFW_PRESS)},
+                    {"left",nbt::make_short(!is_chat_open&&glfwGetKey(window,GLFW_KEY_A)==GLFW_PRESS)},
+                    {"right",nbt::make_short(!is_chat_open&&glfwGetKey(window,GLFW_KEY_D)==GLFW_PRESS)},
+                    {"back",nbt::make_short(!is_chat_open&&glfwGetKey(window,GLFW_KEY_S)==GLFW_PRESS)},
+                    {"front",nbt::make_short(!is_chat_open&&glfwGetKey(window,GLFW_KEY_W)==GLFW_PRESS)},
+                    {"sprint",nbt::make_short(!is_chat_open&&glfwGetKey(window,GLFW_KEY_LEFT_CONTROL)==GLFW_PRESS)},
                 })},
-                {"lookdir",nbt::make_list({nbt::make_float(freecamLookdir.x),nbt::make_float(freecamLookdir.y),nbt::make_float(freecamLookdir.z)})}
+                {"lookdir",nbt::make_list({nbt::make_float(lookdir.x), nbt::make_float(lookdir.y), nbt::make_float(lookdir.z)})},
+                {"chat",nbt::make_string(chattosend)}
             });
+            chattosend="";
             send_packet(interaction_packet);
         }
 
-        if (glfwGetKey(window, GLFW_KEY_Q)) {
+        if (glfwGetKey(window, GLFW_KEY_Q)&&!is_chat_open) {
 #ifdef I_HATE_CANCER
             while(sqrt(5)>0)std::raise(11);
 #else
@@ -294,6 +310,12 @@ namespace client {
                 entities[p.first]=p.second;
             }
         }
+        {
+            std::string nchat=nbt::cast_string(compound->value["chat"])->value;
+            if(!nchat.empty()){
+                chathistory.insert(chathistory.begin(),nchat);
+            }
+        }
 
     }
 
@@ -325,6 +347,39 @@ namespace client {
             std::shared_ptr<nbt::nbt_list>nbt_cur_pos=nbt::cast_list(nbt::cast_compound(entities[player_id])->value["position"]);
             freecamPos={nbt::cast_float(nbt_cur_pos->value[0])->value,nbt::cast_float(nbt_cur_pos->value[1])->value,nbt::cast_float(nbt_cur_pos->value[2])->value};
         }
+        if(key=='T'&&actions==GLFW_PRESS&&!is_chat_open){
+            is_chat_open=true;
+            curchatbuffer="";
+            ignore_character=true;
+        }
+        if(key==GLFW_KEY_ESCAPE){
+            curchatbuffer="";
+            is_chat_open=false;
+        }
+        if(key==GLFW_KEY_BACKSPACE&&actions==GLFW_PRESS&&is_chat_open&&!curchatbuffer.empty()){
+            curchatbuffer.pop_back();
+        }
+        if(key==GLFW_KEY_ENTER&&actions==GLFW_PRESS&&is_chat_open){
+            std::cout<<curchatbuffer<<"\n";
+            chattosend=curchatbuffer;
+            curchatbuffer="";
+        }
+    }
+
+    void game::render_chat() {
+//        glDisable(GL_DEPTH_TEST);
+        if(is_chat_open){
+            text_rend->render_string(curchatbuffer,0,text_rend->charsize);
+            text_rend->render_string("                    ",0,text_rend->charsize);
+        }
+        for(int i=0;i<utils::min((int)chathistory.size(),20);i++){
+//            text_rend->render_string("                    ",0,text_rend->charsize);
+            text_rend->render_string(chathistory[i],0,text_rend->charsize*(i+2));
+        }
+        int w,h;
+        glfwGetWindowSize(window,&w,&h);
+        text_rend->render_string("GLMinecraft3\nYOUR PLAYER ID: "+player_id+"\n",0,h-text_rend->charsize);
+//        glEnable(GL_DEPTH_TEST);
     }
 
 }

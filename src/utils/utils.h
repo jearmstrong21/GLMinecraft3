@@ -23,6 +23,8 @@
 
 namespace utils {
 
+    //TODO: let every parameter have different type
+
     template<typename T>
     T lerp(T amount, T a,T b){
         return a+(b-a)*amount;
@@ -43,6 +45,16 @@ namespace utils {
         if(value<a)return a;
         if(value>b)return b;
         return value;
+    }
+
+    template<typename T>
+    T min(T a,T b){
+        return a<b?a:b;
+    }
+
+    template<typename T>
+    T max(T a,T b){
+        return a>b?a:b;
     }
 
 }

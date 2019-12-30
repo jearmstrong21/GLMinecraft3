@@ -47,7 +47,7 @@ namespace client {
            return glm::translate(glm::mat4(1),glm::vec3{-1,-1,0})*glm::scale(glm::mat4(1),2.0F*glm::vec3{1.0/w,1.0/h,0});
         }
 
-        int charsize=20;
+        int charsize=16;
 
         void render_string(std::string s,int x,int y){
             int cx=x,cy=y;

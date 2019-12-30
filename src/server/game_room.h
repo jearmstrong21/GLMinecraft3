@@ -25,6 +25,7 @@ namespace server {
         entity_type_player entity_type_player;
 
         std::mutex protect_game_state;
+        std::string queued_chat;
 
         std::shared_ptr<nbt::nbt> get_entity_list() {
             auto nbt_entities = new nbt::nbt_compound();
@@ -38,8 +39,10 @@ namespace server {
             {
                 std::lock_guard<std::mutex> guard(protect_game_state);
                 broadcast_to_all(nbt::make_compound({
-                    {"entities", get_entity_list()}
+                    {"entities", get_entity_list()},
+                    {"chat",nbt::make_string(queued_chat)}
                 }));
+                queued_chat="";
             }
             //NO LOGIC OUTSIDE OF THIS
             int FPS = 30;
@@ -83,6 +86,7 @@ namespace server {
             players.insert(ptr);
             ptr->entity_id = id;
             std::cout << "PLAYER " << ptr->entity_id << " JOINED\n";
+            queued_chat=ptr->entity_id+" joined the game";
         }
 
         void handle_player_interaction_packet(const server_player_ptr& player, const std::shared_ptr<nbt::nbt> data) {
@@ -118,6 +122,11 @@ namespace server {
                 nbt::cast_float(look->value[1])->value=nbt::cast_float(nlook->value[1])->value;
                 nbt::cast_float(look->value[2])->value=nbt::cast_float(nlook->value[2])->value;
             }
+            {
+                std::string chat=nbt::cast_string(compound->value["chat"])->value;
+                //TODO: commands will be parsed here
+                if(!chat.empty())queued_chat="<"+player->entity_id+"> "+chat;
+            }
         }
 
         void kill_entity(const std::string& id) {
@@ -128,6 +137,7 @@ namespace server {
             players.erase(ptr);
             kill_entity(ptr->entity_id);
             std::cout << "PLAYER " << ptr->entity_id << " LEFT\n";
+            queued_chat=ptr->entity_id+" left the game";
         }
 
         void broadcast_to_all(const std::shared_ptr<nbt::nbt>& msg) {
