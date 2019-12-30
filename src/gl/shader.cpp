@@ -24,12 +24,12 @@ namespace gl {
         int fragment_shader=glCreateShader(GL_FRAGMENT_SHADER);
         auto fd= reinterpret_cast<const GLchar*>(fragData);
 //        fd[fragLen-1]='\0';
-        glShaderSource(fragment_shader, 1, &fd, nullptr);
+        glShaderSource(fragment_shader, 1, &fd, &fragLen);
         glCompileShader(fragment_shader);
         glGetShaderiv(fragment_shader, GL_COMPILE_STATUS, &success);
         if(!success){
             glGetShaderInfoLog(fragment_shader, 512, nullptr, info_log);
-            printf("FRAGMENT\n\n%s\n", info_log);
+            printf("FRAGMENT%s:\n\n%s\n", fd,info_log);
             ASSERT_OR_EXIT(false,"FRAGMENT SHADER FAILED");
         }
 

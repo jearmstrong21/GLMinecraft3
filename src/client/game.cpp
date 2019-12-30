@@ -86,6 +86,7 @@ namespace client {
         shader = new gl::shader(SHADER_chunk_vert, SHADER_chunk_vert_len, SHADER_chunk_frag,SHADER_chunk_frag_len);
         texture = new gl::texture(TEXTURE_1_8_textures_0_png, TEXTURE_1_8_textures_0_png_len);
         wireframe_shader=new gl::shader(SHADER_wireframe_vert,SHADER_wireframe_vert_len,SHADER_wireframe_frag,SHADER_wireframe_frag_len);
+        text_rend=new text_renderer(window);
         gl::mesh_data data{
             {{3,{
                     0,0,0, 1,0,0,
@@ -190,6 +191,8 @@ namespace client {
             if(glfwGetKey(window,GLFW_KEY_LEFT_SHIFT)==GLFW_PRESS)freecamPos.y-=dt;
         }
 
+        text_rend->render_character();
+
         glm::mat4 v=glm::lookAt(lookFrom,lookAt,{0,-1,0});
 
         shader->bind();
@@ -251,6 +254,7 @@ namespace client {
         delete texture;
         delete wireframe_shader;
         delete wireframe_mesh;
+        delete text_rend;
     }
 
     void game::read_packet() {

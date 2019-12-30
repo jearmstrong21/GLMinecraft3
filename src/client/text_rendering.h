@@ -1,0 +1,68 @@
+//
+// Created by Jack Armstrong on 12/29/19.
+//
+
+#ifndef GLMINECRAFT3_TEXT_RENDERING_H
+#define GLMINECRAFT3_TEXT_RENDERING_H
+
+#include "gl/gl.h"
+#include "gl/shader.h"
+#include "gl/mesh.h"
+#include "gl/texture.h"
+
+extern "C" const unsigned char TEXTURE_ascii_png[];
+extern "C" const size_t TEXTURE_ascii_png_len;
+
+extern "C" const unsigned char SHADER_text_frag[];
+extern "C" const size_t SHADER_text_frag_len;
+
+extern "C" const unsigned char SHADER_text_vert[];
+extern "C" const size_t SHADER_text_vert_len;
+
+namespace client {
+
+    struct text_renderer {
+
+        gl::shader*shader;
+        gl::mesh*mesh;
+        gl::texture*texture;
+        GLFWwindow*window;
+
+        explicit text_renderer(GLFWwindow*window):window(window){
+            shader=new gl::shader(SHADER_text_vert,SHADER_text_vert_len,SHADER_text_frag,SHADER_text_frag_len);
+            gl::mesh_data data{
+                    {{2,{0,0, 1,0, 0,1, 1,1}},{2,{0,0, 1,0, 0,1, 1,1}}},
+                    {0,1,2, 1,2,3}
+            };
+            mesh=new gl::mesh(&data);
+            texture=new gl::texture(TEXTURE_ascii_png,TEXTURE_ascii_png_len);
+        }
+
+        glm::mat4 get_ortho(){
+            int w,h;
+//            glfwGetWindowSize(window,&w,&h);
+            w=h=1000;//TODOD what the fric k
+//            return glm::ortho(0,w,0,h);
+return glm::mat4(1);
+        }
+
+        void render_character(){
+            shader->bind();
+            glm::mat4 p=get_ortho();
+            p*=glm::scale(glm::mat4(1),glm::vec3{0.5});
+            shader->uniform4x4("projection",p);
+            shader->texture("tex",texture,0);
+            mesh->render_triangles();
+        }
+
+        ~text_renderer(){
+            delete shader;
+            delete mesh;
+            delete texture;
+        }
+
+    };
+
+}
+
+#endif //GLMINECRAFT3_TEXT_RENDERING_H

@@ -8,6 +8,7 @@
 #include "gl/gl.h"
 #include "gl/shader.h"
 #include "gl/mesh.h"
+#include "gl/texture.h"
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtx/rotate_vector.hpp>
@@ -20,6 +21,7 @@
 #include <boost/asio.hpp>
 #include <mutex>
 #include "utils/utils.h"
+#include "text_rendering.h"
 
 //**********
 namespace client {
@@ -32,6 +34,7 @@ namespace client {
         gl::texture* texture;
         gl::shader* wireframe_shader;
         gl::mesh* wireframe_mesh;
+        text_renderer*text_rend;
         float rotX=0,rotY=0;
 
         void render_world();

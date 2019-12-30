@@ -38,10 +38,10 @@ namespace server {
             {
                 std::lock_guard<std::mutex> guard(protect_game_state);
                 broadcast_to_all(nbt::make_compound({
-                                                            {"entities", get_entity_list()}
-                                                    }));
-//                std::cout<<"frame_handler\n";
+                    {"entities", get_entity_list()}
+                }));
             }
+            //NO LOGIC OUTSIDE OF THIS
             int FPS = 30;
             timer.expires_at(timer.expires_at() + boost::posix_time::milliseconds((int) (1000 / FPS)));
             timer.async_wait([this](boost::system::error_code err) {
@@ -77,9 +77,9 @@ namespace server {
             std::string id = spawn_entity(entity);
             nbt::cast_compound(entity)->value["name"] = nbt::make_string(id);
             ptr->deliver(nbt::make_compound({
-                                                    {"player_id", nbt::make_string(id)},
-                                                    {"entities",  get_entity_list()}
-                                            }));
+                {"player_id", nbt::make_string(id)},
+                {"entities",  get_entity_list()}
+            }));
             players.insert(ptr);
             ptr->entity_id = id;
             std::cout << "PLAYER " << ptr->entity_id << " JOINED\n";
@@ -110,10 +110,6 @@ namespace server {
                 pos->value[0]=nbt::make_float(curPos.x);
                 pos->value[1]=nbt::make_float(curPos.y);
                 pos->value[2]=nbt::make_float(curPos.z);
-//                if (left)nbt::cast_float(pos->value[0])->value -= d;
-//                if (right)nbt::cast_float(pos->value[0])->value += d;
-//                if (front)nbt::cast_float(pos->value[2])->value -= d;
-//                if (back)nbt::cast_float(pos->value[2])->value += d;
             }
             {
                 std::shared_ptr<nbt::nbt_list>nlook=nbt::cast_list(compound->value["lookdir"]);
