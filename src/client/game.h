@@ -10,6 +10,7 @@
 #include "gl/mesh.h"
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtx/rotate_vector.hpp>
 #include <csignal>
 #include "block/blocks.h"
 #include "world/world.h"
@@ -18,6 +19,7 @@
 #include <nbt/nbt.h>
 #include <boost/asio.hpp>
 #include <mutex>
+#include "utils/utils.h"
 
 //**********
 namespace client {
@@ -30,6 +32,7 @@ namespace client {
         gl::texture* texture;
         gl::shader* wireframe_shader;
         gl::mesh* wireframe_mesh;
+        float rotX=0,rotY=0;
 
         void render_world();
         void initialize_gl();
@@ -43,6 +46,7 @@ namespace client {
 
         bool freecam=false;
         glm::vec3 freecamPos;
+        glm::vec3 freecamLookdir;
 
         void load_game_update(const std::shared_ptr<nbt::nbt>& obj);
 

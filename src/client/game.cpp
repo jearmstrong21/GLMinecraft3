@@ -112,6 +112,23 @@ namespace client {
         glfwSetKeyCallback(window,[](GLFWwindow*w,int key,int scancode,int actions,int mods){
             ((game*)glfwGetWindowUserPointer(w))->glfw_key_press_callback(key,scancode,actions,mods);
         });
+        glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+        glfwSetCursorPosCallback(window,[](GLFWwindow*w,double x,double y){
+            auto p=(game*)glfwGetWindowUserPointer(w);
+            int a,b;
+            glfwGetWindowSize(w,&a,&b);
+            glm::vec2 diff{x-a/2,b/2-y};
+            float pi=3.1415;
+//            float pi=180;
+            float dx=utils::map(diff.y,-10.0f,10.0f,pi/2,-pi/2);
+            float dy=utils::map(diff.x,-10.0f,10.0f,pi,-pi);
+            p->rotX=utils::clamp(0.01f*dx,-pi*0.49f,pi*0.49f);
+            p->rotY=0.01f*dy;
+            p->freecamLookdir={0,0,1};
+            p->freecamLookdir=glm::rotateX(p->freecamLookdir,p->rotX);
+            p->freecamLookdir=glm::rotateY(p->freecamLookdir,p->rotY);
+//            std::cout<<x<<" "<<y<<" "<<dx<<" "<<dy<<" "<<p->rotX<<","<<p->rotY<<" "<<p->freecamLookdir.x<<" "<<p->freecamLookdir.y<<" "<<p->freecamLookdir.z<<"\n";
+        });
     }
 
     void game::render_world(){
@@ -146,7 +163,7 @@ namespace client {
 
         if(freecam){
             lookFrom=freecamPos;
-            glm::vec3 forward{1,0,0};
+            glm::vec3 forward=freecamLookdir;
             lookAt=freecamPos+forward;
             float dt=0.5;
             if(glfwGetKey(window,GLFW_KEY_W)==GLFW_PRESS){
@@ -162,6 +179,8 @@ namespace client {
             if(glfwGetKey(window,GLFW_KEY_D)==GLFW_PRESS){
                 freecamPos-=left*dt;
             }
+            if(glfwGetKey(window,GLFW_KEY_SPACE)==GLFW_PRESS)freecamPos.y+=dt;
+            if(glfwGetKey(window,GLFW_KEY_LEFT_SHIFT)==GLFW_PRESS)freecamPos.y-=dt;
         }
 
 //        glm::mat4 v = glm::lookAt(glm::vec3(cos(glfwGetTime() * 0.25) * 16 * WORLD_SIZE / 2 + 16 * WORLD_SIZE / 2,

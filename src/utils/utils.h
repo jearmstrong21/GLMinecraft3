@@ -23,6 +23,28 @@
 
 namespace utils {
 
+    template<typename T>
+    T lerp(T amount, T a,T b){
+        return a+(b-a)*amount;
+    }
+
+    template<typename T>
+    T norm(T value, T a,T b){
+        return (value-a)/(b-a);
+    }
+
+    template<typename T>
+    T map(T value,T s1,T e1,T s2,T e2){
+        return lerp(norm(value,s1,e1),s2,e2);
+    }
+
+    template<typename T>
+    T clamp(T value,T a,T b){
+        if(value<a)return a;
+        if(value>b)return b;
+        return value;
+    }
+
 }
 
 #endif //GLMINECRAFT3_UTILS_H

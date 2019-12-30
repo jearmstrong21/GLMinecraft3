@@ -49,7 +49,6 @@ set(SOURCE_FILES
         src/gen_assets/TEXTURE_1_8_textures_0_png.c
 
         src/main.cpp
-        src/utils/utils.cpp
         src/utils/noise/noise.cpp
         src/gl/gl.cpp
         src/gl/glad.cpp
