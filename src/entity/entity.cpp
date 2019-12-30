@@ -20,12 +20,9 @@ namespace server {
 
     std::shared_ptr<nbt::nbt> entity_type_base::initialize() const {
         return nbt::make_compound({
-            {"id",nbt::make_int(-1)},
+            {"id",nbt::make_string("oopsie")},
             {"position",nbt::make_list({nbt::make_float(0),nbt::make_float(0),nbt::make_float(0)})},
-            {"velocity",nbt::make_list({nbt::make_float(0),nbt::make_float(0),nbt::make_float(0)})},
-            {"motion",nbt::make_list({nbt::make_float(0),nbt::make_float(0),nbt::make_float(0)})},
-            {"rotation",nbt::make_list({nbt::make_float(0),nbt::make_float(0)})},
-            {"bb_size",nbt::make_list({nbt::make_float(0),nbt::make_float(0),nbt::make_float(0)})},
+            {"lookdir",nbt::make_list({nbt::make_float(0),nbt::make_float(0),nbt::make_float(0)})},
             //todo health
         });
     }
@@ -33,7 +30,7 @@ namespace server {
     std::shared_ptr<nbt::nbt> entity_type_player::initialize() const {
         std::shared_ptr<nbt::nbt>res=entity_type_base::initialize();
         nbt::merge(res,nbt::make_compound({
-            {"name",nbt::make_string("default name")}
+            //nothing to see here move along
         }));
         return res;
     }
@@ -43,10 +40,10 @@ namespace server {
     }
 
     void entity_type_player::initialize_render() const {
-        std::cout<<"init rendd play\n";
+        std::cout<<"init render player\n";
     }
 
     void entity_type_player::render(std::shared_ptr<nbt::nbt> entity) const {
-        std::cout<<"rend play\n";
+        std::cout<<"render player\n";
     }
 }

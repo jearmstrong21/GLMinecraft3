@@ -8,9 +8,9 @@
 #include "nbt/nbt.h"
 
 #ifdef __APPLE__
-#define I_LOVE_CANCER
+#define I_HATE_CANCER
 #else // Sane people
-#undef I_LOVE_CANCER
+#undef I_HATE_CANCER
 #endif
 
 extern "C" const unsigned char TEXTURE_1_8_textures_0_png[];
@@ -107,6 +107,14 @@ namespace client {
                 }}},
                 {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23}
         };
+        for(int i=0;i<data.buffers[0].data.size();i++){
+            data.buffers[0].data[i]-=0.5;
+//            data.buffers[0].data[i+0]-=0.5;
+//            data.buffers[0].data[i+1]-=0.5;
+//            data.buffers[0].data[i+2]-=0.5;
+
+//            data.buffers[0].data[i+0]*=2;
+        }
         wireframe_mesh=new gl::mesh(&data);
         glfwSetWindowUserPointer(window,this);
         glfwSetKeyCallback(window,[](GLFWwindow*w,int key,int scancode,int actions,int mods){
@@ -156,10 +164,9 @@ namespace client {
 
         std::shared_ptr<nbt::nbt_list>nbt_cur_pos=nbt::cast_list(nbt::cast_compound(entities[player_id])->value["position"]);
         glm::vec3 curPos{nbt::cast_float(nbt_cur_pos->value[0])->value,nbt::cast_float(nbt_cur_pos->value[1])->value,nbt::cast_float(nbt_cur_pos->value[2])->value};
-        glm::vec3 eyePos{curPos.x-5,curPos.y+3,curPos.z-2};
 
         glm::vec3 lookAt=curPos;
-        glm::vec3 lookFrom=eyePos;
+        glm::vec3 lookFrom=curPos-freecamLookdir;
 
         if(freecam){
             lookFrom=freecamPos;
@@ -183,10 +190,6 @@ namespace client {
             if(glfwGetKey(window,GLFW_KEY_LEFT_SHIFT)==GLFW_PRESS)freecamPos.y-=dt;
         }
 
-//        glm::mat4 v = glm::lookAt(glm::vec3(cos(glfwGetTime() * 0.25) * 16 * WORLD_SIZE / 2 + 16 * WORLD_SIZE / 2,
-//                                            sin(glfwGetTime() * 0.25) * 32 + 32,
-//                                            sin(glfwGetTime() * 0.25) * 16 * WORLD_SIZE / 2 + 16 * WORLD_SIZE / 2),
-//                                  glm::vec3(WORLD_SIZE * 8, 20, WORLD_SIZE * 8), glm::vec3(0, -1, 0));
         glm::mat4 v=glm::lookAt(lookFrom,lookAt,{0,-1,0});
 
         shader->bind();
@@ -206,10 +209,17 @@ namespace client {
         for(const auto& e:entities){
             std::shared_ptr<nbt::nbt_compound>ent=nbt::cast_compound(e.second);
             std::shared_ptr<nbt::nbt_list>pos=nbt::cast_list(ent->value["position"]);
-            wireframe_shader->uniform4x4("model",glm::translate(glm::mat4(1),glm::vec3{nbt::cast_float(pos->value[0])->value,nbt::cast_float(pos->value[1])->value,nbt::cast_float(pos->value[2])->value}));
-            wireframe_shader->uniform3("color",glm::vec3{0,0,0});
-            if(e.first==player_id)wireframe_shader->uniform3("color",{1,0,0});
+            std::shared_ptr<nbt::nbt_list>look=nbt::cast_list(ent->value["lookdir"]);
+            glm::mat4 m(1);
+            m*=glm::translate(glm::mat4(1),glm::vec3{nbt::cast_float(pos->value[0])->value,nbt::cast_float(pos->value[1])->value,nbt::cast_float(pos->value[2])->value});
+//            wireframe_shader->uniform4x4("model",m);
+//            wireframe_shader->uniform3("color",glm::vec3{0,0,1});//BLUE=no rot, GREEN=with rot
+//            wireframe_mesh->render_lines();
+            m*=glm::lookAt(glm::vec3{0,0,0},glm::vec3{nbt::cast_float(look->value[0])->value,0,nbt::cast_float(look->value[2])->value},glm::vec3{0,-1,0});
+            wireframe_shader->uniform4x4("model",m);
+            wireframe_shader->uniform3("color",glm::vec3{0,1,0});
             wireframe_mesh->render_lines();
+            //nbt::cast_float(look->value[1])->value
         }
 
         if(!freecam){
@@ -219,13 +229,15 @@ namespace client {
                     {"right",nbt::make_short(glfwGetKey(window,GLFW_KEY_D)==GLFW_PRESS)},
                     {"back",nbt::make_short(glfwGetKey(window,GLFW_KEY_S)==GLFW_PRESS)},
                     {"front",nbt::make_short(glfwGetKey(window,GLFW_KEY_W)==GLFW_PRESS)},
-                })}
+                    {"sprint",nbt::make_short(glfwGetKey(window,GLFW_KEY_LEFT_CONTROL)==GLFW_PRESS)},
+                })},
+                {"lookdir",nbt::make_list({nbt::make_float(freecamLookdir.x),nbt::make_float(freecamLookdir.y),nbt::make_float(freecamLookdir.z)})}
             });
             send_packet(interaction_packet);
         }
 
         if (glfwGetKey(window, GLFW_KEY_Q)) {
-#ifdef I_LOVE_CANCER
+#ifdef I_HATE_CANCER
             while(sqrt(5)>0)std::raise(11);
 #else
             while(sqrt(5)>0)std::exit(11);

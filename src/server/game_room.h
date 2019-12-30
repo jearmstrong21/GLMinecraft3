@@ -73,7 +73,7 @@ namespace server {
             ptr->send_world(world);
             std::shared_ptr<nbt::nbt> entity = entity_type_player.initialize();
             nbt::cast_compound(entity)->value["position"] = nbt::make_list(
-                    {nbt::make_float(8), nbt::make_float(8), nbt::make_float(8)});
+                    {nbt::make_float(24), nbt::make_float(150), nbt::make_float(24)});
             std::string id = spawn_entity(entity);
             nbt::cast_compound(entity)->value["name"] = nbt::make_string(id);
             ptr->deliver(nbt::make_compound({
@@ -87,22 +87,40 @@ namespace server {
 
         void handle_player_interaction_packet(const server_player_ptr& player, const std::shared_ptr<nbt::nbt> data) {
             std::shared_ptr<nbt::nbt_compound> compound = nbt::cast_compound(data);
+            std::lock_guard<std::mutex> guard(protect_game_state);
+            std::shared_ptr<nbt::nbt_compound> ent = nbt::cast_compound(entities[player->entity_id]);
             {
                 std::shared_ptr<nbt::nbt_compound> movement = nbt::cast_compound(compound->value["movement"]);
                 bool left = nbt::cast_short(movement->value["left"])->value;
                 bool right = nbt::cast_short(movement->value["right"])->value;
                 bool front = nbt::cast_short(movement->value["front"])->value;
                 bool back = nbt::cast_short(movement->value["back"])->value;
-                if (left || right || front || back) {
-                    std::lock_guard<std::mutex> guard(protect_game_state);
-                    std::shared_ptr<nbt::nbt_compound> ent = nbt::cast_compound(entities[player->entity_id]);
-                    std::shared_ptr<nbt::nbt_list> pos = nbt::cast_list(ent->value["position"]);
-                    float d = 0.1F;
-                    if (left)nbt::cast_float(pos->value[0])->value -= d;
-                    if (right)nbt::cast_float(pos->value[0])->value += d;
-                    if (front)nbt::cast_float(pos->value[2])->value -= d;
-                    if (back)nbt::cast_float(pos->value[2])->value += d;
-                }
+                bool sprint = nbt::cast_short(movement->value["sprint"])->value;
+
+                std::shared_ptr<nbt::nbt_list> pos = nbt::cast_list(ent->value["position"]);
+                std::shared_ptr<nbt::nbt_list>look=nbt::cast_list(ent->value["lookdir"]);
+                float d = 0.1F;
+                glm::vec3 curPos{nbt::cast_float(pos->value[0])->value,nbt::cast_float(pos->value[1])->value,nbt::cast_float(pos->value[2])->value};
+                glm::vec3 curLook{nbt::cast_float(look->value[0])->value,nbt::cast_float(look->value[1])->value,nbt::cast_float(look->value[2])->value};
+                glm::vec3 leftdir=glm::cross(curLook,glm::vec3{0,-1,0});
+                if(front)curPos+=curLook*d*(float)(1+sprint);
+                if(back)curPos-=curLook*d;
+                if(left)curPos+=leftdir*d;
+                if(right)curPos-=leftdir*d;
+                pos->value[0]=nbt::make_float(curPos.x);
+                pos->value[1]=nbt::make_float(curPos.y);
+                pos->value[2]=nbt::make_float(curPos.z);
+//                if (left)nbt::cast_float(pos->value[0])->value -= d;
+//                if (right)nbt::cast_float(pos->value[0])->value += d;
+//                if (front)nbt::cast_float(pos->value[2])->value -= d;
+//                if (back)nbt::cast_float(pos->value[2])->value += d;
+            }
+            {
+                std::shared_ptr<nbt::nbt_list>nlook=nbt::cast_list(compound->value["lookdir"]);
+                std::shared_ptr<nbt::nbt_list>look=nbt::cast_list(ent->value["lookdir"]);
+                nbt::cast_float(look->value[0])->value=nbt::cast_float(nlook->value[0])->value;
+                nbt::cast_float(look->value[1])->value=nbt::cast_float(nlook->value[1])->value;
+                nbt::cast_float(look->value[2])->value=nbt::cast_float(nlook->value[2])->value;
             }
         }
 
