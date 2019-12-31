@@ -8,6 +8,7 @@
 #include <set>
 #include <map>
 #include "world/world.h"
+#include "server_player.h"
 #include <boost/asio.hpp>
 #include <boost/uuid/uuid.hpp>            // uuid class
 #include <boost/uuid/uuid_generators.hpp> // generators
@@ -22,7 +23,8 @@ namespace server {
 
         boost::asio::deadline_timer timer;
 
-        entity_type_player entity_type_player;
+        entity_type_base et_base;
+        entity_type_player et_player;
 
         std::mutex protect_game_state;
         std::string queued_chat;
@@ -38,6 +40,12 @@ namespace server {
         void frame_handler(boost::system::error_code err) {
             {
                 std::lock_guard<std::mutex> guard(protect_game_state);
+
+                for(const auto&e:entities){
+                    et_base.update(e.second,this);
+                }
+//                std::cout<<"framehanddler "<<entities.size()<<"\n";
+
                 broadcast_to_all(nbt::make_compound({
                     {"entities", get_entity_list()},
                     {"chat",nbt::make_string(queued_chat)}
@@ -74,7 +82,7 @@ namespace server {
         void join(const server_player_ptr& ptr) {
             std::lock_guard<std::mutex> guard(protect_game_state);
             ptr->send_world(world);
-            std::shared_ptr<nbt::nbt> entity = entity_type_player.initialize();
+            std::shared_ptr<nbt::nbt> entity = et_player.initialize();
             nbt::cast_compound(entity)->value["position"] = nbt::make_list(
                     {nbt::make_float(24), nbt::make_float(150), nbt::make_float(24)});
             std::string id = spawn_entity(entity);
@@ -103,17 +111,15 @@ namespace server {
 
                 std::shared_ptr<nbt::nbt_list> pos = nbt::cast_list(ent->value["position"]);
                 std::shared_ptr<nbt::nbt_list>look=nbt::cast_list(ent->value["lookdir"]);
-                float d = 0.1F;
-                glm::vec3 curPos{nbt::cast_float(pos->value[0])->value,nbt::cast_float(pos->value[1])->value,nbt::cast_float(pos->value[2])->value};
+                float d = 1;
+                glm::vec3 newMotion{0,0,0};
                 glm::vec3 curLook{nbt::cast_float(look->value[0])->value,nbt::cast_float(look->value[1])->value,nbt::cast_float(look->value[2])->value};
                 glm::vec3 leftdir=glm::cross(curLook,glm::vec3{0,-1,0});
-                if(front)curPos+=curLook*d*(float)(1+sprint);
-                if(back)curPos-=curLook*d;
-                if(left)curPos+=leftdir*d;
-                if(right)curPos-=leftdir*d;
-                pos->value[0]=nbt::make_float(curPos.x);
-                pos->value[1]=nbt::make_float(curPos.y);
-                pos->value[2]=nbt::make_float(curPos.z);
+                if(front)newMotion+=curLook*d*(float)(1+sprint);
+                if(back)newMotion-=curLook*d;
+                if(left)newMotion+=leftdir*d;
+                if(right)newMotion-=leftdir*d;
+                ent->value["motion"]=nbt::make_list({nbt::make_float(newMotion.x),nbt::make_float(newMotion.y),nbt::make_float(newMotion.z)});
             }
             {
                 std::shared_ptr<nbt::nbt_list>nlook=nbt::cast_list(compound->value["lookdir"]);
