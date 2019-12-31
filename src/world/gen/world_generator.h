@@ -12,7 +12,7 @@ namespace block {
     class world;
 
     struct world_generator {
-        void generate_world(world*);
+        void generate_world(world *);
     };
 }
 

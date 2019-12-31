@@ -19,7 +19,7 @@ public:
     void put(K k, V v);
 
     template<class Q, class R>
-    friend std::ostream& operator<<(std::ostream& os, const registry<Q, R>& dt);
+    friend std::ostream &operator<<(std::ostream &os, const registry<Q, R> &dt);
 };
 
 

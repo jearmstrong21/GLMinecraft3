@@ -10,13 +10,14 @@
 
 namespace block {
 
-    struct block_dirt: block {
+    struct block_dirt : block {
 
-        explicit block_dirt(int id)noexcept;
+        explicit block_dirt(int id) noexcept;
 
-        const client::quad_texture_descr side{{client::atlas_texture::DIRT, glm::vec3(1, 1, 1)}, {client::atlas_texture::NONE, glm::vec3(1, 1, 1)}};
+        const client::quad_texture_descr side{{client::atlas_texture::DIRT, glm::vec3(1, 1, 1)},
+                                              {client::atlas_texture::NONE, glm::vec3(1, 1, 1)}};
 
-        void render(gl::mesh_data*md, block_context ctx) const noexcept override;
+        void render(gl::mesh_data *md, block_context ctx) const noexcept override;
 
     };
 

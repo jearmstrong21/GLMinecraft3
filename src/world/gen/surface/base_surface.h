@@ -22,7 +22,8 @@ namespace world::gen {
         uint32_t seed;
     public:
         explicit base_surface(uint32_t seed);
-        [[nodiscard]] virtual block::block_state get_for_location(int x, int y, int z, int h)=0;
+
+        [[nodiscard]] virtual block::block_state get_for_location(int x, int y, int z, int h) = 0;
     };
 }
 

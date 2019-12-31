@@ -7,7 +7,7 @@
 namespace block {
 
 
-    block_dirt::block_dirt(int id)noexcept: block(id) {
+    block_dirt::block_dirt(int id) noexcept: block(id) {
 
     }
 

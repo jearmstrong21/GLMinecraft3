@@ -11,12 +11,12 @@
 
 namespace networking {
 
-    static void on_glfw_error(int error, const char* description) {
+    static void on_glfw_error(int error, const char *description) {
         fprintf(stderr, "Error: %i,%s\n", error, description);
     }
 
 
-    int client(const std::string& host,const std::string& port) {
+    int client(const std::string &host, const std::string &port) {
         glfwSetErrorCallback(on_glfw_error);
         if (!glfwInit()) {
             printf("GLFW NOT INITIALIZED\n");
@@ -26,7 +26,7 @@ namespace networking {
         glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
         glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GLFW_TRUE);
         glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-        GLFWwindow* window = glfwCreateWindow(1000, 1000, "GLMinecraft3", nullptr, nullptr);
+        GLFWwindow *window = glfwCreateWindow(1000, 1000, "GLMinecraft3", nullptr, nullptr);
 
         glfwMakeContextCurrent(window);
         gladLoadGLLoader((GLADloadproc) glfwGetProcAddress);
@@ -36,7 +36,7 @@ namespace networking {
 
         bool is_first_frame = true;
 
-        client::game game(window,host,port);
+        client::game game(window, host, port);
 
         while (!glfwWindowShouldClose(window)) {
             glGetError();

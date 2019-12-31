@@ -5,13 +5,13 @@
 #include "biome.h"
 
 namespace world::gen {
-    biome PLAINS {
-        0, 0,
-        62, 1, 15,
-        // TODO: move seed to carver generate()
+    biome PLAINS{
+            0, 0,
+            62, 1, 15,
+            // TODO: move seed to carver generate()
     };
 
-    biome SAVANNA {
+    biome SAVANNA{
 
     };
 }

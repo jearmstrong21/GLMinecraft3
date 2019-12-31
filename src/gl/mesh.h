@@ -17,12 +17,16 @@ namespace gl {
         int vert_count;
 
     public:
-        explicit mesh(mesh_data* data);
+        explicit mesh(mesh_data *data);
+
         ~mesh();
 
         void render_triangles();
+
         void render_lines();
+
         int vao_id();
+
         int vert_num();
     };
 

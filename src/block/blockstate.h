@@ -10,7 +10,9 @@ namespace block {
     typedef long block_state;
 
     int id(block_state bs);
+
     int meta(block_state bs);
+
     block_state create(int id, int meta);
 
 }

@@ -19,19 +19,28 @@
 
 namespace nbt {
 
-    std::shared_ptr<nbt> read_nbt(std::istream&in)noexcept;
+    std::shared_ptr<nbt> read_nbt(std::istream &in) noexcept;
 
-    struct nbt_compound:nbt{
-        nbt_compound(const nbt_compound&)=delete;
-        std::map<std::string,std::shared_ptr<nbt>>value;
+    struct nbt_compound : nbt {
+        nbt_compound(const nbt_compound &) = delete;
+
+        std::map<std::string, std::shared_ptr<nbt>> value;
+
         nbt_compound();
-        explicit nbt_compound(std::istream&in,bool read_type);
-        explicit nbt_compound(std::map<std::string,std::shared_ptr<nbt>> value);
-        ~nbt_compound()override;
-        void write(std::ostream&out)const override;
-        void read(std::istream&in,bool read_type)override;
-        [[nodiscard]] nbt_type type()const override;
-        [[nodiscard]] std::string to_str(std::string indent)const override;
+
+        explicit nbt_compound(std::istream &in, bool read_type);
+
+        explicit nbt_compound(std::map<std::string, std::shared_ptr<nbt>> value);
+
+        ~nbt_compound() override;
+
+        void write(std::ostream &out) const override;
+
+        void read(std::istream &in, bool read_type) override;
+
+        [[nodiscard]] nbt_type type() const override;
+
+        [[nodiscard]] std::string to_str(std::string indent) const override;
     };
 
 }

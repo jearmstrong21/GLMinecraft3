@@ -25,22 +25,25 @@
 
 //**********
 namespace client {
-    void glfw_key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
+    void glfw_key_callback(GLFWwindow *window, int key, int scancode, int action, int mods);
 
     class game {
     private:
         /********** OPENGL **********/
-        gl::shader* shader;
-        gl::texture* texture;
-        gl::shader* wireframe_shader;
-        gl::mesh* wireframe_mesh;
-        gl::mesh* filledcube_mesh;
-        text_renderer*text_rend;
-        float rotX=0,rotY=0;
+        gl::shader *shader;
+        gl::texture *texture;
+        gl::shader *wireframe_shader;
+        gl::mesh *wireframe_mesh;
+        gl::mesh *filledcube_mesh;
+        text_renderer *text_rend;
+        float rotX = 0, rotY = 0;
 
         void render_world();
+
         void initialize_gl();
-        void glfw_key_press_callback(int key,int scancode,int actions,int mods);
+
+        void glfw_key_press_callback(int key, int __unused scancode, int actions, int mods);
+
         void render_chat();
 
         /********** GAME STATE **********/
@@ -49,16 +52,17 @@ namespace client {
         std::string player_id;
         std::mutex protect_game_state;
 
-        bool freecam=false;
+        bool freecam = false;
         glm::vec3 freecamPos;
         glm::vec3 lookdir;
         std::string curchatbuffer;
-        bool is_chat_open=false;
-        bool ignore_character=true;
+        bool is_chat_open = false;
+        bool ignore_character = true;
         std::string chattosend;
-        std::vector<std::string>chathistory;
+        std::vector<std::string> chathistory;
 
-        void load_game_update(const std::shared_ptr<nbt::nbt>& obj);
+        void load_game_update(const std::shared_ptr<nbt::nbt> &obj);
+
         void handle_char(char c);
 
         /********** NETWORKING **********/
@@ -66,16 +70,23 @@ namespace client {
         boost::asio::ip::tcp::socket socket;
 
         void read_packet();
-        void send_packet(const std::shared_ptr<nbt::nbt>& data);
+
+        void send_packet(const std::shared_ptr<nbt::nbt> &data);
+
         void download_world();
+
         void read_welcome_packet();
-        void connect_to_server(const std::string& host, const std::string& port);
+
+        void connect_to_server(const std::string &host, const std::string &port);
 
     public:
         std::shared_ptr<rendered_chunk> rendered_world[WORLD_SIZE][WORLD_SIZE];
-        GLFWwindow* window;
-        explicit game(GLFWwindow* window, const std::string& host, const std::string& port);
+        GLFWwindow *window;
+
+        explicit game(GLFWwindow *window, const std::string &host, const std::string &port);
+
         void loop();
+
         void end();
 
     };

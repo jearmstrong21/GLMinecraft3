@@ -15,7 +15,7 @@
 #include "world/gen/carver/simple_carver.h"
 
 namespace block {
-    void world_generator::generate_world(world* world) {
+    void world_generator::generate_world(world *world) {
         printf("GENERATE WORLD THIS SHOULD ONLY PRINT ON SERVER\n");
         int seed = time(nullptr);
 

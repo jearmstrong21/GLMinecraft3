@@ -13,7 +13,7 @@
 
 namespace block {
 
-    const block* from_id(int id);
+    const block *from_id(int id);
 
 }
 

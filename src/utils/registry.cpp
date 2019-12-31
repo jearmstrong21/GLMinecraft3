@@ -25,7 +25,7 @@ void registry<K, V>::put(K k, V v) {
 }
 
 template<class K, class V>
-std::ostream& operator<<(std::ostream& os, registry<K, V> const& dt) {
+std::ostream &operator<<(std::ostream &os, registry<K, V> const &dt) {
     os << "{";
     int counter = 0; // hack to avoid iterator manipulation
     for (std::pair<K, V> val : dt) {

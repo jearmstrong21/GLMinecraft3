@@ -11,10 +11,11 @@
 
 namespace world::gen {
 
-    class simple_grass_surface: base_surface {
+    class simple_grass_surface : base_surface {
     public:
         explicit simple_grass_surface(uint32_t seed);
-        [[nodiscard]] block::block_state get_for_location(int x,int y,int z,int h) override;
+
+        [[nodiscard]] block::block_state get_for_location(int x, int y, int z, int h) override;
     };
 
 }

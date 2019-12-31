@@ -8,8 +8,10 @@
 
 namespace block {
 
-    void render_full_block(gl::mesh_data *md, block_context ctx, client::quad_texture_descr xmi, client::quad_texture_descr xpl,
-                           client::quad_texture_descr ymi, client::quad_texture_descr ypl, client::quad_texture_descr zmi,
+    void render_full_block(gl::mesh_data *md, block_context ctx, client::quad_texture_descr xmi,
+                           client::quad_texture_descr xpl,
+                           client::quad_texture_descr ymi, client::quad_texture_descr ypl,
+                           client::quad_texture_descr zmi,
                            client::quad_texture_descr zpl) {
         client::quad_descr qd;
         if (ctx.xmi == 0) {
@@ -84,11 +86,11 @@ namespace block {
     void chunk::set(glm::ivec3 v, block_state b) { set(v.x, v.y, v.z, b); }
 
     void chunk::serialize(int section_y, boost::array<long, 4096> &array) {
-        int i=0;
-        for(int x=0;x<16;x++){
-            for(int y=0;y<16;y++){
-                for(int z=0;z<16;z++){
-                    array[i]=palette[data[x][y+section_y*16][z]];
+        int i = 0;
+        for (int x = 0; x < 16; x++) {
+            for (int y = 0; y < 16; y++) {
+                for (int z = 0; z < 16; z++) {
+                    array[i] = palette[data[x][y + section_y * 16][z]];
                     i++;
                 }
             }
@@ -96,11 +98,11 @@ namespace block {
     }
 
     void chunk::read(int section_y, boost::array<long, 4096> &array) {
-        int i=0;
-        for(int x=0;x<16;x++){
-            for(int y=0;y<16;y++){
-                for(int z=0;z<16;z++){
-                    set(x,y+section_y*16,z,array[i]);
+        int i = 0;
+        for (int x = 0; x < 16; x++) {
+            for (int y = 0; y < 16; y++) {
+                for (int z = 0; z < 16; z++) {
+                    set(x, y + section_y * 16, z, array[i]);
                     i++;
                 }
             }

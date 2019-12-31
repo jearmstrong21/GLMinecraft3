@@ -9,14 +9,14 @@
 
 namespace gl {
 
-    struct buffer_data{
+    struct buffer_data {
         int elem_size;
-        std::vector<float>data;
+        std::vector<float> data;
     };
 
     struct mesh_data {
-        std::vector<buffer_data>buffers;
-        std::vector<unsigned int>tri;
+        std::vector<buffer_data> buffers;
+        std::vector<unsigned int> tri;
     };
 
 }

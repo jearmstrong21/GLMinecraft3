@@ -4,6 +4,6 @@
 
 #include "base_structure.h"
 
-world::gen::base_structure::base_structure(uint32_t seed): seed(seed) {
+world::gen::base_structure::base_structure(uint32_t seed) : seed(seed) {
 
 }

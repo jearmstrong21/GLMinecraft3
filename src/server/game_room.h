@@ -31,7 +31,7 @@ namespace server {
 
         std::shared_ptr<nbt::nbt> get_entity_list() {
             auto nbt_entities = new nbt::nbt_compound();
-            for (const auto& e:entities) {
+            for (const auto &e:entities) {
                 nbt_entities->value[e.first] = e.second;
             }
             return std::shared_ptr<nbt::nbt>(nbt_entities);
@@ -41,15 +41,15 @@ namespace server {
             {
                 std::lock_guard<std::mutex> guard(protect_game_state);
 
-                for(const auto&e:entities){
-                    et_base.update(e.second,this);
+                for (const auto &e:entities) {
+                    et_base.update(e.second, this);
                 }
 
                 broadcast_to_all(nbt::make_compound({
-                    {"entities", get_entity_list()},
-                    {"chat",nbt::make_string(queued_chat)}
-                }));
-                queued_chat="";
+                                                            {"entities", get_entity_list()},
+                                                            {"chat",     nbt::make_string(queued_chat)}
+                                                    }));
+                queued_chat = "";
             }
             //NO LOGIC OUTSIDE OF THIS
             int FPS = 30;
@@ -59,7 +59,7 @@ namespace server {
             });
         }
 
-        explicit game_room(boost::asio::io_context& io_context) : timer(io_context,
+        explicit game_room(boost::asio::io_context &io_context) : timer(io_context,
                                                                         boost::posix_time::milliseconds(0)) {
             world.generate_world();
             frame_handler(boost::system::error_code());
@@ -71,14 +71,14 @@ namespace server {
             return str.str();
         }
 
-        std::string spawn_entity(const std::shared_ptr<nbt::nbt>& e) {
+        std::string spawn_entity(const std::shared_ptr<nbt::nbt> &e) {
             std::string i = get_next_entity_id();
             nbt::cast_compound(e)->value["id"] = nbt::make_string(i);
             entities[i] = e;
             return i;
         }
 
-        void join(const server_player_ptr& ptr) {
+        void join(const server_player_ptr &ptr) {
             std::lock_guard<std::mutex> guard(protect_game_state);
             ptr->send_world(world);
             std::shared_ptr<nbt::nbt> entity = et_player.initialize();
@@ -87,16 +87,16 @@ namespace server {
             std::string id = spawn_entity(entity);
             nbt::cast_compound(entity)->value["name"] = nbt::make_string(id);
             ptr->deliver(nbt::make_compound({
-                {"player_id", nbt::make_string(id)},
-                {"entities",  get_entity_list()}
-            }));
+                                                    {"player_id", nbt::make_string(id)},
+                                                    {"entities",  get_entity_list()}
+                                            }));
             players.insert(ptr);
             ptr->entity_id = id;
             std::cout << "PLAYER " << ptr->entity_id << " JOINED\n";
-            queued_chat=ptr->entity_id+" joined the game";
+            queued_chat = ptr->entity_id + " joined the game";
         }
 
-        void handle_player_interaction_packet(const server_player_ptr& player, const std::shared_ptr<nbt::nbt> data) {
+        void handle_player_interaction_packet(const server_player_ptr &player, const std::shared_ptr<nbt::nbt> data) {
             std::shared_ptr<nbt::nbt_compound> compound = nbt::cast_compound(data);
             std::lock_guard<std::mutex> guard(protect_game_state);
             std::shared_ptr<nbt::nbt_compound> ent = nbt::cast_compound(entities[player->entity_id]);
@@ -109,44 +109,46 @@ namespace server {
                 bool sprint = nbt::cast_short(movement->value["sprint"])->value;
 
                 std::shared_ptr<nbt::nbt_list> pos = nbt::cast_list(ent->value["position"]);
-                std::shared_ptr<nbt::nbt_list>look=nbt::cast_list(ent->value["lookdir"]);
+                std::shared_ptr<nbt::nbt_list> look = nbt::cast_list(ent->value["lookdir"]);
                 float d = 1;
-                glm::vec3 newMotion{0,0,0};
-                glm::vec3 curLook{nbt::cast_float(look->value[0])->value,nbt::cast_float(look->value[1])->value,nbt::cast_float(look->value[2])->value};
-                glm::vec3 leftdir=glm::cross(curLook,glm::vec3{0,-1,0});
-                if(front)newMotion+=curLook*d*(float)(1+sprint);
-                if(back)newMotion-=curLook*d;
-                if(left)newMotion+=leftdir*d;
-                if(right)newMotion-=leftdir*d;
-                ent->value["motion"]=nbt::make_list({nbt::make_float(newMotion.x),nbt::make_float(newMotion.y),nbt::make_float(newMotion.z)});
+                glm::vec3 newMotion{0, 0, 0};
+                glm::vec3 curLook{nbt::cast_float(look->value[0])->value, nbt::cast_float(look->value[1])->value,
+                                  nbt::cast_float(look->value[2])->value};
+                glm::vec3 leftdir = glm::cross(curLook, glm::vec3{0, -1, 0});
+                if (front)newMotion += curLook * d * (float) (1 + sprint);
+                if (back)newMotion -= curLook * d;
+                if (left)newMotion += leftdir * d;
+                if (right)newMotion -= leftdir * d;
+                ent->value["motion"] = nbt::make_list(
+                        {nbt::make_float(newMotion.x), nbt::make_float(newMotion.y), nbt::make_float(newMotion.z)});
             }
             {
-                std::shared_ptr<nbt::nbt_list>nlook=nbt::cast_list(compound->value["lookdir"]);
-                std::shared_ptr<nbt::nbt_list>look=nbt::cast_list(ent->value["lookdir"]);
-                nbt::cast_float(look->value[0])->value=nbt::cast_float(nlook->value[0])->value;
-                nbt::cast_float(look->value[1])->value=nbt::cast_float(nlook->value[1])->value;
-                nbt::cast_float(look->value[2])->value=nbt::cast_float(nlook->value[2])->value;
+                std::shared_ptr<nbt::nbt_list> nlook = nbt::cast_list(compound->value["lookdir"]);
+                std::shared_ptr<nbt::nbt_list> look = nbt::cast_list(ent->value["lookdir"]);
+                nbt::cast_float(look->value[0])->value = nbt::cast_float(nlook->value[0])->value;
+                nbt::cast_float(look->value[1])->value = nbt::cast_float(nlook->value[1])->value;
+                nbt::cast_float(look->value[2])->value = nbt::cast_float(nlook->value[2])->value;
             }
             {
-                std::string chat=nbt::cast_string(compound->value["chat"])->value;
+                std::string chat = nbt::cast_string(compound->value["chat"])->value;
                 //TODO: commands will be parsed here
-                if(!chat.empty())queued_chat="<"+player->entity_id+"> "+chat;
+                if (!chat.empty())queued_chat = "<" + player->entity_id + "> " + chat;
             }
         }
 
-        void kill_entity(const std::string& id) {
+        void kill_entity(const std::string &id) {
             entities.erase(id);
         }
 
-        void leave(const server_player_ptr& ptr) {
+        void leave(const server_player_ptr &ptr) {
             players.erase(ptr);
             kill_entity(ptr->entity_id);
             std::cout << "PLAYER " << ptr->entity_id << " LEFT\n";
-            queued_chat=ptr->entity_id+" left the game";
+            queued_chat = ptr->entity_id + " left the game";
         }
 
-        void broadcast_to_all(const std::shared_ptr<nbt::nbt>& msg) {
-            for (const auto& p:players)p->deliver(msg);
+        void broadcast_to_all(const std::shared_ptr<nbt::nbt> &msg) {
+            for (const auto &p:players)p->deliver(msg);
         }
     };
 

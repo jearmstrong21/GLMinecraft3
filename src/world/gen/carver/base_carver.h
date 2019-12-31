@@ -21,7 +21,9 @@ namespace world::gen {
         uint32_t seed;
     public:
         explicit base_carver(uint32_t seed);
-        virtual void carve(block::world* world, void (block::world::*set)(int x, int y, int z, block::block_state bs))=0;
+
+        virtual void
+        carve(block::world *world, void (block::world::*set)(int x, int y, int z, block::block_state bs)) = 0;
     };
 
 }

@@ -13,20 +13,20 @@
 #include <vector>
 
 namespace world::gen {
-        struct biome {
-            double heat;
-            double humidity;
+    struct biome {
+        double heat;
+        double humidity;
 
-            double min_height;
-            double noise_scale;
-            double slope;
+        double min_height;
+        double noise_scale;
+        double slope;
 
-            std::shared_ptr<base_carver> carver;
-            std::vector<std::shared_ptr<base_feature>> features;
-            std::vector<std::shared_ptr<base_structure>> structures;
-            std::shared_ptr<base_surface> surface;
-        };
-    }
+        std::shared_ptr<base_carver> carver;
+        std::vector<std::shared_ptr<base_feature>> features;
+        std::vector<std::shared_ptr<base_structure>> structures;
+        std::shared_ptr<base_surface> surface;
+    };
+}
 
 
 #endif //GLMINECRAFT3_BIOME_H

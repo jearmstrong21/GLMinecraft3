@@ -21,7 +21,8 @@ namespace world::gen {
         uint32_t seed;
     public:
         explicit base_feature(uint32_t seed);
-        virtual void build()=0;
+
+        virtual void build() = 0;
         // TODO: add argument (we need to pass set function from world)
     };
 }

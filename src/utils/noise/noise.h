@@ -11,10 +11,10 @@
 
 namespace utils::noise {
 
-    struct int_twister{
+    struct int_twister {
 
     private:
-        static const int state_size=624;
+        static const int state_size = 624;
         uint32_t state[state_size];
         int next;
 
@@ -27,30 +27,31 @@ namespace utils::noise {
 
     };
 
-    double lerp(double a,double b,double x);
+    double lerp(double a, double b, double x);
+
     double fade(double t);
 
     struct noise {
 
-        [[nodiscard]] virtual double get(double x,double y,double z)=0;
+        [[nodiscard]] virtual double get(double x, double y, double z) = 0;
 
     };
 
-    struct perlin: noise {
+    struct perlin : noise {
 
     private:
         int p[512];
 
-        double grad(int hash,double x,double y,double z);
+        double grad(int hash, double x, double y, double z);
 
-        void initialize_permutation(int_twister*twister);
+        void initialize_permutation(int_twister *twister);
 
     public:
 
         explicit perlin(uint32_t seed);//seeded with int_twister
-        explicit perlin(int_twister*twister);
+        explicit perlin(int_twister *twister);
 
-        [[nodiscard]] double get(double x,double y,double z) override;
+        [[nodiscard]] double get(double x, double y, double z) override;
 
     };
 

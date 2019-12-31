@@ -12,16 +12,24 @@
 
 namespace nbt {
 
-    struct nbt_float:nbt{
+    struct nbt_float : nbt {
         float value;
+
         nbt_float();
-        explicit nbt_float(std::istream&in,bool read_type);
+
+        explicit nbt_float(std::istream &in, bool read_type);
+
         explicit nbt_float(float value);
-        ~nbt_float()override;
-        void write(std::ostream&out)const override;
-        void read(std::istream&in,bool read_type)override;
-        [[nodiscard]] nbt_type type()const override;
-        [[nodiscard]] std::string to_str(std::string indent)const override;
+
+        ~nbt_float() override;
+
+        void write(std::ostream &out) const override;
+
+        void read(std::istream &in, bool read_type) override;
+
+        [[nodiscard]] nbt_type type() const override;
+
+        [[nodiscard]] std::string to_str(std::string indent) const override;
     };
 
 }

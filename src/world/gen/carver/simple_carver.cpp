@@ -6,11 +6,12 @@
 
 namespace world::gen {
 
-    simple_carver::simple_carver(uint32_t seed):base_carver(seed) {
+    simple_carver::simple_carver(uint32_t seed) : base_carver(seed) {
 
     }
 
-    void simple_carver::carve(block::world* world, void (block::world::*set)(int x, int y, int z, block::block_state bs)) {
+    void
+    simple_carver::carve(block::world *world, void (block::world::*set)(int x, int y, int z, block::block_state bs)) {
 
     }
 

@@ -14,18 +14,26 @@
 
 namespace nbt {
 
-    std::shared_ptr<nbt> read_nbt(std::istream&in)noexcept;
+    std::shared_ptr<nbt> read_nbt(std::istream &in) noexcept;
 
-    struct nbt_list:nbt{
-        std::vector<std::shared_ptr<nbt>>value;
+    struct nbt_list : nbt {
+        std::vector<std::shared_ptr<nbt>> value;
+
         nbt_list();
-        nbt_list(std::istream&in,bool read_type);
-        explicit nbt_list(std::vector<std::shared_ptr<nbt>>value);
-        ~nbt_list()override;
-        void write(std::ostream&out)const override;
-        void read(std::istream&in,bool read_type)override;
-        [[nodiscard]] nbt_type type()const override;
-        [[nodiscard]] std::string to_str(std::string indent)const override;
+
+        nbt_list(std::istream &in, bool read_type);
+
+        explicit nbt_list(std::vector<std::shared_ptr<nbt>> value);
+
+        ~nbt_list() override;
+
+        void write(std::ostream &out) const override;
+
+        void read(std::istream &in, bool read_type) override;
+
+        [[nodiscard]] nbt_type type() const override;
+
+        [[nodiscard]] std::string to_str(std::string indent) const override;
     };
 
 }

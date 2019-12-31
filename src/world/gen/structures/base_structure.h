@@ -21,7 +21,8 @@ namespace world::gen {
         uint32_t seed;
     public:
         explicit base_structure(uint32_t seed);
-        virtual void perform()=0;
+
+        virtual void perform() = 0;
     };
 }
 

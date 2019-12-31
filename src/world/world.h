@@ -24,19 +24,19 @@ namespace block {
 
         void generate_world();
 
-        [[nodiscard]] bool in_bounds(int x, int y, int z)const;
+        [[nodiscard]] bool in_bounds(int x, int y, int z) const;
 
-        [[nodiscard]] bool in_bounds(glm::ivec3 v)const;
+        [[nodiscard]] bool in_bounds(glm::ivec3 v) const;
 
-        [[nodiscard]] block_state get(int x, int y, int z)const;
+        [[nodiscard]] block_state get(int x, int y, int z) const;
 
-        [[nodiscard]] block_state get(glm::ivec3 v)const;
+        [[nodiscard]] block_state get(glm::ivec3 v) const;
 
         void set(int x, int y, int z, block_state b);
 
         void set(glm::ivec3 v, block_state b);
 
-        [[nodiscard]] block_context get_block_context(glm::ivec3 p)const;
+        [[nodiscard]] block_context get_block_context(glm::ivec3 p) const;
 
         world_generator generator;
     };

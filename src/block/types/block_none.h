@@ -10,11 +10,11 @@
 
 namespace block {
 
-    struct block_none: block {
+    struct block_none : block {
 
-        explicit block_none(int id)noexcept;
+        explicit block_none(int id) noexcept;
 
-        void render(gl::mesh_data*md, block_context ctx) const noexcept override;
+        void render(gl::mesh_data *md, block_context ctx) const noexcept override;
 
     };
 

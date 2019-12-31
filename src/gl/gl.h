@@ -15,7 +15,8 @@
 #include <vector>
 #include <glm/glm.hpp>
 
-void _gl_check_error(const char*file,int line);
+void _gl_check_error(const char *file, int line);
+
 #define gl_check_error() _gl_check_error(__FILE__,__LINE__)
 
 #endif //GLMC_GL_H

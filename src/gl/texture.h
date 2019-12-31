@@ -15,7 +15,7 @@ namespace gl {
         GLuint id{};
 
     public:
-        texture(const unsigned char*_data,int _len);
+        texture(const unsigned char *_data, int _len);
 
         ~texture();
 

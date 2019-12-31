@@ -7,7 +7,7 @@
 namespace block {
 
 
-    block_stone::block_stone(int id)noexcept: block(id) {
+    block_stone::block_stone(int id) noexcept: block(id) {
 
     }
 

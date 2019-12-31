@@ -4,5 +4,5 @@
 
 #include "base_surface.h"
 
-world::gen::base_surface::base_surface(uint32_t seed):seed(seed) {
+world::gen::base_surface::base_surface(uint32_t seed) : seed(seed) {
 }
