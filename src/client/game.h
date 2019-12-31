@@ -52,7 +52,7 @@ namespace client {
         std::string player_id;
         std::mutex protect_game_state;
 
-        bool should_jump=false;
+        bool should_jump = false;
         bool freecam = false;
         glm::vec3 freecamPos;
         glm::vec3 lookdir;

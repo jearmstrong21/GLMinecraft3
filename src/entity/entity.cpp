@@ -71,7 +71,7 @@ namespace server {
 
         float dt = 0.1F;
 
-        auto fixdir = [is_allowed_position,curPos,dt](glm::vec3 &dir) {
+        auto fixdir = [is_allowed_position, curPos, dt](glm::vec3 &dir) {
             glm::bvec3 allowDir{false};
 
             if (is_allowed_position(curPos + glm::vec3{dir.x * dt, 0, 0}))allowDir.x = true;
@@ -83,7 +83,7 @@ namespace server {
             if (!allowDir.z)dir.z = 0;
         };
 
-        curVel.y -= dt*4;
+        curVel.y -= dt * 4;
         fixdir(curVel);
         fixdir(curMotion);
 //        glm::vec3 dx=curMotion+curVel;

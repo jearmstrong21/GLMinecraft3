@@ -317,7 +317,7 @@ namespace client {
                                                                                                                                               window,
                                                                                                                                               GLFW_KEY_LEFT_CONTROL) ==
                                                                                                                                       GLFW_PRESS)},
-                                                                                                                              {"jump",  nbt::make_short(
+                                                                                                                              {"jump",   nbt::make_short(
                                                                                                                                       !is_chat_open &&
                                                                                                                                       should_jump
                                                                                                                               )}
