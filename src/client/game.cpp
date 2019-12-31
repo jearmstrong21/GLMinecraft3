@@ -317,6 +317,10 @@ namespace client {
                                                                                                                                               window,
                                                                                                                                               GLFW_KEY_LEFT_CONTROL) ==
                                                                                                                                       GLFW_PRESS)},
+                                                                                                                              {"jump",  nbt::make_short(
+                                                                                                                                      !is_chat_open &&
+                                                                                                                                      should_jump
+                                                                                                                              )}
                                                                                                                       })},
                                                                                       {"lookdir",  nbt::make_list(
                                                                                               {nbt::make_float(
@@ -328,6 +332,7 @@ namespace client {
                                                                                       {"chat",     nbt::make_string(
                                                                                               chattosend)}
                                                                               });
+            should_jump = false;
             chattosend = "";
             send_packet(interaction_packet);
         }
@@ -437,6 +442,7 @@ namespace client {
             curchatbuffer = "";
             is_chat_open = false;
         }
+        if (key == GLFW_KEY_SPACE && !is_chat_open)should_jump = true;
         if (key == GLFW_KEY_BACKSPACE && actions == GLFW_PRESS && is_chat_open && !curchatbuffer.empty()) {
             curchatbuffer.pop_back();
         }

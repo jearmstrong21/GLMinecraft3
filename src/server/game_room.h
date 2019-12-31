@@ -107,20 +107,32 @@ namespace server {
                 bool front = nbt::cast_short(movement->value["front"])->value;
                 bool back = nbt::cast_short(movement->value["back"])->value;
                 bool sprint = nbt::cast_short(movement->value["sprint"])->value;
+                bool jump=nbt::cast_short(movement->value["jump"])->value;
 
                 std::shared_ptr<nbt::nbt_list> pos = nbt::cast_list(ent->value["position"]);
                 std::shared_ptr<nbt::nbt_list> look = nbt::cast_list(ent->value["lookdir"]);
+                std::shared_ptr<nbt::nbt_list> vel = nbt::cast_list(ent->value["velocity"]);
                 float d = 1;
                 glm::vec3 newMotion{0, 0, 0};
                 glm::vec3 curLook{nbt::cast_float(look->value[0])->value, nbt::cast_float(look->value[1])->value,
                                   nbt::cast_float(look->value[2])->value};
+                glm::vec3 curVel{nbt::cast_float(vel->value[0])->value, nbt::cast_float(vel->value[1])->value,
+                                  nbt::cast_float(vel->value[2])->value};
                 glm::vec3 leftdir = glm::cross(curLook, glm::vec3{0, -1, 0});
-                if (front)newMotion += curLook * d * (float) (1 + sprint);
-                if (back)newMotion -= curLook * d;
+                leftdir.y=0;
+                leftdir=glm::normalize(leftdir);
+                glm::vec3 forward=curLook;
+                forward.y=0;
+                forward=glm::normalize(forward);
+                if (front)newMotion += forward * d * (float) (1 + sprint);
+                if (back)newMotion -= forward * d;
                 if (left)newMotion += leftdir * d;
                 if (right)newMotion -= leftdir * d;
+                if(jump)curVel.y+=2.5;
                 ent->value["motion"] = nbt::make_list(
                         {nbt::make_float(newMotion.x), nbt::make_float(newMotion.y), nbt::make_float(newMotion.z)});
+                ent->value["velocity"] = nbt::make_list(
+                        {nbt::make_float(curVel.x), nbt::make_float(curVel.y), nbt::make_float(curVel.z)});
             }
             {
                 std::shared_ptr<nbt::nbt_list> nlook = nbt::cast_list(compound->value["lookdir"]);
