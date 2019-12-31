@@ -8,9 +8,9 @@
 #include "nbt/nbt.h"
 
 #ifdef __APPLE__
-#define I_HATE_CANCER
-#else // Sane people
-#undef I_HATE_CANCER
+#undef I_LOVE_CANCER
+#else // Insane people
+#def I_LOVE_CANCER
 #endif
 
 extern "C" const unsigned char TEXTURE_1_8_textures_0_png[];
@@ -87,36 +87,59 @@ namespace client {
         texture = new gl::texture(TEXTURE_1_8_textures_0_png, TEXTURE_1_8_textures_0_png_len);
         wireframe_shader=new gl::shader(SHADER_wireframe_vert,SHADER_wireframe_vert_len,SHADER_wireframe_frag,SHADER_wireframe_frag_len);
         text_rend=new text_renderer(window);
-        gl::mesh_data data{
-            {{3,{
-                    0,0,0, 1,0,0,
-                    0,0,0, 0,1,0,
-                    0,0,0, 0,0,1,
+        {
+            gl::mesh_data data{
+                    {{3, {
+                                 0, 0, 0, 1, 0, 0,
+                                 0, 0, 0, 0, 1, 0,
+                                 0, 0, 0, 0, 0, 1,
 
-                    1,0,0, 1,1,0,
-                    1,0,0, 1,0,1,
+                                 1, 0, 0, 1, 1, 0,
+                                 1, 0, 0, 1, 0, 1,
 
-                    0,1,0, 1,1,0,
-                    0,1,0, 0,1,1,
+                                 0, 1, 0, 1, 1, 0,
+                                 0, 1, 0, 0, 1, 1,
 
-                    0,0,1, 1,0,1,
-                    0,0,1, 0,1,1,
+                                 0, 0, 1, 1, 0, 1,
+                                 0, 0, 1, 0, 1, 1,
 
-                    0,1,1, 1,1,1,
-                    1,0,1, 1,1,1,
-                    1,1,0, 1,1,1
-                }}},
-                {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23}
-        };
-        for(int i=0;i<data.buffers[0].data.size();i++){
-            data.buffers[0].data[i]-=0.5;
-//            data.buffers[0].data[i+0]-=0.5;
-//            data.buffers[0].data[i+1]-=0.5;
-//            data.buffers[0].data[i+2]-=0.5;
-
-//            data.buffers[0].data[i+0]*=2;
+                                 0, 1, 1, 1, 1, 1,
+                                 1, 0, 1, 1, 1, 1,
+                                 1, 1, 0, 1, 1, 1
+                         }}},
+                    {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23}
+            };
+            for (int i = 0; i < data.buffers[0].data.size(); i++) {
+                data.buffers[0].data[i] -= 0.5;
+            }
+            wireframe_mesh = new gl::mesh(&data);
         }
-        wireframe_mesh=new gl::mesh(&data);
+        {
+            gl::mesh_data data{
+                    {{3,{
+                        0,0,0, 1,0,0, 0,1,0, 1,1,0,
+                        0,0,1, 1,0,1, 0,1,1, 1,1,1,
+
+                        0,0,0, 1,0,0, 0,0,1, 1,0,1,
+                        0,1,0, 1,1,0, 0,1,1, 1,1,1,
+
+                        0,0,0, 0,1,0, 0,0,1, 0,1,1,
+                        1,0,0, 1,1,0, 1,0,1, 1,1,1,
+                    }}},
+                    {
+                        0,1,2, 1,2,3,
+                        4,5,6, 5,6,7,
+                        8,9,10, 9,10,11,
+                        12,13,14, 13,14,15,
+                        16,17,18, 17,18,19,
+                        20,21,22, 21,22,23
+                    }
+            };
+            for(int i=0;i<data.buffers[0].data.size();i++){
+                data.buffers[0].data[i]-=0.5;
+            }
+            filledcube_mesh=new gl::mesh(&data);
+        }
         glfwSetWindowUserPointer(window,this);
         glfwSetKeyCallback(window,[](GLFWwindow*w,int key,int scancode,int actions,int mods){
             ((game*)glfwGetWindowUserPointer(w))->glfw_key_press_callback(key,scancode,actions,mods);
@@ -227,16 +250,29 @@ namespace client {
             std::shared_ptr<nbt::nbt_compound>ent=nbt::cast_compound(e.second);
             std::shared_ptr<nbt::nbt_list>pos=nbt::cast_list(ent->value["position"]);
             std::shared_ptr<nbt::nbt_list>look=nbt::cast_list(ent->value["lookdir"]);
+            std::shared_ptr<nbt::nbt_list>size=nbt::cast_list(ent->value["bbsize"]);
+            glm::vec3 bbsize{nbt::cast_float(size->value[0])->value,nbt::cast_float(size->value[1])->value,nbt::cast_float(size->value[2])->value};
+
             glm::mat4 m(1);
-            m*=glm::translate(glm::mat4(1),glm::vec3{nbt::cast_float(pos->value[0])->value,nbt::cast_float(pos->value[1])->value,nbt::cast_float(pos->value[2])->value});
+//            m*=glm::translate(glm::mat4(1),glm::vec3{nbt::cast_float(pos->value[0])->value,nbt::cast_float(pos->value[1])->value,nbt::cast_float(pos->value[2])->value});
+//            m*=glm::lookAt(glm::vec3{0,0,0},glm::vec3{nbt::cast_float(look->value[0])->value,0,nbt::cast_float(look->value[2])->value},glm::vec3{0,-1,0});
 //            wireframe_shader->uniform4x4("model",m);
-//            wireframe_shader->uniform3("color",glm::vec3{0,0,1});//BLUE=no rot, GREEN=with rot
+//            wireframe_shader->uniform3("color",glm::vec3{0,1,0});
 //            wireframe_mesh->render_lines();
-            m*=glm::lookAt(glm::vec3{0,0,0},glm::vec3{nbt::cast_float(look->value[0])->value,0,nbt::cast_float(look->value[2])->value},glm::vec3{0,-1,0});
+
+            m=glm::mat4(1);
+            m*=glm::translate(glm::mat4(1),glm::vec3{nbt::cast_float(pos->value[0])->value,nbt::cast_float(pos->value[1])->value,nbt::cast_float(pos->value[2])->value});
+            m*=glm::scale(glm::mat4(1),bbsize);
             wireframe_shader->uniform4x4("model",m);
-            wireframe_shader->uniform3("color",glm::vec3{0,1,0});
+            wireframe_shader->uniform3("color",glm::vec3{1,0,0});
             wireframe_mesh->render_lines();
-            //nbt::cast_float(look->value[1])->value
+
+            m=glm::mat4(1);
+            m*=glm::translate(glm::mat4(1),glm::vec3{nbt::cast_float(pos->value[0])->value,nbt::cast_float(pos->value[1])->value,nbt::cast_float(pos->value[2])->value});
+            m*=glm::scale(glm::mat4(1),glm::vec3{0.1});
+            wireframe_shader->uniform4x4("model",m);
+            wireframe_shader->uniform3("color",glm::vec3{0,0,1});
+            filledcube_mesh->render_triangles();
         }
 
         if(!freecam){
@@ -256,10 +292,10 @@ namespace client {
         }
 
         if (glfwGetKey(window, GLFW_KEY_Q)&&!is_chat_open) {
-#ifdef I_HATE_CANCER
-            while(sqrt(5)>0)std::raise(11);
-#else
+#ifdef I_LOVE_CANCER
             while(sqrt(5)>0)std::exit(11);
+#else
+            while(sqrt(5)>0)std::raise(11);
 #endif
         }
 
@@ -270,6 +306,7 @@ namespace client {
         delete texture;
         delete wireframe_shader;
         delete wireframe_mesh;
+        delete filledcube_mesh;
         delete text_rend;
     }
 
@@ -287,6 +324,7 @@ namespace client {
                 std::istringstream stream(str);
                 std::shared_ptr<nbt::nbt>obj=nbt::read_nbt(stream);
                 load_game_update(obj);
+//                std::cout<<obj->to_str("")<<"\n";
             }
         });
     }

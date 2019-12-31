@@ -45,10 +45,4 @@ namespace nbt {
         }
     }
 
-    void merge(std::shared_ptr<nbt>target,std::shared_ptr<nbt>extra){
-        if(target->type()==nbt_type_compound&&extra->type()==nbt_type_compound){
-            cast_compound(target)->value.insert(cast_compound(extra)->value.begin(),cast_compound(extra)->value.end());
-        }
-    }
-
 }

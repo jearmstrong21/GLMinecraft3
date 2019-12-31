@@ -34,6 +34,7 @@ namespace client {
         gl::texture* texture;
         gl::shader* wireframe_shader;
         gl::mesh* wireframe_mesh;
+        gl::mesh* filledcube_mesh;
         text_renderer*text_rend;
         float rotX=0,rotY=0;
 

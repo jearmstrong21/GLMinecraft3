@@ -44,7 +44,6 @@ namespace server {
                 for(const auto&e:entities){
                     et_base.update(e.second,this);
                 }
-//                std::cout<<"framehanddler "<<entities.size()<<"\n";
 
                 broadcast_to_all(nbt::make_compound({
                     {"entities", get_entity_list()},

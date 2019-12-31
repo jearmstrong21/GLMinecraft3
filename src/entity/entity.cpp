@@ -13,7 +13,8 @@ namespace server {
             {"id",nbt::make_string("well this is awkward")},
             {"position",nbt::make_list({nbt::make_float(0),nbt::make_float(0),nbt::make_float(0)})},
             {"motion",nbt::make_list({nbt::make_float(0),nbt::make_float(0),nbt::make_float(0)})},
-            {"lookdir",nbt::make_list({nbt::make_float(0),nbt::make_float(0),nbt::make_float(0)})}
+            {"lookdir",nbt::make_list({nbt::make_float(0),nbt::make_float(0),nbt::make_float(0)})},
+            {"bbsize",nbt::make_list({nbt::make_float(0),nbt::make_float(0),nbt::make_float(0)})}
             //todo health
         });
     }
@@ -23,7 +24,9 @@ namespace server {
         glm::vec3 curPos{nbt::cast_float(nbt::cast_list(compound->value["position"])->value[0])->value,nbt::cast_float(nbt::cast_list(compound->value["position"])->value[1])->value,nbt::cast_float(nbt::cast_list(compound->value["position"])->value[2])->value};
         glm::vec3 curMotion{nbt::cast_float(nbt::cast_list(compound->value["motion"])->value[0])->value,nbt::cast_float(nbt::cast_list(compound->value["motion"])->value[1])->value,nbt::cast_float(nbt::cast_list(compound->value["motion"])->value[2])->value};
 
-        glm::vec3 bbSize={1,1,1};
+        std::shared_ptr<nbt::nbt_list>size=nbt::cast_list(compound->value["bbsize"]);
+        glm::vec3 bbSize{nbt::cast_float(size->value[0])->value,nbt::cast_float(size->value[1])->value,nbt::cast_float(size->value[2])->value};
+
         glm::vec3 bbMin=curPos-bbSize/2.0F;
         glm::vec3 bbMax=curPos+bbSize/2.0F;
 
@@ -42,7 +45,7 @@ namespace server {
                     for(int z=z0;z<=z1;z++){
                         if(x<0||y<0||z<0||x>=WORLD_SIZE*16||y>=256||z>=WORLD_SIZE*16)continue;
                         if(room->world.get(x,y,z)!=0){
-                            printf("oops %i %i %i = %li\n",x,y,z,room->world.get(x,y,z));
+//                            printf("oops %i %i %i = %li\n",x,y,z,room->world.get(x,y,z));
                             return false;
                         }
                     }
@@ -63,21 +66,20 @@ namespace server {
         if(!allowDir.y)curMotion.y=0;
         if(!allowDir.z)curMotion.z=0;
 
-        std::cout<<allowDir.x<<","<<allowDir.y<<","<<allowDir.z<<"\n";
+//        std::cout<<allowDir.x<<","<<allowDir.y<<","<<allowDir.z<<"\n";
 
         curPos+=curMotion*dt;
 
         compound->value["position"]=nbt::make_list({nbt::make_float(curPos.x),nbt::make_float(curPos.y),nbt::make_float(curPos.z)});
         compound->value["motion"]=nbt::make_list({nbt::make_float(curMotion.x),nbt::make_float(curMotion.y),nbt::make_float(curMotion.z)});
-
-
     }
 
     std::shared_ptr<nbt::nbt> entity_type_player::initialize() const {
         std::shared_ptr<nbt::nbt>res=entity_type_base::initialize();
-        nbt::merge(res,nbt::make_compound({
-            //nothing to see here move along
-        }));
+        nbt::cast_compound(res)->value["bbsize"]=nbt::make_list({nbt::make_float(0.6),nbt::make_float(1.5),nbt::make_float(0.6)});
+//        nbt::merge(res,nbt::make_compound({
+//            {"bbsize",nbt::make_list({nbt::make_float(0.6),nbt::make_float(1.5),nbt::make_float(0.6)})}
+//        }));
         return res;
     }
 
