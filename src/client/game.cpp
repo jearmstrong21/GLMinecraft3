@@ -258,40 +258,41 @@ namespace client {
         wireframe_shader->uniform4x4("perspective", p);
         wireframe_shader->uniform4x4("view", v);
         for (const auto &e:entities) {
-            std::shared_ptr<nbt::nbt_compound> ent = nbt::cast_compound(e.second);
-            std::shared_ptr<nbt::nbt_list> pos = nbt::cast_list(ent->value["position"]);
-            std::shared_ptr<nbt::nbt_list> look = nbt::cast_list(ent->value["lookdir"]);
-            std::shared_ptr<nbt::nbt_list> size = nbt::cast_list(ent->value["bbsize"]);
-            glm::vec3 bbsize{nbt::cast_float(size->value[0])->value, nbt::cast_float(size->value[1])->value,
-                             nbt::cast_float(size->value[2])->value};
-
-            glm::mat4 m(1);
-//            m*=glm::translate(glm::mat4(1),glm::vec3{nbt::cast_float(pos->value[0])->value,nbt::cast_float(pos->value[1])->value,nbt::cast_float(pos->value[2])->value});
-//            m*=glm::lookAt(glm::vec3{0,0,0},glm::vec3{nbt::cast_float(look->value[0])->value,0,nbt::cast_float(look->value[2])->value},glm::vec3{0,-1,0});
-//            wireframe_shader->uniform4x4("model",m);
-//            wireframe_shader->uniform3("color",glm::vec3{0,1,0});
-//            wireframe_mesh->render_lines();
-
-
-
-            m = glm::mat4(1);
-            m *= glm::translate(glm::mat4(1),
-                                glm::vec3{nbt::cast_float(pos->value[0])->value, nbt::cast_float(pos->value[1])->value,
-                                          nbt::cast_float(pos->value[2])->value});
-            tc_renderer->render_cube(p, v, m, steve_texture, glm::vec3{8,12,4},glm::vec2{16,32},glm::vec2{64,64});
-//            m *= glm::scale(glm::mat4(1), bbsize);
-//            wireframe_shader->uniform4x4("model", m);
-//            wireframe_shader->uniform3("color", glm::vec3{1, 0, 0});
-//            wireframe_mesh->render_lines();
+            render_player(p,v,e.second,tc_renderer,steve_texture);
+//            std::shared_ptr<nbt::nbt_compound> ent = nbt::cast_compound(e.second);
+//            std::shared_ptr<nbt::nbt_list> pos = nbt::cast_list(ent->value["position"]);
+//            std::shared_ptr<nbt::nbt_list> look = nbt::cast_list(ent->value["lookdir"]);
+//            std::shared_ptr<nbt::nbt_list> size = nbt::cast_list(ent->value["bbsize"]);
+//            glm::vec3 bbsize{nbt::cast_float(size->value[0])->value, nbt::cast_float(size->value[1])->value,
+//                             nbt::cast_float(size->value[2])->value};
+//
+//            glm::mat4 m(1);
+////            m*=glm::translate(glm::mat4(1),glm::vec3{nbt::cast_float(pos->value[0])->value,nbt::cast_float(pos->value[1])->value,nbt::cast_float(pos->value[2])->value});
+////            m*=glm::lookAt(glm::vec3{0,0,0},glm::vec3{nbt::cast_float(look->value[0])->value,0,nbt::cast_float(look->value[2])->value},glm::vec3{0,-1,0});
+////            wireframe_shader->uniform4x4("model",m);
+////            wireframe_shader->uniform3("color",glm::vec3{0,1,0});
+////            wireframe_mesh->render_lines();
+//
+//
 //
 //            m = glm::mat4(1);
 //            m *= glm::translate(glm::mat4(1),
 //                                glm::vec3{nbt::cast_float(pos->value[0])->value, nbt::cast_float(pos->value[1])->value,
 //                                          nbt::cast_float(pos->value[2])->value});
-//            m *= glm::scale(glm::mat4(1), glm::vec3{0.1});
-//            wireframe_shader->uniform4x4("model", m);
-//            wireframe_shader->uniform3("color", glm::vec3{0, 0, 1});
-//            filledcube_mesh->render_triangles();
+//            tc_renderer->render_cube(p, v, m, steve_texture, glm::vec3{8,12,4},glm::vec2{16,32},glm::vec2{64,64});
+////            m *= glm::scale(glm::mat4(1), bbsize);
+////            wireframe_shader->uniform4x4("model", m);
+////            wireframe_shader->uniform3("color", glm::vec3{1, 0, 0});
+////            wireframe_mesh->render_lines();
+////
+////            m = glm::mat4(1);
+////            m *= glm::translate(glm::mat4(1),
+////                                glm::vec3{nbt::cast_float(pos->value[0])->value, nbt::cast_float(pos->value[1])->value,
+////                                          nbt::cast_float(pos->value[2])->value});
+////            m *= glm::scale(glm::mat4(1), glm::vec3{0.1});
+////            wireframe_shader->uniform4x4("model", m);
+////            wireframe_shader->uniform3("color", glm::vec3{0, 0, 1});
+////            filledcube_mesh->render_triangles();
         }
 
         if (!freecam) {

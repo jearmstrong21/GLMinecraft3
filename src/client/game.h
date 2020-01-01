@@ -23,6 +23,7 @@
 #include "utils/utils.h"
 #include "text_rendering.h"
 #include "render_entity/textured_cube_render.h"
+#include "render_entity/entity_render.h"
 
 //**********
 namespace client {

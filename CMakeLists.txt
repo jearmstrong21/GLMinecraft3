@@ -130,6 +130,7 @@ set(SOURCE_FILES
         src/nbt/nbt.cpp
 
         src/entity/entity.cpp
+        src/client/render_entity/entity_render.cpp
 
         src/server.cpp
         src/client.cpp

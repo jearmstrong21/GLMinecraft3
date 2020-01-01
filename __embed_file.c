@@ -4,8 +4,8 @@
 #include <unistd.h>
 #include <limits.h>
 
-FILE* open_or_exit(const char* fname, const char* mode) {
-    FILE* f = fopen(fname, mode);
+FILE *open_or_exit(const char *fname, const char *mode) {
+    FILE *f = fopen(fname, mode);
     if (f == NULL) {
         perror(fname);
         exit(EXIT_FAILURE);
@@ -13,7 +13,7 @@ FILE* open_or_exit(const char* fname, const char* mode) {
     return f;
 }
 
-int main(int argc, char** argv) {
+int main(int argc, char **argv) {
     if (argc < 3) {
         fprintf(stderr, "USAGE: %s {sym} {rsrc}\n\n"
                         "  Creates {sym}.c from the contents of {rsrc}\n",
@@ -21,13 +21,13 @@ int main(int argc, char** argv) {
         return EXIT_FAILURE;
     }
 
-    const char* sym = argv[1];
+    const char *sym = argv[1];
     char cwd[PATH_MAX];
     getcwd(cwd, sizeof(cwd));
     char FIRSTFILE[256];
     strcpy(FIRSTFILE, argv[2]);
     strcat(FIRSTFILE, "../");
-    FILE* in = open_or_exit(argv[2], "r");
+    FILE *in = open_or_exit(argv[2], "r");
 //    printf("**** OPENED FILE %s ****\n",argv[2]);
 
     char symfile[256];
@@ -38,7 +38,7 @@ int main(int argc, char** argv) {
     strcat(targetfile, sym);
     strcat(targetfile, ".c");
     printf("**** EMBED FILE %s %s %s %s ****\n", sym, argv[2], cwd, targetfile);
-    FILE* out = open_or_exit(targetfile, "w");
+    FILE *out = open_or_exit(targetfile, "w");
     fprintf(out, "// Auto-generated\n");
     fprintf(out, "#include <stdlib.h>\n");
     fprintf(out, "const unsigned char %s[] = {\n", sym);

@@ -7,6 +7,7 @@
 
 #include "gl/mesh.h"
 #include "gl/shader.h"
+#include <glm/gtc/matrix_transform.hpp>
 
 extern "C" const unsigned char SHADER_entity_frag[];
 extern "C" const size_t SHADER_entity_frag_len;
@@ -55,15 +56,15 @@ namespace client {
                                         0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1,//zpl
                                 }},
                                {2, {
-                                           tx+dx+dz,ty, tx+dx+dz,ty+dy, tx+dx+dz+dz,ty, tx+dx+dz+dz,ty+dy,//xmi
+                                           tx+dx+dz+dz,ty, tx+dx+dz+dz,ty+dy, tx+dx+dz,ty, tx+dx+dz,ty+dy,//xmi
                                            tx,ty, tx,ty+dy, tx+dz,ty, tx+dz,ty+dy,//xpl
-                                           0, 0, 1, 0, 0, 1, 1, 1,
-                                           0, 0, 1, 0, 0, 1, 1, 1,
-                                           0, 0, 1, 0, 0, 1, 1, 1,
-                                           0, 0, 1, 0, 0, 1, 1, 1,
-                                           0, 0, 1, 0, 0, 1, 1, 1,
+                                           tx+dz+dx,ty+dy, tx+dz+dx+dx,ty+dy, tx+dz+dx,ty+dy+dz, tx+dz+dx+dx,ty+dy+dz,//ymi
+                                           tx+dz,ty+dy, tx+dz+dx,ty+dy, tx+dz,ty+dy+dz, tx+dz+dx,ty+dy+dz,//ypl
+                                           tx+dz+dx+dz,ty, tx+dz+dx+dx+dz,ty, tx+dz+dx+dz,ty+dy, tx+dz+dx+dx+dz,ty+dy,//zmi
+                                           tx+dz+dx,ty, tx+dz,ty, tx+dz+dx,ty+dy, tx+dz,ty+dy,//zpl
                                    }}
-                    },
+                    },//TODO: flip zpl and the right
+
                     {
                             0, 1, 2, 1, 2, 3,
                             4, 5, 6, 5, 6, 7,

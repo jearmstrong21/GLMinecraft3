@@ -7,7 +7,7 @@
 
 #include <glm/glm.hpp>
 #include <nbt/nbt.h>
-//#include "entity_ids.h"
+
 namespace server {
 
     struct game_room;
