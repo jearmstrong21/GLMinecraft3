@@ -87,7 +87,7 @@ namespace client {
     }
 
     void game::initialize_gl() {
-        steve_texture = new gl::texture(TEXTURE_entity_steve,TEXTURE_entity_steve_len);
+        steve_texture = new gl::texture(TEXTURE_entity_steve, TEXTURE_entity_steve_len);
         shader = new gl::shader(SHADER_chunk_vert, SHADER_chunk_vert_len, SHADER_chunk_frag, SHADER_chunk_frag_len);
         texture = new gl::texture(TEXTURE_1_8_textures_0_png, TEXTURE_1_8_textures_0_png_len);
         wireframe_shader = new gl::shader(SHADER_wireframe_vert, SHADER_wireframe_vert_len, SHADER_wireframe_frag,
@@ -258,7 +258,7 @@ namespace client {
         wireframe_shader->uniform4x4("perspective", p);
         wireframe_shader->uniform4x4("view", v);
         for (const auto &e:entities) {
-            render_player(p,v,e.second,tc_renderer,steve_texture);
+            render_player(p, v, e.second, tc_renderer, steve_texture);
 //            std::shared_ptr<nbt::nbt_compound> ent = nbt::cast_compound(e.second);
 //            std::shared_ptr<nbt::nbt_list> pos = nbt::cast_list(ent->value["position"]);
 //            std::shared_ptr<nbt::nbt_list> look = nbt::cast_list(ent->value["lookdir"]);
