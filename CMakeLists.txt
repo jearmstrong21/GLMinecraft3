@@ -50,6 +50,21 @@ add_custom_command(
         COMMAND embedfile SHADER_text_vert ../src/assets/shaders/text.vert
         DEPENDS src/assets/shaders/text.vert
 )
+add_custom_command(
+        OUTPUT ../src/gen_assets/SHADER_entity_frag.c
+        COMMAND embedfile SHADER_entity_frag ../src/assets/shaders/entity.frag
+        DEPENDS src/assets/shaders/entity.frag
+)
+add_custom_command(
+        OUTPUT ../src/gen_assets/SHADER_entity_vert.c
+        COMMAND embedfile SHADER_entity_vert ../src/assets/shaders/entity.vert
+        DEPENDS src/assets/shaders/entity.vert
+)
+add_custom_command(
+        OUTPUT ../src/gen_assets/TEXTURE_entity_steve.c
+        COMMAND embedfile TEXTURE_entity_steve ../src/assets/textures/steve.png
+        DEPENDS src/assets/textures/steve.png
+)
 #
 #src/gen_assets/SHADER_chunk_vert.c
 #src/gen_assets/SHADER_chunk_frag.c
@@ -59,6 +74,9 @@ add_custom_command(
 #src/gen_assets/TEXTURE_ascii_png.c
 #src/gen_assets/SHADER_text_vert.c
 #src/gen_assets/SHADER_text_frag.c
+#src/gen_assets/SHADER_entity_vert.c
+#src/gen_assets/SHADER_entity_frag.c
+#src/gen_assets/TEXTURE_entity_steve.c
 #
 set(SOURCE_FILES
         src/gen_assets/SHADER_chunk_vert.c
@@ -69,6 +87,9 @@ set(SOURCE_FILES
         src/gen_assets/TEXTURE_ascii_png.c
         src/gen_assets/SHADER_text_vert.c
         src/gen_assets/SHADER_text_frag.c
+        src/gen_assets/SHADER_entity_vert.c
+        src/gen_assets/SHADER_entity_frag.c
+        src/gen_assets/TEXTURE_entity_steve.c
 
         src/main.cpp
         src/utils/noise/noise.cpp

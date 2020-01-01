@@ -22,6 +22,7 @@
 #include <mutex>
 #include "utils/utils.h"
 #include "text_rendering.h"
+#include "render_entity/textured_cube_render.h"
 
 //**********
 namespace client {
@@ -35,7 +36,9 @@ namespace client {
         gl::shader *wireframe_shader;
         gl::mesh *wireframe_mesh;
         gl::mesh *filledcube_mesh;
+        gl::texture *steve_texture;
         text_renderer *text_rend;
+        textured_cube_renderer *tc_renderer;
         float rotX = 0, rotY = 0;
 
         void render_world();
