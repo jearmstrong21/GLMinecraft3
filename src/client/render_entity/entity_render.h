@@ -11,7 +11,7 @@
 
 namespace client {
 
-    void render_player(glm::mat4 p, glm::mat4 v, const std::shared_ptr<nbt::nbt>& data, textured_cube_renderer *tcr,
+    void render_player(glm::mat4 p, glm::mat4 v, const std::shared_ptr<nbt::nbt> &data, textured_cube_renderer *tcr,
                        gl::texture *tex);
 
 }

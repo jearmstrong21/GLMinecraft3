@@ -3,7 +3,7 @@ project(GLMinecraft3)
 
 set(CMAKE_CXX_STANDARD 20)
 
-set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3")
 
 include_directories(/usr/local/include glad)
 include_directories(src)
@@ -137,7 +137,7 @@ set(SOURCE_FILES
         src/both.h
         src/world/gen/world_generator.cpp src/world/gen/world_generator.h src/world/gen/biome/biome.cpp src/world/gen/biome/biome.h)
 
-if(APPLE)
+if (APPLE)
     include_directories(/usr/local/include/GLFW)
     include_directories(/usr/local/include/GL)
 
@@ -152,12 +152,12 @@ if(APPLE)
     link_libraries(/usr/local/lib/libboost_thread-mt.a)
     link_libraries(/usr/local/lib/libboost_program_options-mt.a)
     link_libraries(/usr/local/lib/libglfw3.a)
-endif()
+endif ()
 
-if(NOT APPLE)
-    find_package (PkgConfig REQUIRED)
-    find_package (OpenGL REQUIRED)
-    find_package (glfw3 REQUIRED)
+if (NOT APPLE)
+    find_package(PkgConfig REQUIRED)
+    find_package(OpenGL REQUIRED)
+    find_package(glfw3 REQUIRED)
     add_link_options(/usr/lib/libdl.so.2)
     add_link_options(-lpthread)
     add_link_options(-lboost_thread)
@@ -165,8 +165,8 @@ if(NOT APPLE)
     include_directories(${GLFW_INCLUDE_DIRS})
 
     add_link_options(/usr/lib/libglfw.so)
-endif()
+endif ()
 
 
 add_executable(GLMinecraft3 ${SOURCE_FILES})
-target_link_libraries (GLMinecraft3)
+target_link_libraries(GLMinecraft3)

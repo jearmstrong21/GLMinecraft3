@@ -8,6 +8,6 @@ out vec2 uv;
 uniform mat4 projection;
 
 void main(){
-    gl_Position=projection*vec4(inPos,0,1);
+    gl_Position=projection*vec4(inPos, 0, 1);
     uv=inUV;
 }

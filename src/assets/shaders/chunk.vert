@@ -15,11 +15,11 @@ uniform mat4 view;
 uniform mat4 model;
 
 void main(){
-    gl_Position=perspective*view*model*vec4(inPos,1.0);
+    gl_Position=perspective*view*model*vec4(inPos, 1.0);
     uv0=inUV0;
     uv1=inUV1;
     col0=inCol0;
     col1=inCol1;
-//    uv=inUV/16.0;
-//    uv.y=1.0-uv.y;
+    //    uv=inUV/16.0;
+    //    uv.y=1.0-uv.y;
 }
