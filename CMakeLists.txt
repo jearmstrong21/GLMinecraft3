@@ -65,6 +65,11 @@ add_custom_command(
         COMMAND embedfile TEXTURE_entity_steve ../src/assets/textures/steve.png
         DEPENDS src/assets/textures/steve.png
 )
+add_custom_command(
+        OUTPUT ../src/gen_assets/TEXTURE_entity_zombie.c
+        COMMAND embedfile TEXTURE_entity_zombie ../src/assets/textures/zombie.png
+        DEPENDS src/assets/textures/zombie.png
+)
 #
 #src/gen_assets/SHADER_chunk_vert.c
 #src/gen_assets/SHADER_chunk_frag.c
@@ -77,6 +82,7 @@ add_custom_command(
 #src/gen_assets/SHADER_entity_vert.c
 #src/gen_assets/SHADER_entity_frag.c
 #src/gen_assets/TEXTURE_entity_steve.c
+#src/gen_assets/TEXTURE_entity_zombie.c
 #
 set(SOURCE_FILES
         src/gen_assets/SHADER_chunk_vert.c
@@ -90,6 +96,7 @@ set(SOURCE_FILES
         src/gen_assets/SHADER_entity_vert.c
         src/gen_assets/SHADER_entity_frag.c
         src/gen_assets/TEXTURE_entity_steve.c
+        src/gen_assets/TEXTURE_entity_zombie.c
 
         src/main.cpp
         src/utils/noise/noise.cpp

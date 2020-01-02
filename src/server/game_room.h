@@ -23,8 +23,9 @@ namespace server {
 
         boost::asio::deadline_timer timer;
 
-        entity_type_base et_base;
-        entity_type_player et_player;
+        entity_type *et_base;
+        entity_type *et_player;
+        entity_type *et_zombie;
 
         std::mutex protect_game_state;
         std::string queued_chat;
@@ -37,12 +38,19 @@ namespace server {
             return std::shared_ptr<nbt::nbt>(nbt_entities);
         }
 
+        entity_type *get_type(const std::shared_ptr<nbt::nbt> &e) {
+            int id = nbt::cast_int(nbt::cast_compound(e)->value["entity_type_id"])->value;
+            if (id == 1)return et_player;
+            if (id == 2)return et_zombie;
+            return et_base;
+        }
+
         void frame_handler(boost::system::error_code err) {
             {
                 std::lock_guard<std::mutex> guard(protect_game_state);
 
                 for (const auto &e:entities) {
-                    et_base.update(e.second, this);
+                    get_type(e.second)->update(e.second, this);
                 }
 
                 broadcast_to_all(nbt::make_compound({
@@ -63,6 +71,16 @@ namespace server {
                                                                         boost::posix_time::milliseconds(0)) {
             world.generate_world();
             frame_handler(boost::system::error_code());
+
+            et_base = new entity_type_base();
+            et_player = new entity_type_player();
+            et_zombie = new entity_type_zombie();
+        }
+
+        ~game_room() {
+            delete et_base;
+            delete et_player;
+            delete et_zombie;
         }
 
         std::string get_next_entity_id() {
@@ -71,20 +89,21 @@ namespace server {
             return str.str();
         }
 
-        std::string spawn_entity(const std::shared_ptr<nbt::nbt> &e) {
+        std::string spawn_entity(const std::shared_ptr<nbt::nbt> &e, glm::vec3 position) {
             std::string i = get_next_entity_id();
             nbt::cast_compound(e)->value["id"] = nbt::make_string(i);
+            nbt::cast_compound(e)->value["position"] = nbt::make_list(
+                    {nbt::make_float(position.x), nbt::make_float(position.y), nbt::make_float(position.z)});
             entities[i] = e;
             return i;
         }
 
         void join(const server_player_ptr &ptr) {
             std::lock_guard<std::mutex> guard(protect_game_state);
+            spawn_entity(et_zombie->initialize(), {16, 150, 16});
             ptr->send_world(world);
-            std::shared_ptr<nbt::nbt> entity = et_player.initialize();
-            nbt::cast_compound(entity)->value["position"] = nbt::make_list(
-                    {nbt::make_float(24), nbt::make_float(150), nbt::make_float(24)});
-            std::string id = spawn_entity(entity);
+            std::shared_ptr<nbt::nbt> entity = et_player->initialize();
+            std::string id = spawn_entity(entity, {24, 150, 24});
             nbt::cast_compound(entity)->value["name"] = nbt::make_string(id);
             ptr->deliver(nbt::make_compound({
                                                     {"player_id", nbt::make_string(id)},
@@ -149,6 +168,7 @@ namespace server {
         }
 
         void kill_entity(const std::string &id) {
+
             entities.erase(id);
         }
 

@@ -1,4 +1,4 @@
-//
+    //
 // Created by Jack Armstrong on 11/5/19.
 //
 
@@ -6,7 +6,7 @@
 
 namespace gl {
 
-    mesh::mesh(gl::mesh_data *data) {
+    mesh::mesh(gl::mesh_data *data): vao(-1), ebo(-1) {
         this->vert_count = data->tri.size();
 
         glGenVertexArrays(1, &vao);

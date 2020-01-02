@@ -29,9 +29,6 @@ extern "C" const size_t SHADER_wireframe_frag_len;
 extern "C" const unsigned char SHADER_wireframe_vert[];
 extern "C" const size_t SHADER_wireframe_vert_len;
 
-extern "C" const unsigned char TEXTURE_entity_steve[];
-extern "C" const size_t TEXTURE_entity_steve_len;
-
 namespace client {
     void game::download_world() {
         boost::system::error_code err;
@@ -87,7 +84,6 @@ namespace client {
     }
 
     void game::initialize_gl() {
-        steve_texture = new gl::texture(TEXTURE_entity_steve, TEXTURE_entity_steve_len);
         shader = new gl::shader(SHADER_chunk_vert, SHADER_chunk_vert_len, SHADER_chunk_frag, SHADER_chunk_frag_len);
         texture = new gl::texture(TEXTURE_1_8_textures_0_png, TEXTURE_1_8_textures_0_png_len);
         wireframe_shader = new gl::shader(SHADER_wireframe_vert, SHADER_wireframe_vert_len, SHADER_wireframe_frag,
@@ -147,7 +143,7 @@ namespace client {
             filledcube_mesh = new gl::mesh(&data);
         }
         {
-            tc_renderer = new textured_cube_renderer();
+            ent_rend=new entity_render();
         }
         glfwSetWindowUserPointer(window, this);
         glfwSetKeyCallback(window, [](GLFWwindow *w, int key, int scancode, int actions, int mods) {
@@ -258,41 +254,22 @@ namespace client {
         wireframe_shader->uniform4x4("perspective", p);
         wireframe_shader->uniform4x4("view", v);
         for (const auto &e:entities) {
-            render_player(p, v, e.second, tc_renderer, steve_texture);
-//            std::shared_ptr<nbt::nbt_compound> ent = nbt::cast_compound(e.second);
-//            std::shared_ptr<nbt::nbt_list> pos = nbt::cast_list(ent->value["position"]);
-//            std::shared_ptr<nbt::nbt_list> look = nbt::cast_list(ent->value["lookdir"]);
-//            std::shared_ptr<nbt::nbt_list> size = nbt::cast_list(ent->value["bbsize"]);
-//            glm::vec3 bbsize{nbt::cast_float(size->value[0])->value, nbt::cast_float(size->value[1])->value,
-//                             nbt::cast_float(size->value[2])->value};
-//
-//            glm::mat4 m(1);
-////            m*=glm::translate(glm::mat4(1),glm::vec3{nbt::cast_float(pos->value[0])->value,nbt::cast_float(pos->value[1])->value,nbt::cast_float(pos->value[2])->value});
-////            m*=glm::lookAt(glm::vec3{0,0,0},glm::vec3{nbt::cast_float(look->value[0])->value,0,nbt::cast_float(look->value[2])->value},glm::vec3{0,-1,0});
-////            wireframe_shader->uniform4x4("model",m);
-////            wireframe_shader->uniform3("color",glm::vec3{0,1,0});
-////            wireframe_mesh->render_lines();
-//
-//
-//
-//            m = glm::mat4(1);
-//            m *= glm::translate(glm::mat4(1),
-//                                glm::vec3{nbt::cast_float(pos->value[0])->value, nbt::cast_float(pos->value[1])->value,
-//                                          nbt::cast_float(pos->value[2])->value});
-//            tc_renderer->render_cube(p, v, m, steve_texture, glm::vec3{8,12,4},glm::vec2{16,32},glm::vec2{64,64});
-////            m *= glm::scale(glm::mat4(1), bbsize);
-////            wireframe_shader->uniform4x4("model", m);
-////            wireframe_shader->uniform3("color", glm::vec3{1, 0, 0});
-////            wireframe_mesh->render_lines();
-////
-////            m = glm::mat4(1);
-////            m *= glm::translate(glm::mat4(1),
-////                                glm::vec3{nbt::cast_float(pos->value[0])->value, nbt::cast_float(pos->value[1])->value,
-////                                          nbt::cast_float(pos->value[2])->value});
-////            m *= glm::scale(glm::mat4(1), glm::vec3{0.1});
-////            wireframe_shader->uniform4x4("model", m);
-////            wireframe_shader->uniform3("color", glm::vec3{0, 0, 1});
-////            filledcube_mesh->render_triangles();
+            std::shared_ptr<nbt::nbt_compound> ent = nbt::cast_compound(e.second);
+            int id=nbt::cast_int(ent->value["entity_type_id"])->value;
+            if(id==1)ent_rend->render_player(p,v,e.second);
+            if(id==2)ent_rend->render_zombie(p,v,e.second);
+
+            std::shared_ptr<nbt::nbt_list> pos = nbt::cast_list(ent->value["position"]);
+            std::shared_ptr<nbt::nbt_list> size = nbt::cast_list(ent->value["bbsize"]);
+            glm::vec3 bbsize{nbt::cast_float(size->value[0])->value, nbt::cast_float(size->value[1])->value,
+                             nbt::cast_float(size->value[2])->value};
+
+            wireframe_shader->bind();
+            wireframe_shader->uniform4x4("model", glm::translate(glm::mat4(1),
+                                                                 glm::vec3{nbt::cast_float(pos->value[0])->value, nbt::cast_float(pos->value[1])->value,
+                                                                           nbt::cast_float(pos->value[2])->value})*glm::scale(glm::mat4(1),bbsize));
+            wireframe_shader->uniform3("color", glm::vec3{1, 0, 0});
+            wireframe_mesh->render_lines();
         }
 
         if (!freecam) {
@@ -351,8 +328,8 @@ namespace client {
         if (glfwGetKey(window, GLFW_KEY_Q) && !is_chat_open) {
 #ifdef I_LOVE_CANCER
             while(sqrt(5)>0)std::exit(11);
-#else
-            while (sqrt(5) > 0)std::raise(11);
+#else // Normal people
+            std::raise(11);
 #endif
         }
 
@@ -364,9 +341,8 @@ namespace client {
         delete wireframe_shader;
         delete wireframe_mesh;
         delete filledcube_mesh;
-        delete tc_renderer;
+        delete ent_rend;
         delete text_rend;
-        delete steve_texture;
     }
 
     void game::read_packet() {

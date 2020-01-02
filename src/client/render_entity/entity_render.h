@@ -11,8 +11,19 @@
 
 namespace client {
 
-    void render_player(glm::mat4 p, glm::mat4 v, const std::shared_ptr<nbt::nbt> &data, textured_cube_renderer *tcr,
-                       gl::texture *tex);
+    struct entity_render {
+
+        gl::texture*steve_texture;
+        gl::texture*zombie_texture;
+        textured_cube_renderer*tcr;
+
+        entity_render();
+        ~entity_render();
+
+        void render_player(glm::mat4 p, glm::mat4 v, const std::shared_ptr<nbt::nbt> &data);
+        void render_zombie(glm::mat4 p,glm::mat4 v, const std::shared_ptr<nbt::nbt>&data);
+
+    };
 
 }
 

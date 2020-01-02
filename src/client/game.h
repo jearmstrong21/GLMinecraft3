@@ -37,9 +37,8 @@ namespace client {
         gl::shader *wireframe_shader;
         gl::mesh *wireframe_mesh;
         gl::mesh *filledcube_mesh;
-        gl::texture *steve_texture;
         text_renderer *text_rend;
-        textured_cube_renderer *tc_renderer;
+        entity_render*ent_rend;
         float rotX = 0, rotY = 0;
 
         void render_world();

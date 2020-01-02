@@ -10,16 +10,17 @@ namespace server {
 
     std::shared_ptr<nbt::nbt> entity_type_base::initialize() const {
         return nbt::make_compound({
-                                          {"id",       nbt::make_string("well this is awkward")},
-                                          {"position", nbt::make_list(
+                                          {"id",             nbt::make_string("well this is awkward")},
+                                          {"entity_type_id", nbt::make_int(-1)},
+                                          {"position",       nbt::make_list(
                                                   {nbt::make_float(0), nbt::make_float(0), nbt::make_float(0)})},
-                                          {"motion",   nbt::make_list(
+                                          {"motion",         nbt::make_list(
                                                   {nbt::make_float(0), nbt::make_float(0), nbt::make_float(0)})},
-                                          {"lookdir",  nbt::make_list(
+                                          {"lookdir",        nbt::make_list(
                                                   {nbt::make_float(0), nbt::make_float(0), nbt::make_float(0)})},
-                                          {"bbsize",   nbt::make_list(
+                                          {"bbsize",         nbt::make_list(
                                                   {nbt::make_float(0), nbt::make_float(0), nbt::make_float(0)})},
-                                          {"velocity", nbt::make_list(
+                                          {"velocity",       nbt::make_list(
                                                   {nbt::make_float(0), nbt::make_float(0), nbt::make_float(0)})}
                                           //todo health
                                   });
@@ -102,16 +103,28 @@ namespace server {
 
     std::shared_ptr<nbt::nbt> entity_type_player::initialize() const {
         std::shared_ptr<nbt::nbt> res = entity_type_base::initialize();
+        nbt::cast_compound(res)->value["entity_type_id"] = nbt::make_int(1);
         nbt::cast_compound(res)->value["bbsize"] = nbt::make_list(
                 {nbt::make_float(0.6), nbt::make_float(1.5), nbt::make_float(0.6)});
-//        nbt::merge(res,nbt::make_compound({
-//            {"bbsize",nbt::make_list({nbt::make_float(0.6),nbt::make_float(1.5),nbt::make_float(0.6)})}
-//        }));
         return res;
     }
 
     void entity_type_player::update(std::shared_ptr<nbt::nbt> data, game_room *room) const {
-        std::cout << "update player\n";
+        entity_type_base::update(data, room);
     }
 
+    std::shared_ptr<nbt::nbt> entity_type_zombie::initialize() const {
+        std::shared_ptr<nbt::nbt> res = entity_type_base::initialize();
+        nbt::cast_compound(res)->value["entity_type_id"] = nbt::make_int(2);
+        nbt::cast_compound(res)->value["bbsize"] = nbt::make_list(
+                {nbt::make_float(0.6), nbt::make_float(1.95), nbt::make_float(0.6)});
+        return res;
+    }
+
+    void entity_type_zombie::update(std::shared_ptr<nbt::nbt> data, game_room *room) const {
+        entity_type_base::update(data, room);
+        if(rand()%100==0){
+            nbt::cast_float(nbt::cast_list(nbt::cast_compound(data)->value["velocity"])->value[1])->value+=4;
+        }
+    }
 }

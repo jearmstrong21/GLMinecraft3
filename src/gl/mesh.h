@@ -12,8 +12,8 @@ namespace gl {
 
     class mesh {
     private:
-        GLuint vao;
-        GLuint ebo;
+        GLuint vao{};
+        GLuint ebo{};
         int vert_count;
 
     public:
