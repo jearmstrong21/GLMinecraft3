@@ -100,7 +100,7 @@ namespace server {
 
         void join(const server_player_ptr &ptr) {
             std::lock_guard<std::mutex> guard(protect_game_state);
-            spawn_entity(et_zombie->initialize(), {16, 150, 16});
+            spawn_entity(et_zombie->initialize(), {16.1F, 150, 16.1F});
             ptr->send_world(world);
             std::shared_ptr<nbt::nbt> entity = et_player->initialize();
             std::string id = spawn_entity(entity, {24, 150, 24});
