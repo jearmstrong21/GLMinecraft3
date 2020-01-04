@@ -36,7 +36,7 @@ namespace gl {
     }
 
     mesh::~mesh() {
-        glDeleteVertexArrays(1, &vao);
+
     }
 
     void mesh::render_triangles() {
