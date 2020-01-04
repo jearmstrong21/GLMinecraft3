@@ -427,7 +427,7 @@ namespace client {
         std::cout << "\tplayer_id = <" << player_id << ">\n";
     }
 
-    void game::glfw_key_press_callback(int key, int __unused scancode, int actions, int __unused mods) {
+    void game::glfw_key_press_callback(int key, int scancode, int actions, int mods) {
         if (key == 'U' && actions == GLFW_PRESS) {
             freecam = !freecam;
             std::shared_ptr<nbt::nbt_list> nbt_cur_pos = nbt::cast_list(

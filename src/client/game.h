@@ -46,7 +46,7 @@ namespace client {
 
         void initialize_gl();
 
-        void glfw_key_press_callback(int key, int __unused scancode, int actions, int mods);
+        void glfw_key_press_callback(int key, int scancode, int actions, int mods);
 
         void render_chat();
 
