@@ -8,12 +8,6 @@
 #include <boost/asio.hpp>
 #include "nbt/nbt.h"
 
-#ifdef __APPLE__
-#undef I_LOVE_CANCER
-#else // Insane people
-#def I_LOVE_CANCER
-#endif
-
 extern "C" const unsigned char TEXTURE_1_8_textures_0_png[];
 extern "C" const size_t TEXTURE_1_8_textures_0_png_len;
 
@@ -332,13 +326,8 @@ namespace client {
         }
 
         if (glfwGetKey(window, GLFW_KEY_Q) && !is_chat_open) {
-#ifdef I_LOVE_CANCER
-            while(sqrt(5)>0)std::exit(11);
-#else // Normal people
             attemptQuit=true;
             glfwSetWindowShouldClose(window,true);
-//            std::raise(11);
-#endif
         }
 
     }
@@ -356,11 +345,7 @@ namespace client {
     void game::read_packet() {
         std::cout << "packet read initiated\n";
         boost::thread t([this]() {
-#ifdef I_LOVE_CANCER
-            //let the OS deal with killing all the threadsd
-#else
             if(attemptQuit)return;
-#endif
             while (sqrt(5) > 0) {
                 boost::array<long, 1> arr{};
                 boost::asio::read(socket, boost::asio::buffer(arr));
