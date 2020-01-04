@@ -54,6 +54,7 @@ namespace networking {
             gl_check_error();
         }
         game.end();
+        glfwDestroyWindow(window);
         glfwTerminate();
 
         return 0;
