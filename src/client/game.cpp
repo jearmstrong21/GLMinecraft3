@@ -192,144 +192,152 @@ namespace client {
     }
 
     void game::loop() {
-        std::lock_guard<std::mutex> guard(protect_game_state);
-        int width, height;
-        glfwGetFramebufferSize(window, &width, &height);
+        {
+            std::lock_guard<std::mutex> guard(protect_game_state);
+            int width, height;
+            glfwGetFramebufferSize(window, &width, &height);
 
-        glViewport(0, 0, width, height);
-        glClearColor(0.5, 0.7, 0.9, 1.0);
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        glEnable(GL_DEPTH_TEST);
+            glViewport(0, 0, width, height);
+            glClearColor(0.5, 0.7, 0.9, 1.0);
+            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+            glEnable(GL_DEPTH_TEST);
 
-        glm::mat4 p = glm::perspective(80.0F, 1.0F, 0.01F, 1000.0F);
+            glm::mat4 p = glm::perspective(80.0F, 1.0F, 0.01F, 1000.0F);
 
-        std::shared_ptr<nbt::nbt_list> nbt_cur_pos = nbt::cast_list(
-                nbt::cast_compound(entities[player_id])->value["position"]);
-        glm::vec3 curPos{nbt::cast_float(nbt_cur_pos->value[0])->value, nbt::cast_float(nbt_cur_pos->value[1])->value,
-                         nbt::cast_float(nbt_cur_pos->value[2])->value};
+            std::shared_ptr<nbt::nbt_list> nbt_cur_pos = nbt::cast_list(
+                    nbt::cast_compound(entities[player_id])->value["position"]);
+            glm::vec3 curPos{nbt::cast_float(nbt_cur_pos->value[0])->value,
+                             nbt::cast_float(nbt_cur_pos->value[1])->value,
+                             nbt::cast_float(nbt_cur_pos->value[2])->value};
 
-        glm::vec3 lookAt = curPos;
-        glm::vec3 lookFrom = curPos - lookdir;
+            glm::vec3 lookAt = curPos;
+            glm::vec3 lookFrom = curPos - lookdir;
 
-        if (freecam) {
-            lookFrom = freecamPos;
-            glm::vec3 forward = lookdir;
-            lookAt = freecamPos + forward;
-            if (!is_chat_open) {
-                float dt = 0.5;
-                if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
-                    freecamPos += forward * dt;
+            if (freecam) {
+                lookFrom = freecamPos;
+                glm::vec3 forward = lookdir;
+                lookAt = freecamPos + forward;
+                if (!is_chat_open) {
+                    float dt = 0.5;
+                    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
+                        freecamPos += forward * dt;
+                    }
+                    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
+                        freecamPos -= forward * dt;
+                    }
+                    glm::vec3 left = glm::cross(forward, glm::vec3{0, -1, 0});
+                    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
+                        freecamPos += left * dt;
+                    }
+                    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
+                        freecamPos -= left * dt;
+                    }
+                    if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS)freecamPos.y += dt;
+                    if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS)freecamPos.y -= dt;
                 }
-                if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
-                    freecamPos -= forward * dt;
-                }
-                glm::vec3 left = glm::cross(forward, glm::vec3{0, -1, 0});
-                if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
-                    freecamPos += left * dt;
-                }
-                if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
-                    freecamPos -= left * dt;
-                }
-                if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS)freecamPos.y += dt;
-                if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS)freecamPos.y -= dt;
             }
-        }
 
-        render_chat();
+            render_chat();
 
-        glm::mat4 v = glm::lookAt(lookFrom, lookAt, {0, -1, 0});
+            glm::mat4 v = glm::lookAt(lookFrom, lookAt, {0, -1, 0});
 
-        shader->bind();
-        shader->uniform4x4("perspective", p);
-        shader->uniform4x4("view", v);
-        shader->texture("tex", texture, 0);
+            shader->bind();
+            shader->uniform4x4("perspective", p);
+            shader->uniform4x4("view", v);
+            shader->texture("tex", texture, 0);
 
-        for (auto &row : rendered_world) {
-            for (const auto &chunk: row) {
-                chunk->render(shader);
+            for (auto &row : rendered_world) {
+                for (const auto &chunk: row) {
+                    chunk->render(shader);
+                }
             }
-        }
-
-        wireframe_shader->bind();
-        wireframe_shader->uniform4x4("perspective", p);
-        wireframe_shader->uniform4x4("view", v);
-        for (const auto &e:entities) {
-            std::shared_ptr<nbt::nbt_compound> ent = nbt::cast_compound(e.second);
-            int id=nbt::cast_int(ent->value["entity_type_id"])->value;
-            if(id==1)ent_rend->render_player(p,v,e.second);
-            if(id==2)ent_rend->render_zombie(p,v,e.second);
-
-            std::shared_ptr<nbt::nbt_list> pos = nbt::cast_list(ent->value["position"]);
-            std::shared_ptr<nbt::nbt_list> size = nbt::cast_list(ent->value["bbsize"]);
-            glm::vec3 bbsize{nbt::cast_float(size->value[0])->value, nbt::cast_float(size->value[1])->value,
-                             nbt::cast_float(size->value[2])->value};
 
             wireframe_shader->bind();
-            wireframe_shader->uniform4x4("model", glm::translate(glm::mat4(1),
-                                                                 glm::vec3{nbt::cast_float(pos->value[0])->value, nbt::cast_float(pos->value[1])->value,
-                                                                           nbt::cast_float(pos->value[2])->value})*glm::scale(glm::mat4(1),bbsize));
-            wireframe_shader->uniform3("color", glm::vec3{1, 0, 0});
-            wireframe_mesh->render_lines();
-        }
+            wireframe_shader->uniform4x4("perspective", p);
+            wireframe_shader->uniform4x4("view", v);
+            for (const auto &e:entities) {
+                std::shared_ptr<nbt::nbt_compound> ent = nbt::cast_compound(e.second);
+                int id = nbt::cast_int(ent->value["entity_type_id"])->value;
+                if (id == 1)ent_rend->render_player(p, v, e.second);
+                if (id == 2)ent_rend->render_zombie(p, v, e.second);
 
-        if (!freecam) {
-            std::shared_ptr<nbt::nbt> interaction_packet = nbt::make_compound({
-                                                                                      {"movement", nbt::make_compound({
-                                                                                                                              {"left",   nbt::make_short(
-                                                                                                                                      !is_chat_open &&
-                                                                                                                                      glfwGetKey(
-                                                                                                                                              window,
-                                                                                                                                              GLFW_KEY_A) ==
-                                                                                                                                      GLFW_PRESS)},
-                                                                                                                              {"right",  nbt::make_short(
-                                                                                                                                      !is_chat_open &&
-                                                                                                                                      glfwGetKey(
-                                                                                                                                              window,
-                                                                                                                                              GLFW_KEY_D) ==
-                                                                                                                                      GLFW_PRESS)},
-                                                                                                                              {"back",   nbt::make_short(
-                                                                                                                                      !is_chat_open &&
-                                                                                                                                      glfwGetKey(
-                                                                                                                                              window,
-                                                                                                                                              GLFW_KEY_S) ==
-                                                                                                                                      GLFW_PRESS)},
-                                                                                                                              {"front",  nbt::make_short(
-                                                                                                                                      !is_chat_open &&
-                                                                                                                                      glfwGetKey(
-                                                                                                                                              window,
-                                                                                                                                              GLFW_KEY_W) ==
-                                                                                                                                      GLFW_PRESS)},
-                                                                                                                              {"sprint", nbt::make_short(
-                                                                                                                                      !is_chat_open &&
-                                                                                                                                      glfwGetKey(
-                                                                                                                                              window,
-                                                                                                                                              GLFW_KEY_LEFT_CONTROL) ==
-                                                                                                                                      GLFW_PRESS)},
-                                                                                                                              {"jump",   nbt::make_short(
-                                                                                                                                      !is_chat_open &&
-                                                                                                                                      should_jump
-                                                                                                                              )}
-                                                                                                                      })},
-                                                                                      {"lookdir",  nbt::make_list(
-                                                                                              {nbt::make_float(
-                                                                                                      lookdir.x),
-                                                                                               nbt::make_float(
-                                                                                                       lookdir.y),
-                                                                                               nbt::make_float(
-                                                                                                       lookdir.z)})},
-                                                                                      {"chat",     nbt::make_string(
-                                                                                              chattosend)}
-                                                                              });
-            should_jump = false;
-            chattosend = "";
-            send_packet(interaction_packet);
+                std::shared_ptr<nbt::nbt_list> pos = nbt::cast_list(ent->value["position"]);
+                std::shared_ptr<nbt::nbt_list> size = nbt::cast_list(ent->value["bbsize"]);
+                glm::vec3 bbsize{nbt::cast_float(size->value[0])->value, nbt::cast_float(size->value[1])->value,
+                                 nbt::cast_float(size->value[2])->value};
+
+                wireframe_shader->bind();
+                wireframe_shader->uniform4x4("model", glm::translate(glm::mat4(1),
+                                                                     glm::vec3{nbt::cast_float(pos->value[0])->value,
+                                                                               nbt::cast_float(pos->value[1])->value,
+                                                                               nbt::cast_float(pos->value[2])->value}) *
+                                                      glm::scale(glm::mat4(1), bbsize));
+                wireframe_shader->uniform3("color", glm::vec3{1, 0, 0});
+                wireframe_mesh->render_lines();
+            }
+
+            if (!freecam) {
+                std::shared_ptr<nbt::nbt> interaction_packet = nbt::make_compound({
+                                                                                          {"movement", nbt::make_compound(
+                                                                                                  {
+                                                                                                          {"left",   nbt::make_short(
+                                                                                                                  !is_chat_open &&
+                                                                                                                  glfwGetKey(
+                                                                                                                          window,
+                                                                                                                          GLFW_KEY_A) ==
+                                                                                                                  GLFW_PRESS)},
+                                                                                                          {"right",  nbt::make_short(
+                                                                                                                  !is_chat_open &&
+                                                                                                                  glfwGetKey(
+                                                                                                                          window,
+                                                                                                                          GLFW_KEY_D) ==
+                                                                                                                  GLFW_PRESS)},
+                                                                                                          {"back",   nbt::make_short(
+                                                                                                                  !is_chat_open &&
+                                                                                                                  glfwGetKey(
+                                                                                                                          window,
+                                                                                                                          GLFW_KEY_S) ==
+                                                                                                                  GLFW_PRESS)},
+                                                                                                          {"front",  nbt::make_short(
+                                                                                                                  !is_chat_open &&
+                                                                                                                  glfwGetKey(
+                                                                                                                          window,
+                                                                                                                          GLFW_KEY_W) ==
+                                                                                                                  GLFW_PRESS)},
+                                                                                                          {"sprint", nbt::make_short(
+                                                                                                                  !is_chat_open &&
+                                                                                                                  glfwGetKey(
+                                                                                                                          window,
+                                                                                                                          GLFW_KEY_LEFT_CONTROL) ==
+                                                                                                                  GLFW_PRESS)},
+                                                                                                          {"jump",   nbt::make_short(
+                                                                                                                  !is_chat_open &&
+                                                                                                                  should_jump
+                                                                                                          )}
+                                                                                                  })},
+                                                                                          {"lookdir",  nbt::make_list(
+                                                                                                  {nbt::make_float(
+                                                                                                          lookdir.x),
+                                                                                                   nbt::make_float(
+                                                                                                           lookdir.y),
+                                                                                                   nbt::make_float(
+                                                                                                           lookdir.z)})},
+                                                                                          {"chat",     nbt::make_string(
+                                                                                                  chattosend)}
+                                                                                  });
+                should_jump = false;
+                chattosend = "";
+                send_packet(interaction_packet);
+            }
         }
 
         if (glfwGetKey(window, GLFW_KEY_Q) && !is_chat_open) {
 #ifdef I_LOVE_CANCER
             while(sqrt(5)>0)std::exit(11);
 #else // Normal people
-            std::raise(11);
+            attemptQuit=true;
+            glfwSetWindowShouldClose(window,true);
+//            std::raise(11);
 #endif
         }
 
@@ -348,6 +356,11 @@ namespace client {
     void game::read_packet() {
         std::cout << "packet read initiated\n";
         boost::thread t([this]() {
+#ifdef I_LOVE_CANCER
+            //let the OS deal with killing all the threadsd
+#else
+            if(attemptQuit)return;
+#endif
             while (sqrt(5) > 0) {
                 boost::array<long, 1> arr{};
                 boost::asio::read(socket, boost::asio::buffer(arr));
