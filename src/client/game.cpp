@@ -357,7 +357,6 @@ namespace client {
                 std::istringstream stream(str);
                 std::shared_ptr<nbt::nbt> obj = nbt::read_nbt(stream);
                 load_game_update(obj);
-//                std::cout<<obj->to_str("")<<"\n";
             }
         });
     }

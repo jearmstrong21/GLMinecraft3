@@ -142,9 +142,11 @@ namespace server {
                                      nbt::cast_float(pos->value[2])->value};
         glm::vec3 bestMotion=glm::normalize(target-curPos);
 
+        float jumpVel=0;
+        if(bestMotion.y>0&&!is_allowed_at_position(data,curPos-glm::vec3{0,1.0F/30.0F,0},room))jumpVel=5;
+        bestMotion.y=0;
+
         nbt::cast_compound(data)->value["motion"]=nbt::make_list({nbt::make_float(bestMotion.x),nbt::make_float(bestMotion.y),nbt::make_float(bestMotion.z)});
-//        if (rand() % 100 == 0) {
-//            nbt::cast_float(nbt::cast_list(nbt::cast_compound(data)->value["velocity"])->value[1])->value += 4;
-//        }
+        nbt::cast_float(nbt::cast_list(nbt::cast_compound(data)->value["velocity"])->value[1])->value+=jumpVel;
     }
 }
