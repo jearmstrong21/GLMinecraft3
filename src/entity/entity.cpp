@@ -57,19 +57,10 @@ namespace server {
 
     void entity_type_base::update(std::shared_ptr<nbt::nbt> data, server::game_room *room) const {
         std::shared_ptr<nbt::nbt_compound> compound = nbt::cast_compound(data);
-        glm::vec3 curPos{nbt::cast_float(nbt::cast_list(compound->value["position"])->value[0])->value,
-                         nbt::cast_float(nbt::cast_list(compound->value["position"])->value[1])->value,
-                         nbt::cast_float(nbt::cast_list(compound->value["position"])->value[2])->value};
-        glm::vec3 curMotion{nbt::cast_float(nbt::cast_list(compound->value["motion"])->value[0])->value,
-                            nbt::cast_float(nbt::cast_list(compound->value["motion"])->value[1])->value,
-                            nbt::cast_float(nbt::cast_list(compound->value["motion"])->value[2])->value};
-        glm::vec3 curVel{nbt::cast_float(nbt::cast_list(compound->value["velocity"])->value[0])->value,
-                         nbt::cast_float(nbt::cast_list(compound->value["velocity"])->value[1])->value,
-                         nbt::cast_float(nbt::cast_list(compound->value["velocity"])->value[2])->value};
-
-        std::shared_ptr<nbt::nbt_list> size = nbt::cast_list(compound->value["bbsize"]);
-        glm::vec3 bbSize{nbt::cast_float(size->value[0])->value, nbt::cast_float(size->value[1])->value,
-                         nbt::cast_float(size->value[2])->value};
+        glm::vec3 curPos=utils::cast3(compound->value["position"]);
+        glm::vec3 curMotion=utils::cast3(compound->value["motion"]);
+        glm::vec3 curVel=utils::cast3(compound->value["velocity"]);
+        glm::vec3 bbSize=utils::cast3(compound->value["bbsize"]);
 
         glm::vec3 bbMin = curPos - bbSize / 2.0F;
         glm::vec3 bbMax = curPos + bbSize / 2.0F;
@@ -95,19 +86,17 @@ namespace server {
         curPos += curMotion * dt;
         curPos += curVel * dt;
 
-        compound->value["position"] = nbt::make_list(
-                {nbt::make_float(curPos.x), nbt::make_float(curPos.y), nbt::make_float(curPos.z)});
-        compound->value["motion"] = nbt::make_list(
-                {nbt::make_float(curMotion.x), nbt::make_float(curMotion.y), nbt::make_float(curMotion.z)});
-        compound->value["velocity"] = nbt::make_list(
-                {nbt::make_float(curVel.x), nbt::make_float(curVel.y), nbt::make_float(curVel.z)});
+        compound->value["position"]=utils::cast3(curPos);
+        compound->value["motion"]=utils::cast3(curMotion);
+        compound->value["velocity"]=utils::cast3(curVel);
     }
 
     std::shared_ptr<nbt::nbt> entity_type_player::initialize() const {
         std::shared_ptr<nbt::nbt> res = entity_type_base::initialize();
         nbt::cast_compound(res)->value["entity_type_id"] = nbt::make_int(1);
-        nbt::cast_compound(res)->value["bbsize"] = nbt::make_list(
-                {nbt::make_float(0.6), nbt::make_float(1.5), nbt::make_float(0.6)});
+        nbt::cast_compound(res)->value["bbsize"] =utils::cast3({0.6,1.5,0.6});
+//                nbt::make_list(
+//                {nbt::make_float(0.6), nbt::make_float(1.5), nbt::make_float(0.6)});
         return res;
     }
 

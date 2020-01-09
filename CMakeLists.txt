@@ -109,6 +109,7 @@ set(SOURCE_FILES
         src/client/block_rendering.cpp
         src/client/rendered_chunk.cpp
         src/utils/registry.cpp
+        src/utils/utils.cpp
         src/block/blockstate.cpp
         src/block/block.cpp
         src/world/world.cpp
