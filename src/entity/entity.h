@@ -27,7 +27,7 @@ namespace server {
 
         ~entity_type_base() override = default;
 
-        bool is_allowed_at_position(std::shared_ptr<nbt::nbt> data, glm::vec3 epos,server::game_room *room)const;
+        bool is_allowed_at_position(const std::shared_ptr<nbt::nbt>& data, glm::vec3 epos,server::game_room *room)const;
     };
 
     struct entity_type_player : entity_type_base {

@@ -12,25 +12,18 @@ namespace server {
         return nbt::make_compound({
                                           {"id",             nbt::make_string("well this is awkward")},
                                           {"entity_type_id", nbt::make_int(-1)},
-                                          {"position",       nbt::make_list(
-                                                  {nbt::make_float(0), nbt::make_float(0), nbt::make_float(0)})},
-                                          {"motion",         nbt::make_list(
-                                                  {nbt::make_float(0), nbt::make_float(0), nbt::make_float(0)})},
-                                          {"lookdir",        nbt::make_list(
-                                                  {nbt::make_float(0), nbt::make_float(0), nbt::make_float(0)})},
-                                          {"bbsize",         nbt::make_list(
-                                                  {nbt::make_float(0), nbt::make_float(0), nbt::make_float(0)})},
-                                          {"velocity",       nbt::make_list(
-                                                  {nbt::make_float(0), nbt::make_float(0), nbt::make_float(0)})}
-                                          //todo health
+                                          {"position",utils::cast3(glm::vec3{0,0,0})},
+                                          {"motion",utils::cast3(glm::vec3{0,0,0})},
+                                          {"lookdir",utils::cast3(glm::vec3{0,0,0})},
+                                          {"bbsize",utils::cast3(glm::vec3{0,0,0})},
+                                          {"velocity",utils::cast3(glm::vec3{0,0,0})}
+//                                          todo health
                                   });
     }
 
-    bool entity_type_base::is_allowed_at_position(std::shared_ptr<nbt::nbt> data, glm::vec3 epos,
+    bool entity_type_base::is_allowed_at_position(const std::shared_ptr<nbt::nbt>& data, glm::vec3 epos,
                                                   server::game_room *room) const {
-        std::shared_ptr<nbt::nbt_list> size = nbt::cast_list(nbt::cast_compound(data)->value["bbsize"]);
-        glm::vec3 bbSize{nbt::cast_float(size->value[0])->value, nbt::cast_float(size->value[1])->value,
-                         nbt::cast_float(size->value[2])->value};
+        glm::vec3 bbSize=utils::cast3(nbt::cast_compound(data)->value["bbsize"]);
 
         int x0 = (int) (epos.x - bbSize.x / 2.0F);
         int y0 = (int) (epos.y - bbSize.y / 2.0F);
@@ -95,8 +88,6 @@ namespace server {
         std::shared_ptr<nbt::nbt> res = entity_type_base::initialize();
         nbt::cast_compound(res)->value["entity_type_id"] = nbt::make_int(1);
         nbt::cast_compound(res)->value["bbsize"] =utils::cast3({0.6,1.5,0.6});
-//                nbt::make_list(
-//                {nbt::make_float(0.6), nbt::make_float(1.5), nbt::make_float(0.6)});
         return res;
     }
 
@@ -107,8 +98,7 @@ namespace server {
     std::shared_ptr<nbt::nbt> entity_type_zombie::initialize() const {
         std::shared_ptr<nbt::nbt> res = entity_type_base::initialize();
         nbt::cast_compound(res)->value["entity_type_id"] = nbt::make_int(2);
-        nbt::cast_compound(res)->value["bbsize"] = nbt::make_list(
-                {nbt::make_float(0.6), nbt::make_float(1.95), nbt::make_float(0.6)});
+        nbt::cast_compound(res)->value["bbsize"] = utils::cast3({0.6,1.95,0.6});
         return res;
     }
 
@@ -117,9 +107,7 @@ namespace server {
         for (auto p:room->entities) {
             std::shared_ptr<nbt::nbt_compound> compound = nbt::cast_compound(p.second);
             if (nbt::cast_int(compound->value["entity_type_id"])->value == 1) {
-                std::shared_ptr<nbt::nbt_list> pos = nbt::cast_list(compound->value["position"]);
-                target = glm::vec3{nbt::cast_float(pos->value[0])->value, nbt::cast_float(pos->value[1])->value,
-                                   nbt::cast_float(pos->value[2])->value};
+                target = utils::cast3(compound->value["position"]);
             }
         }
         entity_type_base::update(data, room);

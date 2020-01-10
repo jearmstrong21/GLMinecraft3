@@ -135,6 +135,7 @@ set(SOURCE_FILES
         src/nbt/__nbt_short.cpp
         src/nbt/__nbt_string.cpp
         src/nbt/__nbt_utils.cpp
+        src/nbt/__nbt.cpp
         src/nbt/nbt.cpp
 
         src/entity/entity.cpp

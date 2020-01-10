@@ -2,6 +2,7 @@
 // Created by Jack Armstrong on 11/23/19.
 //
 
+#include "utils/utils.h"
 #include "__nbt_compound.h"
 
 namespace nbt {
@@ -53,6 +54,62 @@ namespace nbt {
 
     nbt_compound::~nbt_compound() {
 
+    }
+
+    std::map<std::string,std::shared_ptr<nbt> > nbt_compound::as_compound() const {
+        return value;
+    }
+
+    float nbt_compound::as_float() const {
+        RAISE_ERROR("nbt::nbt_compound as_float")
+    }
+
+    int nbt_compound::as_int() const {
+        RAISE_ERROR("nbt::nbt_compound as_int")
+    }
+
+    std::vector<std::shared_ptr<nbt>> nbt_compound::as_list() const {
+        RAISE_ERROR("nbt::nbt_compound as_list")
+    }
+
+    long nbt_compound::as_long() const {
+        RAISE_ERROR("nbt::nbt_compound as_long")
+    }
+
+    short nbt_compound::as_short() const {
+        RAISE_ERROR("nbt::nbt_compound as_short");
+    }
+
+    std::string nbt_compound::as_string() const {
+        RAISE_ERROR("nbt::nbt_compound as_string");
+    }
+
+    const std::map<std::string, std::shared_ptr<nbt>> &nbt_compound::compound_ref() const {
+        return value;
+    }
+
+    const float& nbt_compound::float_ref() const {
+        RAISE_ERROR("nbt::nbt_compound float_ref");
+    }
+
+    const int& nbt_compound::int_ref() const {
+        RAISE_ERROR("nbt::nbt_compound int_ref");
+    }
+
+    const std::vector<std::shared_ptr<nbt>> nbt_compound::list_ref() const {
+        RAISE_ERROR("nbt::nbt_compound list_ref");
+    }
+
+    const long& nbt_compound::long_ref() const {
+        RAISE_ERROR("nbt::nbt_compound long_ref");
+    }
+
+    const short& nbt_compound::short_ref() const {
+        RAISE_ERROR("nbt::nbt_compound short_ref");
+    }
+
+    const std::string& nbt_compound::string_ref() const {
+        RAISE_ERROR("nbt::nbt_compound string_ref");
     }
 
 }
