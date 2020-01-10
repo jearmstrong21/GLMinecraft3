@@ -2,6 +2,7 @@
 // Created by Jack Armstrong on 11/23/19.
 //
 
+#include <utils/utils.h>
 #include "__nbt_list.h"
 
 namespace nbt {
@@ -52,6 +53,62 @@ namespace nbt {
         }
         s += "]";
         return s;
+    }
+
+    std::map<std::string, std::shared_ptr<nbt> > nbt_list::as_compound() const {
+        RAISE_ERROR("nbt::nbt_list as_compound");
+    }
+
+    float nbt_list::as_float() const {
+        RAISE_ERROR("nbt::nbt_list as_float");
+    }
+
+    int nbt_list::as_int() const {
+        RAISE_ERROR("nbt::nbt_list as_int");
+    }
+
+    std::vector<std::shared_ptr<nbt>> nbt_list::as_list() const {
+        return value;
+    }
+
+    long nbt_list::as_long() const {
+        RAISE_ERROR("nbt::nbt_list as_long");
+    }
+
+    short nbt_list::as_short() const {
+        RAISE_ERROR("nbt::nbt_list as_short");
+    }
+
+    std::string nbt_list::as_string() const {
+        RAISE_ERROR("nbt::nbt_list as_string");
+    }
+
+    std::map<std::string, std::shared_ptr<nbt>> &nbt_list::compound_ref() {
+        RAISE_ERROR("nbt::nbt_list compound_ref");
+    }
+
+    float &nbt_list::float_ref() {
+        RAISE_ERROR("nbt::nbt_list float_ref");
+    }
+
+    int &nbt_list::int_ref() {
+        RAISE_ERROR("nbt::nbt_list int_ref");
+    }
+
+    std::vector<std::shared_ptr<nbt>> &nbt_list::list_ref() {
+        return value;
+    }
+
+    long &nbt_list::long_ref() {
+        RAISE_ERROR("nbt::nbt_list long_ref");
+    }
+
+    short &nbt_list::short_ref() {
+        RAISE_ERROR("nbt::nbt_list short_ref");
+    }
+
+    std::string &nbt_list::string_ref() {
+        RAISE_ERROR("nbt::nbt_list string_ref");
     }
 
 }

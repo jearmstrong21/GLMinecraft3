@@ -4,6 +4,7 @@
 
 #include "utils/utils.h"
 #include "__nbt_compound.h"
+#include <type_traits>
 
 namespace nbt {
 
@@ -56,7 +57,7 @@ namespace nbt {
 
     }
 
-    std::map<std::string,std::shared_ptr<nbt> > nbt_compound::as_compound() const {
+    std::map<std::string, std::shared_ptr<nbt> > nbt_compound::as_compound() const {
         return value;
     }
 
@@ -84,31 +85,31 @@ namespace nbt {
         RAISE_ERROR("nbt::nbt_compound as_string");
     }
 
-    const std::map<std::string, std::shared_ptr<nbt>> &nbt_compound::compound_ref() const {
+    std::map<std::string, std::shared_ptr<nbt>> &nbt_compound::compound_ref() {
         return value;
     }
 
-    const float& nbt_compound::float_ref() const {
+    float &nbt_compound::float_ref() {
         RAISE_ERROR("nbt::nbt_compound float_ref");
     }
 
-    const int& nbt_compound::int_ref() const {
+    int &nbt_compound::int_ref() {
         RAISE_ERROR("nbt::nbt_compound int_ref");
     }
 
-    const std::vector<std::shared_ptr<nbt>> nbt_compound::list_ref() const {
+    std::vector<std::shared_ptr<nbt>> &nbt_compound::list_ref() {
         RAISE_ERROR("nbt::nbt_compound list_ref");
     }
 
-    const long& nbt_compound::long_ref() const {
+    long &nbt_compound::long_ref() {
         RAISE_ERROR("nbt::nbt_compound long_ref");
     }
 
-    const short& nbt_compound::short_ref() const {
+    short &nbt_compound::short_ref() {
         RAISE_ERROR("nbt::nbt_compound short_ref");
     }
 
-    const std::string& nbt_compound::string_ref() const {
+    std::string &nbt_compound::string_ref() {
         RAISE_ERROR("nbt::nbt_compound string_ref");
     }
 
