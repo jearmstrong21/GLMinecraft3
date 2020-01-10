@@ -51,7 +51,7 @@ namespace nbt {
 
         [[nodiscard]] int &int_ref() override;
 
-        [[nodiscard]] std::vector<std::shared_ptr<nbt>> list_ref() override;
+        [[nodiscard]] std::vector<std::shared_ptr<nbt>> &list_ref() override;
 
         [[nodiscard]] long &long_ref() override;
 

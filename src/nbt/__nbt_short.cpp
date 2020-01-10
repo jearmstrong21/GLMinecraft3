@@ -2,6 +2,7 @@
 // Created by Jack Armstrong on 11/23/19.
 //
 
+#include <utils/utils.h>
 #include "__nbt_short.h"
 
 namespace nbt {
@@ -36,6 +37,62 @@ namespace nbt {
 
     std::string nbt_short::to_str(std::string) const {
         return std::to_string(value) + "S";
+    }
+
+    std::map<std::string, std::shared_ptr<nbt> > nbt_short::as_compound() const {
+        RAISE_ERROR("nbt::nbt_short as_compound")
+    }
+
+    float nbt_short::as_float() const {
+        return value;
+    }
+
+    int nbt_short::as_int() const {
+        return value;
+    }
+
+    std::vector<std::shared_ptr<nbt>> nbt_short::as_list() const {
+        RAISE_ERROR("nbt::nbt_short as_list");
+    }
+
+    long nbt_short::as_long() const {
+        return value;
+    }
+
+    short nbt_short::as_short() const {
+        return value;
+    }
+
+    std::string nbt_short::as_string() const {
+        return std::to_string(value);
+    }
+
+    std::map<std::string, std::shared_ptr<nbt>> &nbt_short::compound_ref() {
+        RAISE_ERROR("nbt::nbt_short compound_ref");
+    }
+
+    float &nbt_short::float_ref() {
+        RAISE_ERROR("nbt::nbt_short float_ref")
+    }
+
+    int &nbt_short::int_ref() {
+        RAISE_ERROR("nbt::nbt_short int_ref")
+    }
+
+    std::vector<std::shared_ptr<nbt>> &nbt_short::list_ref() {
+        RAISE_ERROR("nbt::nbt_short list_ref")
+    }
+
+    long &nbt_short::long_ref() {
+        RAISE_ERROR("nbt::nbt_short long_ref")
+    }
+
+    short &nbt_short::short_ref() {
+        return value;
+    }
+
+    std::string &nbt_short::string_ref() {
+        RAISE_ERROR("nbt::nbt_short string_ref")
     }
 
 }

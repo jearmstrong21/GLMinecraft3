@@ -81,7 +81,7 @@ namespace nbt {
         RAISE_ERROR("nbt::nbt_float int_ref");
     }
 
-    std::vector<std::shared_ptr<nbt>> nbt_float::list_ref() {
+    std::vector<std::shared_ptr<nbt>> &nbt_float::list_ref() {
         RAISE_ERROR("nbt::nbt_float list_ref");
     }
 

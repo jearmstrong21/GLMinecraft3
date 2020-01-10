@@ -34,12 +34,18 @@ void sig_handler(int sig) {
 int main(int argc, char **argv) {
     for (int i = 0; i < 32; i++) std::signal(i, sig_handler);
     std::shared_ptr<nbt::nbt> ptr=nbt::make_float(5.0F);
-    std::cout<<ptr->as_float()<<"\n";
+    std::cout<<ptr->as_float()<<"\n";//5
     ptr->float_ref()+=5;
-    std::cout<<ptr->as_float()<<"\n";
+    std::cout<<ptr->as_float()<<"\n";//10
     std::cin>>ptr->float_ref();
     ptr->float_ref()*=ptr->as_float();
-    std::cout<<ptr->as_float();
+    std::cout<<ptr->as_float()<<"\n";//input^2
+
+    ptr=nbt::make_list({nbt::make_float(20),nbt::make_string("hello world")});
+    std::cout<<ptr->to_str("")<<"\n";//[20F,"hello world"]
+    std::cout<<ptr->list_ref()[0]->as_float()<<"\n";//20
+    std::cout<<ptr->list_ref()[1]->as_string()<<"\n";//hello world
+    std::cout<<ptr->list_ref()[1]->as_float()<<"\n";//SEGFAULT
 //    boost::program_options::options_description desc("Allowed options");
 //    desc.add_options()
 //            ("help", "produce help message")
