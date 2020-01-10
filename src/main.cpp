@@ -33,76 +33,76 @@ void sig_handler(int sig) {
 
 int main(int argc, char **argv) {
     for (int i = 0; i < 32; i++) std::signal(i, sig_handler);
-    std::shared_ptr<nbt::nbt> ptr=nbt::make_float(5.0F);
-    std::cout<<ptr->as_float()<<"\n";//5
-    ptr->float_ref()+=5;
-    std::cout<<ptr->as_float()<<"\n";//10
-    std::cin>>ptr->float_ref();
-    ptr->float_ref()*=ptr->as_float();
-    std::cout<<ptr->as_float()<<"\n";//input^2
+//    std::shared_ptr<nbt::nbt> ptr=nbt::make_float(5.0F);
+//    std::cout<<ptr->as_float()<<"\n";//5
+//    ptr->float_ref()+=5;
+//    std::cout<<ptr->as_float()<<"\n";//10
+//    std::cin>>ptr->float_ref();
+//    ptr->float_ref()*=ptr->as_float();
+//    std::cout<<ptr->as_float()<<"\n";//input^2
+//
+//    ptr=nbt::make_list({nbt::make_float(20),nbt::make_string("hello world")});
+//    std::cout<<ptr->to_str("")<<"\n";//[20F,"hello world"]
+//    std::cout<<ptr->list_ref()[0]->as_float()<<"\n";//20
+//    std::cout<<ptr->list_ref()[1]->as_string()<<"\n";//hello world
+//    std::cout<<ptr->list_ref()[1]->as_float()<<"\n";//SEGFAULT
+    boost::program_options::options_description desc("Allowed options");
+    desc.add_options()
+            ("help", "produce help message")
+            ("client", "run GLMC3 client on specified host and port")
+            ("server", "run GLMC3 server on specified port")
+            ("host", boost::program_options::value<std::string>())
+            ("port", boost::program_options::value<int>());
 
-    ptr=nbt::make_list({nbt::make_float(20),nbt::make_string("hello world")});
-    std::cout<<ptr->to_str("")<<"\n";//[20F,"hello world"]
-    std::cout<<ptr->list_ref()[0]->as_float()<<"\n";//20
-    std::cout<<ptr->list_ref()[1]->as_string()<<"\n";//hello world
-    std::cout<<ptr->list_ref()[1]->as_float()<<"\n";//SEGFAULT
-//    boost::program_options::options_description desc("Allowed options");
-//    desc.add_options()
-//            ("help", "produce help message")
-//            ("client", "run GLMC3 client on specified host and port")
-//            ("server", "run GLMC3 server on specified port")
-//            ("host", boost::program_options::value<std::string>())
-//            ("port", boost::program_options::value<int>());
-//
-//    boost::program_options::variables_map vm;
-//    boost::program_options::store(boost::program_options::parse_command_line(argc, argv, desc), vm);
-//    boost::program_options::notify(vm);
-//    if (vm.count("help")) {
-//        std::cout << desc << "\n";
-//        return 1;
-//    }
-//
-//    if (vm.count("client") && vm.count("server")) {
-//        std::cout << "Both server and client are not currently supported.\n";
-//        std::cout << desc << "\n";
-//        return 1;
-//    }
-//
-//    if (vm.count("client")) {
-//        if (!vm.count("host") && !vm.count("port")) {
-//            std::cout << "Specify host and port to connect to.\n";
-//            std::cout << desc << "\n";
-//            return 1;
-//        }
-//        if (!vm.count("host")) {
-//            std::cout << "Specify host to connect to.\n";
-//            std::cout << desc << "\n";
-//            return 1;
-//        }
-//        if (!vm.count("port")) {
-//            std::cout << "Specify port to connect to.\n";
-//            std::cout << desc << "\n";
-//            return 1;
-//        }
-//        std::cout << "Starting client on host " << vm["host"].as<std::string>() << " and port " << vm["port"].as<int>()
-//                  << "\n";
-//        networking::client(vm["host"].as<std::string>(), std::to_string(vm["port"].as<int>()));
-//        return 0;
-//    }
-//
-//    if (vm.count("server")) {
-//        if (!vm.count("port")) {
-//            std::cout << "Specify port to run on.\n";
-//            std::cout << desc << "\n";
-//            return 1;
-//        }
-//        std::cout << "Starting server on port " << vm["port"].as<int>() << "\n";
-//        networking::server(vm["port"].as<int>());
-//        return 0;
-//    }
-//
-//    std::cout << "Select an option.\n";
-//    std::cout << desc << "\n";
+    boost::program_options::variables_map vm;
+    boost::program_options::store(boost::program_options::parse_command_line(argc, argv, desc), vm);
+    boost::program_options::notify(vm);
+    if (vm.count("help")) {
+        std::cout << desc << "\n";
+        return 1;
+    }
+
+    if (vm.count("client") && vm.count("server")) {
+        std::cout << "Both server and client are not currently supported.\n";
+        std::cout << desc << "\n";
+        return 1;
+    }
+
+    if (vm.count("client")) {
+        if (!vm.count("host") && !vm.count("port")) {
+            std::cout << "Specify host and port to connect to.\n";
+            std::cout << desc << "\n";
+            return 1;
+        }
+        if (!vm.count("host")) {
+            std::cout << "Specify host to connect to.\n";
+            std::cout << desc << "\n";
+            return 1;
+        }
+        if (!vm.count("port")) {
+            std::cout << "Specify port to connect to.\n";
+            std::cout << desc << "\n";
+            return 1;
+        }
+        std::cout << "Starting client on host " << vm["host"].as<std::string>() << " and port " << vm["port"].as<int>()
+                  << "\n";
+        networking::client(vm["host"].as<std::string>(), std::to_string(vm["port"].as<int>()));
+        return 0;
+    }
+
+    if (vm.count("server")) {
+        if (!vm.count("port")) {
+            std::cout << "Specify port to run on.\n";
+            std::cout << desc << "\n";
+            return 1;
+        }
+        std::cout << "Starting server on port " << vm["port"].as<int>() << "\n";
+        networking::server(vm["port"].as<int>());
+        return 0;
+    }
+
+    std::cout << "Select an option.\n";
+    std::cout << desc << "\n";
 
     return 0;
 }
