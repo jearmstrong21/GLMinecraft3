@@ -128,7 +128,7 @@ namespace server {
 
                 float d = 1;
                 glm::vec3 newMotion{0, 0, 0};
-                glm::vec3 curLook=utils::cast3(ent->compound_ref()["position"]);
+                glm::vec3 curLook=utils::cast3(ent->compound_ref()["lookdir"]);
                 glm::vec3 curVel=utils::cast3(ent->compound_ref()["velocity"]);
                 glm::vec3 leftdir = glm::cross(curLook, glm::vec3{0, -1, 0});
                 leftdir.y = 0;
