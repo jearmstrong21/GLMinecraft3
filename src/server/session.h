@@ -33,7 +33,6 @@ namespace server {
                         room.leave(shared_from_this());
                         return;
                     }
-//                    std::cout << "READ_PACKET\n";
                     unsigned long length_of_nbt = arr[0];
                     boost::asio::streambuf read_buffer;
                     boost::asio::read(socket, read_buffer, boost::asio::transfer_exactly(length_of_nbt), err);
@@ -45,7 +44,6 @@ namespace server {
                     std::string str(boost::asio::buffers_begin(bufs), boost::asio::buffers_begin(bufs) + length_of_nbt);
                     std::istringstream stream(str);
                     std::shared_ptr<nbt::nbt> obj = nbt::read_nbt(stream);
-//                    std::cout << obj->to_str("") << "\n";
                     room.handle_player_interaction_packet(shared_from_this(), obj);
                     // TODO: THIS IS WHERE WE HANDLE ANY PACKETS FROM THE CLIENT: OBJ
                 }

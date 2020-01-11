@@ -46,6 +46,7 @@ int main(int argc, char **argv) {
 //    std::cout<<ptr->list_ref()[0]->as_float()<<"\n";//20
 //    std::cout<<ptr->list_ref()[1]->as_string()<<"\n";//hello world
 //    std::cout<<ptr->list_ref()[1]->as_float()<<"\n";//SEGFAULT
+//    if(5>2)return 0;
     boost::program_options::options_description desc("Allowed options");
     desc.add_options()
             ("help", "produce help message")

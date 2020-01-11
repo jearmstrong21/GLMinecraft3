@@ -56,15 +56,15 @@ namespace nbt {
     }
 
     std::map<std::string, std::shared_ptr<nbt> > nbt_list::as_compound() const {
-        RAISE_ERROR("nbt::nbt_list as_compound");
+        RAISE_ERROR("nbt::nbt_list as_compound")
     }
 
     float nbt_list::as_float() const {
-        RAISE_ERROR("nbt::nbt_list as_float");
+        RAISE_ERROR("nbt::nbt_list as_float")
     }
 
     int nbt_list::as_int() const {
-        RAISE_ERROR("nbt::nbt_list as_int");
+        RAISE_ERROR("nbt::nbt_list as_int")
     }
 
     std::vector<std::shared_ptr<nbt>> nbt_list::as_list() const {
@@ -72,27 +72,27 @@ namespace nbt {
     }
 
     long nbt_list::as_long() const {
-        RAISE_ERROR("nbt::nbt_list as_long");
+        RAISE_ERROR("nbt::nbt_list as_long")
     }
 
     short nbt_list::as_short() const {
-        RAISE_ERROR("nbt::nbt_list as_short");
+        RAISE_ERROR("nbt::nbt_list as_short")
     }
 
     std::string nbt_list::as_string() const {
-        RAISE_ERROR("nbt::nbt_list as_string");
+        RAISE_ERROR("nbt::nbt_list as_string")
     }
 
     std::map<std::string, std::shared_ptr<nbt>> &nbt_list::compound_ref() {
-        RAISE_ERROR("nbt::nbt_list compound_ref");
+        RAISE_ERROR("nbt::nbt_list compound_ref")
     }
 
     float &nbt_list::float_ref() {
-        RAISE_ERROR("nbt::nbt_list float_ref");
+        RAISE_ERROR("nbt::nbt_list float_ref")
     }
 
     int &nbt_list::int_ref() {
-        RAISE_ERROR("nbt::nbt_list int_ref");
+        RAISE_ERROR("nbt::nbt_list int_ref")
     }
 
     std::vector<std::shared_ptr<nbt>> &nbt_list::list_ref() {
@@ -100,15 +100,15 @@ namespace nbt {
     }
 
     long &nbt_list::long_ref() {
-        RAISE_ERROR("nbt::nbt_list long_ref");
+        RAISE_ERROR("nbt::nbt_list long_ref")
     }
 
     short &nbt_list::short_ref() {
-        RAISE_ERROR("nbt::nbt_list short_ref");
+        RAISE_ERROR("nbt::nbt_list short_ref")
     }
 
     std::string &nbt_list::string_ref() {
-        RAISE_ERROR("nbt::nbt_list string_ref");
+        RAISE_ERROR("nbt::nbt_list string_ref")
     }
 
 }

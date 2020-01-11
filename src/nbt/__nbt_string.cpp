@@ -52,21 +52,21 @@ namespace nbt {
     }
 
     std::map<std::string, std::shared_ptr<nbt> > nbt_string::as_compound() const {
-        RAISE_ERROR("nbt::nbt_string as_compound");
+        RAISE_ERROR("nbt::nbt_string as_compound")
     }
 
     float nbt_string::as_float() const {
-        try{
+        try {
             return boost::lexical_cast<float>(value);
-        }catch(boost::bad_lexical_cast&){
-            RAISE_ERROR("nbt::nbt_string as_float");
+        } catch (boost::bad_lexical_cast &) {
+            RAISE_ERROR("nbt::nbt_string as_float")
         }
     }
 
     int nbt_string::as_int() const {
-        try{
+        try {
             return boost::lexical_cast<int>(value);
-        }catch(boost::bad_lexical_cast&){
+        } catch (boost::bad_lexical_cast &) {
             RAISE_ERROR("nbt::nbt_string as_int")
         }
     }
@@ -76,18 +76,18 @@ namespace nbt {
     }
 
     long nbt_string::as_long() const {
-        try{
+        try {
             return boost::lexical_cast<long>(value);
-        }catch(boost::bad_lexical_cast&){
-            RAISE_ERROR("nbt::nbt_string as_long");
+        } catch (boost::bad_lexical_cast &) {
+            RAISE_ERROR("nbt::nbt_string as_long")
         }
     }
 
     short nbt_string::as_short() const {
-        try{
+        try {
             return boost::lexical_cast<short>(value);
-        }catch(boost::bad_lexical_cast&){
-            RAISE_ERROR("nbt::nbt_string as_short");
+        } catch (boost::bad_lexical_cast &) {
+            RAISE_ERROR("nbt::nbt_string as_short")
         }
     }
 
@@ -104,7 +104,7 @@ namespace nbt {
     }
 
     int &nbt_string::int_ref() {
-        RAISE_ERROR("nbt::nbt_string int_ef")
+        RAISE_ERROR("nbt::nbt_string int_ref")
     }
 
     std::vector<std::shared_ptr<nbt>> &nbt_string::list_ref() {

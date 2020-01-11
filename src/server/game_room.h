@@ -39,7 +39,7 @@ namespace server {
         }
 
         entity_type *get_type(const std::shared_ptr<nbt::nbt> &e) {
-            int id = nbt::cast_int(nbt::cast_compound(e)->value["entity_type_id"])->value;
+            int id=e->compound_ref()["entity_type_id"]->as_int();
             if (id == 1)return et_player;
             if (id == 2)return et_zombie;
             return et_base;
@@ -91,9 +91,8 @@ namespace server {
 
         std::string spawn_entity(const std::shared_ptr<nbt::nbt> &e, glm::vec3 position) {
             std::string i = get_next_entity_id();
-            nbt::cast_compound(e)->value["id"] = nbt::make_string(i);
-            nbt::cast_compound(e)->value["position"] = nbt::make_list(
-                    {nbt::make_float(position.x), nbt::make_float(position.y), nbt::make_float(position.z)});
+            e->compound_ref()["id"]=nbt::make_string(i);
+            e->compound_ref()["position"]=utils::cast3(position);
             entities[i] = e;
             return i;
         }
@@ -104,7 +103,7 @@ namespace server {
             ptr->send_world(world);
             std::shared_ptr<nbt::nbt> entity = et_player->initialize();
             std::string id = spawn_entity(entity, {24, 150, 24});
-            nbt::cast_compound(entity)->value["name"] = nbt::make_string(id);
+            entity->compound_ref()["name"]=nbt::make_string(id);
             ptr->deliver(nbt::make_compound({
                                                     {"player_id", nbt::make_string(id)},
                                                     {"entities",  get_entity_list()}
@@ -116,27 +115,21 @@ namespace server {
         }
 
         void handle_player_interaction_packet(const server_player_ptr &player, const std::shared_ptr<nbt::nbt> data) {
-            std::shared_ptr<nbt::nbt_compound> compound = nbt::cast_compound(data);
             std::lock_guard<std::mutex> guard(protect_game_state);
-            std::shared_ptr<nbt::nbt_compound> ent = nbt::cast_compound(entities[player->entity_id]);
+            std::shared_ptr<nbt::nbt> ent =entities[player->entity_id];
             {
-                std::shared_ptr<nbt::nbt_compound> movement = nbt::cast_compound(compound->value["movement"]);
-                bool left = nbt::cast_short(movement->value["left"])->value;
-                bool right = nbt::cast_short(movement->value["right"])->value;
-                bool front = nbt::cast_short(movement->value["front"])->value;
-                bool back = nbt::cast_short(movement->value["back"])->value;
-                bool sprint = nbt::cast_short(movement->value["sprint"])->value;
-                bool jump = nbt::cast_short(movement->value["jump"])->value;
+                std::shared_ptr<nbt::nbt> movement = data->compound_ref()["movement"];
+                bool left = movement->compound_ref()["left"]->as_short();
+                bool right = movement->compound_ref()["right"]->as_short();
+                bool front = movement->compound_ref()["front"]->as_short();
+                bool back = movement->compound_ref()["back"]->as_short();
+                bool sprint = movement->compound_ref()["sprint"]->as_short();
+                bool jump = movement->compound_ref()["jump"]->as_short();
 
-                std::shared_ptr<nbt::nbt_list> pos = nbt::cast_list(ent->value["position"]);
-                std::shared_ptr<nbt::nbt_list> look = nbt::cast_list(ent->value["lookdir"]);
-                std::shared_ptr<nbt::nbt_list> vel = nbt::cast_list(ent->value["velocity"]);
                 float d = 1;
                 glm::vec3 newMotion{0, 0, 0};
-                glm::vec3 curLook{nbt::cast_float(look->value[0])->value, nbt::cast_float(look->value[1])->value,
-                                  nbt::cast_float(look->value[2])->value};
-                glm::vec3 curVel{nbt::cast_float(vel->value[0])->value, nbt::cast_float(vel->value[1])->value,
-                                 nbt::cast_float(vel->value[2])->value};
+                glm::vec3 curLook=utils::cast3(ent->compound_ref()["position"]);
+                glm::vec3 curVel=utils::cast3(ent->compound_ref()["velocity"]);
                 glm::vec3 leftdir = glm::cross(curLook, glm::vec3{0, -1, 0});
                 leftdir.y = 0;
                 leftdir = glm::normalize(leftdir);
@@ -147,21 +140,15 @@ namespace server {
                 if (back)newMotion -= forward * d;
                 if (left)newMotion += leftdir * d;
                 if (right)newMotion -= leftdir * d;
-                if (jump)curVel.y += 2.5;
-                ent->value["motion"] = nbt::make_list(
-                        {nbt::make_float(newMotion.x), nbt::make_float(newMotion.y), nbt::make_float(newMotion.z)});
-                ent->value["velocity"] = nbt::make_list(
-                        {nbt::make_float(curVel.x), nbt::make_float(curVel.y), nbt::make_float(curVel.z)});
+                if (jump)curVel.y += 2.5;//TODO: && entity.is grounded
+                ent->compound_ref()["motion"]=utils::cast3(newMotion);
+                ent->compound_ref()["velocity"]=utils::cast3(curVel);
             }
             {
-                std::shared_ptr<nbt::nbt_list> nlook = nbt::cast_list(compound->value["lookdir"]);
-                std::shared_ptr<nbt::nbt_list> look = nbt::cast_list(ent->value["lookdir"]);
-                nbt::cast_float(look->value[0])->value = nbt::cast_float(nlook->value[0])->value;
-                nbt::cast_float(look->value[1])->value = nbt::cast_float(nlook->value[1])->value;
-                nbt::cast_float(look->value[2])->value = nbt::cast_float(nlook->value[2])->value;
+                ent->compound_ref()["lookdir"]=utils::cast3(utils::cast3(data->compound_ref()["lookdir"]));
             }
             {
-                std::string chat = nbt::cast_string(compound->value["chat"])->value;
+                std::string chat = data->compound_ref()["chat"]->as_string();
                 //TODO: commands will be parsed here
                 if (!chat.empty())queued_chat = "<" + player->entity_id + "> " + chat;
             }

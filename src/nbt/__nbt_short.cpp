@@ -52,7 +52,7 @@ namespace nbt {
     }
 
     std::vector<std::shared_ptr<nbt>> nbt_short::as_list() const {
-        RAISE_ERROR("nbt::nbt_short as_list");
+        RAISE_ERROR("nbt::nbt_short as_list")
     }
 
     long nbt_short::as_long() const {
@@ -68,7 +68,7 @@ namespace nbt {
     }
 
     std::map<std::string, std::shared_ptr<nbt>> &nbt_short::compound_ref() {
-        RAISE_ERROR("nbt::nbt_short compound_ref");
+        RAISE_ERROR("nbt::nbt_short compound_ref")
     }
 
     float &nbt_short::float_ref() {

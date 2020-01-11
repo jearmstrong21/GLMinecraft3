@@ -137,7 +137,7 @@ namespace client {
             filledcube_mesh = new gl::mesh(&data);
         }
         {
-            ent_rend=new entity_render();
+            ent_rend = new entity_render();
         }
         glfwSetWindowUserPointer(window, this);
         glfwSetKeyCallback(window, [](GLFWwindow *w, int key, int scancode, int actions, int mods) {
@@ -198,11 +198,7 @@ namespace client {
 
             glm::mat4 p = glm::perspective(80.0F, 1.0F, 0.01F, 1000.0F);
 
-            std::shared_ptr<nbt::nbt_list> nbt_cur_pos = nbt::cast_list(
-                    nbt::cast_compound(entities[player_id])->value["position"]);
-            glm::vec3 curPos{nbt::cast_float(nbt_cur_pos->value[0])->value,
-                             nbt::cast_float(nbt_cur_pos->value[1])->value,
-                             nbt::cast_float(nbt_cur_pos->value[2])->value};
+            glm::vec3 curPos=utils::cast3(entities[player_id]->compound_ref()["position"]);
 
             glm::vec3 lookAt = curPos;
             glm::vec3 lookFrom = curPos - lookdir;
@@ -250,22 +246,13 @@ namespace client {
             wireframe_shader->uniform4x4("perspective", p);
             wireframe_shader->uniform4x4("view", v);
             for (const auto &e:entities) {
-                std::shared_ptr<nbt::nbt_compound> ent = nbt::cast_compound(e.second);
-                int id = nbt::cast_int(ent->value["entity_type_id"])->value;
+                int id = e.second->compound_ref()["entity_type_id"]->as_int();
                 if (id == 1)ent_rend->render_player(p, v, e.second);
                 if (id == 2)ent_rend->render_zombie(p, v, e.second);
 
-                std::shared_ptr<nbt::nbt_list> pos = nbt::cast_list(ent->value["position"]);
-                std::shared_ptr<nbt::nbt_list> size = nbt::cast_list(ent->value["bbsize"]);
-                glm::vec3 bbsize{nbt::cast_float(size->value[0])->value, nbt::cast_float(size->value[1])->value,
-                                 nbt::cast_float(size->value[2])->value};
-
                 wireframe_shader->bind();
-                wireframe_shader->uniform4x4("model", glm::translate(glm::mat4(1),
-                                                                     glm::vec3{nbt::cast_float(pos->value[0])->value,
-                                                                               nbt::cast_float(pos->value[1])->value,
-                                                                               nbt::cast_float(pos->value[2])->value}) *
-                                                      glm::scale(glm::mat4(1), bbsize));
+                wireframe_shader->uniform4x4("model", glm::translate(glm::mat4(1),utils::cast3(e.second->compound_ref()["position"])) *
+                                                      glm::scale(glm::mat4(1), utils::cast3(e.second->compound_ref()["bbsize"])));
                 wireframe_shader->uniform3("color", glm::vec3{1, 0, 0});
                 wireframe_mesh->render_lines();
             }
@@ -309,13 +296,7 @@ namespace client {
                                                                                                                   should_jump
                                                                                                           )}
                                                                                                   })},
-                                                                                          {"lookdir",  nbt::make_list(
-                                                                                                  {nbt::make_float(
-                                                                                                          lookdir.x),
-                                                                                                   nbt::make_float(
-                                                                                                           lookdir.y),
-                                                                                                   nbt::make_float(
-                                                                                                           lookdir.z)})},
+                                                                                          {"lookdir", utils::cast3(lookdir)},
                                                                                           {"chat",     nbt::make_string(
                                                                                                   chattosend)}
                                                                                   });
@@ -326,8 +307,8 @@ namespace client {
         }
 
         if (glfwGetKey(window, GLFW_KEY_Q) && !is_chat_open) {
-            attemptQuit=true;
-            glfwSetWindowShouldClose(window,true);
+            attemptQuit = true;
+            glfwSetWindowShouldClose(window, true);
         }
 
     }
@@ -345,7 +326,7 @@ namespace client {
     void game::read_packet() {
         std::cout << "packet read initiated\n";
         boost::thread t([this]() {
-            if(attemptQuit)return;
+            if (attemptQuit)return;
             while (sqrt(5) > 0) {
                 boost::array<long, 1> arr{};
                 boost::asio::read(socket, boost::asio::buffer(arr));
@@ -371,17 +352,15 @@ namespace client {
 
     void game::load_game_update(const std::shared_ptr<nbt::nbt> &obj) {
         std::lock_guard<std::mutex> guard(protect_game_state);
-        std::shared_ptr<nbt::nbt_compound> compound = nbt::cast_compound(obj);
 
         {
-            std::shared_ptr<nbt::nbt_compound> nbt_ent = nbt::cast_compound(compound->value["entities"]);
             entities.clear();
-            for (const auto &p:nbt_ent->value) {
+            for (const auto &p:obj->compound_ref()["entities"]->compound_ref()) {
                 entities[p.first] = p.second;
             }
         }
         {
-            std::string nchat = nbt::cast_string(compound->value["chat"])->value;
+            std::string nchat = obj->compound_ref()["chat"]->as_string();
             if (!nchat.empty()) {
                 chathistory.insert(chathistory.begin(), nchat);
             }
@@ -398,15 +377,13 @@ namespace client {
         boost::asio::streambuf::const_buffers_type bufs = read_buffer.data();
         std::string str(boost::asio::buffers_begin(bufs), boost::asio::buffers_begin(bufs) + length_of_nbt);
         std::istringstream stream(str);
-        std::shared_ptr<nbt::nbt_compound> welcome_packet = nbt::cast_compound(nbt::read_nbt(stream));
-
-        std::shared_ptr<nbt::nbt_compound> nbt_ent = nbt::cast_compound(welcome_packet->value["entities"]);
+        std::shared_ptr<nbt::nbt>welcome_packet=nbt::read_nbt(stream);
         entities.clear();
-        for (const auto &p:nbt_ent->value) {
+        for (const auto &p:welcome_packet->compound_ref()["entities"]->compound_ref()) {
             entities[p.first] = p.second;
         }
 
-        player_id = nbt::cast_string(welcome_packet->value["player_id"])->value;
+        player_id = welcome_packet->compound_ref()["player_id"]->as_string();
         std::cout << "Welcome packet recieved:\n";
         std::cout << "\tplayer_id = <" << player_id << ">\n";
     }
@@ -414,10 +391,7 @@ namespace client {
     void game::glfw_key_press_callback(int key, int scancode, int actions, int mods) {
         if (key == 'U' && actions == GLFW_PRESS) {
             freecam = !freecam;
-            std::shared_ptr<nbt::nbt_list> nbt_cur_pos = nbt::cast_list(
-                    nbt::cast_compound(entities[player_id])->value["position"]);
-            freecamPos = {nbt::cast_float(nbt_cur_pos->value[0])->value, nbt::cast_float(nbt_cur_pos->value[1])->value,
-                          nbt::cast_float(nbt_cur_pos->value[2])->value};
+            freecamPos =utils::cast3(entities[player_id]->compound_ref()["position"]);
         }
         if (key == 'T' && actions == GLFW_PRESS && !is_chat_open) {
             is_chat_open = true;
@@ -440,19 +414,16 @@ namespace client {
     }
 
     void game::render_chat() {
-//        glDisable(GL_DEPTH_TEST);
         if (is_chat_open) {
             text_rend->render_string(curchatbuffer, 0, text_rend->charsize);
             text_rend->render_string("                    ", 0, text_rend->charsize);
         }
         for (int i = 0; i < utils::min((int) chathistory.size(), 20); i++) {
-//            text_rend->render_string("                    ",0,text_rend->charsize);
             text_rend->render_string(chathistory[i], 0, text_rend->charsize * (i + 2));
         }
         int w, h;
         glfwGetWindowSize(window, &w, &h);
         text_rend->render_string("GLMinecraft3\nYOUR PLAYER ID: " + player_id + "\n", 0, h - text_rend->charsize);
-//        glEnable(GL_DEPTH_TEST);
     }
 
 }

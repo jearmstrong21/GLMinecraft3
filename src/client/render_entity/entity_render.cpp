@@ -25,15 +25,8 @@ namespace client {
     }
 
     void entity_render::render_player(glm::mat4 p, glm::mat4 v, const std::shared_ptr<nbt::nbt> &data) {
-        std::shared_ptr<nbt::nbt_compound> ent = nbt::cast_compound(data);
-        std::shared_ptr<nbt::nbt_list> pos = nbt::cast_list(ent->value["position"]);
-        std::shared_ptr<nbt::nbt_list> look = nbt::cast_list(ent->value["lookdir"]);
-        std::shared_ptr<nbt::nbt_list> size = nbt::cast_list(ent->value["bbsize"]);
-
         glm::mat4 m(1);
-        m *= glm::translate(glm::mat4(1),
-                            glm::vec3{nbt::cast_float(pos->value[0])->value, nbt::cast_float(pos->value[1])->value,
-                                      nbt::cast_float(pos->value[2])->value});
+        m *= glm::translate(glm::mat4(1),utils::cast3(data->compound_ref()["position"]));
         tcr->render_cube(p, v, m * glm::translate(glm::mat4(1), glm::vec3{0, 6, 0} / 16.0F), steve_texture,
                          glm::vec3{8, 12, 4},
                          glm::vec2{16, 32}, glm::vec2{64, 64});
@@ -55,15 +48,8 @@ namespace client {
     }
 
     void entity_render::render_zombie(glm::mat4 p, glm::mat4 v, const std::shared_ptr<nbt::nbt> &data) {
-        std::shared_ptr<nbt::nbt_compound> ent = nbt::cast_compound(data);
-        std::shared_ptr<nbt::nbt_list> pos = nbt::cast_list(ent->value["position"]);
-        std::shared_ptr<nbt::nbt_list> look = nbt::cast_list(ent->value["lookdir"]);
-        std::shared_ptr<nbt::nbt_list> size = nbt::cast_list(ent->value["bbsize"]);
-
         glm::mat4 m(1);
-        m *= glm::translate(glm::mat4(1),
-                            glm::vec3{nbt::cast_float(pos->value[0])->value, nbt::cast_float(pos->value[1])->value,
-                                      nbt::cast_float(pos->value[2])->value});
+        m *= glm::translate(glm::mat4(1),utils::cast3(data->compound_ref()["position"]));
         tcr->render_cube(p, v, m * glm::translate(glm::mat4(1), glm::vec3{0, 3, 0} / 16.0F), zombie_texture,
                          glm::vec3{8, 12, 4},
                          glm::vec2{16, 32}, glm::vec2{64, 64});

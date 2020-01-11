@@ -12,18 +12,18 @@ namespace server {
         return nbt::make_compound({
                                           {"id",             nbt::make_string("well this is awkward")},
                                           {"entity_type_id", nbt::make_int(-1)},
-                                          {"position",utils::cast3(glm::vec3{0,0,0})},
-                                          {"motion",utils::cast3(glm::vec3{0,0,0})},
-                                          {"lookdir",utils::cast3(glm::vec3{0,0,0})},
-                                          {"bbsize",utils::cast3(glm::vec3{0,0,0})},
-                                          {"velocity",utils::cast3(glm::vec3{0,0,0})}
+                                          {"position",       utils::cast3(glm::vec3{0, 0, 0})},
+                                          {"motion",         utils::cast3(glm::vec3{0, 0, 0})},
+                                          {"lookdir",        utils::cast3(glm::vec3{0, 0, 0})},
+                                          {"bbsize",         utils::cast3(glm::vec3{0, 0, 0})},
+                                          {"velocity",       utils::cast3(glm::vec3{0, 0, 0})}
 //                                          todo health
                                   });
     }
 
-    bool entity_type_base::is_allowed_at_position(const std::shared_ptr<nbt::nbt>& data, glm::vec3 epos,
+    bool entity_type_base::is_allowed_at_position(const std::shared_ptr<nbt::nbt> &data, glm::vec3 epos,
                                                   server::game_room *room) const {
-        glm::vec3 bbSize=utils::cast3(nbt::cast_compound(data)->value["bbsize"]);
+        glm::vec3 bbSize = utils::cast3(data->compound_ref()["bbsize"]);
 
         int x0 = (int) (epos.x - bbSize.x / 2.0F);
         int y0 = (int) (epos.y - bbSize.y / 2.0F);
@@ -49,11 +49,10 @@ namespace server {
     }
 
     void entity_type_base::update(std::shared_ptr<nbt::nbt> data, server::game_room *room) const {
-        std::shared_ptr<nbt::nbt_compound> compound = nbt::cast_compound(data);
-        glm::vec3 curPos=utils::cast3(compound->value["position"]);
-        glm::vec3 curMotion=utils::cast3(compound->value["motion"]);
-        glm::vec3 curVel=utils::cast3(compound->value["velocity"]);
-        glm::vec3 bbSize=utils::cast3(compound->value["bbsize"]);
+        glm::vec3 curPos = utils::cast3(data->compound_ref()["position"]);
+        glm::vec3 curMotion = utils::cast3(data->compound_ref()["motion"]);
+        glm::vec3 curVel = utils::cast3(data->compound_ref()["velocity"]);
+        glm::vec3 bbSize = utils::cast3(data->compound_ref()["bbsize"]);
 
         glm::vec3 bbMin = curPos - bbSize / 2.0F;
         glm::vec3 bbMax = curPos + bbSize / 2.0F;
@@ -79,15 +78,15 @@ namespace server {
         curPos += curMotion * dt;
         curPos += curVel * dt;
 
-        compound->value["position"]=utils::cast3(curPos);
-        compound->value["motion"]=utils::cast3(curMotion);
-        compound->value["velocity"]=utils::cast3(curVel);
+        data->compound_ref()["position"] = utils::cast3(curPos);
+        data->compound_ref()["motion"] = utils::cast3(curMotion);
+        data->compound_ref()["velocity"] = utils::cast3(curVel);
     }
 
     std::shared_ptr<nbt::nbt> entity_type_player::initialize() const {
         std::shared_ptr<nbt::nbt> res = entity_type_base::initialize();
-        nbt::cast_compound(res)->value["entity_type_id"] = nbt::make_int(1);
-        nbt::cast_compound(res)->value["bbsize"] =utils::cast3({0.6,1.5,0.6});
+        res->compound_ref()["entity_type_id"]=nbt::make_int(1);
+        res->compound_ref()["bbsize"]=utils::cast3({0.6,1.5,0.6});
         return res;
     }
 
@@ -97,33 +96,31 @@ namespace server {
 
     std::shared_ptr<nbt::nbt> entity_type_zombie::initialize() const {
         std::shared_ptr<nbt::nbt> res = entity_type_base::initialize();
-        nbt::cast_compound(res)->value["entity_type_id"] = nbt::make_int(2);
-        nbt::cast_compound(res)->value["bbsize"] = utils::cast3({0.6,1.95,0.6});
+        res->compound_ref()["entity_type_id"]=nbt::make_int(2);
+        res->compound_ref()["bbsize"]=utils::cast3({0.6,1.95,0.6});
         return res;
     }
 
     void entity_type_zombie::update(std::shared_ptr<nbt::nbt> data, game_room *room) const {
         glm::vec3 target{-1, -1, -1};
         for (auto p:room->entities) {
-            std::shared_ptr<nbt::nbt_compound> compound = nbt::cast_compound(p.second);
-            if (nbt::cast_int(compound->value["entity_type_id"])->value == 1) {
-                target = utils::cast3(compound->value["position"]);
+            if(p.second->compound_ref()["entity_type_id"]->as_int()==1){
+                target=utils::cast3(p.second->compound_ref()["position"]);
             }
         }
         entity_type_base::update(data, room);
 
-        if(target==glm::vec3{-1,-1,-1})return;
+        if (target == glm::vec3{-1, -1, -1})return;
 
-        std::shared_ptr<nbt::nbt_list> pos = nbt::cast_list(nbt::cast_compound(data)->value["position"]);
-        glm::vec3 curPos = glm::vec3{nbt::cast_float(pos->value[0])->value, nbt::cast_float(pos->value[1])->value,
-                                     nbt::cast_float(pos->value[2])->value};
-        glm::vec3 bestMotion=glm::normalize(target-curPos);
+        glm::vec3 curPos=utils::cast3(data->compound_ref()["position"]);
+        glm::vec3 bestMotion = glm::normalize(target - curPos);
 
-        float jumpVel=0;
-        if(bestMotion.y>0&&!is_allowed_at_position(data,curPos-glm::vec3{0,1.0F/30.0F,0},room))jumpVel=5;
-        bestMotion.y=0;
+        float jumpVel = 0;
+        if (bestMotion.y > 0 && !is_allowed_at_position(data, curPos - glm::vec3{0, 1.0F / 30.0F, 0}, room))jumpVel = 5;
+        bestMotion.y = 0;
 
-        nbt::cast_compound(data)->value["motion"]=nbt::make_list({nbt::make_float(bestMotion.x),nbt::make_float(bestMotion.y),nbt::make_float(bestMotion.z)});
-        nbt::cast_float(nbt::cast_list(nbt::cast_compound(data)->value["velocity"])->value[1])->value+=jumpVel;
+        data->compound_ref()["motion"]=utils::cast3(bestMotion);
+        data->compound_ref()["velocity"]->list_ref()[1]->float_ref()+=jumpVel;
+
     }
 }
