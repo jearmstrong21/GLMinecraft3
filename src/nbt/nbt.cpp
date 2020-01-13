@@ -16,14 +16,14 @@ namespace nbt {
     const std::function<std::shared_ptr<nbt>(
             const std::vector<std::shared_ptr<nbt>> &value)> make_list = make<nbt_list, std::vector<std::shared_ptr<nbt>>>;
 
-    const std::function<std::shared_ptr<nbt_short>(const std::shared_ptr<nbt> &value)> cast_short = cast<nbt_short>;
-    const std::function<std::shared_ptr<nbt_int>(const std::shared_ptr<nbt> &value)> cast_int = cast<nbt_int>;
-    const std::function<std::shared_ptr<nbt_float>(const std::shared_ptr<nbt> &value)> cast_float = cast<nbt_float>;
-    const std::function<std::shared_ptr<nbt_long>(const std::shared_ptr<nbt> &value)> cast_long = cast<nbt_long>;
-    const std::function<std::shared_ptr<nbt_string>(const std::shared_ptr<nbt> &value)> cast_string = cast<nbt_string>;
+    const std::function<std::shared_ptr<nbt_short>(const std::shared_ptr<nbt> &value)> cast_DEPRECATED_SUN_JAN_12_2020short = cast<nbt_short>;
+    const std::function<std::shared_ptr<nbt_int>(const std::shared_ptr<nbt> &value)> cast_DEPRECATED_SUN_JAN_12_2020int = cast<nbt_int>;
+    const std::function<std::shared_ptr<nbt_float>(const std::shared_ptr<nbt> &value)> cast_DEPRECATED_SUN_JAN_12_2020float = cast<nbt_float>;
+    const std::function<std::shared_ptr<nbt_long>(const std::shared_ptr<nbt> &value)> cast_DEPRECATED_SUN_JAN_12_2020long = cast<nbt_long>;
+    const std::function<std::shared_ptr<nbt_string>(const std::shared_ptr<nbt> &value)> cast_DEPRECATED_SUN_JAN_12_2020string = cast<nbt_string>;
     const std::function<std::shared_ptr<nbt_compound>(
-            const std::shared_ptr<nbt> &value)> cast_compound = cast<nbt_compound>;
-    const std::function<std::shared_ptr<nbt_list>(const std::shared_ptr<nbt> &value)> cast_list = cast<nbt_list>;
+            const std::shared_ptr<nbt> &value)> cast_DEPRECATED_SUN_JAN_12_2020compound = cast<nbt_compound>;
+    const std::function<std::shared_ptr<nbt_list>(const std::shared_ptr<nbt> &value)> cast_DEPRECATED_SUN_JAN_12_2020list = cast<nbt_list>;
 
     std::shared_ptr<nbt> read_nbt(std::istream &in) noexcept {
         int type;
