@@ -20,7 +20,7 @@ namespace ai::path {
         opt.cardinal_directions={{-1,0,0},{1,0,0},{0,0,-1},{0,0,1}};
         opt.can_fall=true;
         opt.can_jump=true;
-        opt.node_dist=0.5F;
+        opt.node_dist=1.0F;
         return opt;
     }
 
@@ -48,10 +48,10 @@ namespace ai::path {
                     l.push_back(v+c*opt.node_dist);
                 }
             }
-            if(allowed_at(v+glm::vec3{0,1,0})){
+            if(allowed_at(v+glm::vec3{0,1,0})){//TODO: &&can_jump
                 l.push_back(v+glm::vec3{0,1,0});
             }
-            if(allowed_at(v+glm::vec3{0,-1,0})){
+            if(allowed_at(v+glm::vec3{0,-1,0})){//TODO: &&can_fall
                 l.push_back(v+glm::vec3{0,-1,0});
             }
             return l;
