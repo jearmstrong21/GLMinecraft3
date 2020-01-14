@@ -60,6 +60,8 @@ namespace utils {
         return a > b ? a : b;
     }
 
+//    namespace
+
     float& getx(const std::shared_ptr<nbt::nbt>&list);
     float& gety(const std::shared_ptr<nbt::nbt>&list);
     float& getz(const std::shared_ptr<nbt::nbt>&list);

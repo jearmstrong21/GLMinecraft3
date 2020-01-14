@@ -14,10 +14,10 @@ namespace ai::path {
     struct path_options{
         int max_search_nodes;//raw max num of nodes to look at, approx search range = cbrt(max_search_nodes)
         float ok_distance;//terminate if within ok_distance of end; setting to zero almost always will not return valid result
-        std::vector<glm::vec3> cardinal_directions;//left/right/front/back
-        float node_dist;//distance between two nodes
+        std::vector<glm::ivec3> cardinal_directions;//left/right/front/back, TODO: not ivec3
         bool can_jump;//up (gravity affected)
         bool can_fall;//down (gravity)
+        float node_dist;
     };
 
     path_options default_opt();

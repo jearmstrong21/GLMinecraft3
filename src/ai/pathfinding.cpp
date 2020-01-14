@@ -7,25 +7,31 @@
 #include <map>
 #include <algorithm>
 #include <random>
+#define GLM_ENABLE_EXPERIMENTAL
+#include "glm/gtx/hash.hpp"
+#include <unordered_map>
 
 namespace ai::path {
 
     path_options default_opt(){
         path_options opt;
-        opt.ok_distance=0.5F;
-        opt.max_search_nodes=500;
+        opt.ok_distance=1.0F;
+        opt.max_search_nodes=3000;
         opt.cardinal_directions={{-1,0,0},{1,0,0},{0,0,-1},{0,0,1}};
         opt.can_fall=true;
         opt.can_jump=true;
+        opt.node_dist=0.5F;
         return opt;
     }
 
     glm::vec3 pathfind_astar(allowed_at_pos_func allowed_at,glm::vec3 start,glm::vec3 end,const path_options& opt){
         std::vector<glm::vec3>edgeNodes;
         std::vector<glm::vec3>processedNodes;
-        std::map<glm::vec3,float>pathLengths;
-        std::map<glm::vec3,glm::vec3>pathOrigins;
+        std::unordered_map<glm::vec3,float>pathLengths;
+        std::unordered_map<glm::vec3,glm::vec3>pathOrigins;
         //TODO: should edgeNodes and processedNodes be set/set or priority q/set
+
+//        printf("A\n");
 
         auto fround=[](float f){
             return (float)((int)(f*2))/(float)2.0F;
@@ -62,9 +68,13 @@ namespace ai::path {
         edgeNodes.push_back(start);
         pathLengths[start]=0;
         pathOrigins[start]=start;
+
+//        printf("B\n");
         int i=0;
         while(!edgeNodes.empty()){
+//            printf("C%i\n",i);
             if(i>opt.max_search_nodes){
+                printf("TOO MANY SEARCH NODES: %i\n",i);
                 return {0,0,0};
             }
             i++;
@@ -79,6 +89,7 @@ namespace ai::path {
             if(heuristic(v,end)<=opt.ok_distance){
                 break;
             }
+//            printf("D\n");
             std::vector<glm::vec3>children=neighbors(v);
             for(glm::vec3 child:children){
                 float tentative=pathLengths[v]+1;
@@ -88,7 +99,9 @@ namespace ai::path {
                     if(std::find(edgeNodes.begin(),edgeNodes.end(),child)==edgeNodes.end())edgeNodes.push_back(child);
                 }
             }
+//            printf("E\n");
         }
+//        printf("F\n");
         std::vector<glm::vec3>path;
         glm::vec3 v=end;
         while(true){
@@ -99,8 +112,12 @@ namespace ai::path {
             }else break;
             path.push_back(v);
         }
+//        printf("G\n");
         std::reverse(path.begin(),path.end());
-        if(path.size()<2)return {0,0,0};
+        printf("PATH.SIZE()=%ld\n",path.size());
+        if(path.size()<2){
+            return {0,0,0};
+        }
         return glm::normalize(path[1]-path[0]);
     }
 
