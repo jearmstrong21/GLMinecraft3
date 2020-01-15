@@ -117,13 +117,6 @@ namespace server {
         glm::vec3 bestMotion=ai::path::pathfind_astar([this,data,room](glm::vec3 v){
             return is_allowed_at_position(data,v,room);
         },curPos,target,ai::path::default_opt());
-        printf("BESTMOTION %f,%f,%f\n",bestMotion.x,bestMotion.y,bestMotion.z);
-        bestMotion.y=0.1F;
-    //        glm::vec3 bestMotion = glm::normalize(target - curPos);
-//
-//        float jumpVel = 0;
-//        if (bestMotion.y > 0 && !is_allowed_at_position(data, curPos - glm::vec3{0, 1.0F / 30.0F, 0}, room))jumpVel = 5;
-//        bestMotion.y = 0;
 
         data->compound_ref()["motion"]=utils::cast3(bestMotion);
 //        data->compound_ref()["velocity"]->list_ref()[1]->float_ref()+=jumpVel;

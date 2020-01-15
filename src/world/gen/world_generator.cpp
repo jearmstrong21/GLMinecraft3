@@ -26,7 +26,7 @@ namespace block {
         double roughZoom = 0.0025;
         double detailZoom = 0.1;
 
-        int SCALE_FACTOR = 8;
+        int SCALE_FACTOR = 1;
 
         const int SIZE = WORLD_SIZE * 16 / SCALE_FACTOR + 1;
 
@@ -90,7 +90,7 @@ namespace block {
                 if (h < 0)h = 0;
                 if (h >= 256)h = 256;
 
-                h=50;//TODO🎵What🎵can🎵I🎵say🎵except🎵delete🎵this🎵
+//                h=50;//TODO🎵What🎵can🎵I🎵say🎵except🎵delete🎵this🎵
 
                 for (int y = 0; y <= h; y++) {
                     block_state bs = surface.get_for_location(x, y, z, h);
