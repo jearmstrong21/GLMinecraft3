@@ -12,7 +12,7 @@
 namespace ai::path {
 
     struct path_options{
-        int max_nodes;
+//        int max_nodes;
     };
 
     path_options default_opt();

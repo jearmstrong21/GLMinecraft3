@@ -26,7 +26,7 @@ namespace block {
         double roughZoom = 0.0025;
         double detailZoom = 0.1;
 
-        int SCALE_FACTOR = 1;
+        int SCALE_FACTOR = 16;
 
         const int SIZE = WORLD_SIZE * 16 / SCALE_FACTOR + 1;
 

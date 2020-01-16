@@ -255,6 +255,11 @@ namespace client {
                                                       glm::scale(glm::mat4(1), utils::cast3(e.second->compound_ref()["bbsize"])));
                 wireframe_shader->uniform3("color", glm::vec3{1, 0, 0});
                 wireframe_mesh->render_lines();
+
+                wireframe_shader->uniform4x4("model", glm::translate(glm::mat4(1),glm::vec3(0.5)+glm::vec3(glm::ivec3(utils::cast3(e.second->compound_ref()["position"])))));
+                wireframe_shader->uniform3("color", glm::vec3{0, 0, 1});
+                filledcube_mesh->render_triangles();
+//                wireframe_mesh->render_lines();
             }
 
             if (!freecam) {

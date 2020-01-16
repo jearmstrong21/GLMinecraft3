@@ -102,11 +102,20 @@ namespace server {
         return res;
     }
 
+    //kinky amiright
+    glm::ivec3 entity_feet_pos(const std::shared_ptr<nbt::nbt>&data){
+        glm::vec3 p=utils::cast3(data->compound_ref()["position"]);
+        glm::vec3 b=utils::cast3(data->compound_ref()["bbsize"]);
+        return glm::ivec3(p-b/2.1F);
+    }
+
     void entity_type_zombie::update(std::shared_ptr<nbt::nbt> data, game_room *room) const {
         glm::vec3 target{-1, -1, -1};
+        std::shared_ptr<nbt::nbt>target_entity;
         for (auto p:room->entities) {
             if(p.second->compound_ref()["entity_type_id"]->as_int()==1){
                 target=utils::cast3(p.second->compound_ref()["position"]);
+                target_entity=p.second;
             }
         }
         entity_type_base::update(data, room);
@@ -116,10 +125,17 @@ namespace server {
         glm::vec3 curPos=utils::cast3(data->compound_ref()["position"]);
         glm::vec3 bestMotion=ai::path::pathfind_astar([this,data,room](glm::vec3 v){
             return is_allowed_at_position(data,v,room);
-        },curPos,target,ai::path::default_opt());
+        },entity_feet_pos(data),entity_feet_pos(target_entity),ai::path::default_opt());
+
+        float jumpVelChange=0;
+        if(bestMotion.y>0){
+            if(!is_allowed_at_position(data,curPos-glm::vec3{0,1.0F/60.0F,0},room))jumpVelChange+=2.5;
+            bestMotion.y=0;
+        }
+        if(glm::length(bestMotion)>0.01F)bestMotion=glm::normalize(bestMotion);
 
         data->compound_ref()["motion"]=utils::cast3(bestMotion);
-//        data->compound_ref()["velocity"]->list_ref()[1]->float_ref()+=jumpVel;
+        data->compound_ref()["velocity"]->list_ref()[1]->float_ref()+=jumpVelChange;
 
     }
 }
