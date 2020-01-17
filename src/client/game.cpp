@@ -259,50 +259,49 @@ namespace client {
                 wireframe_shader->uniform4x4("model", glm::translate(glm::mat4(1),glm::vec3(0.5)+glm::vec3(glm::ivec3(utils::cast3(e.second->compound_ref()["position"])))));
                 wireframe_shader->uniform3("color", glm::vec3{0, 0, 1});
                 filledcube_mesh->render_triangles();
-//                wireframe_mesh->render_lines();
             }
 
             if (!freecam) {
-                std::shared_ptr<nbt::nbt> interaction_packet = nbt::make_compound({
-                                                                                          {"movement", nbt::make_compound(
+                std::shared_ptr<nbt::nbt> interaction_packet = nbt::nbt_compound::make({
+                                                                                          {"movement", nbt::nbt_compound::make(
                                                                                                   {
-                                                                                                          {"left",   nbt::make_short(
+                                                                                                          {"left",   nbt::nbt_short::make(
                                                                                                                   !is_chat_open &&
                                                                                                                   glfwGetKey(
                                                                                                                           window,
                                                                                                                           GLFW_KEY_A) ==
                                                                                                                   GLFW_PRESS)},
-                                                                                                          {"right",  nbt::make_short(
+                                                                                                          {"right",  nbt::nbt_short::make(
                                                                                                                   !is_chat_open &&
                                                                                                                   glfwGetKey(
                                                                                                                           window,
                                                                                                                           GLFW_KEY_D) ==
                                                                                                                   GLFW_PRESS)},
-                                                                                                          {"back",   nbt::make_short(
+                                                                                                          {"back",   nbt::nbt_short::make(
                                                                                                                   !is_chat_open &&
                                                                                                                   glfwGetKey(
                                                                                                                           window,
                                                                                                                           GLFW_KEY_S) ==
                                                                                                                   GLFW_PRESS)},
-                                                                                                          {"front",  nbt::make_short(
+                                                                                                          {"front",  nbt::nbt_short::make(
                                                                                                                   !is_chat_open &&
                                                                                                                   glfwGetKey(
                                                                                                                           window,
                                                                                                                           GLFW_KEY_W) ==
                                                                                                                   GLFW_PRESS)},
-                                                                                                          {"sprint", nbt::make_short(
+                                                                                                          {"sprint", nbt::nbt_short::make(
                                                                                                                   !is_chat_open &&
                                                                                                                   glfwGetKey(
                                                                                                                           window,
                                                                                                                           GLFW_KEY_LEFT_CONTROL) ==
                                                                                                                   GLFW_PRESS)},
-                                                                                                          {"jump",   nbt::make_short(
+                                                                                                          {"jump",   nbt::nbt_short::make(
                                                                                                                   !is_chat_open &&
                                                                                                                   should_jump
                                                                                                           )}
                                                                                                   })},
                                                                                           {"lookdir", utils::cast3(lookdir)},
-                                                                                          {"chat",     nbt::make_string(
+                                                                                          {"chat",     nbt::nbt_string::make(
                                                                                                   chattosend)}
                                                                                   });
                 should_jump = false;

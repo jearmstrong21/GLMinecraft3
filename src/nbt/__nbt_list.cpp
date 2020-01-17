@@ -15,7 +15,7 @@ namespace nbt {
         read(in, read_type);
     }
 
-    nbt_list::nbt_list(std::vector<std::shared_ptr<nbt>> value) {
+    nbt_list::nbt_list(std::vector<nbt_ptr> value) {
         this->value = std::move(value);
     }
 
@@ -55,7 +55,7 @@ namespace nbt {
         return s;
     }
 
-    std::map<std::string, std::shared_ptr<nbt> > nbt_list::as_compound() const {
+    std::map<std::string,nbt_ptr> nbt_list::as_compound() const {
         RAISE_ERROR("nbt::nbt_list as_compound")
     }
 
@@ -67,7 +67,7 @@ namespace nbt {
         RAISE_ERROR("nbt::nbt_list as_int")
     }
 
-    std::vector<std::shared_ptr<nbt>> nbt_list::as_list() const {
+    std::vector<nbt_ptr> nbt_list::as_list() const {
         return value;
     }
 
@@ -83,7 +83,7 @@ namespace nbt {
         RAISE_ERROR("nbt::nbt_list as_string")
     }
 
-    std::map<std::string, std::shared_ptr<nbt>> &nbt_list::compound_ref() {
+    std::map<std::string,nbt_ptr> &nbt_list::compound_ref() {
         RAISE_ERROR("nbt::nbt_list compound_ref")
     }
 
@@ -95,7 +95,7 @@ namespace nbt {
         RAISE_ERROR("nbt::nbt_list int_ref")
     }
 
-    std::vector<std::shared_ptr<nbt>> &nbt_list::list_ref() {
+    std::vector<nbt_ptr> &nbt_list::list_ref() {
         return value;
     }
 

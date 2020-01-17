@@ -10,6 +10,7 @@
 #include "world/world.h"
 #include "server_player.h"
 #include <boost/asio.hpp>
+#include <utility>
 #include <boost/uuid/uuid.hpp>            // uuid class
 #include <boost/uuid/uuid_generators.hpp> // generators
 #include <boost/uuid/uuid_io.hpp>         // streaming operators etc.
@@ -18,45 +19,38 @@ namespace server {
 
     struct game_room {
         block::world world;
-        std::map<std::string, std::shared_ptr<nbt::nbt>> entities;
         std::set<server_player_ptr> players;
 
         boost::asio::deadline_timer timer;
 
-        entity_type *et_base;
-        entity_type *et_player;
-        entity_type *et_zombie;
-
         std::mutex protect_game_state;
         std::string queued_chat;
+
+        std::map<std::string,entity::entity_ptr>entities;
 
         std::shared_ptr<nbt::nbt> get_entity_list() {
             auto nbt_entities = new nbt::nbt_compound();
             for (const auto &e:entities) {
-                nbt_entities->value[e.first] = e.second;
+                nbt::nbt_compound_ptr compound=std::make_shared<nbt::nbt_compound>();
+                e.second->save(compound);
+                nbt_entities->value[e.first]=compound;
             }
             return std::shared_ptr<nbt::nbt>(nbt_entities);
-        }
-
-        entity_type *get_type(const std::shared_ptr<nbt::nbt> &e) {
-            int id=e->compound_ref()["entity_type_id"]->as_int();
-            if (id == 1)return et_player;
-            if (id == 2)return et_zombie;
-            return et_base;
         }
 
         void frame_handler(boost::system::error_code err) {
             {
                 std::lock_guard<std::mutex> guard(protect_game_state);
 
-                for (const auto &e:entities) {
-                    get_type(e.second)->update(e.second, this);
-                }
+//                for (const auto &e:entities) {
+//                    get_type(e.second)->update(e.second, this);
+//                }
 
-                broadcast_to_all(nbt::make_compound({
+                broadcast_to_all(nbt::nbt_compound::make({
                                                             {"entities", get_entity_list()},
-                                                            {"chat",     nbt::make_string(queued_chat)}
+                                                            {"chat",     nbt::nbt_string::make(queued_chat)}
                                                     }));
+                //TODO: physics XD
                 queued_chat = "";
             }
             //NO LOGIC OUTSIDE OF THIS
@@ -72,15 +66,10 @@ namespace server {
             world.generate_world();
             frame_handler(boost::system::error_code());
 
-            et_base = new entity_type_base();
-            et_player = new entity_type_player();
-            et_zombie = new entity_type_zombie();
         }
 
         ~game_room() {
-            delete et_base;
-            delete et_player;
-            delete et_zombie;
+
         }
 
         std::string get_next_entity_id() {
@@ -89,34 +78,31 @@ namespace server {
             return str.str();
         }
 
-        std::string spawn_entity(const std::shared_ptr<nbt::nbt> &e, glm::vec3 position) {
-            std::string i = get_next_entity_id();
-            e->compound_ref()["id"]=nbt::make_string(i);
-            e->compound_ref()["position"]=utils::cast3(position);
-            entities[i] = e;
-            return i;
+        std::string spawn_entity(const std::function<entity::entity_ptr(const std::string&)>&create){
+            std::string id=get_next_entity_id();
+            entities[id]=create(id);
+            return id;
         }
 
         void join(const server_player_ptr &ptr) {
             std::lock_guard<std::mutex> guard(protect_game_state);
-            spawn_entity(et_zombie->initialize(), {16.1F, 150, 16.1F});
             ptr->send_world(world);
-            std::shared_ptr<nbt::nbt> entity = et_player->initialize();
-            std::string id = spawn_entity(entity, {24, 150, 24});
-            entity->compound_ref()["name"]=nbt::make_string(id);
-            ptr->deliver(nbt::make_compound({
-                                                    {"player_id", nbt::make_string(id)},
+            std::string id=spawn_entity([](const std::string& id){
+                return std::dynamic_pointer_cast<entity::entity>(std::make_shared<entity::entity_player>(id,glm::vec3{24,150,24}));
+            });
+            ptr->entity_id=id;
+            ptr->deliver(nbt::nbt_compound::make({
+                                                    {"player_id", nbt::nbt_string::make(id)},
                                                     {"entities",  get_entity_list()}
                                             }));
             players.insert(ptr);
-            ptr->entity_id = id;
             std::cout << "PLAYER " << ptr->entity_id << " JOINED\n";
             queued_chat = ptr->entity_id + " joined the game";
         }
 
-        void handle_player_interaction_packet(const server_player_ptr &player, const std::shared_ptr<nbt::nbt> data) {
+        void handle_player_interaction_packet(const server_player_ptr &player, const std::shared_ptr<nbt::nbt> &data) {
             std::lock_guard<std::mutex> guard(protect_game_state);
-            std::shared_ptr<nbt::nbt> ent =entities[player->entity_id];
+            entity::entity_ptr ent =entities[player->entity_id];
             {
                 std::shared_ptr<nbt::nbt> movement = data->compound_ref()["movement"];
                 bool left = movement->compound_ref()["left"]->as_short();
@@ -128,8 +114,8 @@ namespace server {
 
                 float d = 1;
                 glm::vec3 newMotion{0, 0, 0};
-                glm::vec3 curLook=utils::cast3(ent->compound_ref()["lookdir"]);
-                glm::vec3 curVel=utils::cast3(ent->compound_ref()["velocity"]);
+                glm::vec3 curLook=ent->lookdir;
+                glm::vec3 curVel=ent->velocity;
                 glm::vec3 leftdir = glm::cross(curLook, glm::vec3{0, -1, 0});
                 leftdir.y = 0;
                 leftdir = glm::normalize(leftdir);
@@ -141,11 +127,11 @@ namespace server {
                 if (left)newMotion += leftdir * d;
                 if (right)newMotion -= leftdir * d;
                 if (jump)curVel.y += 2.5;//TODO: && entity.is grounded
-                ent->compound_ref()["motion"]=utils::cast3(newMotion);
-                ent->compound_ref()["velocity"]=utils::cast3(curVel);
+                ent->motion=newMotion;
+                ent->velocity=curVel;
             }
             {
-                ent->compound_ref()["lookdir"]=utils::cast3(utils::cast3(data->compound_ref()["lookdir"]));
+                ent->lookdir=utils::cast3(data->compound_ref()["lookdir"]);
             }
             {
                 std::string chat = data->compound_ref()["chat"]->as_string();

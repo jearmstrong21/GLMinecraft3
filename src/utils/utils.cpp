@@ -7,34 +7,34 @@
 namespace utils {
 
     float &getx(const std::shared_ptr<nbt::nbt> &list) {
-        return nbt::cast_DEPRECATED_SUN_JAN_12_2020float(nbt::cast_DEPRECATED_SUN_JAN_12_2020list(list)->value[0])->value;
+        return nbt::cast_float(nbt::cast_list(list)->value[0])->value;
     }
 
     float &gety(const std::shared_ptr<nbt::nbt> &list) {
-        return nbt::cast_DEPRECATED_SUN_JAN_12_2020float(nbt::cast_DEPRECATED_SUN_JAN_12_2020list(list)->value[1])->value;
+        return nbt::cast_float(nbt::cast_list(list)->value[1])->value;
     }
 
     float &getz(const std::shared_ptr<nbt::nbt> &list) {
-        return nbt::cast_DEPRECATED_SUN_JAN_12_2020float(nbt::cast_DEPRECATED_SUN_JAN_12_2020list(list)->value[2])->value;
+        return nbt::cast_float(nbt::cast_list(list)->value[2])->value;
     }
 
     glm::vec3 cast3(const std::shared_ptr<nbt::nbt> &list) {
-        return glm::vec3{nbt::cast_DEPRECATED_SUN_JAN_12_2020float(nbt::cast_DEPRECATED_SUN_JAN_12_2020list(list)->value[0])->value,
-                         nbt::cast_DEPRECATED_SUN_JAN_12_2020float(nbt::cast_DEPRECATED_SUN_JAN_12_2020list(list)->value[1])->value,
-                         nbt::cast_DEPRECATED_SUN_JAN_12_2020float(nbt::cast_DEPRECATED_SUN_JAN_12_2020list(list)->value[2])->value};
+        return glm::vec3{nbt::cast_float(nbt::cast_list(list)->value[0])->value,
+                         nbt::cast_float(nbt::cast_list(list)->value[1])->value,
+                         nbt::cast_float(nbt::cast_list(list)->value[2])->value};
     }
 
     std::shared_ptr<nbt::nbt> cast3(glm::vec3 v) {
-        return nbt::make_list({nbt::make_float(v.x), nbt::make_float(v.y), nbt::make_float(v.z)});
+        return nbt::nbt_list::make({nbt::nbt_float::make(v.x), nbt::nbt_float::make(v.y), nbt::nbt_float::make(v.z)});
     }
 
     glm::vec2 cast2(const std::shared_ptr<nbt::nbt> &list) {
-        return glm::vec2{nbt::cast_DEPRECATED_SUN_JAN_12_2020float(nbt::cast_DEPRECATED_SUN_JAN_12_2020list(list)->value[0])->value,
-                         nbt::cast_DEPRECATED_SUN_JAN_12_2020float(nbt::cast_DEPRECATED_SUN_JAN_12_2020list(list)->value[1])->value};
+        return glm::vec2{nbt::cast_float(nbt::cast_list(list)->value[0])->value,
+                         nbt::cast_float(nbt::cast_list(list)->value[1])->value};
     }
 
     std::shared_ptr<nbt::nbt> cast2(glm::vec2 v) {
-        return nbt::make_list({nbt::make_float(v.x), nbt::make_float(v.y)});
+        return nbt::nbt_list::make({nbt::nbt_float::make(v.x), nbt::nbt_float::make(v.y)});
     }
 
 }

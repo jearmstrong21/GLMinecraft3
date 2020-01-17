@@ -137,7 +137,6 @@ set(SOURCE_FILES
         src/nbt/__nbt_utils.cpp
         src/nbt/nbt.cpp
 
-        src/entity/entity.cpp
         src/client/render_entity/entity_render.cpp
 
         src/server.cpp

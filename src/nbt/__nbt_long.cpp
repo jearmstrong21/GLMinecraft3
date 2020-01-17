@@ -39,7 +39,7 @@ namespace nbt {
         return nbt_type_long;
     }
 
-    std::map<std::string, std::shared_ptr<nbt> > nbt_long::as_compound() const {
+    std::map<std::string, nbt_ptr > nbt_long::as_compound() const {
         RAISE_ERROR("nbt::nbt_long as_compound")
     }
 
@@ -51,7 +51,7 @@ namespace nbt {
         return value;
     }
 
-    std::vector<std::shared_ptr<nbt>> nbt_long::as_list() const {
+    std::vector<nbt_ptr> nbt_long::as_list() const {
         RAISE_ERROR("nbt::nbt_long as_list")
     }
 
@@ -67,7 +67,7 @@ namespace nbt {
         return std::to_string(value);
     }
 
-    std::map<std::string, std::shared_ptr<nbt>> &nbt_long::compound_ref() {
+    std::map<std::string, nbt_ptr> &nbt_long::compound_ref() {
         RAISE_ERROR("nbt::nbt_long compound_ref")
     }
 
@@ -79,7 +79,7 @@ namespace nbt {
         RAISE_ERROR("nbt::nbt_long int_ref")
     }
 
-    std::vector<std::shared_ptr<nbt>> &nbt_long::list_ref() {
+    std::vector<nbt_ptr> &nbt_long::list_ref() {
         RAISE_ERROR("nbt::nbt_long list_ref")
     }
 

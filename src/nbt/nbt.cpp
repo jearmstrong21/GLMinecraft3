@@ -6,25 +6,6 @@
 
 namespace nbt {
 
-    const std::function<std::shared_ptr<nbt>(const short &value)> make_short = make<nbt_short, short>;
-    const std::function<std::shared_ptr<nbt>(const int &value)> make_int = make<nbt_int, int>;
-    const std::function<std::shared_ptr<nbt>(const float &value)> make_float = make<nbt_float, float>;
-    const std::function<std::shared_ptr<nbt>(const long &value)> make_long = make<nbt_long, long>;
-    const std::function<std::shared_ptr<nbt>(const std::string &value)> make_string = make<nbt_string, std::string>;
-    const std::function<std::shared_ptr<nbt>(
-            const std::map<std::string, std::shared_ptr<nbt>> &value)> make_compound = make<nbt_compound, std::map<std::string, std::shared_ptr<nbt>>>;
-    const std::function<std::shared_ptr<nbt>(
-            const std::vector<std::shared_ptr<nbt>> &value)> make_list = make<nbt_list, std::vector<std::shared_ptr<nbt>>>;
-
-    const std::function<std::shared_ptr<nbt_short>(const std::shared_ptr<nbt> &value)> cast_DEPRECATED_SUN_JAN_12_2020short = cast<nbt_short>;
-    const std::function<std::shared_ptr<nbt_int>(const std::shared_ptr<nbt> &value)> cast_DEPRECATED_SUN_JAN_12_2020int = cast<nbt_int>;
-    const std::function<std::shared_ptr<nbt_float>(const std::shared_ptr<nbt> &value)> cast_DEPRECATED_SUN_JAN_12_2020float = cast<nbt_float>;
-    const std::function<std::shared_ptr<nbt_long>(const std::shared_ptr<nbt> &value)> cast_DEPRECATED_SUN_JAN_12_2020long = cast<nbt_long>;
-    const std::function<std::shared_ptr<nbt_string>(const std::shared_ptr<nbt> &value)> cast_DEPRECATED_SUN_JAN_12_2020string = cast<nbt_string>;
-    const std::function<std::shared_ptr<nbt_compound>(
-            const std::shared_ptr<nbt> &value)> cast_DEPRECATED_SUN_JAN_12_2020compound = cast<nbt_compound>;
-    const std::function<std::shared_ptr<nbt_list>(const std::shared_ptr<nbt> &value)> cast_DEPRECATED_SUN_JAN_12_2020list = cast<nbt_list>;
-
     std::shared_ptr<nbt> read_nbt(std::istream &in) noexcept {
         int type;
         bin_read(in, &type);
@@ -48,4 +29,18 @@ namespace nbt {
         }
     }
 
+    nbt_compound_ptr cast_compound(nbt_ptr p){return std::dynamic_pointer_cast<nbt_compound>(p);}
+    nbt_ptr cast_compound(nbt_compound_ptr p){return std::dynamic_pointer_cast<nbt>(p);}
+    nbt_float_ptr cast_float(nbt_ptr p){return std::dynamic_pointer_cast<nbt_float>(p);}
+    nbt_ptr cast_float(nbt_float_ptr p){return std::dynamic_pointer_cast<nbt>(p);}
+    nbt_int_ptr cast_int(nbt_ptr p){return std::dynamic_pointer_cast<nbt_int>(p);}
+    nbt_ptr cast_int(nbt_int_ptr p){return std::dynamic_pointer_cast<nbt>(p);}
+    nbt_list_ptr cast_list(nbt_ptr p){return std::dynamic_pointer_cast<nbt_list>(p);}
+    nbt_ptr cast_list(nbt_list_ptr p){return std::dynamic_pointer_cast<nbt>(p);}
+    nbt_long_ptr cast_long(nbt_ptr p){return std::dynamic_pointer_cast<nbt_long>(p);}
+    nbt_ptr cast_long(nbt_long_ptr p){return std::dynamic_pointer_cast<nbt>(p);}
+    nbt_short_ptr cast_short(nbt_ptr p){return std::dynamic_pointer_cast<nbt_short>(p);}
+    nbt_ptr cast_short(nbt_short_ptr p){return std::dynamic_pointer_cast<nbt>(p);}
+    nbt_string_ptr cast_string(nbt_ptr p){return std::dynamic_pointer_cast<nbt_string>(p);}
+    nbt_ptr cast_string(nbt_string_ptr p){return std::dynamic_pointer_cast<nbt>(p);}
 }

@@ -41,7 +41,7 @@ namespace nbt {
 
     }
 
-    std::map<std::string, std::shared_ptr<nbt> > nbt_float::as_compound() const {
+    std::map<std::string, nbt_ptr > nbt_float::as_compound() const {
         RAISE_ERROR("nbt::nbt_float as_compound")
     }
 
@@ -53,7 +53,7 @@ namespace nbt {
         return value;
     }
 
-    std::vector<std::shared_ptr<nbt>> nbt_float::as_list() const {
+    std::vector<nbt_ptr> nbt_float::as_list() const {
         RAISE_ERROR("nbt::nbt_float as_list")
     }
 
@@ -69,7 +69,7 @@ namespace nbt {
         return std::to_string(value);
     }
 
-    std::map<std::string, std::shared_ptr<nbt>> &nbt_float::compound_ref() {
+    std::map<std::string, nbt_ptr> &nbt_float::compound_ref() {
         RAISE_ERROR("nbt::nbt_float compound_ref")
     }
 
@@ -81,7 +81,7 @@ namespace nbt {
         RAISE_ERROR("nbt::nbt_float int_ref")
     }
 
-    std::vector<std::shared_ptr<nbt>> &nbt_float::list_ref() {
+    std::vector<nbt_ptr> &nbt_float::list_ref() {
         RAISE_ERROR("nbt::nbt_float list_ref")
     }
 
