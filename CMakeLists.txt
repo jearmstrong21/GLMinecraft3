@@ -143,7 +143,7 @@ set(SOURCE_FILES
         src/client.cpp
         src/both.h
         src/world/gen/world_generator.cpp src/world/gen/world_generator.h src/world/gen/biome/biome.cpp src/world/gen/biome/biome.h
-        src/ai/pathfinding.cpp)
+        src/ai/pathfinding.cpp src/item/item.cpp src/item/item.h)
 
 if (APPLE)
     include_directories(/usr/local/include/GLFW)
