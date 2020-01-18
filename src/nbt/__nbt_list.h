@@ -35,7 +35,7 @@ namespace nbt {
 
         [[nodiscard]] std::string to_str(std::string indent) const override;
 
-        [[nodiscard]] std::map<std::string, nbt_ptr > as_compound() const override;
+        [[nodiscard]] std::map<std::string, nbt_ptr> as_compound() const override;
 
         [[nodiscard]] float as_float() const override;
 
@@ -49,7 +49,7 @@ namespace nbt {
 
         [[nodiscard]] std::string as_string() const override;
 
-        [[nodiscard]] std::map<std::string,nbt_ptr> &compound_ref() override;
+        [[nodiscard]] std::map<std::string, nbt_ptr> &compound_ref() override;
 
         [[nodiscard]] float &float_ref() override;
 
@@ -63,7 +63,7 @@ namespace nbt {
 
         [[nodiscard]] std::string &string_ref() override;
 
-        static nbt_ptr make(const std::vector<nbt_ptr>&value){
+        static nbt_ptr make(const std::vector<nbt_ptr> &value) {
             return std::shared_ptr<nbt>(new nbt_list(value));
         }
 

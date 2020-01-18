@@ -59,7 +59,7 @@ namespace nbt {
 
         [[nodiscard]] std::string &string_ref() override;
 
-        static nbt_ptr make(const int&value){
+        static nbt_ptr make(const int &value) {
             return std::shared_ptr<nbt>(new nbt_int(value));
         }
 

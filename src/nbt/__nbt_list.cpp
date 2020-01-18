@@ -55,7 +55,7 @@ namespace nbt {
         return s;
     }
 
-    std::map<std::string,nbt_ptr> nbt_list::as_compound() const {
+    std::map<std::string, nbt_ptr> nbt_list::as_compound() const {
         RAISE_ERROR("nbt::nbt_list as_compound")
     }
 
@@ -83,7 +83,7 @@ namespace nbt {
         RAISE_ERROR("nbt::nbt_list as_string")
     }
 
-    std::map<std::string,nbt_ptr> &nbt_list::compound_ref() {
+    std::map<std::string, nbt_ptr> &nbt_list::compound_ref() {
         RAISE_ERROR("nbt::nbt_list compound_ref")
     }
 

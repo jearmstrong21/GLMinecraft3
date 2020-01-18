@@ -39,7 +39,7 @@ namespace nbt {
         return nbt_type_long;
     }
 
-    std::map<std::string, nbt_ptr > nbt_long::as_compound() const {
+    std::map<std::string, nbt_ptr> nbt_long::as_compound() const {
         RAISE_ERROR("nbt::nbt_long as_compound")
     }
 

@@ -84,7 +84,8 @@ add_custom_command(
 #src/gen_assets/TEXTURE_entity_steve.c
 #src/gen_assets/TEXTURE_entity_zombie.c
 #
-set(SOURCE_FILES
+file(GLOB_RECURSE SOURCE_FILES "*.cpp")
+list(APPEND
         src/gen_assets/SHADER_chunk_vert.c
         src/gen_assets/SHADER_chunk_frag.c
         src/gen_assets/SHADER_wireframe_vert.c
@@ -97,53 +98,7 @@ set(SOURCE_FILES
         src/gen_assets/SHADER_entity_frag.c
         src/gen_assets/TEXTURE_entity_steve.c
         src/gen_assets/TEXTURE_entity_zombie.c
-
-        src/main.cpp
-        src/utils/noise/noise.cpp
-        src/gl/gl.cpp
-        src/gl/glad.cpp
-        src/gl/texture.cpp
-        src/gl/shader.cpp
-        src/gl/mesh.cpp
-        src/client/game.cpp
-        src/client/block_rendering.cpp
-        src/client/rendered_chunk.cpp
-        src/utils/registry.cpp
-        src/utils/utils.cpp
-        src/block/blockstate.cpp
-        src/block/block.cpp
-        src/world/world.cpp
-        src/block/blocks.cpp
-
-        src/block/types/block_grass.cpp
-        src/block/types/block_dirt.cpp
-        src/block/types/block_stone.cpp
-        src/block/types/block_none.cpp
-
-        src/world/gen/carver/base_carver.cpp
-        src/world/gen/features/base_feature.cpp
-        src/world/gen/surface/base_surface.cpp
-        src/world/gen/structures/base_structure.cpp
-        src/world/gen/surface/simple_grass_surface.cpp
-        src/world/gen/carver/simple_carver.cpp
-
-        src/nbt/__nbt_compound.cpp
-        src/nbt/__nbt_float.cpp
-        src/nbt/__nbt_int.cpp
-        src/nbt/__nbt_list.cpp
-        src/nbt/__nbt_long.cpp
-        src/nbt/__nbt_short.cpp
-        src/nbt/__nbt_string.cpp
-        src/nbt/__nbt_utils.cpp
-        src/nbt/nbt.cpp
-
-        src/client/render_entity/entity_render.cpp
-
-        src/server.cpp
-        src/client.cpp
-        src/both.h
-        src/world/gen/world_generator.cpp src/world/gen/world_generator.h src/world/gen/biome/biome.cpp src/world/gen/biome/biome.h
-        src/ai/pathfinding.cpp)
+        )
 
 if (APPLE)
     include_directories(/usr/local/include/GLFW)

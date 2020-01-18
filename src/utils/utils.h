@@ -62,15 +62,19 @@ namespace utils {
 
 //    namespace
 
-    float& getx(const std::shared_ptr<nbt::nbt>&list);
-    float& gety(const std::shared_ptr<nbt::nbt>&list);
-    float& getz(const std::shared_ptr<nbt::nbt>&list);
+    float &getx(const std::shared_ptr<nbt::nbt> &list);
 
-    glm::vec3 cast3(const std::shared_ptr<nbt::nbt>&list);
-    std::shared_ptr<nbt::nbt>cast3(glm::vec3 v);
+    float &gety(const std::shared_ptr<nbt::nbt> &list);
 
-    glm::vec2 cast2(const std::shared_ptr<nbt::nbt>&list);
-    std::shared_ptr<nbt::nbt>cast2(glm::vec2 v);
+    float &getz(const std::shared_ptr<nbt::nbt> &list);
+
+    glm::vec3 cast3(const std::shared_ptr<nbt::nbt> &list);
+
+    std::shared_ptr<nbt::nbt> cast3(glm::vec3 v);
+
+    glm::vec2 cast2(const std::shared_ptr<nbt::nbt> &list);
+
+    std::shared_ptr<nbt::nbt> cast2(glm::vec2 v);
 
 }
 

@@ -51,7 +51,7 @@ namespace nbt {
 
     }
 
-    std::map<std::string, nbt_ptr > nbt_string::as_compound() const {
+    std::map<std::string, nbt_ptr> nbt_string::as_compound() const {
         RAISE_ERROR("nbt::nbt_string as_compound")
     }
 

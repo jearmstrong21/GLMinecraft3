@@ -38,9 +38,9 @@ namespace client {
         gl::mesh *wireframe_mesh;
         gl::mesh *filledcube_mesh;
         text_renderer *text_rend;
-        entity_render*ent_rend;
+        entity_render *ent_rend;
         float rotX = 0, rotY = 0;
-        bool attemptQuit=false;
+        bool attemptQuit = false;
 
         void render_world();
 

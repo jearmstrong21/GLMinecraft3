@@ -39,7 +39,7 @@ namespace nbt {
         return std::to_string(value) + "S";
     }
 
-    std::map<std::string, nbt_ptr > nbt_short::as_compound() const {
+    std::map<std::string, nbt_ptr> nbt_short::as_compound() const {
         RAISE_ERROR("nbt::nbt_short as_compound")
     }
 

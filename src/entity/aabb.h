@@ -13,12 +13,12 @@ namespace entity {
 
         glm::vec3 pos, size;
 
-        glm::vec3 min(){
-            return pos-size*glm::vec3{0.5,0,0.5};
+        glm::vec3 min() {
+            return pos - size * glm::vec3{0.5, 0, 0.5};
         }
 
-        glm::vec3 max(){
-            return pos+size*glm::vec3{0.5,1,0.5};
+        glm::vec3 max() {
+            return pos + size * glm::vec3{0.5, 1, 0.5};
         }
 
     };
