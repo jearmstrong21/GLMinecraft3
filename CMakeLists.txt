@@ -111,11 +111,8 @@ set(SOURCE_FILES )
 list(APPEND SOURCE_FILES ${SOURCE_FILES_SRC})
 list(APPEND SOURCE_FILES ${SOURCE_FILES_LIB})
 list(APPEND SOURCE_FILES ${SOURCE_FILES_GEN})
-#file(GLOB_RECURSE SOURCE_FILES "lib/*.cpp")
 
-#print(${SOURCE_FILES})
 message(STATUS "source files are: "${SOURCE_FILES})
-#file(GLOB_RECURSE SOURCE_FILES "*.cpp")
 
 if (APPLE)
     include_directories(/usr/local/include/GLFW)
