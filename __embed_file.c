@@ -34,7 +34,7 @@ int main(int argc, char **argv) {
     snprintf(symfile, sizeof(symfile), "%s.c", sym);
 
     char targetfile[256];
-    strcpy(targetfile, "../src/gen_assets/");
+    strcpy(targetfile, "../lib/gen_assets/");
     strcat(targetfile, sym);
     strcat(targetfile, ".c");
     printf("**** EMBED FILE %s %s %s %s ****\n", sym, argv[2], cwd, targetfile);

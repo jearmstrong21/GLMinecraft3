@@ -5,7 +5,7 @@
 #ifndef GLMC_GL_H
 #define GLMC_GL_H
 
-#include "glad.h"
+#include "../../lib/glad.h"
 #include <GLFW/glfw3.h>
 #include <cstdio>
 #include <string>

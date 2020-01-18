@@ -11,94 +11,111 @@ include_directories(src)
 add_executable(embedfile __embed_file.c)
 #execute_process(COMMAND embedfile )
 add_custom_command(
-        OUTPUT ../src/gen_assets/SHADER_chunk_vert.c
+        OUTPUT ../lib/gen_assets/SHADER_chunk_vert.c
         COMMAND embedfile SHADER_chunk_vert ../src/assets/shaders/chunk.vert
         DEPENDS src/assets/shaders/chunk.vert
 )
 add_custom_command(
-        OUTPUT ../src/gen_assets/SHADER_chunk_frag.c
+        OUTPUT ../lib/gen_assets/SHADER_chunk_frag.c
         COMMAND embedfile SHADER_chunk_frag ../src/assets/shaders/chunk.frag
         DEPENDS src/assets/shaders/chunk.frag
 )
 add_custom_command(
-        OUTPUT ../src/gen_assets/SHADER_wireframe_vert.c
+        OUTPUT ../lib/gen_assets/SHADER_wireframe_vert.c
         COMMAND embedfile SHADER_wireframe_vert ../src/assets/shaders/wireframe.vert
         DEPENDS src/assets/shaders/wireframe.vert
 )
 add_custom_command(
-        OUTPUT ../src/gen_assets/SHADER_wireframe_frag.c
+        OUTPUT ../lib/gen_assets/SHADER_wireframe_frag.c
         COMMAND embedfile SHADER_wireframe_frag ../src/assets/shaders/wireframe.frag
         DEPENDS src/assets/shaders/wireframe.frag
 )
 add_custom_command(
-        OUTPUT ../src/gen_assets/TEXTURE_1_8_textures_0_png.c
+        OUTPUT ../lib/gen_assets/TEXTURE_1_8_textures_0_png.c
         COMMAND embedfile TEXTURE_1_8_textures_0_png ../src/assets/textures/1.8_textures_0.png
         DEPENDS src/assets/textures/1.8_textures_0.png
 )
 add_custom_command(
-        OUTPUT ../src/gen_assets/TEXTURE_ascii_png.c
+        OUTPUT ../lib/gen_assets/TEXTURE_ascii_png.c
         COMMAND embedfile TEXTURE_ascii_png ../src/assets/textures/ascii.png
         DEPENDS src/assets/textures/ascii.png
 )
 add_custom_command(
-        OUTPUT ../src/gen_assets/SHADER_text_frag.c
+        OUTPUT ../lib/gen_assets/SHADER_text_frag.c
         COMMAND embedfile SHADER_text_frag ../src/assets/shaders/text.frag
         DEPENDS src/assets/shaders/text.frag
 )
 add_custom_command(
-        OUTPUT ../src/gen_assets/SHADER_text_vert.c
+        OUTPUT ../lib/gen_assets/SHADER_text_vert.c
         COMMAND embedfile SHADER_text_vert ../src/assets/shaders/text.vert
         DEPENDS src/assets/shaders/text.vert
 )
 add_custom_command(
-        OUTPUT ../src/gen_assets/SHADER_entity_frag.c
+        OUTPUT ../lib/gen_assets/SHADER_entity_frag.c
         COMMAND embedfile SHADER_entity_frag ../src/assets/shaders/entity.frag
         DEPENDS src/assets/shaders/entity.frag
 )
 add_custom_command(
-        OUTPUT ../src/gen_assets/SHADER_entity_vert.c
+        OUTPUT ../lib/gen_assets/SHADER_entity_vert.c
         COMMAND embedfile SHADER_entity_vert ../src/assets/shaders/entity.vert
         DEPENDS src/assets/shaders/entity.vert
 )
 add_custom_command(
-        OUTPUT ../src/gen_assets/TEXTURE_entity_steve.c
+        OUTPUT ../lib/gen_assets/TEXTURE_entity_steve.c
         COMMAND embedfile TEXTURE_entity_steve ../src/assets/textures/steve.png
         DEPENDS src/assets/textures/steve.png
 )
 add_custom_command(
-        OUTPUT ../src/gen_assets/TEXTURE_entity_zombie.c
+        OUTPUT ../lib/gen_assets/TEXTURE_entity_zombie.c
         COMMAND embedfile TEXTURE_entity_zombie ../src/assets/textures/zombie.png
         DEPENDS src/assets/textures/zombie.png
 )
 #
-#src/gen_assets/SHADER_chunk_vert.c
-#src/gen_assets/SHADER_chunk_frag.c
-#src/gen_assets/SHADER_wireframe_vert.c
-#src/gen_assets/SHADER_wireframe_frag.c
-#src/gen_assets/TEXTURE_1_8_textures_0_png.c
-#src/gen_assets/TEXTURE_ascii_png.c
-#src/gen_assets/SHADER_text_vert.c
-#src/gen_assets/SHADER_text_frag.c
-#src/gen_assets/SHADER_entity_vert.c
-#src/gen_assets/SHADER_entity_frag.c
-#src/gen_assets/TEXTURE_entity_steve.c
-#src/gen_assets/TEXTURE_entity_zombie.c
+#lib/gen_assets/SHADER_chunk_vert.c
+#lib/gen_assets/SHADER_chunk_frag.c
+#lib/gen_assets/SHADER_wireframe_vert.c
+#lib/gen_assets/SHADER_wireframe_frag.c
+#lib/gen_assets/TEXTURE_1_8_textures_0_png.c
+#lib/gen_assets/TEXTURE_ascii_png.c
+#lib/gen_assets/SHADER_text_vert.c
+#lib/gen_assets/SHADER_text_frag.c
+#lib/gen_assets/SHADER_entity_vert.c
+#lib/gen_assets/SHADER_entity_frag.c
+#lib/gen_assets/TEXTURE_entity_steve.c
+#lib/gen_assets/TEXTURE_entity_zombie.c
 #
-file(GLOB_RECURSE SOURCE_FILES "*.cpp")
-list(APPEND
-        src/gen_assets/SHADER_chunk_vert.c
-        src/gen_assets/SHADER_chunk_frag.c
-        src/gen_assets/SHADER_wireframe_vert.c
-        src/gen_assets/SHADER_wireframe_frag.c
-        src/gen_assets/TEXTURE_1_8_textures_0_png.c
-        src/gen_assets/TEXTURE_ascii_png.c
-        src/gen_assets/SHADER_text_vert.c
-        src/gen_assets/SHADER_text_frag.c
-        src/gen_assets/SHADER_entity_vert.c
-        src/gen_assets/SHADER_entity_frag.c
-        src/gen_assets/TEXTURE_entity_steve.c
-        src/gen_assets/TEXTURE_entity_zombie.c
+file(GLOB_RECURSE SOURCE_FILES_SRC "src/**/*.cpp")
+file(GLOB_RECURSE SOURCE_FILES_SRC1 "src/*.cpp")
+list(APPEND SOURCE_FILES_SRC ${SOURCE_FILES_SRC1})
+
+file(GLOB_RECURSE SOURCE_FILES_LIB "lib/**/*.cpp")
+file(GLOB_RECURSE SOURCE_FILES_LIB1 "lib/*.cpp")
+list(APPEND SOURCE_FILES_LIB ${SOURCE_FILES_LIB1})
+
+set(SOURCE_FILES_GEN
+        lib/gen_assets/SHADER_chunk_vert.c
+        lib/gen_assets/SHADER_chunk_frag.c
+        lib/gen_assets/SHADER_wireframe_vert.c
+        lib/gen_assets/SHADER_wireframe_frag.c
+        lib/gen_assets/TEXTURE_1_8_textures_0_png.c
+        lib/gen_assets/TEXTURE_ascii_png.c
+        lib/gen_assets/SHADER_text_vert.c
+        lib/gen_assets/SHADER_text_frag.c
+        lib/gen_assets/SHADER_entity_vert.c
+        lib/gen_assets/SHADER_entity_frag.c
+        lib/gen_assets/TEXTURE_entity_steve.c
+        lib/gen_assets/TEXTURE_entity_zombie.c
         )
+
+set(SOURCE_FILES )
+list(APPEND SOURCE_FILES ${SOURCE_FILES_SRC})
+list(APPEND SOURCE_FILES ${SOURCE_FILES_LIB})
+list(APPEND SOURCE_FILES ${SOURCE_FILES_GEN})
+#file(GLOB_RECURSE SOURCE_FILES "lib/*.cpp")
+
+#print(${SOURCE_FILES})
+message(STATUS "source files are: "${SOURCE_FILES})
+#file(GLOB_RECURSE SOURCE_FILES "*.cpp")
 
 if (APPLE)
     include_directories(/usr/local/include/GLFW)

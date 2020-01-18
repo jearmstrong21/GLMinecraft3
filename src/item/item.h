@@ -6,7 +6,7 @@
 #define GLMINECRAFT3_ITEM_H
 
 
-#include <nbt/__nbt_compound.h>
+#include <nbt/nbt.h>
 
 namespace item {
     struct item;
