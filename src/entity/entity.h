@@ -11,18 +11,19 @@
 #include "nbt/nbt.h"
 #include "entity_id.h"
 #include "utils/utils.h"
+#include <memory>
 
 namespace entity {
 
     struct entity {
 
-        aabb box;
-        glm::vec3 velocity;
-        glm::vec3 motion;
+        aabb box{};
+        glm::vec3 velocity{};
+        glm::vec3 motion{};
         std::string id;
-        glm::vec3 lookdir;
+        glm::vec3 lookdir{};
 
-        entity(std::string id) : id(std::move(id)) {
+        explicit entity(std::string id) : id(std::move(id)) {
 
         }
 
