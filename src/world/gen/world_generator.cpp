@@ -7,6 +7,7 @@
 #include <vector>
 #include <memory>
 #include <glm/glm.hpp>
+#include <server/game_room.h>
 #include "utils/noise/noise.h"
 #include "utils/utils.h"
 #include "world_generator.h"
@@ -16,7 +17,6 @@
 
 namespace block {
     void world_generator::generate_world(world *world) {
-        printf("GENERATE WORLD THIS SHOULD ONLY PRINT ON SERVER\n");
         int seed = time(nullptr);
 
         std::shared_ptr<utils::noise::perlin> elevNoise = std::make_shared<utils::noise::perlin>(seed + 0);
@@ -34,6 +34,7 @@ namespace block {
         double roughPoints[SIZE][SIZE];
         double detailPoints[SIZE][SIZE];
 
+        server::profiler()->push("generate noise points");
         for (int x = 0; x < SIZE; x++) {
             for (int z = 0; z < SIZE; z++) {
                 int rx = x * SCALE_FACTOR;
@@ -43,6 +44,7 @@ namespace block {
                 detailPoints[x][z] = detailNoise->get(rx * detailZoom, 0, rz * detailZoom);
             }
         }
+        server::profiler()->pop();
 
         auto interpolate = [&](int x, int z, int type) {
             int x0 = x / SCALE_FACTOR;
@@ -78,6 +80,7 @@ namespace block {
         ::world::gen::simple_grass_surface surface(seed);
         ::world::gen::simple_carver carver(seed);
 
+        server::profiler()->push("fill");
         for (int x = 0; x < WORLD_SIZE * 16; x++) {
             for (int z = 0; z < WORLD_SIZE * 16; z++) {
                 double elev = interpolate(x, z, 0);
@@ -99,7 +102,10 @@ namespace block {
                 }
             }
         }
+        server::profiler()->pop();
 
+        server::profiler()->push("carve");
         carver.carve(world, &world::set);
+        server::profiler()->pop();
     }
 }

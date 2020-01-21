@@ -3,6 +3,7 @@
 //
 
 #include <memory>
+#include <server/game_room.h>
 #include "world.h"
 
 namespace block {
@@ -39,6 +40,8 @@ namespace block {
     }
 
     void world::generate_world() {
+        server::profiler()->push("world generate overworld");
         this->generator.generate_world(this);
+        server::profiler()->pop();
     }
 }

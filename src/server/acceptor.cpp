@@ -9,6 +9,7 @@
 namespace server {
 
     void acceptor::do_accept() {
+        if(game_room::instance->game_loop_is_over)return;
         acc.async_accept([this](boost::system::error_code err, boost::asio::ip::tcp::socket socket) {
             std::cout << "async_accept\n ";
             if (!err) {

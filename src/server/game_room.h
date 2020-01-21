@@ -14,11 +14,17 @@
 #include <boost/uuid/uuid.hpp>            // uuid class
 #include <boost/uuid/uuid_generators.hpp> // generators
 #include <boost/uuid/uuid_io.hpp>         // streaming operators etc.
-#include "entity/entity_physics.h"
+#include "entity/entity.h"
 
 namespace server {
 
     struct game_room {
+
+        static game_room* instance;
+
+        utils::profiler profiler;
+        bool game_loop_is_over;
+
         block::world world;
         std::set<server_player_ptr> players;
 
@@ -51,6 +57,8 @@ namespace server {
 
         void broadcast_to_all(const std::shared_ptr<nbt::nbt> &msg);
     };
+
+    utils::profiler* profiler();
 
 }
 

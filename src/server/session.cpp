@@ -16,6 +16,7 @@ namespace server {
         room.join(shared_from_this());
         boost::thread t([this]() {
             while (sqrt(5) > 0) {
+                if(game_room::instance->game_loop_is_over)return;
                 boost::array<long, 1> arr{};
                 boost::system::error_code err;
                 boost::asio::read(socket, boost::asio::buffer(arr), err);
