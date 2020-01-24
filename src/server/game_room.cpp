@@ -3,13 +3,32 @@
 //
 
 #include "game_room.h"
-
+#include "utils/profiler.h"
 namespace server {
 
     game_room* game_room::instance;
 
     game_room::game_room(boost::asio::io_context &io_context) : timer(io_context,
                                                                       boost::posix_time::milliseconds(0)){
+        utils::profiler p;
+        p.start_tick();
+
+        p.push("a");
+
+            p.push("b");
+
+                p.push("c");
+                p.pop();
+
+                p.push("d");
+                p.pop();
+
+            p.pop();
+
+        p.pop();
+
+        p.end_tick();
+        p.print();
         instance=this;
         game_loop_is_over=false;
         world.generate_world();
