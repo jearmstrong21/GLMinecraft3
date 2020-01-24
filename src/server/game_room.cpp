@@ -8,22 +8,16 @@ namespace server {
 
     game_room* game_room::instance;
 
-    utils::profiler* profiler(){
-        return &game_room::instance->profiler;
-    }
-
     game_room::game_room(boost::asio::io_context &io_context) : timer(io_context,
-                                                                      boost::posix_time::milliseconds(0)),
-                                                                      profiler("game_room"){
+                                                                      boost::posix_time::milliseconds(0)){
         instance=this;
         game_loop_is_over=false;
-        profiler.push("game");
         world.generate_world();
         frame_handler(boost::system::error_code());
-        std::cout<<"\npress RETURN to exit\n";
-        std::string s;
-        std::getline(std::cin,s);
-        game_loop_is_over=true;
+//        std::cout<<"\npress RETURN to exit\n";
+//        std::string s;
+//        std::getline(std::cin,s);
+//        game_loop_is_over=true;
     }
 
     std::shared_ptr<nbt::nbt> game_room::get_entity_list() {
@@ -49,6 +43,7 @@ namespace server {
                                                              {"entities", get_entity_list()},
                                                              {"chat",     nbt::nbt_string::make(queued_chat)}
                                                      }));
+
             //TODO: physics XD
             queued_chat = "";
         }
@@ -61,9 +56,7 @@ namespace server {
     }
 
     game_room::~game_room(){
-        profiler.pop_all();
-        profiler.output(std::cout);
-        profiler.cleanup();
+
     }
 
     std::string game_room::get_next_entity_id() {
@@ -80,6 +73,7 @@ namespace server {
 
     void game_room::join(const server_player_ptr &ptr) {
         std::lock_guard<std::mutex> guard(protect_game_state);
+        std::cout<<"game_room::join guard\n";
         ptr->send_world(world);
         std::string id = spawn_entity([](const std::string &id) {
             return std::dynamic_pointer_cast<entity::entity>(

@@ -19,7 +19,6 @@
 #include <nbt/nbt.h>
 //#include <chronos>
 #include <csignal>
-#include "profiler.h"
 
 #define RAISE_ERROR(err){printf("RAISE_ERROR %s,%i: %s\n",__FILE__,__LINE__,err);std::raise(11);}
 #define EXIT_WITH_ERROR(err) {printf("EXIT_WITH_ERROR %s,%i: %s\n",__FILE__,__LINE__,err);exit(1);}

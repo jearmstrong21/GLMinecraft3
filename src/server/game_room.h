@@ -22,7 +22,6 @@ namespace server {
 
         static game_room* instance;
 
-        utils::profiler profiler;
         bool game_loop_is_over;
 
         block::world world;
@@ -57,8 +56,6 @@ namespace server {
 
         void broadcast_to_all(const std::shared_ptr<nbt::nbt> &msg);
     };
-
-    utils::profiler* profiler();
 
 }
 
