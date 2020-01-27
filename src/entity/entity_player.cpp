@@ -7,7 +7,7 @@
 namespace entity {
 
     entity_player::entity_player(std::string id, server::game_room *s, glm::vec3 spawnpos) : entity(std::move(id),
-                                                                                                    s) {
+                                                                                                    s, ENTITY_ID_PLAYER) {
         box.pos = spawnpos;
         box.size = glm::vec3{0.6, 1.8, 0.6};
     }

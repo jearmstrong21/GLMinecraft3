@@ -7,7 +7,7 @@
 
 namespace entity {
 
-    entity::entity(std::string id, server::game_room *s) : id(std::move(id)), server(s) {
+    entity::entity(std::string id, server::game_room *s, int type_id) : id(std::move(id)), server(s), type_id(type_id) {
 
     }
 
@@ -47,16 +47,9 @@ namespace entity {
         last_time = cur_time;
         velocity.y -= 500 * dt;
         motion += velocity * dt;
-        auto check_pos = [&](glm::vec3 pos) -> bool {
-            bool collide = false;
-            aabb{pos, box.size}.foreach([&](glm::ivec3 i) {
-                if (!can_go_through_block(server->world.get(i)))collide = true;
-            });
-            return !collide;
-        };
         auto trace_pos = [&](glm::vec3 start, glm::vec3 dir, float cur_dt, int iters) -> glm::vec3 {
             for (int _ = 0; _ < iters; _++) {
-                if (check_pos(start + dir * cur_dt))start += dir * cur_dt;
+                if (!collides_with_block_at(start + dir * cur_dt))start += dir * cur_dt;
                 cur_dt *= 0.5;
             }
             return start;
@@ -80,6 +73,14 @@ namespace entity {
     void entity::update() {
         apply_physics();
         handle_ai();
+    }
+
+    bool entity::collides_with_block_at(glm::vec3 point) {
+        bool collide = false;
+        aabb{point, box.size}.foreach([&](glm::ivec3 i) {
+            if (!can_go_through_block(server->world.get(i)))collide = true;
+        });
+        return collide;
     }
 
 }
