@@ -9,21 +9,22 @@
 
 namespace server {
 
-    game_room* game_room::instance;
+    game_room *game_room::instance;
 
-    game_room::game_room(boost::asio::io_context &io_context,struct acceptor*a) : timer(io_context,//oo look struct acceptor is this C
-                                                                      boost::posix_time::milliseconds(0)),
-                                                                      acceptor(a){
+    game_room::game_room(boost::asio::io_context &io_context, struct acceptor *a) : timer(
+            io_context,//oo look struct acceptor is this C
+            boost::posix_time::milliseconds(0)),
+                                                                                    acceptor(a) {
         boost::thread t([this]() {
             std::cout << "\nENTER to exit\n";
             std::string s;
-            std::getline(std::cin,s);
+            std::getline(std::cin, s);
             game_loop_is_over = true;
-            std::cout<<"game_loop_is_over\n";
+            std::cout << "game_loop_is_over\n";
             acceptor->stop();
         });
-        instance=this;
-        game_loop_is_over=false;
+        instance = this;
+        game_loop_is_over = false;
         world.generate_world();
         frame_handler(boost::system::error_code());
     }
@@ -39,7 +40,7 @@ namespace server {
     }
 
     void game_room::frame_handler(boost::system::error_code err) {
-        if(game_loop_is_over)return;
+        if (game_loop_is_over)return;
         {
             std::lock_guard<std::mutex> guard(protect_game_state);
             profiler.start_tick();
@@ -71,7 +72,7 @@ namespace server {
         });
     }
 
-    game_room::~game_room(){
+    game_room::~game_room() {
         profiler.print();
     }
 
@@ -89,11 +90,17 @@ namespace server {
 
     void game_room::join(const server_player_ptr &ptr) {
         std::lock_guard<std::mutex> guard(protect_game_state);
-        std::cout<<"game_room::join guard\n";
+        std::cout << "game_room::join guard\n";
         ptr->send_world(world);
         std::string id = spawn_entity([&](const std::string &id) {
             return std::dynamic_pointer_cast<entity::entity>(
-                    std::make_shared<entity::entity_player>(id, &world, glm::vec3{24+(rand()%10000)/10000.0F, 150, 24+(rand()%10000)/10000.0F}));
+                    std::make_shared<entity::entity_player>(id, this, glm::vec3{24 + (rand() % 10000) / 10000.0F, 150,
+                                                                                24 + (rand() % 10000) / 10000.0F}));
+        });
+        spawn_entity([&](const std::string &id) {
+            return std::dynamic_pointer_cast<entity::entity>(
+                    std::make_shared<entity::entity_zombie>(id, this, glm::vec3{4 + (rand() % 10000) / 10000.0F, 150,
+                                                                                4 + (rand() % 10000) / 10000.0F}));
         });
         ptr->entity_id = id;
         ptr->deliver(nbt::nbt_compound::make({
@@ -125,15 +132,15 @@ namespace server {
             glm::vec3 forward = ent->lookdir;
             forward.y = 0;
             forward = glm::normalize(forward);
-            ent->motion=glm::vec3{0};
+            ent->motion = glm::vec3{0};
             if (front)ent->motion += forward * d * (float) (1 + sprint);
             if (back)ent->motion -= forward * d;
             if (left)ent->motion += leftdir * d;
             if (right)ent->motion -= leftdir * d;
-            if (jump && ent->grounded){
-                ent->velocity.y=0;
+            if (jump && ent->grounded) {
+                ent->velocity.y = 0;
                 ent->velocity.y += 150;//TODO: && entity.is grounded
-                ent->grounded=false;
+                ent->grounded = false;
             }
         }
         {

@@ -84,6 +84,7 @@ namespace client {
         void connect_to_server(const std::string &host, const std::string &port);
 
         void open_chat();
+
         void close_chat();
 
     public:

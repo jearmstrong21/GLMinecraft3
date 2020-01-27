@@ -15,6 +15,8 @@
 #include <boost/uuid/uuid_generators.hpp> // generators
 #include <boost/uuid/uuid_io.hpp>         // streaming operators etc.
 #include "entity/entity.h"
+#include "entity/entity_player.h"
+#include "entity/entity_zombie.h"
 #include "utils/profiler.h"
 #include <future>
 
@@ -24,9 +26,9 @@ namespace server {
 
     struct game_room {
 
-        static game_room* instance;
+        static game_room *instance;
 
-        acceptor*acceptor;
+        acceptor *acceptor;
 
         utils::profiler profiler;
 
@@ -46,7 +48,7 @@ namespace server {
 
         void frame_handler(boost::system::error_code err);
 
-        explicit game_room(boost::asio::io_context &io_context,struct acceptor*acceptor);
+        explicit game_room(boost::asio::io_context &io_context, struct acceptor *acceptor);
 
         ~game_room();
 

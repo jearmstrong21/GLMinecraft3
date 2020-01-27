@@ -83,7 +83,7 @@ namespace client {
                 data.buffers[0].data[i + 1] *= boxSize.y;
                 data.buffers[0].data[i + 2] *= boxSize.z;
                 data.buffers[0].data[i + 0] -= boxSize.x / 2.0F;
-                data.buffers[0].data[i + 1] -= boxSize.y / 2.0F;
+//                data.buffers[0].data[i + 1] -= boxSize.y / 2.0F;
                 data.buffers[0].data[i + 2] -= boxSize.z / 2.0F;
             }
             delete mesh;

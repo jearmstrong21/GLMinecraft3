@@ -105,8 +105,9 @@ namespace client {
                          }}},
                     {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23}
             };
-            for (float &i : data.buffers[0].data) {
-                i -= 0.5;
+            for (int i = 0; i < data.buffers[0].data.size(); i += 3) {
+                data.buffers[0].data[i + 0] -= 0.5;
+                data.buffers[0].data[i + 2] -= 0.5;
             }
             wireframe_mesh = new gl::mesh(&data);
         }
@@ -131,9 +132,13 @@ namespace client {
                             20, 21, 22, 21, 22, 23
                     }
             };
-            for (float &i : data.buffers[0].data) {
-                i -= 0.5;
+            for (int i = 0; i < data.buffers[0].data.size(); i += 3) {
+                data.buffers[0].data[i + 0] -= 0.5;
+                data.buffers[0].data[i + 2] -= 0.5;
             }
+//            for (float &i : data.buffers[0].data) {
+//                i -= 0.5;
+//            }
             filledcube_mesh = new gl::mesh(&data);
         }
         {
@@ -201,7 +206,7 @@ namespace client {
             glm::vec3 curPos = utils::cast3(entities[player_id]->compound_ref()["position"]);
             glm::vec3 curSize = utils::cast3(entities[player_id]->compound_ref()["bbsize"]);
 
-            glm::vec3 lookAt = curPos+glm::vec3{0,curSize.y,0};
+            glm::vec3 lookAt = curPos + glm::vec3{0, curSize.y, 0};
             glm::vec3 lookFrom = curPos - lookdir + glm::vec3{0, curSize.y, 0};
 
             if (freecam) {
@@ -248,17 +253,22 @@ namespace client {
             wireframe_shader->uniform4x4("view", v);
             for (const auto &e:entities) {
                 int id = e.second->compound_ref()["entity_type_id"]->as_int();
-                if (id == 1)ent_rend->render_player(p, v, e.second);
-                if (id == 2)ent_rend->render_zombie(p, v, e.second);
+                if (id == ENTITY_ID_PLAYER)ent_rend->render_player(p, v, e.second);
+                if (id == ENTITY_ID_ZOMBIE)ent_rend->render_zombie(p, v, e.second);
 
                 glm::vec3 pos = utils::cast3(e.second->compound_ref()["position"]);
                 glm::vec3 size = utils::cast3(e.second->compound_ref()["bbsize"]);
 
                 wireframe_shader->bind();
-                wireframe_shader->uniform4x4("model", glm::translate(glm::mat4(1), pos + glm::vec3{0, size.y / 2, 0}) *
+                wireframe_shader->uniform4x4("model", glm::translate(glm::mat4(1), pos) *
                                                       glm::scale(glm::mat4(1), size));
-//                wireframe_mesh->render_lines();
-                filledcube_mesh->render_triangles();
+                wireframe_mesh->render_lines();
+
+                wireframe_shader->uniform4x4("model", glm::translate(glm::mat4(1), pos) *
+                                                      glm::scale(glm::mat4(1),
+                                                                 glm::vec3{size.x - 0.05, 2, size.z - 0.05}));
+                wireframe_mesh->render_lines();
+//                filledcube_mesh->render_triangles();
             }
 
             if (!freecam) {
