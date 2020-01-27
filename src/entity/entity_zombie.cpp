@@ -83,6 +83,12 @@ namespace entity {
                     total_path.push_back(current);
                 }
                 std::reverse(total_path.begin(), total_path.end());
+                //TODO:
+                /*
+                 * NO AI WHILE FALLING: this is to fall to the ground during negative motion intervals (which should be zeroed out)
+                 * ADD 0,-1,0 ALWAYS to children list, it will be filtered if not valid
+                 * IF(GROUNDED) ADD 0,1,0? IDK HOW TO DO JUMPS THOSE ARE HARDER
+                 */
                 motion = glm::normalize(glm::vec3(total_path[1]) + glm::vec3{0.5} - box.pos);
                 std::cout << "[0] " << total_path[0].x << "," << total_path[0].y << "," << total_path[0].z << " [1] "
                           << total_path[1].x << "," << total_path[1].y << "," << total_path[1].z << " [2] "
