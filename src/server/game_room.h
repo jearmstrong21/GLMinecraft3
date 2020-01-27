@@ -16,12 +16,19 @@
 #include <boost/uuid/uuid_io.hpp>         // streaming operators etc.
 #include "entity/entity.h"
 #include "utils/profiler.h"
+#include <future>
 
 namespace server {
+
+    struct acceptor;
 
     struct game_room {
 
         static game_room* instance;
+
+        acceptor*acceptor;
+
+        utils::profiler profiler;
 
         bool game_loop_is_over;
 
@@ -39,7 +46,7 @@ namespace server {
 
         void frame_handler(boost::system::error_code err);
 
-        explicit game_room(boost::asio::io_context &io_context);
+        explicit game_room(boost::asio::io_context &io_context,struct acceptor*acceptor);
 
         ~game_room();
 

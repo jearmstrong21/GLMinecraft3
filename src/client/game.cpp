@@ -199,9 +199,10 @@ namespace client {
             glm::mat4 p = glm::perspective(80.0F, 1.0F, 0.01F, 1000.0F);
 
             glm::vec3 curPos = utils::cast3(entities[player_id]->compound_ref()["position"]);
+            glm::vec3 curSize = utils::cast3(entities[player_id]->compound_ref()["bbsize"]);
 
-            glm::vec3 lookAt = curPos;
-            glm::vec3 lookFrom = curPos - lookdir;
+            glm::vec3 lookAt = curPos+glm::vec3{0,curSize.y,0};
+            glm::vec3 lookFrom = curPos - lookdir + glm::vec3{0, curSize.y, 0};
 
             if (freecam) {
                 lookFrom = freecamPos;
@@ -250,17 +251,13 @@ namespace client {
                 if (id == 1)ent_rend->render_player(p, v, e.second);
                 if (id == 2)ent_rend->render_zombie(p, v, e.second);
 
-                wireframe_shader->bind();
-                wireframe_shader->uniform4x4("model", glm::translate(glm::mat4(1), utils::cast3(
-                        e.second->compound_ref()["position"])) *
-                                                      glm::scale(glm::mat4(1),
-                                                                 utils::cast3(e.second->compound_ref()["bbsize"])));
-                wireframe_shader->uniform3("color", glm::vec3{1, 0, 0});
-                wireframe_mesh->render_lines();
+                glm::vec3 pos = utils::cast3(e.second->compound_ref()["position"]);
+                glm::vec3 size = utils::cast3(e.second->compound_ref()["bbsize"]);
 
-                wireframe_shader->uniform4x4("model", glm::translate(glm::mat4(1), glm::vec3(0.5) + glm::vec3(
-                        glm::ivec3(utils::cast3(e.second->compound_ref()["position"])))));
-                wireframe_shader->uniform3("color", glm::vec3{0, 0, 1});
+                wireframe_shader->bind();
+                wireframe_shader->uniform4x4("model", glm::translate(glm::mat4(1), pos + glm::vec3{0, size.y / 2, 0}) *
+                                                      glm::scale(glm::mat4(1), size));
+//                wireframe_mesh->render_lines();
                 filledcube_mesh->render_triangles();
             }
 
@@ -300,7 +297,10 @@ namespace client {
                                                                                                                        GLFW_PRESS)},
                                                                                                                {"jump",   nbt::nbt_short::make(
                                                                                                                        !is_chat_open &&
-                                                                                                                       should_jump
+                                                                                                                       glfwGetKey(
+                                                                                                                               window,
+                                                                                                                               GLFW_KEY_SPACE) ==
+                                                                                                                       GLFW_PRESS
                                                                                                                )}
                                                                                                        })},
                                                                                                {"lookdir",  utils::cast3(
@@ -308,7 +308,6 @@ namespace client {
                                                                                                {"chat",     nbt::nbt_string::make(
                                                                                                        chattosend)}
                                                                                        });
-                should_jump = false;
                 chattosend = "";
                 send_packet(interaction_packet);
             }
@@ -396,28 +395,37 @@ namespace client {
         std::cout << "\tplayer_id = <" << player_id << ">\n";
     }
 
+    void game::open_chat() {
+        is_chat_open = true;
+        curchatbuffer = "";
+        ignore_character = true;
+        glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+    }
+
+    void game::close_chat() {
+        curchatbuffer = "";
+        is_chat_open = false;
+        glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+    }
+
     void game::glfw_key_press_callback(int key, int scancode, int actions, int mods) {
         if (key == 'U' && actions == GLFW_PRESS) {
             freecam = !freecam;
             freecamPos = utils::cast3(entities[player_id]->compound_ref()["position"]);
         }
         if (key == 'T' && actions == GLFW_PRESS && !is_chat_open) {
-            is_chat_open = true;
-            curchatbuffer = "";
-            ignore_character = true;
+            open_chat();
         }
         if (key == GLFW_KEY_ESCAPE) {
-            curchatbuffer = "";
-            is_chat_open = false;
+            close_chat();
         }
-        if (key == GLFW_KEY_SPACE && !is_chat_open)should_jump = true;
         if (key == GLFW_KEY_BACKSPACE && actions == GLFW_PRESS && is_chat_open && !curchatbuffer.empty()) {
             curchatbuffer.pop_back();
         }
         if (key == GLFW_KEY_ENTER && actions == GLFW_PRESS && is_chat_open) {
             std::cout << curchatbuffer << "\n";
             chattosend = curchatbuffer;
-            curchatbuffer = "";
+            close_chat();
         }
     }
 

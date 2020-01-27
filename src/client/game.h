@@ -56,7 +56,6 @@ namespace client {
         std::string player_id;
         std::mutex protect_game_state;
 
-        bool should_jump = false;
         bool freecam = false;
         glm::vec3 freecamPos;
         glm::vec3 lookdir;
@@ -83,6 +82,9 @@ namespace client {
         void read_welcome_packet();
 
         void connect_to_server(const std::string &host, const std::string &port);
+
+        void open_chat();
+        void close_chat();
 
     public:
         std::shared_ptr<rendered_chunk> rendered_world[WORLD_SIZE][WORLD_SIZE];

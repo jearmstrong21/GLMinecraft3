@@ -3,7 +3,6 @@
 //
 
 #include <memory>
-#include <server/game_room.h>
 #include "world.h"
 
 namespace block {

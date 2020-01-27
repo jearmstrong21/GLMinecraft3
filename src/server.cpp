@@ -2,19 +2,9 @@
 // Created by paladin on 12/14/19.
 //
 
-#include <algorithm>
 #include <iostream>
 #include <boost/asio.hpp>
-#include <nbt/__nbt_float.h>
-#include <nbt/nbt.h>
-#include "world/world.h"
-#include "both.h"
 #include <memory>
-#include "entity/entity.h"
-#include <boost/thread.hpp>
-#include "server/server_player.h"
-#include "server/game_room.h"
-#include "server/session.h"
 #include "server/acceptor.h"
 
 namespace networking {

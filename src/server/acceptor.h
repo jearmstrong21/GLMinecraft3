@@ -18,6 +18,8 @@ namespace server {
         boost::asio::ip::tcp::acceptor acc;
         game_room room;
 
+        void stop();
+
         void do_accept();
 
         acceptor(boost::asio::io_context &ioc, const boost::asio::ip::tcp::endpoint &endpoint);

@@ -25,49 +25,49 @@ namespace client {
     }
 
     void entity_render::render_player(glm::mat4 p, glm::mat4 v, const std::shared_ptr<nbt::nbt> &data) {
-        glm::mat4 m(1);
-        m *= glm::translate(glm::mat4(1), utils::cast3(data->compound_ref()["position"]));
-        tcr->render_cube(p, v, m * glm::translate(glm::mat4(1), glm::vec3{0, 6, 0} / 16.0F), steve_texture,
-                         glm::vec3{8, 12, 4},
-                         glm::vec2{16, 32}, glm::vec2{64, 64});
-        tcr->render_cube(p, v, m * glm::translate(glm::mat4(1), glm::vec3{6, 6, 0} / 16.0F), steve_texture,
-                         glm::vec3{4, 12, 4},
-                         glm::vec2{40, 32}, glm::vec2{64, 64});
-        tcr->render_cube(p, v, m * glm::translate(glm::mat4(1), glm::vec3{-6, 6, 0} / 16.0F), steve_texture,
-                         glm::vec3{4, 12, 4},
-                         glm::vec2{32, 0}, glm::vec2{64, 64});
-        tcr->render_cube(p, v, m * glm::translate(glm::mat4(1), glm::vec3{0, 16, 0} / 16.0F), steve_texture,
-                         glm::vec3{8, 8, 8},
-                         glm::vec2{0, 48}, glm::vec2{64, 64});
-        tcr->render_cube(p, v, m * glm::translate(glm::mat4(1), glm::vec3{2, -6, 0} / 16.0F), steve_texture,
-                         glm::vec3{4, 12, 4},
-                         glm::vec2{0, 32}, glm::vec2{64, 64});
-        tcr->render_cube(p, v, m * glm::translate(glm::mat4(1), glm::vec3{-2, -6, 0} / 16.0F), steve_texture,
-                         glm::vec3{4, 12, 4},
-                         glm::vec2{16, 0}, glm::vec2{64, 64});
+//        glm::mat4 m(1);
+//        m *= glm::translate(glm::mat4(1), utils::cast3(data->compound_ref()["position"]));
+//        tcr->render_cube(p, v, m * glm::translate(glm::mat4(1), glm::vec3{0, 6, 0} / 16.0F), steve_texture,
+//                         glm::vec3{8, 12, 4},
+//                         glm::vec2{16, 32}, glm::vec2{64, 64});
+//        tcr->render_cube(p, v, m * glm::translate(glm::mat4(1), glm::vec3{6, 6, 0} / 16.0F), steve_texture,
+//                         glm::vec3{4, 12, 4},
+//                         glm::vec2{40, 32}, glm::vec2{64, 64});
+//        tcr->render_cube(p, v, m * glm::translate(glm::mat4(1), glm::vec3{-6, 6, 0} / 16.0F), steve_texture,
+//                         glm::vec3{4, 12, 4},
+//                         glm::vec2{32, 0}, glm::vec2{64, 64});
+//        tcr->render_cube(p, v, m * glm::translate(glm::mat4(1), glm::vec3{0, 16, 0} / 16.0F), steve_texture,
+//                         glm::vec3{8, 8, 8},
+//                         glm::vec2{0, 48}, glm::vec2{64, 64});
+//        tcr->render_cube(p, v, m * glm::translate(glm::mat4(1), glm::vec3{2, -6, 0} / 16.0F), steve_texture,
+//                         glm::vec3{4, 12, 4},
+//                         glm::vec2{0, 32}, glm::vec2{64, 64});
+//        tcr->render_cube(p, v, m * glm::translate(glm::mat4(1), glm::vec3{-2, -6, 0} / 16.0F), steve_texture,
+//                         glm::vec3{4, 12, 4},
+//                         glm::vec2{16, 0}, glm::vec2{64, 64});
     }
 
     void entity_render::render_zombie(glm::mat4 p, glm::mat4 v, const std::shared_ptr<nbt::nbt> &data) {
-        glm::mat4 m(1);
-        m *= glm::translate(glm::mat4(1), utils::cast3(data->compound_ref()["position"]));
-        tcr->render_cube(p, v, m * glm::translate(glm::mat4(1), glm::vec3{0, 3, 0} / 16.0F), zombie_texture,
-                         glm::vec3{8, 12, 4},
-                         glm::vec2{16, 32}, glm::vec2{64, 64});
-        tcr->render_cube(p, v, m * glm::translate(glm::mat4(1), glm::vec3{6, 3, 0} / 16.0F), zombie_texture,
-                         glm::vec3{4, 12, 4},
-                         glm::vec2{40, 32}, glm::vec2{64, 64});
-        tcr->render_cube(p, v, m * glm::translate(glm::mat4(1), glm::vec3{-6, 3, 0} / 16.0F), zombie_texture,
-                         glm::vec3{4, 12, 4},
-                         glm::vec2{40, 32}, glm::vec2{64, 64});
-        tcr->render_cube(p, v, m * glm::translate(glm::mat4(1), glm::vec3{0, 13, 0} / 16.0F), zombie_texture,
-                         glm::vec3{8, 8, 8},
-                         glm::vec2{0, 48}, glm::vec2{64, 64});
-        tcr->render_cube(p, v, m * glm::translate(glm::mat4(1), glm::vec3{2, -9, 0} / 16.0F), zombie_texture,
-                         glm::vec3{4, 12, 4},
-                         glm::vec2{0, 32}, glm::vec2{64, 64});
-        tcr->render_cube(p, v, m * glm::translate(glm::mat4(1), glm::vec3{-2, -9, 0} / 16.0F), zombie_texture,
-                         glm::vec3{4, 12, 4},
-                         glm::vec2{0, 32}, glm::vec2{64, 64});
+//        glm::mat4 m(1);
+//        m *= glm::translate(glm::mat4(1), utils::cast3(data->compound_ref()["position"]));
+//        tcr->render_cube(p, v, m * glm::translate(glm::mat4(1), glm::vec3{0, 3, 0} / 16.0F), zombie_texture,
+//                         glm::vec3{8, 12, 4},
+//                         glm::vec2{16, 32}, glm::vec2{64, 64});
+//        tcr->render_cube(p, v, m * glm::translate(glm::mat4(1), glm::vec3{6, 3, 0} / 16.0F), zombie_texture,
+//                         glm::vec3{4, 12, 4},
+//                         glm::vec2{40, 32}, glm::vec2{64, 64});
+//        tcr->render_cube(p, v, m * glm::translate(glm::mat4(1), glm::vec3{-6, 3, 0} / 16.0F), zombie_texture,
+//                         glm::vec3{4, 12, 4},
+//                         glm::vec2{40, 32}, glm::vec2{64, 64});
+//        tcr->render_cube(p, v, m * glm::translate(glm::mat4(1), glm::vec3{0, 13, 0} / 16.0F), zombie_texture,
+//                         glm::vec3{8, 8, 8},
+//                         glm::vec2{0, 48}, glm::vec2{64, 64});
+//        tcr->render_cube(p, v, m * glm::translate(glm::mat4(1), glm::vec3{2, -9, 0} / 16.0F), zombie_texture,
+//                         glm::vec3{4, 12, 4},
+//                         glm::vec2{0, 32}, glm::vec2{64, 64});
+//        tcr->render_cube(p, v, m * glm::translate(glm::mat4(1), glm::vec3{-2, -9, 0} / 16.0F), zombie_texture,
+//                         glm::vec3{4, 12, 4},
+//                         glm::vec2{0, 32}, glm::vec2{64, 64});
     }
 
 }

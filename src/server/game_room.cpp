@@ -2,41 +2,30 @@
 // Created by Jack Armstrong on 1/17/20.
 //
 
+#include <boost/thread.hpp>
 #include "game_room.h"
 #include "utils/profiler.h"
+#include "acceptor.h"
+
 namespace server {
 
     game_room* game_room::instance;
 
-    game_room::game_room(boost::asio::io_context &io_context) : timer(io_context,
-                                                                      boost::posix_time::milliseconds(0)){
-        utils::profiler p;
-        p.start_tick();
-
-        p.push("a");
-
-            p.push("b");
-
-                p.push("c");
-                p.pop();
-
-                p.push("d");
-                p.pop();
-
-            p.pop();
-
-        p.pop();
-
-        p.end_tick();
-        p.print();
+    game_room::game_room(boost::asio::io_context &io_context,struct acceptor*a) : timer(io_context,//oo look struct acceptor is this C
+                                                                      boost::posix_time::milliseconds(0)),
+                                                                      acceptor(a){
+        boost::thread t([this]() {
+            std::cout << "\nENTER to exit\n";
+            std::string s;
+            std::getline(std::cin,s);
+            game_loop_is_over = true;
+            std::cout<<"game_loop_is_over\n";
+            acceptor->stop();
+        });
         instance=this;
         game_loop_is_over=false;
         world.generate_world();
         frame_handler(boost::system::error_code());
-//        std::cout<<"\npress RETURN to exit\n";
-//        std::string s;
-//        std::getline(std::cin,s);
-//        game_loop_is_over=true;
     }
 
     std::shared_ptr<nbt::nbt> game_room::get_entity_list() {
@@ -53,16 +42,24 @@ namespace server {
         if(game_loop_is_over)return;
         {
             std::lock_guard<std::mutex> guard(protect_game_state);
+            profiler.start_tick();
 
-//                for (const auto &e:entities) {
-//                    get_type(e.second)->update(e.second, this);
-//                }
+            profiler.push("update entities");
+            for (const auto &e:entities) {
+                e.second->update();
+            }
+            profiler.pop();
+
+            profiler.push("broadcast to clients");
 
             broadcast_to_all(nbt::nbt_compound::make({
                                                              {"entities", get_entity_list()},
                                                              {"chat",     nbt::nbt_string::make(queued_chat)}
                                                      }));
 
+            profiler.pop();
+
+            profiler.end_tick();
             //TODO: physics XD
             queued_chat = "";
         }
@@ -75,7 +72,7 @@ namespace server {
     }
 
     game_room::~game_room(){
-
+        profiler.print();
     }
 
     std::string game_room::get_next_entity_id() {
@@ -94,9 +91,9 @@ namespace server {
         std::lock_guard<std::mutex> guard(protect_game_state);
         std::cout<<"game_room::join guard\n";
         ptr->send_world(world);
-        std::string id = spawn_entity([](const std::string &id) {
+        std::string id = spawn_entity([&](const std::string &id) {
             return std::dynamic_pointer_cast<entity::entity>(
-                    std::make_shared<entity::entity_player>(id, glm::vec3{24, 150, 24}));
+                    std::make_shared<entity::entity_player>(id, &world, glm::vec3{24+(rand()%10000)/10000.0F, 150, 24+(rand()%10000)/10000.0F}));
         });
         ptr->entity_id = id;
         ptr->deliver(nbt::nbt_compound::make({
@@ -122,22 +119,22 @@ namespace server {
             bool jump = movement->compound_ref()["jump"]->as_short();
 
             float d = 1;
-            glm::vec3 newMotion{0, 0, 0};
-            glm::vec3 curLook = ent->lookdir;
-            glm::vec3 curVel = ent->velocity;
-            glm::vec3 leftdir = glm::cross(curLook, glm::vec3{0, -1, 0});
+            glm::vec3 leftdir = glm::cross(ent->lookdir, glm::vec3{0, -1, 0});
             leftdir.y = 0;
             leftdir = glm::normalize(leftdir);
-            glm::vec3 forward = curLook;
+            glm::vec3 forward = ent->lookdir;
             forward.y = 0;
             forward = glm::normalize(forward);
-            if (front)newMotion += forward * d * (float) (1 + sprint);
-            if (back)newMotion -= forward * d;
-            if (left)newMotion += leftdir * d;
-            if (right)newMotion -= leftdir * d;
-            if (jump)curVel.y += 2.5;//TODO: && entity.is grounded
-            ent->motion = newMotion;
-            ent->velocity = curVel;
+            ent->motion=glm::vec3{0};
+            if (front)ent->motion += forward * d * (float) (1 + sprint);
+            if (back)ent->motion -= forward * d;
+            if (left)ent->motion += leftdir * d;
+            if (right)ent->motion -= leftdir * d;
+            if (jump && ent->grounded){
+                ent->velocity.y=0;
+                ent->velocity.y += 150;//TODO: && entity.is grounded
+                ent->grounded=false;
+            }
         }
         {
             ent->lookdir = utils::cast3(data->compound_ref()["lookdir"]);
