@@ -24,9 +24,9 @@ namespace item {
 
     }
 
-    void item::save(item_stack* stack, const nbt::nbt_compound_ptr &tag) {
-        tag->value["item_name"]=nbt::nbt_string::make(stack->item_name);
-        tag->value["count"]=nbt::nbt_int::make(stack->count);
+    void item::save(const item_stack& stack, const nbt::nbt_compound_ptr &tag) {
+        tag->value["item_name"]=nbt::nbt_string::make(stack.item_name);
+        tag->value["count"]=nbt::nbt_int::make(stack.count);
     }
 
     void item::load(item_stack*stack, const nbt::nbt_compound_ptr &tag) {

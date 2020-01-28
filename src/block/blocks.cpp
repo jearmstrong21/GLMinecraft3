@@ -17,7 +17,7 @@ namespace block {
                 return &STONE;
         }
 
-//        printf("le wot %i\n", id);
+//        printf("le wot %i\n", uuid);
 //        std::exit(11);
         return &NONE;
 

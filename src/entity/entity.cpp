@@ -7,7 +7,7 @@
 
 namespace entity {
 
-    entity::entity(std::string id, server::game_room *s, int type_id) : id(std::move(id)), server(s), type_id(type_id) {
+    entity::entity(int type_id):type_id(type_id){
 
     }
 
@@ -16,7 +16,8 @@ namespace entity {
     }
 
     void entity::save(const nbt::nbt_compound_ptr &tag) {
-        tag->value["id"] = nbt::nbt_string::make(id);
+        tag->value["entity_type_id"]=nbt::nbt_int::make(type_id);
+        tag->value["uuid"] = nbt::nbt_string::make(uuid);
         tag->value["position"] = utils::cast3(box.pos);
         tag->value["bbsize"] = utils::cast3(box.size);
         tag->value["motion"] = utils::cast3(motion);
@@ -26,7 +27,8 @@ namespace entity {
     }
 
     void entity::load(const nbt::nbt_compound_ptr &tag) {
-        id = tag->value["id"]->as_string();
+        ASSERT_OR_EXIT(tag->value["entity_type_id"]->as_int()==type_id,"Wrong entity_type_id");
+        uuid = tag->value["uuid"]->as_string();
         box.pos = utils::cast3(tag->value["position"]);
         box.size = utils::cast3(tag->value["bbsize"]);
         motion = utils::cast3(tag->value["motion"]);
