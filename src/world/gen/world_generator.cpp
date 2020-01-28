@@ -88,8 +88,8 @@ namespace block {
         //
         //	{name="terrain_type_fractal",          type="fractal",          fractaltype=anl.FBM, basistype=anl.GRADIENT, interptype=anl.QUINTIC, octaves=3, frequency=0.125},
         auto terrain_type_fractal = anl::CImplicitFractal(anl::FBM, anl::GRADIENT, anl::QUINTIC);
-        mountain_shape_fractal.setNumOctaves(3);
-        mountain_shape_fractal.setFrequency(0.125);
+        terrain_type_fractal.setNumOctaves(3);
+        terrain_type_fractal.setFrequency(0.125);
         //	{name="terrain_autocorrect",           type="autocorrect",      source="terrain_type_fractal", low=0, high=1},
         auto terrain_autocorrect = anl::CImplicitAutoCorrect(0, 1);
         terrain_autocorrect.setSource(&terrain_type_fractal);
@@ -159,7 +159,7 @@ namespace block {
         cave_select.setLowSource(1.0);
         cave_select.setHighSource(0.0);
         cave_select.setControlSource(&cave_perturb);
-        cave_select.setThreshold(nether ? 0.5 : 0.17); // was 0.48
+        cave_select.setThreshold(nether ? 0.5 : 0.48); // was 0.17 for testing
         cave_select.setFalloff(0.0);
         //
         //	{name="ground_cave_multiply",          type="combiner",          operation=anl.MULT, source_0="cave_select", source_1="ground_select"}
@@ -185,7 +185,7 @@ namespace block {
     }
 
     void world_generator::generate_world(world* world) {
-        auto data = generate_data(true);
+        auto data = generate_data(false);
         int seed = time(nullptr);
 
         std::shared_ptr<utils::noise::perlin> elevNoise = std::make_shared<utils::noise::perlin>(seed + 0);
