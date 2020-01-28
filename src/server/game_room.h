@@ -19,6 +19,7 @@
 #include "entity/entity_zombie.h"
 #include "utils/profiler.h"
 #include <future>
+#include "item/item.h"
 
 namespace server {
 
