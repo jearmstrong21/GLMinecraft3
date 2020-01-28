@@ -38,7 +38,6 @@ namespace entity {
             }
         }
         if (player == nullptr) {
-            std::cout << "NO PLAYER FOUND FOR ZOMBO :((\n";
             return;
         }
 
@@ -90,21 +89,28 @@ namespace entity {
                  * IF(GROUNDED) ADD 0,1,0? IDK HOW TO DO JUMPS THOSE ARE HARDER
                  */
                 motion = glm::normalize(glm::vec3(total_path[1]) + glm::vec3{0.5} - box.pos);
-                std::cout << "[0] " << total_path[0].x << "," << total_path[0].y << "," << total_path[0].z << " [1] "
-                          << total_path[1].x << "," << total_path[1].y << "," << total_path[1].z << " [2] "
-                          << total_path[2].x << "," << total_path[2].y << "," << total_path[2].z << " MOTION "
-                          << motion.x << "," << motion.y << "," << motion.z << "\n";
-//                    std::cout<<"FOUND PATH OF LENGTH "<<total_path.size()<<" BY REVIEWING "<<i<<" NODES\n";
+                if(motion.y>0){
+                    if(grounded) {
+                        velocity.y += 150;
+                        grounded = false;
+                    }
+                    motion.y=0;
+                }
                 return;
             }
 
             open_set.erase(current);
 
             std::unordered_set<glm::ivec3> children;
-            children.insert({current.x - 1, current.y, current.z});
-            children.insert({current.x + 1, current.y, current.z});
-            children.insert({current.x, current.y, current.z - 1});
-            children.insert({current.x, current.y, current.z + 1});
+            if(!can_go_through_block(server->world.get(current.x,current.y-1,current.z))){
+                children.insert({current.x,current.y+1,current.z});
+            }else{
+                children.insert({current.x - 1, current.y, current.z});
+                children.insert({current.x + 1, current.y, current.z});
+                children.insert({current.x, current.y, current.z - 1});
+                children.insert({current.x, current.y, current.z + 1});
+                children.insert({current.x, current.y - 1, current.z});
+            }
             for (glm::ivec3 child:children) {
                 if (!collides_with_block_at(glm::vec3{child} + glm::vec3{0.5})) {
                     int tentative_gscore = gscore[current] + g(current, child);
