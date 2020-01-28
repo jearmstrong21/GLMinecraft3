@@ -24,11 +24,12 @@ namespace entity {
         aabb box{};
         glm::vec3 velocity{};
         glm::vec3 motion{};
-        std::string id;
+        std::string uuid;
         glm::vec3 lookdir{};
-        server::game_room* server;
 
-        explicit entity(std::string id, server::game_room* s, int type_id);
+        TRANSIENT server::game_room *server;
+
+        explicit entity(int type_id);
 
         virtual void save_additional_information(const nbt::nbt_compound_ptr& tag) = 0;
 

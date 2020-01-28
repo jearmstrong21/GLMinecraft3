@@ -11,13 +11,15 @@ namespace entity {
 
     struct entity_zombie : entity {
 
-        entity_zombie(std::string id, server::game_room *s, glm::vec3 spawnpos);
+        entity_zombie();
 
         void save_additional_information(const nbt::nbt_compound_ptr &tag) override;
 
         void load_additional_information(const nbt::nbt_compound_ptr &tag) override;
 
         void handle_ai() override;
+
+        static entity_ptr spawn(std::string id,glm::vec3 pos,server::game_room*server);
 
     };
 

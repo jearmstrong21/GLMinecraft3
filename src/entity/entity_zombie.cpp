@@ -12,19 +12,24 @@
 
 namespace entity {
 
-    entity_zombie::entity_zombie(std::string id, server::game_room *s, glm::vec3 spawnpos) : entity(std::move(id), s,
-                                                                                                    ENTITY_ID_ZOMBIE) {
-        box.pos = spawnpos;
-        box.size = glm::vec3{0.6, 1.95, 0.6};
+    entity_zombie::entity_zombie(): entity(ENTITY_ID_ZOMBIE){
+
+    }
+
+    entity_ptr entity_zombie::spawn(std::string id, glm::vec3 pos,server::game_room*server) {
+        std::shared_ptr<entity_zombie>p=std::make_shared<entity_zombie>();
+        p->uuid=std::move(id);
+        p->box.pos=pos;
+        p->server=server;
+        return std::dynamic_pointer_cast<entity>(p);
     }
 
     void entity_zombie::save_additional_information(const nbt::nbt_compound_ptr &tag) {
-        tag->value["entity_type_id"] = nbt::nbt_int::make(ENTITY_ID_ZOMBIE);
+
     }
 
     void entity_zombie::load_additional_information(const nbt::nbt_compound_ptr &tag) {
-        ASSERT_OR_EXIT(tag->value["entity_type_id"]->as_int() == ENTITY_ID_ZOMBIE,
-                       "Entity type id as loaded by entity_zombie was incorrect.");
+
     }
 
     void entity_zombie::handle_ai() {

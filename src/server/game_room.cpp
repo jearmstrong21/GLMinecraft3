@@ -93,14 +93,12 @@ namespace server {
         std::cout << "game_room::join guard\n";
         ptr->send_world(world);
         std::string id = spawn_entity([&](const std::string &id) {
-            return std::dynamic_pointer_cast<entity::entity>(
-                    std::make_shared<entity::entity_player>(id, this, glm::vec3{24 + (rand() % 10000) / 10000.0F, 150,
-                                                                                24 + (rand() % 10000) / 10000.0F}));
+            return entity::entity_player::spawn(id, glm::vec3{24 + (rand() % 10000) / 10000.0F, 150,
+                                                              24 + (rand() % 10000) / 10000.0F}, this);
         });
         spawn_entity([&](const std::string &id) {
-            return std::dynamic_pointer_cast<entity::entity>(
-                    std::make_shared<entity::entity_zombie>(id, this, glm::vec3{4 + (rand() % 10000) / 10000.0F, 150,
-                                                                                4 + (rand() % 10000) / 10000.0F}));
+            return entity::entity_zombie::spawn(id, glm::vec3{24 + (rand() % 10000) / 10000.0F, 150,
+                                                              24 + (rand() % 10000) / 10000.0F}, this);
         });
         ptr->entity_id = id;
         ptr->deliver(nbt::nbt_compound::make({

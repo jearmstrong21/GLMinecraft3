@@ -45,7 +45,7 @@ namespace item {
 
         item_properties properties;
 
-        explicit item(item_properties properties);//TODO: int id, item_props props, etc
+        explicit item(item_properties properties);//TODO: int uuid, item_props props, etc
 
         virtual void attack(const item_use_context&ctx)=0;
         virtual void use(const item_use_context&ctx)=0;
@@ -54,7 +54,7 @@ namespace item {
 
         virtual void load_additional_information(item_stack stack,const nbt::nbt_compound_ptr &tag) = 0;
 
-        void save(item_stack* stack,const nbt::nbt_compound_ptr &tag);
+        void save(const item_stack& stack,const nbt::nbt_compound_ptr &tag);
 
         void load(item_stack* stack,const nbt::nbt_compound_ptr &tag);
 
