@@ -159,7 +159,7 @@ namespace block {
         cave_select.setLowSource(1.0);
         cave_select.setHighSource(0.0);
         cave_select.setControlSource(&cave_perturb);
-        cave_select.setThreshold(0.17); // was 0.48
+        cave_select.setThreshold(nether ? 0.5 : 0.17); // was 0.48
         cave_select.setFalloff(0.0);
         //
         //	{name="ground_cave_multiply",          type="combiner",          operation=anl.MULT, source_0="cave_select", source_1="ground_select"}
@@ -185,7 +185,7 @@ namespace block {
     }
 
     void world_generator::generate_world(world* world) {
-        auto data = generate_data(false);
+        auto data = generate_data(true);
         int seed = time(nullptr);
 
         std::shared_ptr<utils::noise::perlin> elevNoise = std::make_shared<utils::noise::perlin>(seed + 0);
