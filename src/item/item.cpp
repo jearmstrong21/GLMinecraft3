@@ -16,7 +16,7 @@ namespace item {
         name=tag->value["name"]->as_string();
     }
 
-    bool item_properties::operator==(const item::item_properties &other) {
+    bool item_properties::operator==(const item_properties &other) {
         return name==other.name;
     }
 
@@ -37,7 +37,7 @@ namespace item {
     void item_registry::save(const nbt::nbt_compound_ptr &tag) {
         for(const auto&p:map){
             tag->value[p.first]=nbt::nbt_compound::make({});
-            p.second.properties.save(tag->value[p.first]);
+            p.second->properties.save(nbt::cast_compound(tag->value[p.first]));
         }
     }
 
@@ -48,7 +48,7 @@ namespace item {
             }
             item_properties prop;
             prop.load(nbt::cast_compound(p.second));
-            if(!(map[p.first].properties==prop))return false;
+            if(!(map[p.first]->properties==prop))return false;
         }
         for(const auto&p:map){
             if(tag->value.find(p.first)==tag->value.end())return false;
@@ -56,8 +56,10 @@ namespace item {
         return true;
     }
 
-    void item_registry::put(const item &item) {
-        map[item.properties.name]=item;
+    void item_registry::put(const std::shared_ptr<item>&item) {
+        map[item->properties.name]=item;
     }
+
+    std::map<std::string,std::shared_ptr<item>> item_registry::map;
 
 }

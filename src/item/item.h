@@ -68,9 +68,9 @@ namespace item {
 
         bool is_equivalent(const nbt::nbt_compound_ptr &tag);
 
-        static std::map<std::string,item>map;
+        static std::map<std::string,std::shared_ptr<item>>map;
 
-        static void put(const item& item);
+        static void put(const std::shared_ptr<item>&item);
 
     };
 
