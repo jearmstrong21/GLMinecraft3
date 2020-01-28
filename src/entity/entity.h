@@ -26,19 +26,19 @@ namespace entity {
         glm::vec3 motion{};
         std::string id;
         glm::vec3 lookdir{};
-        server::game_room *server;
+        server::game_room* server;
 
-        explicit entity(std::string id, server::game_room *s, int type_id);
+        explicit entity(std::string id, server::game_room* s, int type_id);
 
-        virtual void save_additional_information(const nbt::nbt_compound_ptr &tag) = 0;
+        virtual void save_additional_information(const nbt::nbt_compound_ptr& tag) = 0;
 
-        virtual void load_additional_information(const nbt::nbt_compound_ptr &tag) = 0;
+        virtual void load_additional_information(const nbt::nbt_compound_ptr& tag) = 0;
 
         virtual bool can_go_through_block(block::block_state state);
 
-        void save(const nbt::nbt_compound_ptr &tag);
+        void save(const nbt::nbt_compound_ptr& tag);
 
-        void load(const nbt::nbt_compound_ptr &tag);
+        void load(const nbt::nbt_compound_ptr& tag);
 
         bool collides_with_block_at(glm::vec3 point);
 
