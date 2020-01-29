@@ -1,4 +1,4 @@
-#include "thirdparty/implicitnormalizecoords.h"
+#include "implicitnormalizecoords.h"
 #include <cmath>
 
 namespace anl

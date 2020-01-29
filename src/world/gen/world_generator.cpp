@@ -15,7 +15,7 @@
 #include "world/gen/surface/simple_grass_surface.h"
 #include "world/gen/carver/simple_carver.h"
 
-#include "thirdparty/anl.h"
+#include "../../../lib/anl/anl.h"
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/json_parser.hpp>
 
@@ -185,7 +185,7 @@ namespace block {
     }
 
     void world_generator::generate_world(world* world) {
-        auto data = generate_data(false);
+        auto data = generate_data(true);
         int seed = time(nullptr);
 
         std::shared_ptr<utils::noise::perlin> elevNoise = std::make_shared<utils::noise::perlin>(seed + 0);

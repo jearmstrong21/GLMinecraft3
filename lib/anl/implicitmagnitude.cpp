@@ -1,4 +1,4 @@
-#include "thirdparty/implicitmagnitude.h"
+#include "implicitmagnitude.h"
 
 namespace anl
 {
