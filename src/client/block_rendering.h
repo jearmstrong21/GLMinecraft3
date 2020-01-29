@@ -53,6 +53,7 @@ namespace block {
             glm::vec3 start;
             glm::vec3 d0;
             glm::vec3 d1;
+            float ao[4]={1,0,0,0};
 
             void xmi();
 

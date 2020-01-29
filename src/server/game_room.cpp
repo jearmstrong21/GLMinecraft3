@@ -96,10 +96,10 @@ namespace server {
             return entity::entity_player::spawn(id, glm::vec3{24 + (rand() % 10000) / 10000.0F, 150,
                                                               24 + (rand() % 10000) / 10000.0F}, this);
         });
-        spawn_entity([&](const std::string &id) {
-            return entity::entity_zombie::spawn(id, glm::vec3{24 + (rand() % 10000) / 10000.0F, 150,
-                                                              24 + (rand() % 10000) / 10000.0F}, this);
-        });
+//        spawn_entity([&](const std::string &id) {
+//            return entity::entity_zombie::spawn(id, glm::vec3{24 + (rand() % 10000) / 10000.0F, 150,
+//                                                              24 + (rand() % 10000) / 10000.0F}, this);
+//        });
         ptr->entity_id = id;
         ptr->deliver(nbt::nbt_compound::make({
                                                      {"player_id", nbt::nbt_string::make(id)},

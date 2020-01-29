@@ -25,9 +25,9 @@ namespace block {
 
     void world::set(glm::ivec3 v, block_state b) { set(v.x, v.y, v.z, b); }
 
-    block_context world::get_block_context(glm::ivec3 p) const {
+    block_context world::get_block_context(glm::ivec3 p) {
         return block_context{get(p.x - 1, p.y, p.z), get(p.x + 1, p.y, p.z), get(p.x, p.y - 1, p.z),
-                             get(p.x, p.y + 1, p.z), get(p.x, p.y, p.z - 1), get(p.x, p.y, p.z + 1), get(p), p};
+                             get(p.x, p.y + 1, p.z), get(p.x, p.y, p.z - 1), get(p.x, p.y, p.z + 1), get(p), this, p};
     }
 
     world::world() {

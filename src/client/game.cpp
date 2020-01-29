@@ -183,7 +183,7 @@ namespace client {
         for (int x = 0; x < WORLD_SIZE; x++) {
             for (int z = 0; z < WORLD_SIZE; z++) {
                 rendered_world[x][z] = std::make_shared<rendered_chunk>(glm::ivec2{x, z});
-                rendered_world[x][z]->take_chunk(world, world.map[x][z]);
+                rendered_world[x][z]->take_chunk(&world, world.map[x][z]);
                 rendered_world[x][z]->render_chunk();
             }
         }

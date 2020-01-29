@@ -43,11 +43,14 @@ namespace block {
 
     };
 
+    struct world;
+
     struct block_context {
 
         //xmi,xpl...
         block_state xmi, xpl, ymi, ypl, zmi, zpl;
         block_state self;
+        world*world;
         glm::ivec3 pos;
 
     };

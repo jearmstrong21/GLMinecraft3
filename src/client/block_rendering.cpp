@@ -13,6 +13,7 @@ namespace block::client {
         ASSERT_OR_EXIT(md->buffers[2].elem_size == 2, "Third buffer must have size 2");
         ASSERT_OR_EXIT(md->buffers[3].elem_size == 3, "Fourth buffer must have size 3");
         ASSERT_OR_EXIT(md->buffers[4].elem_size == 3, "Fifth buffer must have size 3");
+        ASSERT_OR_EXIT(md->buffers[5].elem_size == 1, "Sixth buffer must have size 1");
 
         unsigned int n = md->buffers[0].data.size() / 3;
 
@@ -52,6 +53,7 @@ namespace block::client {
             md->buffers[4].data.push_back(qd.texture.second.color.x);
             md->buffers[4].data.push_back(qd.texture.second.color.y);
             md->buffers[4].data.push_back(qd.texture.second.color.z);
+            md->buffers[5].data.push_back(qd.ao[i]);
         }
     }
 
@@ -62,6 +64,7 @@ namespace block::client {
         md->buffers.push_back({2, {}});
         md->buffers.push_back({3, {}});
         md->buffers.push_back({3, {}});
+        md->buffers.push_back({1, {}});
     }
 
     void quad_descr::xmi() {

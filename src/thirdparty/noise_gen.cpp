@@ -220,10 +220,10 @@ double grad_noise_6(double x, double y, double z, double w, double u, double v, 
 
 
 // Edge/Face/Cube/Hypercube interpolation
-//double lerp(double s, double v1, double v2)
-//{
-//	return v1+s*(v2-v1);
-//}
+double lerp(double s, double v1, double v2)
+{
+	return v1+s*(v2-v1);
+}
 
 double interp_X_2(double x, double y, double xs, int x0, int x1, int iy, unsigned int seed, worker_noise_2 noisefunc)
 {

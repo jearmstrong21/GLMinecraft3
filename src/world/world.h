@@ -36,7 +36,7 @@ namespace block {
 
         void set(glm::ivec3 v, block_state b);
 
-        [[nodiscard]] block_context get_block_context(glm::ivec3 p) const;
+        [[nodiscard]] block_context get_block_context(glm::ivec3 p);
 
         world_generator generator;
     };
