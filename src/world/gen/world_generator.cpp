@@ -207,7 +207,7 @@ namespace block {
             for(int i=-(int)r;i<=(int)r;i++){
                 for(int j=-(int)r;j<=(int)r;j++){
                     for(int k=-(int)r;k<=(int)r;k++){
-                        if(i*i+j*j*2+k*k<=r*r){
+                        if(i*i+j*j*2+k*k<r*r){
                             set((int)x+i,(int)y+j,(int)z+k,false);
                         }
                     }
@@ -219,7 +219,7 @@ namespace block {
             float x=rand()%(WORLD_SIZE*16-10)+5;
             float y=rand()%(20)-10+74;
             float z=rand()%(WORLD_SIZE*16-10)+5;
-            float r=rand()%2+3;
+            float r=3;
             float theta=(rand()%314)/100.0F;
             float phi=(rand()%628)/100.0F;
             int l=1000;
@@ -238,6 +238,9 @@ namespace block {
                 x+=dx*d;
                 y+=dy*d*1.5;
                 z+=dz*d;
+//                r+=((rand()%200)/100.0F-1.0F)*0.1F;
+//                if(r<2)r=2;
+//                if(r>5)r=5;
                 r=4;
                 carve_sphere(x,y,z,r);
             }
