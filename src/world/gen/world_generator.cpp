@@ -220,11 +220,17 @@ namespace block {
             float y=rand()%(20)-10+74;
             float z=rand()%(WORLD_SIZE*16-10)+5;
             float r=rand()%2+3;
+            float theta=(rand()%314)/100.0F;
+            float phi=(rand()%628)/100.0F;
             int l=1000;
             for(int i=0;i<l;i++){
                 carve_sphere(x,y,z,r);
-                float theta=(rand()%314)/100.0F;
-                float phi=(rand()%628)/100.0F;
+                float dtheta=(rand()%500)/500.0F;
+                float dphi=(rand()%500)/500.0F;
+                dtheta*=0.3F;
+                dphi*=0.3F;
+                theta+=dtheta;
+                phi+=dphi;
                 float dx=sin(theta)*cos(phi);
                 float dy=sin(theta)*sin(phi);
                 float dz=cos(theta);
@@ -232,11 +238,11 @@ namespace block {
                 x+=dx*d;
                 y+=dy*d*1.5;
                 z+=dz*d;
-                r=3;
+                r=4;
                 carve_sphere(x,y,z,r);
             }
         };
-        for(int i=0;i<3;i++)do_cave();
+        for(int i=0;i<10;i++)do_cave();
 
 //        carve_sphere(WORLD_SIZE*8,30,WORLD_SIZE*8,10);
 
