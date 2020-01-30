@@ -11,6 +11,13 @@ namespace entity {
 
     }
 
+    void entity::jump(){
+        if(grounded){
+            grounded=false;
+            velocity.y=300;
+        }
+    }
+
     bool entity::can_go_through_block(block::block_state state) {
         return state == 0;
     }
@@ -47,12 +54,12 @@ namespace entity {
             dt = (float) (cur_time - last_time).count() / 1000000000.0f;
         }
         last_time = cur_time;
-        velocity.y -= 500 * dt;
+        velocity.y -= 1000 * dt;
         motion += velocity * dt;
         auto trace_pos = [&](glm::vec3 start, glm::vec3 dir, float cur_dt, int iters) -> glm::vec3 {
             for (int _ = 0; _ < iters; _++) {
-                if (!collides_with_block_at(start + dir * cur_dt))start += dir * cur_dt;
                 cur_dt *= 0.5;
+                if (!collides_with_block_at(start + dir * cur_dt))start += dir * cur_dt;
             }
             return start;
         };

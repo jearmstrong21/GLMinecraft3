@@ -13,7 +13,7 @@
 namespace entity {
 
     entity_zombie::entity_zombie(): entity(ENTITY_ID_ZOMBIE){
-
+        box.size={0.6,1.95,0.6};
     }
 
     entity_ptr entity_zombie::spawn(std::string id, glm::vec3 pos,server::game_room*server) {
@@ -87,12 +87,9 @@ namespace entity {
                     total_path.push_back(current);
                 }
                 std::reverse(total_path.begin(), total_path.end());
-                motion = glm::normalize(glm::vec3(total_path[1]) + glm::vec3{0.5} - box.pos);
+                motion = 3.0F*glm::normalize(glm::vec3(total_path[1]) + glm::vec3{0.5} - box.pos);//TODO: getattribute(walkspeed)
                 if(motion.y>0){
-                    if(grounded) {
-                        velocity.y += 150;
-                        grounded = false;
-                    }
+                    jump();
                     motion.y=0;
                 }
                 return;

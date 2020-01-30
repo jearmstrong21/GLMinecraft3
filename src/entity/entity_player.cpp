@@ -9,7 +9,7 @@
 namespace entity {
 
     entity_player::entity_player(): entity(ENTITY_ID_PLAYER){
-
+        box.size={0.6,1.8,0.6};
     }
 
     void entity_player::save_additional_information(const nbt::nbt_compound_ptr &tag) {

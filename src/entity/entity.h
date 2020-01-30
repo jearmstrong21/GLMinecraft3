@@ -43,6 +43,8 @@ namespace entity {
 
         bool collides_with_block_at(glm::vec3 point);
 
+        void jump();
+
         TRANSIENT std::chrono::nanoseconds last_time = std::chrono::nanoseconds::zero();
         TRANSIENT bool first_update = true;
         TRANSIENT bool grounded = false;
