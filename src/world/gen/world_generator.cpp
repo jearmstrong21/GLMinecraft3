@@ -224,7 +224,7 @@ namespace block {
             float phi=(rand()%628)/100.0F;
             int l=1000;
             for(int i=0;i<l;i++){
-                carve_sphere(x,y,z,r);
+//                carve_sphere(x,y,z,r);
                 float dtheta=(rand()%500)/500.0F;
                 float dphi=(rand()%500)/500.0F;
                 dtheta*=0.3F;
@@ -245,9 +245,7 @@ namespace block {
                 carve_sphere(x,y,z,(int)r);
             }
         };
-        for(int i=0;i<10;i++)do_cave();
-
-//        carve_sphere(WORLD_SIZE*8,30,WORLD_SIZE*8,10);
+//        for(int i=0;i<10;i++)do_cave();
 
         return img;
     }
@@ -297,7 +295,7 @@ namespace block {
             for (int z = 0; z < WORLD_SIZE * 16; z++) {
                 double elev = interpolate(x, z);
                 int h = (int) (elev * 64 + 64);
-//                h=50;
+                h=50;
                 if (h < 0)h = 0;
                 if (h >= 256)h = 256;
                 for (int y_ = 0; y_ <= h; y_++) {

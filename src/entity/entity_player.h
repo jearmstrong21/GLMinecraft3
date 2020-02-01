@@ -17,7 +17,7 @@ namespace entity {
 
     public:
 
-        item::item_stack inventory[inventory_size];
+        item::item_stack inventory[inventory_size]{};
 
         entity_player();
 

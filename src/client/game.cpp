@@ -6,6 +6,7 @@
 #include "game.h"
 #include <boost/thread.hpp>
 #include <boost/asio.hpp>
+#include <item/registry.h>
 #include "nbt/nbt.h"
 
 extern "C" const unsigned char TEXTURE_1_8_textures_0_png[];
@@ -83,6 +84,7 @@ namespace client {
         wireframe_shader = new gl::shader(SHADER_wireframe_vert, SHADER_wireframe_vert_len, SHADER_wireframe_frag,
                                           SHADER_wireframe_frag_len);
         text_rend = new text_renderer(window);
+        item_rend = new item_renderer();
         {
             gl::mesh_data data{
                     {{3, {
@@ -136,9 +138,6 @@ namespace client {
                 data.buffers[0].data[i + 0] -= 0.5;
                 data.buffers[0].data[i + 2] -= 0.5;
             }
-//            for (float &i : data.buffers[0].data) {
-//                i -= 0.5;
-//            }
             filledcube_mesh = new gl::mesh(&data);
         }
         {
@@ -196,6 +195,8 @@ namespace client {
             int width, height;
             glfwGetFramebufferSize(window, &width, &height);
 
+            std::shared_ptr<entity::entity_player>player=std::dynamic_pointer_cast<entity::entity_player>(entities[player_id]);
+
             glViewport(0, 0, width, height);
             glClearColor(0.5, 0.7, 0.9, 1.0);
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -203,8 +204,8 @@ namespace client {
 
             glm::mat4 p = glm::perspective(80.0F, 1.0F, 0.01F, 1000.0F);
 
-            glm::vec3 curPos = utils::cast3(entities[player_id]->compound_ref()["position"]);
-            glm::vec3 curSize = utils::cast3(entities[player_id]->compound_ref()["bbsize"]);
+            glm::vec3 curPos = player->box.pos;
+            glm::vec3 curSize = player->box.size;
 
             glm::vec3 lookAt = curPos + glm::vec3{0, curSize.y, 0};
             glm::vec3 lookFrom = curPos - lookdir + glm::vec3{0, curSize.y, 0};
@@ -235,6 +236,20 @@ namespace client {
 
             render_chat();
 
+//            item_texture_descr i{};
+//            i.layers.push_back({atlas_texture::DIAMOND_SWORD, glm::vec3{1, 1, 1}});
+//            i.count = 50;
+            gui_ctx ctx{};
+            ctx.width = width;
+            ctx.height = height;
+            ctx.ortho = glm::translate(glm::mat4(1), glm::vec3{-1, -1, 0}) *
+                        glm::scale(glm::mat4(1), glm::vec3{4}) *
+                        glm::scale(glm::mat4(1), glm::vec3{1.0 / width, 1.0 / height, 0});
+//            item::item_stack stack=item::item_registry::DIAMOND_SWORD->make();
+            item_texture_descr itd=item::item_registry::DIAMOND_SWORD->render(player->inventory[0]);
+            item_rend->render_item(ctx,itd, texture, 500, 200, 300);
+//            item_rend->render_item(ctx, i, texture, 500, 200, 300);
+
             glm::mat4 v = glm::lookAt(lookFrom, lookAt, {0, -1, 0});
 
             shader->bind();
@@ -252,12 +267,12 @@ namespace client {
             wireframe_shader->uniform4x4("perspective", p);
             wireframe_shader->uniform4x4("view", v);
             for (const auto &e:entities) {
-                int id = e.second->compound_ref()["entity_type_id"]->as_int();
+                int id = e.second->type_id;
                 if (id == ENTITY_ID_PLAYER)ent_rend->render_player(p, v, e.second);
                 if (id == ENTITY_ID_ZOMBIE)ent_rend->render_zombie(p, v, e.second);
 
-                glm::vec3 pos = utils::cast3(e.second->compound_ref()["position"]);
-                glm::vec3 size = utils::cast3(e.second->compound_ref()["bbsize"]);
+                glm::vec3 pos = e.second->box.pos;
+                glm::vec3 size = e.second->box.pos;
 
                 wireframe_shader->bind();
                 wireframe_shader->uniform4x4("model", glm::translate(glm::mat4(1), pos) *
@@ -338,6 +353,7 @@ namespace client {
         delete filledcube_mesh;
         delete ent_rend;
         delete text_rend;
+        delete item_rend;
     }
 
     void game::read_packet() {
@@ -373,7 +389,7 @@ namespace client {
         {
             entities.clear();
             for (const auto &p:obj->compound_ref()["entities"]->compound_ref()) {
-                entities[p.first] = p.second;
+                entities[p.first] = entity::load(nbt::cast_compound(p.second));
             }
         }
         {
@@ -397,7 +413,7 @@ namespace client {
         std::shared_ptr<nbt::nbt> welcome_packet = nbt::read_nbt(stream);
         entities.clear();
         for (const auto &p:welcome_packet->compound_ref()["entities"]->compound_ref()) {
-            entities[p.first] = p.second;
+            entities[p.first] = entity::load(nbt::cast_compound(p.second));
         }
 
         player_id = welcome_packet->compound_ref()["player_id"]->as_string();
@@ -421,7 +437,7 @@ namespace client {
     void game::glfw_key_press_callback(int key, int scancode, int actions, int mods) {
         if (key == 'U' && actions == GLFW_PRESS) {
             freecam = !freecam;
-            freecamPos = utils::cast3(entities[player_id]->compound_ref()["position"]);
+            freecamPos = entities[player_id]->box.pos;
         }
         if (key == 'T' && actions == GLFW_PRESS && !is_chat_open) {
             open_chat();

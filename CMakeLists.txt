@@ -70,6 +70,16 @@ add_custom_command(
         COMMAND embedfile TEXTURE_entity_zombie ../src/assets/textures/zombie.png
         DEPENDS src/assets/textures/zombie.png
 )
+add_custom_command(
+        OUTPUT ../lib/gen_assets/SHADER_item_frag.c
+        COMMAND embedfile SHADER_item_frag ../src/assets/shaders/item.frag
+        DEPENDS src/assets/shaders/item.frag
+)
+add_custom_command(
+        OUTPUT ../lib/gen_assets/SHADER_item_vert.c
+        COMMAND embedfile SHADER_item_vert ../src/assets/shaders/item.vert
+        DEPENDS src/assets/shaders/item.vert
+)
 #
 #lib/gen_assets/SHADER_chunk_vert.c
 #lib/gen_assets/SHADER_chunk_frag.c
@@ -83,6 +93,8 @@ add_custom_command(
 #lib/gen_assets/SHADER_entity_frag.c
 #lib/gen_assets/TEXTURE_entity_steve.c
 #lib/gen_assets/TEXTURE_entity_zombie.c
+#lib/gen_assets/SHADER_item_vert.c
+#lib/gen_assets/SHADER_item_frag.c
 #
 file(GLOB_RECURSE SOURCE_FILES_SRC "src/**/*.cpp")
 file(GLOB_RECURSE SOURCE_FILES_SRC1 "src/*.cpp")
@@ -105,6 +117,8 @@ set(SOURCE_FILES_GEN
         lib/gen_assets/SHADER_entity_frag.c
         lib/gen_assets/TEXTURE_entity_steve.c
         lib/gen_assets/TEXTURE_entity_zombie.c
+        lib/gen_assets/SHADER_item_vert.c
+        lib/gen_assets/SHADER_item_frag.c
         )
 
 set(SOURCE_FILES )

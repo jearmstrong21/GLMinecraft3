@@ -8,6 +8,7 @@
 #include "entity_render.h"
 #include "entity/entity.h"
 #include "textured_cube_render.h"
+#include "entity/entities.h"
 
 namespace client {
 
@@ -21,9 +22,9 @@ namespace client {
 
         ~entity_render();
 
-        void render_player(glm::mat4 p, glm::mat4 v, const std::shared_ptr<nbt::nbt> &data);
+        void render_player(glm::mat4 p, glm::mat4 v, const entity::entity_ptr &data);
 
-        void render_zombie(glm::mat4 p, glm::mat4 v, const std::shared_ptr<nbt::nbt> &data);
+        void render_zombie(glm::mat4 p, glm::mat4 v, const entity::entity_ptr &data);
 
     };
 

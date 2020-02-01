@@ -22,12 +22,14 @@
 #include <mutex>
 #include "utils/utils.h"
 #include "text_rendering.h"
+#include "item_renderer.h"
 #include "render_entity/textured_cube_render.h"
 #include "render_entity/entity_render.h"
+#include "block_rendering.h"
+#include "gui_ctx.h"
+#include "entity/entities.h"
 
-//**********
 namespace client {
-    void glfw_key_callback(GLFWwindow *window, int key, int scancode, int action, int mods);
 
     class game {
     private:
@@ -39,6 +41,7 @@ namespace client {
         gl::mesh *filledcube_mesh;
         text_renderer *text_rend;
         entity_render *ent_rend;
+        item_renderer*item_rend;
         float rotX = 0, rotY = 0;
         bool attemptQuit = false;
 
@@ -52,7 +55,7 @@ namespace client {
 
         /********** GAME STATE **********/
         block::world world;
-        std::map<std::string, std::shared_ptr<nbt::nbt>> entities;
+        std::map<std::string, entity::entity_ptr> entities;
         std::string player_id;
         std::mutex protect_game_state;
 

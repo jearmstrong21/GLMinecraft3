@@ -9,7 +9,7 @@ namespace client {
     rendered_chunk::rendered_chunk(glm::ivec2 cpos) : cpos(cpos) {
         for (int y = 0; y < 16; y++) {
             section_data[y] = gl::mesh_data();
-            block::client::init_chunk_buffers(&section_data[y]);
+            client::init_chunk_buffers(&section_data[y]);
 //            sections[y]=std::shared_ptr<gl::mesh>(new gl::mesh(&section_data[y]));
         }
     }
@@ -38,7 +38,7 @@ namespace client {
     void rendered_chunk::take_chunk_section(block::world* world, const std::shared_ptr<block::chunk> &chunk,
                                             int section) {
         section_data[section] = gl::mesh_data();
-        block::client::init_chunk_buffers(&section_data[section]);
+        client::init_chunk_buffers(&section_data[section]);
 
         for (int x = 0; x < 16; x++) {
             for (int y = section * 16; y < section * 16 + 16; y++) {

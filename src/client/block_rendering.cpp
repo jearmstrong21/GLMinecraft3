@@ -4,7 +4,7 @@
 
 #include "block_rendering.h"
 
-namespace block::client {
+namespace client {
 
 
     void mesh_quad(gl::mesh_data *md, quad_descr qd, int x, int y, int z) {
@@ -102,5 +102,4 @@ namespace block::client {
         d0 = {1, 0, 0};
         d1 = {0, 1, 0};
     }
-
 }

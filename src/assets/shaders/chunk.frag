@@ -13,9 +13,9 @@ void main(){
     if (second.w>0.2){
         result=second;
     }
-//    frag_color=vec4(ao,ao,ao,1);
+    //    frag_color=vec4(ao,ao,ao,1);
     frag_color=vec4(result.xyz, 1);
-    frag_color*=max(0,min(1,ao));
+    frag_color*=max(0, min(1, ao));
     //  FragColor=texture(tex,uv);
     //  FragColor=vec4(uv,0,1);
 }

@@ -7,6 +7,7 @@
 
 
 #include <nbt/nbt.h>
+#include "client/item_renderer.h"
 
 namespace server { struct game_room; }
 namespace entity { struct entity; }
@@ -16,9 +17,8 @@ namespace item {
     struct item;
 
     struct item_stack{
-        std::string item_name;
+        int item_type_id;
         int count;
-        item*item;
     };
 
     struct item_use_context {
@@ -32,12 +32,8 @@ namespace item {
 
     struct item_properties {
 
-        std::string name;
-
-        void save(const nbt::nbt_compound_ptr&tag);
-        void load(const nbt::nbt_compound_ptr&tag);
-
-        bool operator==(const item_properties&other);
+        int item_type_id;
+        std::string item_type_name;
 
     };
 
@@ -49,6 +45,7 @@ namespace item {
 
         virtual void attack(const item_use_context&ctx)=0;
         virtual void use(const item_use_context&ctx)=0;
+        virtual client::item_texture_descr render(item_stack stack)=0;
 
         virtual void save_additional_information(item_stack stack,const nbt::nbt_compound_ptr &tag) = 0;
 
@@ -59,18 +56,6 @@ namespace item {
         void load(item_stack* stack,const nbt::nbt_compound_ptr &tag);
 
         virtual item_stack make()=0;
-
-    };
-
-    struct item_registry {
-
-        static void save(const nbt::nbt_compound_ptr &tag);
-
-        bool is_equivalent(const nbt::nbt_compound_ptr &tag);
-
-        static std::map<std::string,std::shared_ptr<item>>map;
-
-        static void put(const std::shared_ptr<item>&item);
 
     };
 
