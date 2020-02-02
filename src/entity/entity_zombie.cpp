@@ -12,15 +12,15 @@
 
 namespace entity {
 
-    entity_zombie::entity_zombie(): entity(ENTITY_ID_ZOMBIE){
-        box.size={0.6,1.95,0.6};
+    entity_zombie::entity_zombie() : entity(ENTITY_ID_ZOMBIE) {
+        box.size = {0.6, 1.95, 0.6};
     }
 
-    entity_ptr entity_zombie::spawn(std::string id, glm::vec3 pos,server::game_room*server) {
-        std::shared_ptr<entity_zombie>p=std::make_shared<entity_zombie>();
-        p->uuid=std::move(id);
-        p->box.pos=pos;
-        p->server=server;
+    entity_ptr entity_zombie::spawn(std::string id, glm::vec3 pos, server::game_room *server) {
+        std::shared_ptr<entity_zombie> p = std::make_shared<entity_zombie>();
+        p->uuid = std::move(id);
+        p->box.pos = pos;
+        p->server = server;
         return std::dynamic_pointer_cast<entity>(p);
     }
 
@@ -87,10 +87,11 @@ namespace entity {
                     total_path.push_back(current);
                 }
                 std::reverse(total_path.begin(), total_path.end());
-                motion = 3.0F*glm::normalize(glm::vec3(total_path[1]) + glm::vec3{0.5} - box.pos);//TODO: getattribute(walkspeed)
-                if(motion.y>0){
+                motion = 3.0F * glm::normalize(
+                        glm::vec3(total_path[1]) + glm::vec3{0.5} - box.pos);//TODO: getattribute(walkspeed)
+                if (motion.y > 0) {
                     jump();
-                    motion.y=0;
+                    motion.y = 0;
                 }
                 return;
             }
@@ -98,9 +99,9 @@ namespace entity {
             open_set.erase(current);
 
             std::unordered_set<glm::ivec3> children;
-            if(!can_go_through_block(server->world.get(current.x,current.y-1,current.z))){
-                children.insert({current.x,current.y+1,current.z});
-            }else{
+            if (!can_go_through_block(server->world.get(current.x, current.y - 1, current.z))) {
+                children.insert({current.x, current.y + 1, current.z});
+            } else {
                 children.insert({current.x - 1, current.y, current.z});
                 children.insert({current.x + 1, current.y, current.z});
                 children.insert({current.x, current.y, current.z - 1});

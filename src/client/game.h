@@ -41,7 +41,7 @@ namespace client {
         gl::mesh *filledcube_mesh;
         text_renderer *text_rend;
         entity_render *ent_rend;
-        item_renderer*item_rend;
+        item_renderer *item_rend;
         float rotX = 0, rotY = 0;
         bool attemptQuit = false;
 

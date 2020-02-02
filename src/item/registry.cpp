@@ -7,13 +7,13 @@
 namespace item {
 
     std::shared_ptr<item> item_registry::DIAMOND_SWORD;
-    std::map<int,std::shared_ptr<item>> item_registry::map;
+    std::map<int, std::shared_ptr<item>> item_registry::map;
 
     void item_registry::initialize() {
-        auto put=[&](const std::shared_ptr<item>&i){
-            map[i->properties.item_type_id]=i;
+        auto put = [&](const std::shared_ptr<item> &i) {
+            map[i->properties.item_type_id] = i;
         };
 
-        put(DIAMOND_SWORD=std::shared_ptr<item>(new item_sword({1,"diamond_sword"})));
+        put(DIAMOND_SWORD = std::shared_ptr<item>(new item_sword({1, "diamond_sword"})));
     }
 }

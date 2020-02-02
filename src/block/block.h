@@ -50,7 +50,7 @@ namespace block {
         //xmi,xpl...
         block_state xmi, xpl, ymi, ypl, zmi, zpl;
         block_state self;
-        world*world;
+        world *world;
         glm::ivec3 pos;
 
     };

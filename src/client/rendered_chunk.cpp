@@ -25,7 +25,7 @@ namespace client {
     }
 
     void
-    rendered_chunk::take_chunk(block::world*world, const std::shared_ptr<block::chunk> &chunk, int section) {
+    rendered_chunk::take_chunk(block::world *world, const std::shared_ptr<block::chunk> &chunk, int section) {
         if (section == -1) {
             for (int y = 0; y < 16; y++) {
                 take_chunk_section(world, chunk, y);
@@ -35,7 +35,7 @@ namespace client {
         }
     }
 
-    void rendered_chunk::take_chunk_section(block::world* world, const std::shared_ptr<block::chunk> &chunk,
+    void rendered_chunk::take_chunk_section(block::world *world, const std::shared_ptr<block::chunk> &chunk,
                                             int section) {
         section_data[section] = gl::mesh_data();
         client::init_chunk_buffers(&section_data[section]);
@@ -45,7 +45,7 @@ namespace client {
                 for (int z = 0; z < 16; z++) {
                     block::from_id(block::id(chunk->get(x, y, z)))->render(&section_data[section],
                                                                            world->get_block_context({cpos.x * 16 + x, y,
-                                                                                                    cpos.y * 16 + z}));
+                                                                                                     cpos.y * 16 + z}));
                 }
             }
         }

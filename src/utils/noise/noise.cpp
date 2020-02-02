@@ -95,7 +95,7 @@ namespace utils::noise {
 
     perlin::perlin(uint32_t seed) {
 
-        int_twister *twister = new int_twister(seed);
+        auto *twister = new int_twister(seed);
 
         initialize_permutation(twister);
 

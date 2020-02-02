@@ -40,7 +40,7 @@ namespace utils::noise {
     struct perlin : noise {
 
     private:
-        int p[512];
+        int p[512]{};
 
         double grad(int hash, double x, double y, double z);
 

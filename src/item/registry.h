@@ -14,7 +14,8 @@ namespace item {
 
         static std::shared_ptr<item> DIAMOND_SWORD;
 
-        static std::map<int,std::shared_ptr<item>>map;
+        static std::map<int, std::shared_ptr<item>> map;
+
         static void initialize();
 
     };

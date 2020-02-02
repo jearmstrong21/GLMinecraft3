@@ -195,7 +195,8 @@ namespace client {
             int width, height;
             glfwGetFramebufferSize(window, &width, &height);
 
-            std::shared_ptr<entity::entity_player>player=std::dynamic_pointer_cast<entity::entity_player>(entities[player_id]);
+            std::shared_ptr<entity::entity_player> player = std::dynamic_pointer_cast<entity::entity_player>(
+                    entities[player_id]);
 
             glViewport(0, 0, width, height);
             glClearColor(0.5, 0.7, 0.9, 1.0);
@@ -246,8 +247,8 @@ namespace client {
                         glm::scale(glm::mat4(1), glm::vec3{4}) *
                         glm::scale(glm::mat4(1), glm::vec3{1.0 / width, 1.0 / height, 0});
 //            item::item_stack stack=item::item_registry::DIAMOND_SWORD->make();
-            item_texture_descr itd=item::item_registry::DIAMOND_SWORD->render(player->inventory[0]);
-            item_rend->render_item(ctx,itd, texture, 500, 200, 300);
+            item_texture_descr itd = item::item_registry::DIAMOND_SWORD->render(player->inventory[0]);
+            item_rend->render_item(ctx, itd, texture, 500, 200, 300);
 //            item_rend->render_item(ctx, i, texture, 500, 200, 300);
 
             glm::mat4 v = glm::lookAt(lookFrom, lookAt, {0, -1, 0});

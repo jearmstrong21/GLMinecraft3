@@ -13,7 +13,7 @@ namespace entity {
     struct entity_player : entity {
 
     private:
-        static const int inventory_size=36;
+        static const int inventory_size = 36;
 
     public:
 
@@ -27,7 +27,7 @@ namespace entity {
 
         void handle_ai() override;
 
-        static entity_ptr spawn(std::string uuid,glm::vec3 pos,server::game_room*server);
+        static entity_ptr spawn(std::string uuid, glm::vec3 pos, server::game_room *server);
 
     };
 

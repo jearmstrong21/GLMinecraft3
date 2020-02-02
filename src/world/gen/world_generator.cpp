@@ -185,64 +185,64 @@ namespace block {
 //        return img;
 //    }
 
-    anl::TArray3D<anl::SRGBA>generate_data(bool nether){
-        anl::TArray3D<anl::SRGBA>img(WORLD_SIZE*16,256,WORLD_SIZE*16);
+    anl::TArray3D<anl::SRGBA> generate_data(bool nether) {
+        anl::TArray3D<anl::SRGBA> img(WORLD_SIZE * 16, 256, WORLD_SIZE * 16);
 
-        auto set=[&](int x,int y,int z,bool b){
-            if(x<0||x>=WORLD_SIZE*16||y<0||y>=256||z<0||z>=WORLD_SIZE*16)return;
-            float f=1;
-            if(!b)f=0;
-            img.set(x,y,z,anl::SRGBA(f,f,f,f));
+        auto set = [&](int x, int y, int z, bool b) {
+            if (x < 0 || x >= WORLD_SIZE * 16 || y < 0 || y >= 256 || z < 0 || z >= WORLD_SIZE * 16)return;
+            float f = 1;
+            if (!b)f = 0;
+            img.set(x, y, z, anl::SRGBA(f, f, f, f));
         };
 
-        for(int x=0;x<WORLD_SIZE*16;x++){
-            for(int y=0;y<256;y++){
-                for(int z=0;z<WORLD_SIZE*16;z++){
-                    set(x,y,z,true);
+        for (int x = 0; x < WORLD_SIZE * 16; x++) {
+            for (int y = 0; y < 256; y++) {
+                for (int z = 0; z < WORLD_SIZE * 16; z++) {
+                    set(x, y, z, true);
                 }
             }
         }
 
-        auto carve_sphere=[&](float x,float y,float z,float r){
-            for(int i=-(int)r;i<=(int)r;i++){
-                for(int j=-(int)r;j<=(int)r;j++){
-                    for(int k=-(int)r;k<=(int)r;k++){
-                        if(i*i+j*j*2+k*k<r*r){
-                            set((int)x+i,(int)y+j,(int)z+k,false);
+        auto carve_sphere = [&](float x, float y, float z, float r) {
+            for (int i = -(int) r; i <= (int) r; i++) {
+                for (int j = -(int) r; j <= (int) r; j++) {
+                    for (int k = -(int) r; k <= (int) r; k++) {
+                        if (i * i + j * j * 2 + k * k < r * r) {
+                            set((int) x + i, (int) y + j, (int) z + k, false);
                         }
                     }
                 }
             }
         };
 
-        auto do_cave=[&](){
-            float x=rand()%(WORLD_SIZE*16-10)+5;
-            float y=rand()%(20)-10+74;
-            float z=rand()%(WORLD_SIZE*16-10)+5;
-            float r=5;
-            float theta=(rand()%314)/100.0F;
-            float phi=(rand()%628)/100.0F;
-            int l=1000;
-            for(int i=0;i<l;i++){
+        auto do_cave = [&]() {
+            float x = rand() % (WORLD_SIZE * 16 - 10) + 5;
+            float y = rand() % (20) - 10 + 74;
+            float z = rand() % (WORLD_SIZE * 16 - 10) + 5;
+            float r = 5;
+            float theta = (rand() % 314) / 100.0F;
+            float phi = (rand() % 628) / 100.0F;
+            int l = 1000;
+            for (int i = 0; i < l; i++) {
 //                carve_sphere(x,y,z,r);
-                float dtheta=(rand()%500)/500.0F;
-                float dphi=(rand()%500)/500.0F;
-                dtheta*=0.3F;
-                dphi*=0.3F;
-                theta+=dtheta;
-                phi+=dphi;
-                float dx=sin(theta)*cos(phi);
-                float dy=sin(theta)*sin(phi);
-                float dz=cos(theta);
-                float d=2;
-                x+=dx*d;
-                y+=dy*d*1.5;
-                z+=dz*d;
-                r+=((rand()%200)/100.0F-1.0F)*0.5F;
-                if(r<3)r=3;
-                if(r>8)r=8;
+                float dtheta = (rand() % 500) / 500.0F;
+                float dphi = (rand() % 500) / 500.0F;
+                dtheta *= 0.3F;
+                dphi *= 0.3F;
+                theta += dtheta;
+                phi += dphi;
+                float dx = sin(theta) * cos(phi);
+                float dy = sin(theta) * sin(phi);
+                float dz = cos(theta);
+                float d = 2;
+                x += dx * d;
+                y += dy * d * 1.5;
+                z += dz * d;
+                r += ((rand() % 200) / 100.0F - 1.0F) * 0.5F;
+                if (r < 3)r = 3;
+                if (r > 8)r = 8;
 //                r=5;
-                carve_sphere(x,y,z,(int)r);
+                carve_sphere(x, y, z, (int) r);
             }
         };
 //        for(int i=0;i<10;i++)do_cave();
@@ -250,7 +250,7 @@ namespace block {
         return img;
     }
 
-    void world_generator::generate_world(world* world) {
+    void world_generator::generate_world(world *world) {
         auto data = generate_data(true);
         int seed = time(nullptr);
 
@@ -295,12 +295,12 @@ namespace block {
             for (int z = 0; z < WORLD_SIZE * 16; z++) {
                 double elev = interpolate(x, z);
                 int h = (int) (elev * 64 + 64);
-                h=50;
+                h = 50;
                 if (h < 0)h = 0;
                 if (h >= 256)h = 256;
                 for (int y_ = 0; y_ <= h; y_++) {
                     block_state bs = surface.get_for_location(x, y_, z, h);
-                    if(data.get(x,y_,z).get_x()==0)continue;
+                    if (data.get(x, y_, z).get_x() == 0)continue;
                     world->set(x, y_, z, bs);
                 }
             }

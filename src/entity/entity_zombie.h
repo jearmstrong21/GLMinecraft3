@@ -19,7 +19,7 @@ namespace entity {
 
         void handle_ai() override;
 
-        static entity_ptr spawn(std::string id,glm::vec3 pos,server::game_room*server);
+        static entity_ptr spawn(std::string id, glm::vec3 pos, server::game_room *server);
 
     };
 

@@ -26,7 +26,7 @@ namespace client {
 
     void entity_render::render_player(glm::mat4 p, glm::mat4 v, const entity::entity_ptr &data) {
         glm::mat4 m(1);
-        m *= glm::translate(glm::mat4(1),data->box.pos);
+        m *= glm::translate(glm::mat4(1), data->box.pos);
         tcr->render_cube(p, v, m * glm::translate(glm::mat4(1), glm::vec3{0, 12, 0} / 16.0F), steve_texture,//arm
                          glm::vec3{8, 12, 4},
                          glm::vec2{16, 32}, glm::vec2{64, 64});

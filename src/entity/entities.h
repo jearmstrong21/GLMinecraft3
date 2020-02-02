@@ -11,7 +11,7 @@
 
 namespace entity {
 
-    entity_ptr load(const nbt::nbt_compound_ptr&tag);
+    entity_ptr load(const nbt::nbt_compound_ptr &tag);
 
 }
 

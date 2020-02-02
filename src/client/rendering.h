@@ -21,7 +21,7 @@ namespace client {
         GRASS_SIDE_OVERLAY = ATLAS_TEXTURE(13, 10),
         STONE = ATLAS_TEXTURE(20, 9),
 
-        DIAMOND_SWORD=ATLAS_TEXTURE(27,1),
+        DIAMOND_SWORD = ATLAS_TEXTURE(27, 1),
 
         BREAK_0 = ATLAS_TEXTURE(2, 7)
 

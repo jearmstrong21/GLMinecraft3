@@ -8,7 +8,7 @@
 
 namespace item {
 
-    item_sword::item_sword(item_properties properties): item(std::move(properties)) {
+    item_sword::item_sword(item_properties properties) : item(std::move(properties)) {
 
     }
 
@@ -21,7 +21,7 @@ namespace item {
     }
 
     client::item_texture_descr item_sword::render(item_stack stack) {
-        return {{{client::atlas_texture::DIAMOND_SWORD,{1,1,1}}},stack.count};
+        return {{{client::atlas_texture::DIAMOND_SWORD, {1, 1, 1}}}, stack.count};
     }
 
     void item_sword::save_additional_information(item_stack stack, const nbt::nbt_compound_ptr &tag) {
@@ -33,7 +33,7 @@ namespace item {
     }
 
     item_stack item_sword::make() {
-        return item_stack{properties.item_type_id,1};
+        return item_stack{properties.item_type_id, 1};
     }
 
 }

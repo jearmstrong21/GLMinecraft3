@@ -7,14 +7,14 @@
 
 namespace entity {
 
-    entity::entity(int type_id):type_id(type_id){
+    entity::entity(int type_id) : type_id(type_id) {
 
     }
 
-    void entity::jump(){
-        if(grounded){
-            grounded=false;
-            velocity.y=300;
+    void entity::jump() {
+        if (grounded) {
+            grounded = false;
+            velocity.y = 300;
         }
     }
 
@@ -23,7 +23,7 @@ namespace entity {
     }
 
     void entity::save(const nbt::nbt_compound_ptr &tag) {
-        tag->value["entity_type_id"]=nbt::nbt_int::make(type_id);
+        tag->value["entity_type_id"] = nbt::nbt_int::make(type_id);
         tag->value["uuid"] = nbt::nbt_string::make(uuid);
         tag->value["position"] = utils::cast3(box.pos);
         tag->value["bbsize"] = utils::cast3(box.size);
@@ -34,7 +34,7 @@ namespace entity {
     }
 
     void entity::load(const nbt::nbt_compound_ptr &tag) {
-        ASSERT_OR_EXIT(tag->value["entity_type_id"]->as_int()==type_id,"Wrong entity_type_id");
+        ASSERT_OR_EXIT(tag->value["entity_type_id"]->as_int() == type_id, "Wrong entity_type_id");
         uuid = tag->value["uuid"]->as_string();
         box.pos = utils::cast3(tag->value["position"]);
         box.size = utils::cast3(tag->value["bbsize"]);

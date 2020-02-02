@@ -5,7 +5,7 @@
 #ifndef GLMINECRAFT3_GUI_CTX_H
 #define GLMINECRAFT3_GUI_CTX_H
 
-namespace client{
+namespace client {
 
     struct gui_ctx {
 

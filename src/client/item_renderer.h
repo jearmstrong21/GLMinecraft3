@@ -13,9 +13,9 @@
 
 namespace client {
 
-    struct item_texture_descr{
+    struct item_texture_descr {
 
-        std::vector<layer_texture_descr>layers;
+        std::vector<layer_texture_descr> layers;
         int count;
         //int durability; text::formatted name;
 
@@ -23,13 +23,14 @@ namespace client {
 
     struct item_renderer {
 
-        gl::shader*shader;
-        gl::mesh*mesh;
+        gl::shader *shader;
+        gl::mesh *mesh;
 
         item_renderer();
+
         ~item_renderer();
 
-        void render_item(gui_ctx ctx,const item_texture_descr& i,gl::texture*texture,int x,int y,int s);
+        void render_item(gui_ctx ctx, const item_texture_descr &i, gl::texture *texture, int x, int y, int s);
 
     };
 

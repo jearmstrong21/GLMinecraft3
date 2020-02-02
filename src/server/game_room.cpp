@@ -26,7 +26,7 @@ namespace server {
         instance = this;
         game_loop_is_over = false;
         world.generate_world();
-        std::cout<<"start frame_handler\n";
+        std::cout << "start frame_handler\n";
         frame_handler(boost::system::error_code());
     }
 
@@ -136,7 +136,7 @@ namespace server {
             if (back)ent->motion -= forward * d;
             if (left)ent->motion += leftdir * d;
             if (right)ent->motion -= leftdir * d;
-            ent->motion*=3;
+            ent->motion *= 3;
             if (jump && ent->grounded) {
                 ent->jump();
             }
