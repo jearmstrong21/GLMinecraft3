@@ -1,19 +1,17 @@
 //
-// Created by Jack Armstrong on 1/31/20.
+// Created by Jack Armstrong on 2/1/20.
 //
 
-#ifndef GLMINECRAFT3_ITEM_SWORD_H
-#define GLMINECRAFT3_ITEM_SWORD_H
+#ifndef GLMINECRAFT3_ITEM_NONE_H
+#define GLMINECRAFT3_ITEM_NONE_H
 
 #include "item.h"
 
 namespace item {
 
-    struct item_sword : item {
+    struct item_none : item {
 
-        enums::material material;
-
-        explicit item_sword(item_properties properties, enums::material material);
+        explicit item_none(item_properties properties);
 
         void attack(const item_use_context &ctx) override;
 
@@ -31,4 +29,4 @@ namespace item {
 
 }
 
-#endif //GLMINECRAFT3_ITEM_SWORD_H
+#endif //GLMINECRAFT3_ITEM_NONE_H

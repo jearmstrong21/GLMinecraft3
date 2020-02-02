@@ -237,19 +237,18 @@ namespace client {
 
             render_chat();
 
-//            item_texture_descr i{};
-//            i.layers.push_back({atlas_texture::DIAMOND_SWORD, glm::vec3{1, 1, 1}});
-//            i.count = 50;
             gui_ctx ctx{};
             ctx.width = width;
             ctx.height = height;
             ctx.ortho = glm::translate(glm::mat4(1), glm::vec3{-1, -1, 0}) *
                         glm::scale(glm::mat4(1), glm::vec3{4}) *
                         glm::scale(glm::mat4(1), glm::vec3{1.0 / width, 1.0 / height, 0});
-//            item::item_stack stack=item::item_registry::DIAMOND_SWORD->make();
-            item_texture_descr itd = item::item_registry::DIAMOND_SWORD->render(player->inventory[0]);
-            item_rend->render_item(ctx, itd, texture, 500, 200, 300);
-//            item_rend->render_item(ctx, i, texture, 500, 200, 300);
+            for (int i = 0; i < 9; i++) {
+                int s = 30;
+                int y = 100;
+                item_rend->render_item(ctx, player->inventory[i].item()->render(player->inventory[i]), texture,
+                                       500 - (i - 4) * s - s / 2, y, s);
+            }
 
             glm::mat4 v = glm::lookAt(lookFrom, lookAt, {0, -1, 0});
 
@@ -273,7 +272,7 @@ namespace client {
                 if (id == ENTITY_ID_ZOMBIE)ent_rend->render_zombie(p, v, e.second);
 
                 glm::vec3 pos = e.second->box.pos;
-                glm::vec3 size = e.second->box.pos;
+                glm::vec3 size = e.second->box.size;
 
                 wireframe_shader->bind();
                 wireframe_shader->uniform4x4("model", glm::translate(glm::mat4(1), pos) *

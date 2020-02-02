@@ -22,8 +22,12 @@ namespace client {
         STONE = ATLAS_TEXTURE(20, 9),
 
         DIAMOND_SWORD = ATLAS_TEXTURE(27, 1),
+        GOLD_SWORD = ATLAS_TEXTURE(30, 15),
+        IRON_SWORD = ATLAS_TEXTURE(31, 12),
+        STONE_SWORD = ATLAS_TEXTURE(15, 18),
+        WOOD_SWORD = ATLAS_TEXTURE(23, 18),
 
-        BREAK_0 = ATLAS_TEXTURE(2, 7)
+        UNKNOWN = ATLAS_TEXTURE(25, 18),
 
     };
 

@@ -8,6 +8,7 @@
 
 #include <nbt/nbt.h>
 #include "client/item_renderer.h"
+#include "item_enums.h"
 
 namespace server { struct game_room; }
 namespace entity { struct entity; }
@@ -17,8 +18,12 @@ namespace item {
     struct item;
 
     struct item_stack {
-        int item_type_id;
-        int count;
+        int item_type_id = 0;
+        int count = 0;
+
+        std::shared_ptr<item> item();
+
+        bool is_empty();
     };
 
     struct item_use_context {
