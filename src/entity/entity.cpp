@@ -2,13 +2,15 @@
 // Created by Jack Armstrong on 1/26/20.
 //
 
+#include <glm/gtx/rotate_vector.hpp>
 #include "entity.h"
 #include "server/game_room.h"
 
 namespace entity {
 
     entity::entity(int type_id) : type_id(type_id) {
-
+        lookdir={1,0,0};
+        facedir={1,0,0};
     }
 
     void entity::jump() {
@@ -30,6 +32,7 @@ namespace entity {
         tag->value["motion"] = utils::cast3(motion);
         tag->value["lookdir"] = utils::cast3(lookdir);
         tag->value["velocity"] = utils::cast3(velocity);
+        tag->value["facedir"]=utils::cast3(facedir);
         save_additional_information(tag);
     }
 
@@ -41,6 +44,7 @@ namespace entity {
         motion = utils::cast3(tag->value["motion"]);
         lookdir = utils::cast3(tag->value["lookdir"]);
         velocity = utils::cast3(tag->value["velocity"]);
+        facedir=utils::cast3(tag->value["facedir"]);
         load_additional_information(tag);
     }
 
@@ -76,6 +80,9 @@ namespace entity {
         }
         if (motion.z != 0) {
             box.pos = trace_pos(box.pos, {0, 0, motion.z}, dt, iters);
+        }
+        if(glm::length(glm::vec3{motion.x,0,motion.z})>0){
+            facedir=glm::normalize(glm::vec3{motion.x,0,motion.z});
         }
     }
 

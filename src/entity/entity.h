@@ -26,6 +26,7 @@ namespace entity {
         glm::vec3 motion{};
         std::string uuid;
         glm::vec3 lookdir{};
+        glm::vec3 facedir{};
 
         TRANSIENT server::game_room *server;
 

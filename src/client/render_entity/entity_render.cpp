@@ -25,8 +25,10 @@ namespace client {
     }
 
     void entity_render::render_player(glm::mat4 p, glm::mat4 v, const entity::entity_ptr &data) {
-        glm::mat4 m(1);
-        m *= glm::translate(glm::mat4(1), data->box.pos);
+        glm::mat4 m0(1);
+        m0 *= glm::translate(glm::mat4(1), data->box.pos);
+
+        glm::mat4 m=m0*glm::lookAt(glm::vec3{0,0,0},glm::normalize(glm::vec3{data->facedir.x,0,-data->facedir.z}),glm::vec3{0,1,0});
         tcr->render_cube(p, v, m * glm::translate(glm::mat4(1), glm::vec3{0, 12, 0} / 16.0F), steve_texture,//arm
                          glm::vec3{8, 12, 4},
                          glm::vec2{16, 32}, glm::vec2{64, 64});
@@ -36,20 +38,24 @@ namespace client {
         tcr->render_cube(p, v, m * glm::translate(glm::mat4(1), glm::vec3{-6, 12, 0} / 16.0F), steve_texture,
                          glm::vec3{4, 12, 4},
                          glm::vec2{32, 0}, glm::vec2{64, 64});
-        tcr->render_cube(p, v, m * glm::translate(glm::mat4(1), glm::vec3{0, 24, 0} / 16.0F), steve_texture,
-                         glm::vec3{8, 8, 8},
-                         glm::vec2{0, 48}, glm::vec2{64, 64});
         tcr->render_cube(p, v, m * glm::translate(glm::mat4(1), glm::vec3{2, 0, 0} / 16.0F), steve_texture,
                          glm::vec3{4, 12, 4},
                          glm::vec2{0, 32}, glm::vec2{64, 64});
         tcr->render_cube(p, v, m * glm::translate(glm::mat4(1), glm::vec3{-2, 0, 0} / 16.0F), steve_texture,
                          glm::vec3{4, 12, 4},
                          glm::vec2{16, 0}, glm::vec2{64, 64});
+
+        m= m0*glm::lookAt(glm::vec3{0,0,0},glm::normalize(glm::vec3{data->lookdir.x,0,-data->lookdir.z}),glm::vec3{0,1,0});
+        tcr->render_cube(p, v, m * glm::translate(glm::mat4(1), glm::vec3{0, 24, 0} / 16.0F), steve_texture,
+                         glm::vec3{8, 8, 8},
+                         glm::vec2{0, 48}, glm::vec2{64, 64});
     }
 
     void entity_render::render_zombie(glm::mat4 p, glm::mat4 v, const entity::entity_ptr &data) {
-        glm::mat4 m(1);
-        m *= glm::translate(glm::mat4(1), data->box.pos);
+        glm::mat4 m0(1);
+        m0 *= glm::translate(glm::mat4(1), data->box.pos);
+
+        glm::mat4 m=m0*glm::lookAt(glm::vec3{0,0,0},glm::normalize(glm::vec3{data->facedir.x,0,-data->facedir.z}),glm::vec3{0,1,0});
         tcr->render_cube(p, v, m * glm::translate(glm::mat4(1), glm::vec3{0, 12, 0} / 16.0F), zombie_texture,
                          glm::vec3{8, 12, 4},
                          glm::vec2{16, 32}, glm::vec2{64, 64});
@@ -59,15 +65,17 @@ namespace client {
         tcr->render_cube(p, v, m * glm::translate(glm::mat4(1), glm::vec3{-6, 12, 0} / 16.0F), zombie_texture,
                          glm::vec3{4, 12, 4},
                          glm::vec2{40, 32}, glm::vec2{64, 64});
-        tcr->render_cube(p, v, m * glm::translate(glm::mat4(1), glm::vec3{0, 24, 0} / 16.0F), zombie_texture,
-                         glm::vec3{8, 8, 8},
-                         glm::vec2{0, 48}, glm::vec2{64, 64});
         tcr->render_cube(p, v, m * glm::translate(glm::mat4(1), glm::vec3{2, 0, 0} / 16.0F), zombie_texture,
                          glm::vec3{4, 12, 4},
                          glm::vec2{0, 32}, glm::vec2{64, 64});
         tcr->render_cube(p, v, m * glm::translate(glm::mat4(1), glm::vec3{-2, 0, 0} / 16.0F), zombie_texture,
                          glm::vec3{4, 12, 4},
                          glm::vec2{0, 32}, glm::vec2{64, 64});
+
+        m= m0*glm::lookAt(glm::vec3{0,0,0},glm::normalize(glm::vec3{data->lookdir.x,0,-data->lookdir.z}),glm::vec3{0,1,0});
+        tcr->render_cube(p, v, m * glm::translate(glm::mat4(1), glm::vec3{0, 24, 0} / 16.0F), zombie_texture,
+                         glm::vec3{8, 8, 8},
+                         glm::vec2{0, 48}, glm::vec2{64, 64});
     }
 
 }

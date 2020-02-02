@@ -162,7 +162,6 @@ namespace client {
             p->lookdir = {0, 0, 1};
             p->lookdir = glm::rotateX(p->lookdir, p->rotX);
             p->lookdir = glm::rotateY(p->lookdir, p->rotY);
-//            std::cout<<x<<" "<<y<<" "<<dx<<" "<<dy<<" "<<p->rotX<<","<<p->rotY<<" "<<p->lookdir.x<<" "<<p->lookdir.y<<" "<<p->lookdir.z<<"\n";
         });
         glfwSetCharCallback(window, [](GLFWwindow *w, unsigned int codepoint) {
             auto p = (game *) glfwGetWindowUserPointer(w);
@@ -283,7 +282,6 @@ namespace client {
                                                       glm::scale(glm::mat4(1),
                                                                  glm::vec3{size.x - 0.05, 2, size.z - 0.05}));
                 wireframe_mesh->render_lines();
-//                filledcube_mesh->render_triangles();
             }
 
             if (!freecam) {
@@ -465,7 +463,7 @@ namespace client {
         }
         int w, h;
         glfwGetWindowSize(window, &w, &h);
-        text_rend->render_string("GLMinecraft3\nYOUR PLAYER ID: " + player_id + "\n", 0, h - text_rend->charsize);
+        text_rend->render_string("GLMinecraft3\nYOUR PLAYER ID: " + player_id + "\nFACEDIR "+std::to_string(entities[player_id]->facedir.x)+","+std::to_string(entities[player_id]->facedir.y)+","+std::to_string(entities[player_id]->facedir.z)+"\n", 0, h - text_rend->charsize);
     }
 
 }
