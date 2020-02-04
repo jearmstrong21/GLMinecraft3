@@ -9,8 +9,8 @@
 namespace entity {
 
     entity::entity(int type_id) : type_id(type_id) {
-        lookdir={1,0,0};
-        facedir={1,0,0};
+        lookdir = {1, 0, 0};
+        facedir = {1, 0, 0};
     }
 
     void entity::jump() {
@@ -27,24 +27,23 @@ namespace entity {
     void entity::save(const nbt::nbt_compound_ptr &tag) {
         tag->value["entity_type_id"] = nbt::nbt_int::make(type_id);
         tag->value["uuid"] = nbt::nbt_string::make(uuid);
-        tag->value["position"] = utils::cast3(box.pos);
-        tag->value["bbsize"] = utils::cast3(box.size);
+        tag->value["box"] = nbt::nbt_compound::make({});
+        box.save(nbt::cast_compound(tag->value["box"]));
         tag->value["motion"] = utils::cast3(motion);
         tag->value["lookdir"] = utils::cast3(lookdir);
         tag->value["velocity"] = utils::cast3(velocity);
-        tag->value["facedir"]=utils::cast3(facedir);
+        tag->value["facedir"] = utils::cast3(facedir);
         save_additional_information(tag);
     }
 
     void entity::load(const nbt::nbt_compound_ptr &tag) {
         ASSERT_OR_EXIT(tag->value["entity_type_id"]->as_int() == type_id, "Wrong entity_type_id");
         uuid = tag->value["uuid"]->as_string();
-        box.pos = utils::cast3(tag->value["position"]);
-        box.size = utils::cast3(tag->value["bbsize"]);
+        box.load(nbt::cast_compound(tag->value["box"]));
         motion = utils::cast3(tag->value["motion"]);
         lookdir = utils::cast3(tag->value["lookdir"]);
         velocity = utils::cast3(tag->value["velocity"]);
-        facedir=utils::cast3(tag->value["facedir"]);
+        facedir = utils::cast3(tag->value["facedir"]);
         load_additional_information(tag);
     }
 
@@ -81,8 +80,8 @@ namespace entity {
         if (motion.z != 0) {
             box.pos = trace_pos(box.pos, {0, 0, motion.z}, dt, iters);
         }
-        if(glm::length(glm::vec3{motion.x,0,motion.z})>0){
-            facedir=glm::normalize(glm::vec3{motion.x,0,motion.z});
+        if (glm::length(glm::vec3{motion.x, 0, motion.z}) > 0) {
+            facedir = glm::normalize(glm::vec3{motion.x, 0, motion.z});
         }
     }
 
@@ -93,7 +92,7 @@ namespace entity {
 
     bool entity::collides_with_block_at(glm::vec3 point) {
         bool collide = false;
-        aabb{point, box.size}.foreach([&](glm::ivec3 i) {
+        utils::aabb{point, box.size}.foreach([&](glm::ivec3 i) {
             if (!can_go_through_block(server->world.get(i)))collide = true;
         });
         return collide;

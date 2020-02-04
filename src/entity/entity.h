@@ -7,7 +7,7 @@
 
 #include <utility>
 
-#include "aabb.h"
+#include "utils/aabb.h"
 #include "nbt/nbt.h"
 #include "entity_id.h"
 #include "utils/utils.h"
@@ -21,7 +21,7 @@ namespace entity {
     struct entity {
 
         int type_id;
-        aabb box{};
+        utils::aabb box{};
         glm::vec3 velocity{};
         glm::vec3 motion{};
         std::string uuid;

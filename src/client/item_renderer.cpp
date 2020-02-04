@@ -20,6 +20,7 @@ namespace client {
         shader->uniform2("pos", {x, y});
         shader->uniform2("size", {s, s});
         shader->texture("tex", texture, 0);
+        std::cout << x << " " << y << " " << s << "\n";
         for (layer_texture_descr l:i.layers) {
             shader->uniform2("uv_pos", l.get_uv());
             shader->uniform2("uv_size", {1.0F / 32.0F, 1.0F / 32.0F});
@@ -42,6 +43,21 @@ namespace client {
     item_renderer::~item_renderer() {
         delete shader;
         delete mesh;
+    }
+
+    void
+    item_renderer::render_texture(gui_ctx ctx, gl::texture *texture, glm::vec2 uv_pos, glm::vec2 uv_size,
+                                  glm::vec3 tint, int x, int y,
+                                  int w, int h) {
+        shader->bind();
+        shader->uniform4x4("ortho", ctx.ortho);
+        shader->uniform2("pos", {x, y});
+        shader->uniform2("size", {w, h});
+        shader->texture("tex", texture, 0);
+        shader->uniform2("uv_pos", uv_pos);
+        shader->uniform2("uv_size", uv_size);
+        shader->uniform3("tint", tint);
+        mesh->render_triangles();
     }
 
 }

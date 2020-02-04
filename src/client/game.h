@@ -28,22 +28,24 @@
 #include "block_rendering.h"
 #include "gui_ctx.h"
 #include "entity/entities.h"
+#include "box_renderer.h"
 
 namespace client {
 
     class game {
     private:
+        int width, height, fboWidth, fboHeight;
         /********** OPENGL **********/
         gl::shader *shader;
         gl::texture *texture;
-        gl::shader *wireframe_shader;
-        gl::mesh *wireframe_mesh;
-        gl::mesh *filledcube_mesh;
+        gl::texture *gui_widgets_texture;
         text_renderer *text_rend;
+        box_renderer *box_rend;
         entity_render *ent_rend;
         item_renderer *item_rend;
         float rotX = 0, rotY = 0;
         bool attemptQuit = false;
+        std::shared_ptr<entity::entity_player> player;
 
         void render_world();
 
@@ -89,6 +91,8 @@ namespace client {
         void open_chat();
 
         void close_chat();
+
+        void render_hud();
 
     public:
         std::shared_ptr<rendered_chunk> rendered_world[WORLD_SIZE][WORLD_SIZE];

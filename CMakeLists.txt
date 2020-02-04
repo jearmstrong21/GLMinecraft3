@@ -80,6 +80,11 @@ add_custom_command(
         COMMAND embedfile SHADER_item_vert ../src/assets/shaders/item.vert
         DEPENDS src/assets/shaders/item.vert
 )
+add_custom_command(
+        OUTPUT ../lib/gen_assets/TEXTURE_gui_widgets_png.c
+        COMMAND embedfile TEXTURE_gui_widgets_png ../src/assets/textures/gui_widgets.png
+        DEPENDS src/assets/textures/gui_widgets.png
+)
 #
 #lib/gen_assets/SHADER_chunk_vert.c
 #lib/gen_assets/SHADER_chunk_frag.c
@@ -95,6 +100,7 @@ add_custom_command(
 #lib/gen_assets/TEXTURE_entity_zombie.c
 #lib/gen_assets/SHADER_item_vert.c
 #lib/gen_assets/SHADER_item_frag.c
+#lib/gen_assets/TEXTURE_gui_widgets_png.c
 #
 file(GLOB_RECURSE SOURCE_FILES_SRC "src/**/*.cpp")
 file(GLOB_RECURSE SOURCE_FILES_SRC1 "src/*.cpp")
@@ -119,6 +125,7 @@ set(SOURCE_FILES_GEN
         lib/gen_assets/TEXTURE_entity_zombie.c
         lib/gen_assets/SHADER_item_vert.c
         lib/gen_assets/SHADER_item_frag.c
+        lib/gen_assets/TEXTURE_gui_widgets_png.c
         )
 
 set(SOURCE_FILES )

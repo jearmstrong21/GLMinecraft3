@@ -7,32 +7,34 @@
 
 #include <glm/glm.hpp>
 #include <functional>
+#include "nbt/nbt.h"
+#include "utils/utils.h"
 
-namespace entity {
+namespace utils {
 
     struct aabb {
 
         glm::vec3 pos, size;
 
-        glm::vec3 min() {
+        [[nodiscard]] glm::vec3 min() const {
             return pos + size * glm::vec3{-0.5, 0, -0.5};
         }
 
-        glm::vec3 max() {
+        [[nodiscard]] glm::vec3 max() const {
             return pos + size * glm::vec3{0.5, 1, 0.5};
         }
 
-        glm::ivec3 imin() {
+        [[nodiscard]] glm::ivec3 imin() const {
             return glm::ivec3(min());
         }
 
-        glm::ivec3 imax() {
+        [[nodiscard]] glm::ivec3 imax() const {
             return glm::ivec3(max());
         }
 
         typedef std::function<void(glm::ivec3)> point_process;
 
-        void foreach(const point_process &func) {
+        void foreach(const point_process &func) const {
             glm::ivec3 min = imin();
             glm::ivec3 max = imax();
             for (int x = min.x; x <= max.x; x++) {
@@ -42,6 +44,16 @@ namespace entity {
                     }
                 }
             }
+        }
+
+        void save(const nbt::nbt_compound_ptr &tag) const {
+            tag->value["pos"] = utils::cast3(pos);
+            tag->value["size"] = utils::cast3(size);
+        }
+
+        void load(const nbt::nbt_compound_ptr &tag) {
+            pos = utils::cast3(tag->value["pos"]);
+            size = utils::cast3(tag->value["size"]);
         }
 
     };

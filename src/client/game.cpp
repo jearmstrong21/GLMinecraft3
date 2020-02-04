@@ -18,11 +18,8 @@ extern "C" const size_t SHADER_chunk_frag_len;
 extern "C" const unsigned char SHADER_chunk_vert[];
 extern "C" const size_t SHADER_chunk_vert_len;
 
-extern "C" const unsigned char SHADER_wireframe_frag[];
-extern "C" const size_t SHADER_wireframe_frag_len;
-
-extern "C" const unsigned char SHADER_wireframe_vert[];
-extern "C" const size_t SHADER_wireframe_vert_len;
+extern "C" const unsigned char TEXTURE_gui_widgets_png[];
+extern "C" const size_t TEXTURE_gui_widgets_png_len;
 
 namespace client {
     void game::download_world() {
@@ -79,70 +76,13 @@ namespace client {
     }
 
     void game::initialize_gl() {
+        gui_widgets_texture = new gl::texture(TEXTURE_gui_widgets_png, TEXTURE_gui_widgets_png_len);
         shader = new gl::shader(SHADER_chunk_vert, SHADER_chunk_vert_len, SHADER_chunk_frag, SHADER_chunk_frag_len);
         texture = new gl::texture(TEXTURE_1_8_textures_0_png, TEXTURE_1_8_textures_0_png_len);
-        wireframe_shader = new gl::shader(SHADER_wireframe_vert, SHADER_wireframe_vert_len, SHADER_wireframe_frag,
-                                          SHADER_wireframe_frag_len);
         text_rend = new text_renderer(window);
         item_rend = new item_renderer();
-        {
-            gl::mesh_data data{
-                    {{3, {
-                                 0, 0, 0, 1, 0, 0,
-                                 0, 0, 0, 0, 1, 0,
-                                 0, 0, 0, 0, 0, 1,
-
-                                 1, 0, 0, 1, 1, 0,
-                                 1, 0, 0, 1, 0, 1,
-
-                                 0, 1, 0, 1, 1, 0,
-                                 0, 1, 0, 0, 1, 1,
-
-                                 0, 0, 1, 1, 0, 1,
-                                 0, 0, 1, 0, 1, 1,
-
-                                 0, 1, 1, 1, 1, 1,
-                                 1, 0, 1, 1, 1, 1,
-                                 1, 1, 0, 1, 1, 1
-                         }}},
-                    {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23}
-            };
-            for (int i = 0; i < data.buffers[0].data.size(); i += 3) {
-                data.buffers[0].data[i + 0] -= 0.5;
-                data.buffers[0].data[i + 2] -= 0.5;
-            }
-            wireframe_mesh = new gl::mesh(&data);
-        }
-        {
-            gl::mesh_data data{
-                    {{3, {
-                                 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0,
-                                 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1,
-
-                                 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 1,
-                                 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1,
-
-                                 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1,
-                                 1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1,
-                         }}},
-                    {
-                     0, 1, 2, 1, 2, 3,
-                            4, 5, 6, 5, 6, 7,
-                            8, 9, 10, 9, 10, 11,
-                            12, 13, 14, 13, 14, 15,
-                            16, 17, 18, 17, 18, 19,
-                            20, 21, 22, 21, 22, 23
-                    }
-            };
-            for (int i = 0; i < data.buffers[0].data.size(); i += 3) {
-                data.buffers[0].data[i + 0] -= 0.5;
-                data.buffers[0].data[i + 2] -= 0.5;
-            }
-            filledcube_mesh = new gl::mesh(&data);
-        }
-        {
-            ent_rend = new entity_render();
-        }
+        box_rend = new box_renderer();
+        ent_rend = new entity_render();
         glfwSetWindowUserPointer(window, this);
         glfwSetKeyCallback(window, [](GLFWwindow *w, int key, int scancode, int actions, int mods) {
             ((game *) glfwGetWindowUserPointer(w))->glfw_key_press_callback(key, scancode, actions, mods);
@@ -191,13 +131,13 @@ namespace client {
     void game::loop() {
         {
             std::lock_guard<std::mutex> guard(protect_game_state);
-            int width, height;
-            glfwGetFramebufferSize(window, &width, &height);
+            glfwGetWindowSize(window, &width, &height);
+            glfwGetFramebufferSize(window, &fboWidth, &fboHeight);
 
-            std::shared_ptr<entity::entity_player> player = std::dynamic_pointer_cast<entity::entity_player>(
+            player = std::dynamic_pointer_cast<entity::entity_player>(
                     entities[player_id]);
 
-            glViewport(0, 0, width, height);
+            glViewport(0, 0, fboWidth, fboHeight);
             glClearColor(0.5, 0.7, 0.9, 1.0);
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
             glEnable(GL_DEPTH_TEST);
@@ -234,21 +174,6 @@ namespace client {
                 }
             }
 
-            render_chat();
-
-            gui_ctx ctx{};
-            ctx.width = width;
-            ctx.height = height;
-            ctx.ortho = glm::translate(glm::mat4(1), glm::vec3{-1, -1, 0}) *
-                        glm::scale(glm::mat4(1), glm::vec3{4}) *
-                        glm::scale(glm::mat4(1), glm::vec3{1.0 / width, 1.0 / height, 0});
-            for (int i = 0; i < 9; i++) {
-                int s = 30;
-                int y = 100;
-                item_rend->render_item(ctx, player->inventory[i].item()->render(player->inventory[i]), texture,
-                                       500 - (i - 4) * s - s / 2, y, s);
-            }
-
             glm::mat4 v = glm::lookAt(lookFrom, lookAt, {0, -1, 0});
 
             shader->bind();
@@ -262,9 +187,8 @@ namespace client {
                 }
             }
 
-            wireframe_shader->bind();
-            wireframe_shader->uniform4x4("perspective", p);
-            wireframe_shader->uniform4x4("view", v);
+            ctx3d ctx_3d{p, v};
+
             for (const auto &e:entities) {
                 int id = e.second->type_id;
                 if (id == ENTITY_ID_PLAYER)ent_rend->render_player(p, v, e.second);
@@ -273,15 +197,8 @@ namespace client {
                 glm::vec3 pos = e.second->box.pos;
                 glm::vec3 size = e.second->box.size;
 
-                wireframe_shader->bind();
-                wireframe_shader->uniform4x4("model", glm::translate(glm::mat4(1), pos) *
-                                                      glm::scale(glm::mat4(1), size));
-                wireframe_mesh->render_lines();
-
-                wireframe_shader->uniform4x4("model", glm::translate(glm::mat4(1), pos) *
-                                                      glm::scale(glm::mat4(1),
-                                                                 glm::vec3{size.x - 0.05, 2, size.z - 0.05}));
-                wireframe_mesh->render_lines();
+                box_rend->render_lines(ctx_3d, e.second->box);
+                box_rend->render_lines(ctx_3d, {e.second->box.pos, glm::vec3{1, 2, 1}});
             }
 
             if (!freecam) {
@@ -341,17 +258,18 @@ namespace client {
             glfwSetWindowShouldClose(window, true);
         }
 
+        render_hud();
+
     }
 
     void game::end() {
         delete shader;
         delete texture;
-        delete wireframe_shader;
-        delete wireframe_mesh;
-        delete filledcube_mesh;
+        delete box_rend;
         delete ent_rend;
         delete text_rend;
         delete item_rend;
+        delete gui_widgets_texture;
     }
 
     void game::read_packet() {
@@ -463,7 +381,32 @@ namespace client {
         }
         int w, h;
         glfwGetWindowSize(window, &w, &h);
-        text_rend->render_string("GLMinecraft3\nYOUR PLAYER ID: " + player_id + "\nFACEDIR "+std::to_string(entities[player_id]->facedir.x)+","+std::to_string(entities[player_id]->facedir.y)+","+std::to_string(entities[player_id]->facedir.z)+"\n", 0, h - text_rend->charsize);
+        text_rend->render_string("GLMinecraft3\nYOUR PLAYER ID: " + player_id + "\nFACEDIR " +
+                                 std::to_string(entities[player_id]->facedir.x) + "," +
+                                 std::to_string(entities[player_id]->facedir.y) + "," +
+                                 std::to_string(entities[player_id]->facedir.z) + "\n", 0, h - text_rend->charsize);
+    }
+
+    void game::render_hud() {
+        glDisable(GL_DEPTH_TEST);
+        render_chat();
+
+        gui_ctx ctx{};
+        ctx.width = fboWidth;
+        ctx.height = fboHeight;
+        ctx.ortho = glm::translate(glm::mat4(1), glm::vec3{-1, -1, 0}) *
+                    glm::scale(glm::mat4(1), glm::vec3{4}) *
+                    glm::scale(glm::mat4(1), glm::vec3{1.0 / fboWidth, 1.0 / fboHeight, 0});
+        int hotbar_scale = 3;
+        int hotbar_y = 100;
+        item_rend->render_texture(ctx, gui_widgets_texture, {0, 234.0 / 256.0}, {182 / 256.0, 22.0 / 256.0}, {1, 1, 1},
+                                  width / 2 - 182 * hotbar_scale / 2, hotbar_y, 182 * hotbar_scale, 22 * hotbar_scale);
+        for (int i = 0; i < 9; i++) {
+            int s = hotbar_scale * 20;
+            item_rend->render_item(ctx, player->inventory[i].item()->render(player->inventory[i]), texture,
+                                   width / 2 - (i - 4) * s - s / 2 + 2 * hotbar_scale, hotbar_y + hotbar_scale * 3,
+                                   s - hotbar_scale * 4);
+        }
     }
 
 }

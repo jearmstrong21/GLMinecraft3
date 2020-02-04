@@ -32,7 +32,6 @@ namespace entity {
             item::item_registry::map[inventory[i].item_type_id]->load(&inventory[i], nbt::cast_compound(
                     tag->value["inventory"]->list_ref()[i]));
         }
-        std::cout << tag->to_str("") << "\n";
     }
 
     void entity_player::handle_ai() {

@@ -32,6 +32,11 @@ namespace client {
 
         void render_item(gui_ctx ctx, const item_texture_descr &i, gl::texture *texture, int x, int y, int s);
 
+        void
+        render_texture(gui_ctx ctx, gl::texture *texture, glm::vec2 uv_pos, glm::vec2 uv_size, glm::vec3 tint, int x,
+                       int y,
+                       int w, int h);
+
     };
 
 }
