@@ -114,7 +114,8 @@ namespace server {
     void game_room::handle_player_interaction_packet(const server_player_ptr &player,
                                                      const std::shared_ptr<nbt::nbt> &data) {
         std::lock_guard<std::mutex> guard(protect_game_state);
-        entity::entity_ptr ent = entities[player->entity_id];
+        std::shared_ptr<entity::entity_player> ent = std::dynamic_pointer_cast<entity::entity_player>(
+                entities[player->entity_id]);
         {
             std::shared_ptr<nbt::nbt> movement = data->compound_ref()["movement"];
             bool left = movement->compound_ref()["left"]->as_short();
@@ -148,6 +149,12 @@ namespace server {
             std::string chat = data->compound_ref()["chat"]->as_string();
             //TODO: commands will be parsed here
             if (!chat.empty())queued_chat = "<" + player->entity_id + "> " + chat;
+        }
+        {
+            int s = data->compound_ref()["new_selected_pos"]->as_int();
+            if (s != -1) {
+                ent->selected_item = s <= -1 ? 0 : (s >= 9 ? 8 : s);
+            }
         }
     }
 

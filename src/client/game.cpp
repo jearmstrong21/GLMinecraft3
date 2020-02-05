@@ -202,8 +202,20 @@ namespace client {
             }
 
             if (!freecam) {
+                int new_selected_pos = -1;
+                if (glfwGetKey(window, GLFW_KEY_1) == GLFW_PRESS)new_selected_pos = 0;
+                if (glfwGetKey(window, GLFW_KEY_2) == GLFW_PRESS)new_selected_pos = 1;
+                if (glfwGetKey(window, GLFW_KEY_3) == GLFW_PRESS)new_selected_pos = 2;
+                if (glfwGetKey(window, GLFW_KEY_4) == GLFW_PRESS)new_selected_pos = 3;
+                if (glfwGetKey(window, GLFW_KEY_5) == GLFW_PRESS)new_selected_pos = 4;
+                if (glfwGetKey(window, GLFW_KEY_6) == GLFW_PRESS)new_selected_pos = 5;
+                if (glfwGetKey(window, GLFW_KEY_7) == GLFW_PRESS)new_selected_pos = 6;
+                if (glfwGetKey(window, GLFW_KEY_8) == GLFW_PRESS)new_selected_pos = 7;
+                if (glfwGetKey(window, GLFW_KEY_9) == GLFW_PRESS)new_selected_pos = 8;
                 std::shared_ptr<nbt::nbt> interaction_packet = nbt::nbt_compound::make({
-                                                                                               {"movement", nbt::nbt_compound::make(
+                                                                                               {"new_selected_pos", nbt::nbt_int::make(
+                                                                                                       new_selected_pos)},
+                                                                                               {"movement",         nbt::nbt_compound::make(
                                                                                                        {
                                                                                                                {"left",   nbt::nbt_short::make(
                                                                                                                        !is_chat_open &&
@@ -243,9 +255,9 @@ namespace client {
                                                                                                                        GLFW_PRESS
                                                                                                                )}
                                                                                                        })},
-                                                                                               {"lookdir",  utils::cast3(
+                                                                                               {"lookdir",          utils::cast3(
                                                                                                        lookdir)},
-                                                                                               {"chat",     nbt::nbt_string::make(
+                                                                                               {"chat",             nbt::nbt_string::make(
                                                                                                        chattosend)}
                                                                                        });
                 chattosend = "";
@@ -415,21 +427,21 @@ namespace client {
         item_rend->render_texture(ctx, gui_widgets_texture, {0.0 / 256.0, 210.0 / 256.0}, {24.0 / 256.0, 24.0 / 256.0},
                                   {1, 1, 1},
 
-                                  center - scale * 182 / 2 + scale * 22 * player->selected_item - scale * 11,
+                                  center - scale * 182 / 2 + scale * 20 * player->selected_item,
                                   hotbar_y - scale,
                                   scale * 24,
                                   scale * 24
 
         );
         glDisable(GL_BLEND);
-        for(int i=0;i<9;i++){
-            if(player->inventory[i].is_empty())continue;
+        for (int i = 0; i < 9; i++) {
+            if (player->inventory[i].is_empty())continue;
             item_rend->render_item(
-                    ctx,player->inventory[i].item()->render(player->inventory[i]), texture,
-                    center - scale * 182 / 2 + scale * 20 * i+scale*3,
-                    hotbar_y - scale+scale*4,
+                    ctx, player->inventory[i].item()->render(player->inventory[i]), texture,
+                    center - scale * 182 / 2 + scale * 20 * i + scale * 3,
+                    hotbar_y - scale + scale * 4,
                     scale * 16
-                    );
+            );
         }
 //        item_rend->render_texture(ctx, gui_widgets_texture, {0.0/256.0, 234.0 / 256.0}, {182 / 256.0, 22.0 / 256.0}, {1, 1, 1},
 //                                  width / 2 - 182 * hotbar_scale / 2, hotbar_y, 182 * hotbar_scale, 22 * hotbar_scale);

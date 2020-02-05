@@ -20,7 +20,6 @@ namespace client {
         shader->uniform2("pos", {x, y});
         shader->uniform2("size", {s, s});
         shader->texture("tex", texture, 0);
-        std::cout << x << " " << y << " " << s << "\n";
         for (layer_texture_descr l:i.layers) {
             shader->uniform2("uv_pos", l.get_uv());
             shader->uniform2("uv_size", {1.0F / 32.0F, 1.0F / 32.0F});
