@@ -381,10 +381,11 @@ namespace client {
         }
         int w, h;
         glfwGetWindowSize(window, &w, &h);
-        text_rend->render_string("GLMinecraft3\nYOUR PLAYER ID: " + player_id + "\nFACEDIR " +
-                                 std::to_string(entities[player_id]->facedir.x) + "," +
-                                 std::to_string(entities[player_id]->facedir.y) + "," +
-                                 std::to_string(entities[player_id]->facedir.z) + "\n", 0, h - text_rend->charsize);
+        std::string s = "GLMinecraft3\nYOUR PLAYER ID: " + player_id + "\nFACEDIR " +
+                        std::to_string(player->facedir.x) + "," +
+                        std::to_string(player->facedir.y) + "," +
+                        std::to_string(player->facedir.z) + "\n";
+        text_rend->render_string(s, 0, h - text_rend->charsize);
     }
 
     void game::render_hud() {
@@ -397,16 +398,39 @@ namespace client {
         ctx.ortho = glm::translate(glm::mat4(1), glm::vec3{-1, -1, 0}) *
                     glm::scale(glm::mat4(1), glm::vec3{4}) *
                     glm::scale(glm::mat4(1), glm::vec3{1.0 / fboWidth, 1.0 / fboHeight, 0});
-        int hotbar_scale = 3;
+        int scale = 3;
         int hotbar_y = 100;
-        item_rend->render_texture(ctx, gui_widgets_texture, {0, 234.0 / 256.0}, {182 / 256.0, 22.0 / 256.0}, {1, 1, 1},
-                                  width / 2 - 182 * hotbar_scale / 2, hotbar_y, 182 * hotbar_scale, 22 * hotbar_scale);
-        for (int i = 0; i < 9; i++) {
-            int s = hotbar_scale * 20;
-            item_rend->render_item(ctx, player->inventory[i].item()->render(player->inventory[i]), texture,
-                                   width / 2 - (i - 4) * s - s / 2 + 2 * hotbar_scale, hotbar_y + hotbar_scale * 3,
-                                   s - hotbar_scale * 4);
-        }
+        glEnable(GL_BLEND);
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+        int center = width / 2;
+        item_rend->render_texture(ctx, gui_widgets_texture, {0.0 / 256.0, 234.0 / 256.0}, {182.0 / 256.0, 22.0 / 256.0},
+                                  {1, 1, 1},
+
+                                  center - scale * 182 / 2,
+                                  hotbar_y,
+                                  scale * 182,
+                                  scale * 22
+
+        );
+        item_rend->render_texture(ctx, gui_widgets_texture, {0.0 / 256.0, 210.0 / 256.0}, {24.0 / 256.0, 24.0 / 256.0},
+                                  {1, 1, 1},
+
+                                  center - scale * 182 / 2 + scale * 22 * player->selected_item - scale * 11,
+                                  hotbar_y - scale,
+                                  scale * 24,
+                                  scale * 24
+
+        );
+        glDisable(GL_BLEND);
+//        item_rend->render_texture(ctx, gui_widgets_texture, {0.0/256.0, 234.0 / 256.0}, {182 / 256.0, 22.0 / 256.0}, {1, 1, 1},
+//                                  width / 2 - 182 * hotbar_scale / 2, hotbar_y, 182 * hotbar_scale, 22 * hotbar_scale);
+//        item_rend->render_texture(ctx,gui_widgets_texture,{0.0/256.0,210.0/256.0},{22.0/256.0,22.0/256.0},{1,1,1},width / 2 - (player->selected_item - 4) * s - s / 2, hotbar_y,s,s);
+//        for (int i = 0; i < 9; i++) {
+//            if(player->inventory[i].is_empty())continue;
+//            item_rend->render_item(ctx, player->inventory[i].item()->render(player->inventory[i]), texture,
+//                                   width / 2 - (i - 4) * s - s / 2 + 2 * hotbar_scale, hotbar_y + hotbar_scale * 3,
+//                                   s - hotbar_scale * 4);
+//        }
     }
 
 }

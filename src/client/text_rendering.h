@@ -73,7 +73,6 @@ namespace client {
             int i = (int) c;
             x = 15 - c / 16;
             y = c % 16;
-//            std::cout<<x<<","<<y<<"\n";
             shader->uniform2("inUV", glm::vec2{y / 16.0F, x / 16.0F});
             mesh->render_triangles();
         }

@@ -18,6 +18,7 @@ namespace entity {
     public:
 
         item::item_stack inventory[inventory_size]{};
+        int selected_item;
 
         entity_player();
 
