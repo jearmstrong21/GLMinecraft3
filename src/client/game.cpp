@@ -422,6 +422,15 @@ namespace client {
 
         );
         glDisable(GL_BLEND);
+        for(int i=0;i<9;i++){
+            if(player->inventory[i].is_empty())continue;
+            item_rend->render_item(
+                    ctx,player->inventory[i].item()->render(player->inventory[i]), texture,
+                    center - scale * 182 / 2 + scale * 20 * i+scale*3,
+                    hotbar_y - scale+scale*4,
+                    scale * 16
+                    );
+        }
 //        item_rend->render_texture(ctx, gui_widgets_texture, {0.0/256.0, 234.0 / 256.0}, {182 / 256.0, 22.0 / 256.0}, {1, 1, 1},
 //                                  width / 2 - 182 * hotbar_scale / 2, hotbar_y, 182 * hotbar_scale, 22 * hotbar_scale);
 //        item_rend->render_texture(ctx,gui_widgets_texture,{0.0/256.0,210.0/256.0},{22.0/256.0,22.0/256.0},{1,1,1},width / 2 - (player->selected_item - 4) * s - s / 2, hotbar_y,s,s);

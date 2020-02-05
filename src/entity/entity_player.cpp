@@ -45,7 +45,7 @@ namespace entity {
         p->inventory[8] = item::item_registry::IRON_SWORD->make();
         p->inventory[4] = item::item_registry::STONE_SWORD->make();
         p->inventory[7] = item::item_registry::WOOD_SWORD->make();
-        p->selected_item = 5;
+        p->selected_item = 8;
         return std::dynamic_pointer_cast<entity>(p);
     }
 
