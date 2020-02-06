@@ -191,7 +191,7 @@ namespace client {
 
             for (const auto &e:entities) {
                 int id = e.second->type_id;
-                if (id == ENTITY_ID_PLAYER)ent_rend->render_player(p, v, e.second);
+                if (id == ENTITY_ID_PLAYER)ent_rend->render_player(p, v, e.second, texture, item_rend);
                 if (id == ENTITY_ID_ZOMBIE)ent_rend->render_zombie(p, v, e.second);
 
                 glm::vec3 pos = e.second->box.pos;

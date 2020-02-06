@@ -8,6 +8,7 @@ extern "C" const unsigned char SHADER_item_frag[];
 extern "C" const size_t SHADER_item_frag_len;
 
 extern "C" const unsigned char SHADER_item_vert[];
+
 extern "C" const size_t SHADER_item_vert_len;
 
 namespace client {
@@ -57,6 +58,15 @@ namespace client {
         shader->uniform2("uv_size", uv_size);
         shader->uniform3("tint", tint);
         mesh->render_triangles();
+    }
+
+    void item_renderer::render_item(const item_texture_descr &i,gl::shader*s,const std::function<void()>&render_layers) {
+        for(layer_texture_descr l:i.layers){
+            s->uniform2("uv_pos", l.get_uv());
+            s->uniform2("uv_size", {1.0F / 32.0F, 1.0F / 32.0F});
+            s->uniform3("tint", l.color);
+            render_layers();
+        }
     }
 
 }

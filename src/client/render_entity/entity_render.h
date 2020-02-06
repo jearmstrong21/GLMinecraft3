@@ -18,11 +18,14 @@ namespace client {
         gl::texture *zombie_texture;
         textured_cube_renderer *tcr;
 
+        gl::mesh *item_mesh;
+        gl::shader *item_shader;
+
         entity_render();
 
         ~entity_render();
 
-        void render_player(glm::mat4 p, glm::mat4 v, const entity::entity_ptr &data);
+        void render_player(glm::mat4 p, glm::mat4 v, const entity::entity_ptr &data,gl::texture*item_texture, item_renderer*item_rend);
 
         void render_zombie(glm::mat4 p, glm::mat4 v, const entity::entity_ptr &data);
 
