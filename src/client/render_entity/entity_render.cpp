@@ -63,7 +63,7 @@ namespace client {
         item_shader->uniform4x4("view", v);
         item_shader->uniform4x4("model", m * glm::rotate(glm::mat4(1), glm::radians(-90.0F), glm::vec3{0, 1, 0}) *
                                          glm::translate(glm::mat4(1),
-                                                        glm::vec3{-2 / 16.0F, 12.0F / 16.0F, -6 / 16.0F}));
+                                                        glm::vec3{-2 / 16.0F, 10.0F / 16.0F, -6 / 16.0F}));
         item_shader->texture("tex", item_texture, 0);
         item_shader->uniform1("scale", 0.9);
         if (!player->inventory[player->selected_item].is_empty()) {
