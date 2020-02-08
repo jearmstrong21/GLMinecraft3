@@ -9,8 +9,8 @@
 
 namespace server {
 
-    bool operator <(const delayed_task&a,const delayed_task&b){
-        return a.target_tick>b.target_tick;
+    bool operator<(const delayed_task &a, const delayed_task &b) {
+        return a.target_tick > b.target_tick;
     }
 
     game_room *game_room::instance;
@@ -27,7 +27,7 @@ namespace server {
             std::cout << "game_loop_is_over\n";
             acceptor->stop();
         });
-        tick_number=0;
+        tick_number = 0;
         instance = this;
         game_loop_is_over = false;
         world.generate_world();
@@ -48,12 +48,12 @@ namespace server {
     void game_room::frame_handler(boost::system::error_code err) {
         if (game_loop_is_over)return;
         {
-            std::lock_guard<std::mutex> guard(protect_game_state);
+            std::lock_guard <std::mutex> guard(protect_game_state);
             profiler.start_tick();
 
             tick_number++;
-            while(!tasks.empty()&&tasks.top().target_tick<=tick_number){
-                delayed_task task=tasks.top();
+            while (!tasks.empty() && tasks.top().target_tick <= tick_number) {
+                delayed_task task = tasks.top();
                 tasks.pop();
                 task.execute();
             }
@@ -65,29 +65,29 @@ namespace server {
             profiler.pop();
 
             profiler.push("random delete");
-            if(rand()%1000<2000){
-                int x=rand()%100;
-                int y=rand()%100;
-                int z=rand()%100;
-                world_ops.push({true,{x,y,z},0});
+            if (rand() % 1000 < 2000) {
+                int x = rand() % 100;
+                int y = rand() % 100;
+                int z = rand() % 100;
+                world_ops.push({true, {x, y, z}, 0});
             }
             profiler.pop();
 
             profiler.push("broadcast to clients");
 
-            nbt::nbt_ptr nbt_world_ops=nbt::nbt_list::make({});
-            while(!world_ops.empty()){
-                block::world_op op=world_ops.top();
+            nbt::nbt_ptr nbt_world_ops = nbt::nbt_list::make({});
+            while (!world_ops.empty()) {
+                block::world_op op = world_ops.top();
                 world_ops.pop();
-                nbt::nbt_compound_ptr cmpnd=std::make_shared<nbt::nbt_compound>();
+                nbt::nbt_compound_ptr cmpnd = std::make_shared<nbt::nbt_compound>();
                 op.save(cmpnd);
                 nbt_world_ops->list_ref().push_back(cmpnd);
             }
 
             broadcast_to_all(nbt::nbt_compound::make({
-                                                             {"entities", get_entity_list()},
-                                                             {"chat",     nbt::nbt_string::make(queued_chat)},
-                                                             {"world_ops",nbt_world_ops}
+                                                             {"entities",  get_entity_list()},
+                                                             {"chat",      nbt::nbt_string::make(queued_chat)},
+                                                             {"world_ops", nbt_world_ops}
                                                      }));
 
             profiler.pop();
@@ -188,8 +188,8 @@ namespace server {
             }
         }
         {
-            bool leftclick=data->compound_ref()["leftclick"]->as_short();
-            bool rightclick=data->compound_ref()["rightclick"]->as_short();
+            bool leftclick = data->compound_ref()["leftclick"]->as_short();
+            bool rightclick = data->compound_ref()["rightclick"]->as_short();
 //            if(ent->leftclick&&leftclick)
         }
     }
