@@ -348,7 +348,7 @@ namespace client {
                 world.apply(o);
                 dirty_chunk_sections.push({cx,cy,cz});
                 if(o.pos.x%16==0)dirty_chunk_sections.push({cx-1,cy,cz});
-                if(o.pos.y%16==15)dirty_chunk_sections.push({cx+1,cy,cz});
+                if(o.pos.x%16==15)dirty_chunk_sections.push({cx+1,cy,cz});
                 if(o.pos.y%16==0)dirty_chunk_sections.push({cx,cy-1,cz});
                 if(o.pos.y%16==15)dirty_chunk_sections.push({cx,cy+1,cz});
                 if(o.pos.z%16==0)dirty_chunk_sections.push({cx,cy,cz-1});
