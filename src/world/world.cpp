@@ -8,13 +8,15 @@
 namespace block {
 
     void world_op::save(const nbt::nbt_compound_ptr &tag) {
-        tag->value["pos"]=nbt::nbt_list::make({nbt::nbt_int::make(pos.x),nbt::nbt_int::make(pos.y),nbt::nbt_int::make(pos.z)});
-        tag->value["nstate"]=nbt::nbt_long::make(nstate);
+        tag->value["pos"] = nbt::nbt_list::make(
+                {nbt::nbt_int::make(pos.x), nbt::nbt_int::make(pos.y), nbt::nbt_int::make(pos.z)});
+        tag->value["nstate"] = nbt::nbt_long::make(nstate);
     }
 
     void world_op::load(const nbt::nbt_compound_ptr &tag) {
-        pos={tag->value["pos"]->list_ref()[0]->as_int(),tag->value["pos"]->list_ref()[1]->as_int(),tag->value["pos"]->list_ref()[2]->as_int()};
-        nstate=tag->value["nstate"]->as_long();
+        pos = {tag->value["pos"]->list_ref()[0]->as_int(), tag->value["pos"]->list_ref()[1]->as_int(),
+               tag->value["pos"]->list_ref()[2]->as_int()};
+        nstate = tag->value["nstate"]->as_long();
     }
 
     bool world::in_bounds(int x, int y, int z) const {
@@ -31,9 +33,9 @@ namespace block {
     block_state world::get(glm::ivec3 v) const { return get(v.x, v.y, v.z); }
 
     world_op world::set(int x, int y, int z, block_state b) {
-        if (in_bounds(x, y, z)){
+        if (in_bounds(x, y, z)) {
             map[x / 16][z / 16]->set(x % 16, y, z % 16, b);
-            return {true,{x,y,z},b};
+            return {true, {x, y, z}, b};
         }
         return {false};
     }
@@ -59,8 +61,8 @@ namespace block {
     }
 
     void world::apply(world_op op) {
-        if(in_bounds(op.pos)){
-            map[op.pos.x/16][op.pos.z/16]->set(op.pos.x%16,op.pos.y,op.pos.z%16,op.nstate);
+        if (in_bounds(op.pos)) {
+            map[op.pos.x / 16][op.pos.z / 16]->set(op.pos.x % 16, op.pos.y, op.pos.z % 16, op.nstate);
         }
     }
 }

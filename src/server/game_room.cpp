@@ -48,7 +48,7 @@ namespace server {
     void game_room::frame_handler(boost::system::error_code err) {
         if (game_loop_is_over)return;
         {
-            std::lock_guard <std::mutex> guard(protect_game_state);
+            std::lock_guard<std::mutex> guard(protect_game_state);
             profiler.start_tick();
 
             tick_number++;

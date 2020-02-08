@@ -24,8 +24,9 @@ namespace block {
         DATA glm::ivec3 pos;
         DATA block_state nstate;
 
-        void save(const nbt::nbt_compound_ptr& tag);
-        void load(const nbt::nbt_compound_ptr&tag);
+        void save(const nbt::nbt_compound_ptr &tag);
+
+        void load(const nbt::nbt_compound_ptr &tag);
 
     };
 

@@ -69,7 +69,7 @@ namespace client {
         bool ignore_character = true;
         std::string chattosend;
         std::vector<std::string> chathistory;
-        std::stack<glm::ivec3>dirty_chunk_sections;
+        std::stack<glm::ivec3> dirty_chunk_sections;
 
         void load_game_update(const std::shared_ptr<nbt::nbt> &obj);
 

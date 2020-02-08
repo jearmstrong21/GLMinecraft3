@@ -26,10 +26,15 @@ namespace entity {
         entity_player();
 
         void leftclick_start();
+
         void leftclick_continue();
+
         void leftclick_end();
+
         void rightclick_start();
+
         void rightclick_continue();
+
         void rightclick_end();
 
         void save_additional_information(const nbt::nbt_compound_ptr &tag) override;
