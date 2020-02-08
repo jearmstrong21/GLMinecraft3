@@ -11,6 +11,8 @@ namespace entity {
 
     entity_player::entity_player() : entity(ENTITY_ID_PLAYER) {
         box.size = {0.6, 1.8, 0.6};
+        leftclick=false;
+        rightclick=false;
     }
 
     void entity_player::save_additional_information(const nbt::nbt_compound_ptr &tag) {
@@ -21,6 +23,8 @@ namespace entity {
             tag->value["inventory"]->list_ref().push_back(ptr);
         }
         tag->value["selected_item"] = nbt::nbt_int::make(selected_item);
+        tag->value["leftclick"]=nbt::nbt_short::make(leftclick);
+        tag->value["rightclick"]=nbt::nbt_short::make(rightclick);
     }
 
     void entity_player::load_additional_information(const nbt::nbt_compound_ptr &tag) {
@@ -29,6 +33,8 @@ namespace entity {
                     tag->value["inventory"]->list_ref()[i]));
         }
         selected_item = tag->value["selected_item"]->as_int();
+        leftclick=tag->value["leftclick"]->as_short();
+        rightclick=tag->value["rightclick"]->as_short();
     }
 
     void entity_player::handle_ai() {
@@ -47,6 +53,30 @@ namespace entity {
         p->inventory[7] = item::item_registry::WOOD_SWORD->make();
         p->selected_item = 8;
         return std::dynamic_pointer_cast<entity>(p);
+    }
+
+    void entity_player::leftclick_start() {
+        leftclick=true;
+    }
+
+    void entity_player::leftclick_continue(){
+        ASSERT_OR_EXIT(leftclick==true,"leftclick_continue() called with leftclick=false")
+    }
+
+    void entity_player::leftclick_end() {
+        leftclick=false;
+    }
+
+    void entity_player::rightclick_start() {
+        rightclick=true;
+    }
+
+    void entity_player::rightclick_continue(){
+        ASSERT_OR_EXIT(rightclick==true,"rightclick_continue() called with rightclick=false")
+    }
+
+    void entity_player::rightclick_end() {
+        rightclick=false;
     }
 
 }

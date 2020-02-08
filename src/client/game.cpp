@@ -213,6 +213,8 @@ namespace client {
                 if (glfwGetKey(window, GLFW_KEY_8) == GLFW_PRESS)new_selected_pos = 7;
                 if (glfwGetKey(window, GLFW_KEY_9) == GLFW_PRESS)new_selected_pos = 8;
                 std::shared_ptr<nbt::nbt> interaction_packet = nbt::nbt_compound::make({
+                                                                                               {"leftclick",nbt::nbt_short::make(false)},
+                                                                                               {"rightclick",nbt::nbt_short::make(false)},
                                                                                                {"new_selected_pos", nbt::nbt_int::make(
                                                                                                        new_selected_pos)},
                                                                                                {"movement",         nbt::nbt_compound::make(
@@ -270,6 +272,14 @@ namespace client {
             glfwSetWindowShouldClose(window, true);
         }
 
+        while(!dirty_chunk_sections.empty()){
+            glm::ivec3 v=dirty_chunk_sections.top();
+            dirty_chunk_sections.pop();
+            if(v.x<0||v.y<0||v.z<0||v.x>=WORLD_SIZE||v.y>=16||v.z>=WORLD_SIZE)continue;
+            rendered_world[v.x][v.z]->take_chunk(&world,world.map[v.x][v.z],v.y);
+            rendered_world[v.x][v.z]->render_chunk(v.y);
+        }
+
         render_hud();
 
     }
@@ -313,6 +323,7 @@ namespace client {
 
     void game::load_game_update(const std::shared_ptr<nbt::nbt> &obj) {
         std::lock_guard<std::mutex> guard(protect_game_state);
+//        std::cout<<"load_game_update "<<obj->to_str("")<<"\n";
 
         {
             entities.clear();
@@ -324,6 +335,24 @@ namespace client {
             std::string nchat = obj->compound_ref()["chat"]->as_string();
             if (!nchat.empty()) {
                 chathistory.insert(chathistory.begin(), nchat);
+            }
+        }
+        {
+            std::vector<nbt::nbt_ptr> list=obj->compound_ref()["world_ops"]->list_ref();
+            for(auto&p:list){
+                block::world_op o;
+                o.load(nbt::cast_compound(p));
+                int cx=o.pos.x/16;
+                int cy=o.pos.y/16;
+                int cz=o.pos.z/16;
+                world.apply(o);
+                dirty_chunk_sections.push({cx,cy,cz});
+                if(o.pos.x%16==0)dirty_chunk_sections.push({cx-1,cy,cz});
+                if(o.pos.y%16==15)dirty_chunk_sections.push({cx+1,cy,cz});
+                if(o.pos.y%16==0)dirty_chunk_sections.push({cx,cy-1,cz});
+                if(o.pos.y%16==15)dirty_chunk_sections.push({cx,cy+1,cz});
+                if(o.pos.z%16==0)dirty_chunk_sections.push({cx,cy,cz-1});
+                if(o.pos.z%16==15)dirty_chunk_sections.push({cx,cy,cz+1});
             }
         }
 
@@ -443,15 +472,6 @@ namespace client {
                     scale * 16
             );
         }
-//        item_rend->render_texture(ctx, gui_widgets_texture, {0.0/256.0, 234.0 / 256.0}, {182 / 256.0, 22.0 / 256.0}, {1, 1, 1},
-//                                  width / 2 - 182 * hotbar_scale / 2, hotbar_y, 182 * hotbar_scale, 22 * hotbar_scale);
-//        item_rend->render_texture(ctx,gui_widgets_texture,{0.0/256.0,210.0/256.0},{22.0/256.0,22.0/256.0},{1,1,1},width / 2 - (player->selected_item - 4) * s - s / 2, hotbar_y,s,s);
-//        for (int i = 0; i < 9; i++) {
-//            if(player->inventory[i].is_empty())continue;
-//            item_rend->render_item(ctx, player->inventory[i].item()->render(player->inventory[i]), texture,
-//                                   width / 2 - (i - 4) * s - s / 2 + 2 * hotbar_scale, hotbar_y + hotbar_scale * 3,
-//                                   s - hotbar_scale * 4);
-//        }
     }
 
 }

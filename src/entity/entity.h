@@ -20,15 +20,18 @@ namespace entity {
 
     struct entity {
 
-        int type_id;
-        utils::aabb box{};
-        glm::vec3 velocity{};
-        glm::vec3 motion{};
-        std::string uuid;
-        glm::vec3 lookdir{};
-        glm::vec3 facedir{};
+        DATA int type_id;
+        DATA utils::aabb box{};
+        DATA glm::vec3 velocity{};
+        DATA glm::vec3 motion{};
+        DATA std::string uuid;
+        DATA glm::vec3 lookdir{};
+        DATA glm::vec3 facedir{};
 
         TRANSIENT server::game_room *server;
+        TRANSIENT std::chrono::nanoseconds last_time = std::chrono::nanoseconds::zero();
+        TRANSIENT bool first_update = true;
+        TRANSIENT bool grounded = false;
 
         explicit entity(int type_id);
 
@@ -45,10 +48,6 @@ namespace entity {
         bool collides_with_block_at(glm::vec3 point);
 
         void jump();
-
-        TRANSIENT std::chrono::nanoseconds last_time = std::chrono::nanoseconds::zero();
-        TRANSIENT bool first_update = true;
-        TRANSIENT bool grounded = false;
 
         void apply_physics();
 

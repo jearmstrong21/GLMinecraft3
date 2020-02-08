@@ -60,8 +60,9 @@ namespace client {
         mesh->render_triangles();
     }
 
-    void item_renderer::render_item(const item_texture_descr &i,gl::shader*s,const std::function<void()>&render_layers) {
-        for(layer_texture_descr l:i.layers){
+    void
+    item_renderer::render_item(const item_texture_descr &i, gl::shader *s, const std::function<void()> &render_layers) {
+        for (layer_texture_descr l:i.layers) {
             s->uniform2("uv_pos", l.get_uv());
             s->uniform2("uv_size", {1.0F / 32.0F, 1.0F / 32.0F});
             s->uniform3("tint", l.color);

@@ -24,6 +24,7 @@
 #define EXIT_WITH_ERROR(err) {printf("EXIT_WITH_ERROR %s,%i: %s\n",__FILE__,__LINE__,err);exit(1);}
 #define ASSERT_OR_EXIT(condition, err) {if(!(condition))EXIT_WITH_ERROR(err);}
 #define TRANSIENT
+#define DATA
 
 namespace utils {
 

@@ -32,7 +32,8 @@ namespace client {
         ~item_renderer();
 
         void render_item(gui_ctx ctx, const item_texture_descr &i, gl::texture *texture, int x, int y, int s);
-        void render_item(const item_texture_descr &i, gl::shader *s,const std::function<void()>&render_layer);
+
+        void render_item(const item_texture_descr &i, gl::shader *s, const std::function<void()> &render_layer);
 
         void
         render_texture(gui_ctx ctx, gl::texture *texture, glm::vec2 uv_pos, glm::vec2 uv_size, glm::vec3 tint, int x,

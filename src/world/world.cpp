@@ -6,6 +6,17 @@
 #include "world.h"
 
 namespace block {
+
+    void world_op::save(const nbt::nbt_compound_ptr &tag) {
+        tag->value["pos"]=nbt::nbt_list::make({nbt::nbt_int::make(pos.x),nbt::nbt_int::make(pos.y),nbt::nbt_int::make(pos.z)});
+        tag->value["nstate"]=nbt::nbt_long::make(nstate);
+    }
+
+    void world_op::load(const nbt::nbt_compound_ptr &tag) {
+        pos={tag->value["pos"]->list_ref()[0]->as_int(),tag->value["pos"]->list_ref()[1]->as_int(),tag->value["pos"]->list_ref()[2]->as_int()};
+        nstate=tag->value["nstate"]->as_long();
+    }
+
     bool world::in_bounds(int x, int y, int z) const {
         return x >= 0 && y >= 0 && z >= 0 && x < WORLD_SIZE * 16 && y < 256 && z < WORLD_SIZE * 16;
     }
@@ -19,11 +30,15 @@ namespace block {
 
     block_state world::get(glm::ivec3 v) const { return get(v.x, v.y, v.z); }
 
-    void world::set(int x, int y, int z, block_state b) {
-        if (in_bounds(x, y, z))map[x / 16][z / 16]->set(x % 16, y, z % 16, b);
+    world_op world::set(int x, int y, int z, block_state b) {
+        if (in_bounds(x, y, z)){
+            map[x / 16][z / 16]->set(x % 16, y, z % 16, b);
+            return {true,{x,y,z},b};
+        }
+        return {false};
     }
 
-    void world::set(glm::ivec3 v, block_state b) { set(v.x, v.y, v.z, b); }
+    world_op world::set(glm::ivec3 v, block_state b) { return set(v.x, v.y, v.z, b); }
 
     block_context world::get_block_context(glm::ivec3 p) {
         return block_context{get(p.x - 1, p.y, p.z), get(p.x + 1, p.y, p.z), get(p.x, p.y - 1, p.z),
@@ -39,6 +54,13 @@ namespace block {
     }
 
     void world::generate_world() {
-        this->generator.generate_world(this);
+        world_generator generator;
+        generator.generate_world(this);
+    }
+
+    void world::apply(world_op op) {
+        if(in_bounds(op.pos)){
+            map[op.pos.x/16][op.pos.z/16]->set(op.pos.x%16,op.pos.y,op.pos.z%16,op.nstate);
+        }
     }
 }

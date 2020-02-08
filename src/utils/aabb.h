@@ -14,7 +14,8 @@ namespace utils {
 
     struct aabb {
 
-        glm::vec3 pos, size;
+        DATA glm::vec3 pos;
+        DATA glm::vec3 size;
 
         [[nodiscard]] glm::vec3 min() const {
             return pos + size * glm::vec3{-0.5, 0, -0.5};

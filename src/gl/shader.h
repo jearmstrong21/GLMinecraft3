@@ -30,7 +30,7 @@ namespace gl {
 
         void uniform2(const std::string &name, glm::vec2 value);
 
-        void uniform1(const std::string&name,float value);
+        void uniform1(const std::string &name, float value);
 
         void texture(const std::string &name, gl::texture *texture, int unit);
     };

@@ -16,6 +16,19 @@
 #define WORLD_SIZE 8
 
 namespace block {
+
+    struct world_op {
+
+        TRANSIENT bool success = false;
+
+        DATA glm::ivec3 pos;
+        DATA block_state nstate;
+
+        void save(const nbt::nbt_compound_ptr& tag);
+        void load(const nbt::nbt_compound_ptr&tag);
+
+    };
+
     struct world {
 
         std::shared_ptr<chunk> map[WORLD_SIZE][WORLD_SIZE];
@@ -32,13 +45,13 @@ namespace block {
 
         [[nodiscard]] block_state get(glm::ivec3 v) const;
 
-        void set(int x, int y, int z, block_state b);
+        [[nodiscard]] world_op set(int x, int y, int z, block_state b);
 
-        void set(glm::ivec3 v, block_state b);
+        [[nodiscard]] world_op set(glm::ivec3 v, block_state b);
 
         [[nodiscard]] block_context get_block_context(glm::ivec3 p);
 
-        world_generator generator;
+        void apply(world_op op);
     };
 
 }

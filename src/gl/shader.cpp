@@ -79,8 +79,8 @@ namespace gl {
         glUniform1i(glGetUniformLocation(id, name.c_str()), unit);
     }
 
-    void shader::uniform1(const std::string&name,float value){
-        glUniform1f(glGetUniformLocation(id,name.c_str()),value);
+    void shader::uniform1(const std::string &name, float value) {
+        glUniform1f(glGetUniformLocation(id, name.c_str()), value);
     }
 
 }

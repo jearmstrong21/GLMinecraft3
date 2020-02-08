@@ -13,14 +13,24 @@ namespace entity {
     struct entity_player : entity {
 
     private:
-        static const int inventory_size = 36;
+        TRANSIENT static const int inventory_size = 36;
 
     public:
 
-        item::item_stack inventory[inventory_size]{};
-        int selected_item;
+        DATA item::item_stack inventory[inventory_size]{};
+        DATA int selected_item;
+
+        DATA bool leftclick;
+        DATA bool rightclick;
 
         entity_player();
+
+        void leftclick_start();
+        void leftclick_continue();
+        void leftclick_end();
+        void rightclick_start();
+        void rightclick_continue();
+        void rightclick_end();
 
         void save_additional_information(const nbt::nbt_compound_ptr &tag) override;
 

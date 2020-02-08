@@ -25,7 +25,8 @@ namespace client {
 
         ~entity_render();
 
-        void render_player(glm::mat4 p, glm::mat4 v, const entity::entity_ptr &data,gl::texture*item_texture, item_renderer*item_rend);
+        void render_player(glm::mat4 p, glm::mat4 v, const entity::entity_ptr &data, gl::texture *item_texture,
+                           item_renderer *item_rend);
 
         void render_zombie(glm::mat4 p, glm::mat4 v, const entity::entity_ptr &data);
 

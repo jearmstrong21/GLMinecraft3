@@ -20,32 +20,44 @@
 #include "utils/profiler.h"
 #include <future>
 #include "item/item.h"
+#include <queue>
 
 namespace server {
 
     struct acceptor;
 
+    struct delayed_task{
+        int target_tick;
+        std::function<void()> execute;
+    };
+
+    bool operator <(const delayed_task&a,const delayed_task&b);
+
     struct game_room {
 
         static game_room *instance;
 
-        acceptor *acceptor;
+        TRANSIENT acceptor *acceptor;
 
-        utils::profiler profiler;
+        TRANSIENT utils::profiler profiler;
 
-        bool game_loop_is_over;
+        TRANSIENT bool game_loop_is_over;
 
-        block::world world;
-        std::set<server_player_ptr> players;
+        DATA block::world world;
+        DATA std::set<server_player_ptr> players;
 
-        boost::asio::deadline_timer timer;
+        TRANSIENT boost::asio::deadline_timer timer;
 
-        std::mutex protect_game_state;
-        std::string queued_chat;
+        TRANSIENT std::mutex protect_game_state;
+        TRANSIENT std::string queued_chat;
 
-        std::map<std::string, entity::entity_ptr> entities;
+        TRANSIENT int tick_number;
+        TRANSIENT std::priority_queue<delayed_task>tasks;
+        TRANSIENT std::stack<block::world_op>world_ops;
 
-        std::shared_ptr<nbt::nbt> get_entity_list();
+        DATA std::map<std::string, entity::entity_ptr> entities;
+
+        DATA std::shared_ptr<nbt::nbt> get_entity_list();
 
         void frame_handler(boost::system::error_code err);
 

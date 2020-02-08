@@ -295,7 +295,7 @@ namespace block {
             for (int z = 0; z < WORLD_SIZE * 16; z++) {
                 double elev = interpolate(x, z);
                 int h = (int) (elev * 64 + 64);
-                h = 50;
+//                h = 50;
                 if (h < 0)h = 0;
                 if (h >= 256)h = 256;
                 for (int y_ = 0; y_ <= h; y_++) {

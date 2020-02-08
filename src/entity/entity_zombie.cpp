@@ -88,7 +88,7 @@ namespace entity {
                 }
                 std::reverse(total_path.begin(), total_path.end());
                 motion = 3.0F * glm::normalize(
-                        glm::vec3(total_path[1]) + glm::vec3{0.5} - box.pos);//TODO: getattribute(walkspeed)
+                        glm::vec3(total_path[2]) + glm::vec3{0.5} - box.pos);//TODO: getattribute(walkspeed)
                 if (motion.y > 0) {
                     jump();
                     motion.y = 0;
