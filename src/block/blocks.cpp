@@ -15,6 +15,8 @@ namespace block {
                 return &DIRT;
             case BLOCK_ID_STONE:
                 return &STONE;
+            case BLOCK_ID_BRICKS:
+                return &BRICKS;
         }
 
 //        printf("le wot %i\n", uuid);

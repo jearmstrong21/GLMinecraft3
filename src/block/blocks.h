@@ -10,6 +10,7 @@
 #include "block/types/block_grass.h"
 #include "block/types/block_dirt.h"
 #include "block/types/block_stone.h"
+#include "block/types/block_bricks.h"
 
 namespace block {
 

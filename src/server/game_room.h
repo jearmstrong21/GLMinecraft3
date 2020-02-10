@@ -59,6 +59,8 @@ namespace server {
 
         DATA std::shared_ptr<nbt::nbt> get_entity_list();
 
+        void schedule(int delay,std::function<void()>execute);
+
         void frame_handler(boost::system::error_code err);
 
         explicit game_room(boost::asio::io_context &io_context, struct acceptor *acceptor);

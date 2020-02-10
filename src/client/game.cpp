@@ -148,7 +148,7 @@ namespace client {
             glm::vec3 curSize = player->box.size;
 
             glm::vec3 lookAt = curPos + glm::vec3{0, curSize.y, 0};
-            glm::vec3 lookFrom = curPos - lookdir + glm::vec3{0, curSize.y, 0};
+            glm::vec3 lookFrom = curPos - lookdir + glm::vec3{0, entity::entity_player::eye_height, 0};
 
             if (freecam) {
                 lookFrom = freecamPos;
@@ -214,9 +214,15 @@ namespace client {
                 if (glfwGetKey(window, GLFW_KEY_9) == GLFW_PRESS)new_selected_pos = 8;
                 std::shared_ptr<nbt::nbt> interaction_packet = nbt::nbt_compound::make({
                                                                                                {"leftclick",        nbt::nbt_short::make(
-                                                                                                       false)},
+                                                                                                       glfwGetMouseButton(
+                                                                                                               window,
+                                                                                                               GLFW_MOUSE_BUTTON_LEFT) ==
+                                                                                                       GLFW_PRESS)},
                                                                                                {"rightclick",       nbt::nbt_short::make(
-                                                                                                       false)},
+                                                                                                       glfwGetMouseButton(
+                                                                                                               window,
+                                                                                                               GLFW_MOUSE_BUTTON_RIGHT) ==
+                                                                                                       GLFW_PRESS)},
                                                                                                {"new_selected_pos", nbt::nbt_int::make(
                                                                                                        new_selected_pos)},
                                                                                                {"movement",         nbt::nbt_compound::make(
@@ -347,6 +353,7 @@ namespace client {
                 int cx = o.pos.x / 16;
                 int cy = o.pos.y / 16;
                 int cz = o.pos.z / 16;
+                if (world.get(o.pos) == o.nstate)continue;
                 world.apply(o);
                 dirty_chunk_sections.push({cx, cy, cz});
                 if (o.pos.x % 16 == 0)dirty_chunk_sections.push({cx - 1, cy, cz});
@@ -424,7 +431,12 @@ namespace client {
         }
         int w, h;
         glfwGetWindowSize(window, &w, &h);
-        std::string s = "GLMinecraft3\nYOUR PLAYER ID: " + player_id + "\nFACEDIR " +
+        std::string s = "GLMinecraft3\nYOUR PLAYER ID: " + player_id + "\nPOSITION " +
+                        std::to_string(player->box.pos.x) + "," +
+                        std::to_string(player->box.pos.y) + "," +
+                        std::to_string(player->box.pos.z) + "," +
+
+                        "\nFACEDIR " +
                         std::to_string(player->facedir.x) + "," +
                         std::to_string(player->facedir.y) + "," +
                         std::to_string(player->facedir.z) + "\n";

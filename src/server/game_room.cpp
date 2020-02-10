@@ -15,6 +15,11 @@ namespace server {
 
     game_room *game_room::instance;
 
+    void game_room::schedule(int delay, std::function<void()> execute) {
+        execute();
+//        tasks.push({tick_number+delay,execute});
+    }
+
     game_room::game_room(boost::asio::io_context &io_context, struct acceptor *a) : timer(
             io_context,//oo look struct acceptor is this C
             boost::posix_time::milliseconds(0)),
@@ -79,6 +84,7 @@ namespace server {
             while (!world_ops.empty()) {
                 block::world_op op = world_ops.top();
                 world_ops.pop();
+                world.apply(op);
                 nbt::nbt_compound_ptr cmpnd = std::make_shared<nbt::nbt_compound>();
                 op.save(cmpnd);
                 nbt_world_ops->list_ref().push_back(cmpnd);
@@ -190,7 +196,12 @@ namespace server {
         {
             bool leftclick = data->compound_ref()["leftclick"]->as_short();
             bool rightclick = data->compound_ref()["rightclick"]->as_short();
-//            if(ent->leftclick&&leftclick)
+            if(leftclick&&ent->leftclick)schedule(1,[&](){ent->leftclick_continue();});
+            if(leftclick&&!ent->leftclick)schedule(1,[&](){ent->leftclick_start();});
+            if(!leftclick&&ent->leftclick)schedule(1,[&](){ent->leftclick_end();});
+            if(rightclick&&ent->rightclick)schedule(1,[&](){ent->rightclick_continue();});
+            if(rightclick&&!ent->rightclick)schedule(1,[&](){ent->rightclick_start();});
+            if(!rightclick&&ent->rightclick)schedule(1,[&](){ent->rightclick_end();});
         }
     }
 

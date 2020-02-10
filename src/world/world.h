@@ -30,6 +30,15 @@ namespace block {
 
     };
 
+    struct intersection {
+
+        bool res;
+        glm::ivec3 hit;
+        glm::ivec3 prev;
+        glm::ivec3 normal;
+
+    };
+
     struct world {
 
         std::shared_ptr<chunk> map[WORLD_SIZE][WORLD_SIZE];

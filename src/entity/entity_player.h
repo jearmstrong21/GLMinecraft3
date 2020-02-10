@@ -23,6 +23,10 @@ namespace entity {
         DATA bool leftclick;
         DATA bool rightclick;
 
+        TRANSIENT block::intersection intersection;
+
+        static constexpr const float eye_height=1.75;
+
         entity_player();
 
         void leftclick_start();
