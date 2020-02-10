@@ -16,8 +16,8 @@ namespace server {
     game_room *game_room::instance;
 
     void game_room::schedule(int delay, std::function<void()> execute) {
-        execute();
-//        tasks.push({tick_number+delay,execute});
+//        execute();
+        tasks.push({tick_number + delay, execute});
     }
 
     game_room::game_room(boost::asio::io_context &io_context, struct acceptor *a) : timer(
@@ -36,8 +36,8 @@ namespace server {
         instance = this;
         game_loop_is_over = false;
         world.generate_world();
-        std::cout << "start frame_handler\n";
-        frame_handler(boost::system::error_code());
+        std::cout << "start tick\n";
+        tick();
     }
 
     std::shared_ptr<nbt::nbt> game_room::get_entity_list() {
@@ -50,13 +50,15 @@ namespace server {
         return std::shared_ptr<nbt::nbt>(nbt_entities);
     }
 
-    void game_room::frame_handler(boost::system::error_code err) {
+    void game_room::tick() {
         if (game_loop_is_over)return;
         {
             std::lock_guard<std::mutex> guard(protect_game_state);
             profiler.start_tick();
 
             tick_number++;
+
+            //delayed tasks will do their own profiler magik
             while (!tasks.empty() && tasks.top().target_tick <= tick_number) {
                 delayed_task task = tasks.top();
                 tasks.pop();
@@ -66,15 +68,6 @@ namespace server {
             profiler.push("update entities");
             for (const auto &e:entities) {
                 e.second->update();
-            }
-            profiler.pop();
-
-            profiler.push("random delete");
-            if (rand() % 1000 < 2000) {
-                int x = rand() % 100;
-                int y = rand() % 100;
-                int z = rand() % 100;
-                world_ops.push({true, {x, y, z}, 0});
             }
             profiler.pop();
 
@@ -106,7 +99,7 @@ namespace server {
         int FPS = 30;
         timer.expires_at(timer.expires_at() + boost::posix_time::milliseconds((int) (1000 / FPS)));
         timer.async_wait([this](boost::system::error_code err) {
-            frame_handler(err);
+            tick();
         });
     }
 
@@ -196,12 +189,12 @@ namespace server {
         {
             bool leftclick = data->compound_ref()["leftclick"]->as_short();
             bool rightclick = data->compound_ref()["rightclick"]->as_short();
-            if(leftclick&&ent->leftclick)schedule(1,[&](){ent->leftclick_continue();});
-            if(leftclick&&!ent->leftclick)schedule(1,[&](){ent->leftclick_start();});
-            if(!leftclick&&ent->leftclick)schedule(1,[&](){ent->leftclick_end();});
-            if(rightclick&&ent->rightclick)schedule(1,[&](){ent->rightclick_continue();});
-            if(rightclick&&!ent->rightclick)schedule(1,[&](){ent->rightclick_start();});
-            if(!rightclick&&ent->rightclick)schedule(1,[&](){ent->rightclick_end();});
+            if (leftclick && ent->leftclick)schedule(1, [&]() { ent->leftclick_continue(); });
+            if (leftclick && !ent->leftclick)schedule(1, [&]() { ent->leftclick_start(); });
+            if (!leftclick && ent->leftclick)schedule(1, [&]() { ent->leftclick_end(); });
+            if (rightclick && ent->rightclick)schedule(1, [&]() { ent->rightclick_continue(); });
+            if (rightclick && !ent->rightclick)schedule(1, [&]() { ent->rightclick_start(); });
+            if (!rightclick && ent->rightclick)schedule(1, [&]() { ent->rightclick_end(); });
         }
     }
 

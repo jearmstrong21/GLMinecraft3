@@ -123,8 +123,8 @@ namespace entity {
 
     void entity_player::rightclick_start() {
         rightclick = true;
-        if(intersection.res){
-            server::game_room::instance->world_ops.push({true,intersection.prev,block::BRICKS.defaultState});
+        if (intersection.res) {
+            server::game_room::instance->world_ops.push({true, intersection.prev, block::BRICKS.defaultState});
         }
     }
 

@@ -15,7 +15,7 @@ namespace block {
         explicit block_bricks(int id) noexcept;
 
         const client::quad_texture_descr side{{client::atlas_texture::BRICKS, glm::vec3(1, 1, 1)},
-                                              {client::atlas_texture::NONE,  glm::vec3(1, 1, 1)}};
+                                              {client::atlas_texture::NONE,   glm::vec3(1, 1, 1)}};
 
         void render(gl::mesh_data *md, block_context ctx) const noexcept override;
 
