@@ -87,11 +87,13 @@ namespace client {
                          glm::vec3{4, 12, 4},
                          glm::vec2{16, 0}, glm::vec2{64, 64});
 
-        m = m0 * glm::lookAt(glm::vec3{0, 0, 0}, glm::normalize(glm::vec3{data->lookdir.x, 0, -data->lookdir.z}),
-                             glm::vec3{0, 1, 0});
-        tcr->render_cube(p, v, m * glm::translate(glm::mat4(1), glm::vec3{0, 24, 0} / 16.0F), steve_texture,
-                         glm::vec3{8, 8, 8},
-                         glm::vec2{0, 48}, glm::vec2{64, 64});
+        if (!player->firstperson) {
+            m = m0 * glm::lookAt(glm::vec3{0, 0, 0}, glm::normalize(glm::vec3{data->lookdir.x, 0, -data->lookdir.z}),
+                                 glm::vec3{0, 1, 0});
+            tcr->render_cube(p, v, m * glm::translate(glm::mat4(1), glm::vec3{0, 24, 0} / 16.0F), steve_texture,
+                             glm::vec3{8, 8, 8},
+                             glm::vec2{0, 48}, glm::vec2{64, 64});
+        }
     }
 
     void entity_render::render_zombie(glm::mat4 p, glm::mat4 v, const entity::entity_ptr &data) {

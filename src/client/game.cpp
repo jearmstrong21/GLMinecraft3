@@ -147,8 +147,9 @@ namespace client {
             glm::vec3 curPos = player->box.pos;
             glm::vec3 curSize = player->box.size;
 
-            glm::vec3 lookAt = curPos + glm::vec3{0, curSize.y, 0};
+            glm::vec3 lookAt = curPos + glm::vec3{0, curSize.y, 0} + lookdir;
             glm::vec3 lookFrom = curPos - lookdir + glm::vec3{0, entity::entity_player::eye_height, 0};
+            if (firstperson)lookFrom = curPos + glm::vec3{0, entity::entity_player::eye_height, 0};;
 
             if (freecam) {
                 lookFrom = freecamPos;
@@ -213,6 +214,8 @@ namespace client {
                 if (glfwGetKey(window, GLFW_KEY_8) == GLFW_PRESS)new_selected_pos = 7;
                 if (glfwGetKey(window, GLFW_KEY_9) == GLFW_PRESS)new_selected_pos = 8;
                 std::shared_ptr<nbt::nbt> interaction_packet = nbt::nbt_compound::make({
+                                                                                               {"firstperson",      nbt::nbt_short::make(
+                                                                                                       firstperson)},
                                                                                                {"leftclick",        nbt::nbt_short::make(
                                                                                                        glfwGetMouseButton(
                                                                                                                window,
@@ -383,6 +386,7 @@ namespace client {
         }
 
         player_id = welcome_packet->compound_ref()["player_id"]->as_string();
+        firstperson = false;
         std::cout << "Welcome packet recieved:\n";
         std::cout << "\tplayer_id = <" << player_id << ">\n";
     }
@@ -401,6 +405,9 @@ namespace client {
     }
 
     void game::glfw_key_press_callback(int key, int scancode, int actions, int mods) {
+        if (key == 'P' && actions == GLFW_PRESS) {
+            firstperson = !firstperson;
+        }
         if (key == 'U' && actions == GLFW_PRESS) {
             freecam = !freecam;
             freecamPos = entities[player_id]->box.pos;

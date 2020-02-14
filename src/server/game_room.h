@@ -21,17 +21,11 @@
 #include <future>
 #include "item/item.h"
 #include <queue>
+#include "delayed_task.h"
 
 namespace server {
 
     struct acceptor;
-
-    struct delayed_task {
-        int target_tick;
-        std::function<void()> execute;
-    };
-
-    bool operator<(const delayed_task &a, const delayed_task &b);
 
     struct game_room {
 
@@ -52,14 +46,14 @@ namespace server {
         TRANSIENT std::string queued_chat;
 
         TRANSIENT int tick_number;
-        TRANSIENT std::priority_queue<delayed_task> tasks;
+        TRANSIENT std::priority_queue<delayed_task *> tasks;
         TRANSIENT std::stack<block::world_op> world_ops;
 
         DATA std::map<std::string, entity::entity_ptr> entities;
 
         DATA std::shared_ptr<nbt::nbt> get_entity_list();
 
-        void schedule(int delay, std::function<void()> execute);
+        void schedule(int delay, delayed_task *task);
 
         void tick();
 

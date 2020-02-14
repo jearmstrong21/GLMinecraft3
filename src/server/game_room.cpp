@@ -3,22 +3,14 @@
 //
 
 #include <boost/thread.hpp>
+#include <utility>
 #include "game_room.h"
 #include "utils/profiler.h"
 #include "acceptor.h"
 
 namespace server {
 
-    bool operator<(const delayed_task &a, const delayed_task &b) {
-        return a.target_tick > b.target_tick;
-    }
-
     game_room *game_room::instance;
-
-    void game_room::schedule(int delay, std::function<void()> execute) {
-//        execute();
-        tasks.push({tick_number + delay, execute});
-    }
 
     game_room::game_room(boost::asio::io_context &io_context, struct acceptor *a) : timer(
             io_context,//oo look struct acceptor is this C
@@ -59,10 +51,11 @@ namespace server {
             tick_number++;
 
             //delayed tasks will do their own profiler magik
-            while (!tasks.empty() && tasks.top().target_tick <= tick_number) {
-                delayed_task task = tasks.top();
+            while (!tasks.empty() && tasks.top()->target_tick <= tick_number) {
+                delayed_task *task = tasks.top();
                 tasks.pop();
-                task.execute();
+                task->execute();
+                delete task;
             }
 
             profiler.push("update entities");
@@ -105,6 +98,11 @@ namespace server {
 
     game_room::~game_room() {
         profiler.print();
+        while (tasks.size() > 0) {
+            delayed_task *t = tasks.top();
+            tasks.pop();
+            delete t;
+        }
     }
 
     std::string game_room::get_next_entity_id() {
@@ -189,12 +187,29 @@ namespace server {
         {
             bool leftclick = data->compound_ref()["leftclick"]->as_short();
             bool rightclick = data->compound_ref()["rightclick"]->as_short();
-            if (leftclick && ent->leftclick)schedule(1, [&]() { ent->leftclick_continue(); });
-            if (leftclick && !ent->leftclick)schedule(1, [&]() { ent->leftclick_start(); });
-            if (!leftclick && ent->leftclick)schedule(1, [&]() { ent->leftclick_end(); });
-            if (rightclick && ent->rightclick)schedule(1, [&]() { ent->rightclick_continue(); });
-            if (rightclick && !ent->rightclick)schedule(1, [&]() { ent->rightclick_start(); });
-            if (!rightclick && ent->rightclick)schedule(1, [&]() { ent->rightclick_end(); });
+            if (leftclick && ent->leftclick)
+                schedule(-10, new entity::task_player_click_interact(ent.get(),
+                                                                     entity::LEFT_CONTINUE));
+            if (leftclick && !ent->leftclick)
+                schedule(-10, new entity::task_player_click_interact(ent.get(),
+                                                                     entity::LEFT_START));
+            if (!leftclick && ent->leftclick)
+                schedule(-10, new entity::task_player_click_interact(ent.get(),
+                                                                     entity::LEFT_END));
+            if (rightclick && ent->rightclick)
+                schedule(-10, new entity::task_player_click_interact(ent.get(),
+                                                                     entity::RIGHT_CONTINUE));
+            if (rightclick && !ent->rightclick)
+                schedule(-10, new entity::task_player_click_interact(ent.get(),
+                                                                     entity::RIGHT_START));
+            if (!rightclick && ent->rightclick)
+                schedule(-10, new entity::task_player_click_interact(ent.get(),
+                                                                     entity::RIGHT_END));
+            ent->leftclick = leftclick;
+            ent->rightclick = rightclick;
+        }
+        {
+            ent->firstperson = data->compound_ref()["firstperson"]->as_short();
         }
     }
 
@@ -212,6 +227,11 @@ namespace server {
 
     void game_room::broadcast_to_all(const std::shared_ptr<nbt::nbt> &msg) {
         for (const auto &p:players)p->deliver(msg);
+    }
+
+    void game_room::schedule(int delay, delayed_task *task) {
+        task->target_tick = tick_number + delay;
+        tasks.push(task);
     }
 
 }

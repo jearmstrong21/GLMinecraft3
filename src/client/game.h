@@ -46,6 +46,7 @@ namespace client {
         float rotX = 0, rotY = 0;
         bool attemptQuit = false;
         std::shared_ptr<entity::entity_player> player;
+        bool firstperson;
 
         void render_world();
 

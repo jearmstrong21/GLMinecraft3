@@ -27,6 +27,7 @@ namespace entity {
         tag->value["selected_item"] = nbt::nbt_int::make(selected_item);
         tag->value["leftclick"] = nbt::nbt_short::make(leftclick);
         tag->value["rightclick"] = nbt::nbt_short::make(rightclick);
+        tag->value["firstperson"] = nbt::nbt_short::make(firstperson);
     }
 
     void entity_player::load_additional_information(const nbt::nbt_compound_ptr &tag) {
@@ -37,6 +38,7 @@ namespace entity {
         selected_item = tag->value["selected_item"]->as_int();
         leftclick = tag->value["leftclick"]->as_short();
         rightclick = tag->value["rightclick"]->as_short();
+        firstperson = tag->value["firstperson"]->as_short();
     }
 
     void entity_player::handle_ai() {
@@ -114,7 +116,7 @@ namespace entity {
     }
 
     void entity_player::leftclick_continue() {
-        ASSERT_OR_EXIT(leftclick == true, "leftclick_continue() called with leftclick=false")
+
     }
 
     void entity_player::leftclick_end() {
@@ -129,7 +131,7 @@ namespace entity {
     }
 
     void entity_player::rightclick_continue() {
-        ASSERT_OR_EXIT(rightclick == true, "rightclick_continue() called with rightclick=false")
+
     }
 
     void entity_player::rightclick_end() {

@@ -5,6 +5,7 @@
 #ifndef GLMINECRAFT3_ENTITY_PLAYER_H
 #define GLMINECRAFT3_ENTITY_PLAYER_H
 
+#include "server/delayed_task.h"
 #include "entity.h"
 #include "item/item.h"
 
@@ -22,6 +23,7 @@ namespace entity {
 
         DATA bool leftclick;
         DATA bool rightclick;
+        DATA bool firstperson;
 
         TRANSIENT block::intersection intersection;
 
@@ -49,6 +51,47 @@ namespace entity {
 
         static entity_ptr spawn(std::string uuid, glm::vec3 pos, server::game_room *server);
 
+    };
+
+    enum click_type {
+        LEFT_START,
+        LEFT_CONTINUE,
+        LEFT_END,
+        RIGHT_START,
+        RIGHT_CONTINUE,
+        RIGHT_END
+    };
+
+    struct task_player_click_interact : server::delayed_task {
+        entity_player *player;
+        click_type type;
+
+        task_player_click_interact(entity_player *player, click_type type) : player(player), type(type) { }
+
+        ~task_player_click_interact() override = default;
+
+        void execute() override {
+            switch (type) {
+                case LEFT_START:
+                    player->leftclick_start();
+                    break;
+                case LEFT_CONTINUE:
+                    player->leftclick_continue();
+                    break;
+                case LEFT_END:
+                    player->leftclick_end();
+                    break;
+                case RIGHT_START:
+                    player->rightclick_start();
+                    break;
+                case RIGHT_CONTINUE:
+                    player->rightclick_continue();
+                    break;
+                case RIGHT_END:
+                    player->rightclick_end();
+                    break;
+            }
+        }
     };
 
 }
