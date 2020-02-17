@@ -14,7 +14,7 @@ extern "C" const size_t SHADER_item_vert_len;
 namespace client {
 
     void
-    item_renderer::render_item(client::gui_ctx ctx, const client::item_texture_descr &i, gl::texture *texture, int x,
+    item_renderer::render_item(client::gui_ctx ctx, const client::item_texture_descr &i, gl::texture *texture, const text_renderer*text_rend,int x,
                                int y, int s) {
         shader->bind();
         shader->uniform4x4("ortho", ctx.ortho);
@@ -27,6 +27,7 @@ namespace client {
             shader->uniform3("tint", l.color);
             mesh->render_triangles();
         }
+        text_rend->render_string(std::to_string(i.count),x,y,s/3);
     }
 
     item_renderer::item_renderer() {

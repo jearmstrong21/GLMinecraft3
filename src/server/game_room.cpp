@@ -234,4 +234,12 @@ namespace server {
         tasks.push(task);
     }
 
+    bool game_room::place_block(glm::ivec3 pos, block::block_state block) {
+        for(auto&p:entities){
+            if(p.second->box.intersects_block(pos))return false;
+        }
+        world_ops.push({true,pos,block});
+        return true;
+    }
+
 }

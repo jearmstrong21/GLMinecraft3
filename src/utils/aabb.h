@@ -47,6 +47,14 @@ namespace utils {
             }
         }
 
+        bool intersects_block(glm::ivec3 p)const{
+            bool b=false;
+            foreach([&](glm::ivec3 x){
+                if(x==p)b=true;
+            });
+            return b;
+        }
+
         void save(const nbt::nbt_compound_ptr &tag) const {
             tag->value["pos"] = utils::cast3(pos);
             tag->value["size"] = utils::cast3(size);

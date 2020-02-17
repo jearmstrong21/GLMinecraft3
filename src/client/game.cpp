@@ -430,11 +430,11 @@ namespace client {
 
     void game::render_chat() {
         if (is_chat_open) {
-            text_rend->render_string(curchatbuffer, 0, text_rend->charsize);
-            text_rend->render_string("                    ", 0, text_rend->charsize);
+            text_rend->render_string(curchatbuffer, 0, 16,16);
+            text_rend->render_string("                    ", 0, 16,16);
         }
         for (int i = 0; i < utils::min((int) chathistory.size(), 20); i++) {
-            text_rend->render_string(chathistory[i], 0, text_rend->charsize * (i + 2));
+            text_rend->render_string(chathistory[i], 0, 16 * (i + 2),16);
         }
         int w, h;
         glfwGetWindowSize(window, &w, &h);
@@ -447,7 +447,7 @@ namespace client {
                         std::to_string(player->facedir.x) + "," +
                         std::to_string(player->facedir.y) + "," +
                         std::to_string(player->facedir.z) + "\n";
-        text_rend->render_string(s, 0, h - text_rend->charsize);
+        text_rend->render_string(s, 0, h - 16, 16);
     }
 
     void game::render_hud() {
@@ -487,7 +487,7 @@ namespace client {
         for (int i = 0; i < 9; i++) {
             if (player->inventory[i].is_empty())continue;
             item_rend->render_item(
-                    ctx, player->inventory[i].item()->render(player->inventory[i]), texture,
+                    ctx, player->inventory[i].item()->render(player->inventory[i]), texture,text_rend,
                     center - scale * 182 / 2 + scale * 20 * i + scale * 3,
                     hotbar_y - scale + scale * 4,
                     scale * 16

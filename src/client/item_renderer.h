@@ -11,6 +11,7 @@
 #include <gl/mesh.h>
 #include "gui_ctx.h"
 #include <functional>
+#include "text_rendering.h"
 
 namespace client {
 
@@ -31,7 +32,7 @@ namespace client {
 
         ~item_renderer();
 
-        void render_item(gui_ctx ctx, const item_texture_descr &i, gl::texture *texture, int x, int y, int s);
+        void render_item(gui_ctx ctx, const item_texture_descr &i, gl::texture *texture,const text_renderer*text_rend, int x, int y, int s);
 
         void render_item(const item_texture_descr &i, gl::shader *s, const std::function<void()> &render_layer);
 

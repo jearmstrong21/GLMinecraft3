@@ -111,7 +111,7 @@ namespace entity {
     void entity_player::leftclick_start() {
         leftclick = true;
         if (intersection.res) {
-            server::game_room::instance->world_ops.push({true, intersection.hit, 0});
+            server::game_room::instance->world_ops.push({true,intersection.hit,0});
         }
     }
 
@@ -126,7 +126,7 @@ namespace entity {
     void entity_player::rightclick_start() {
         rightclick = true;
         if (intersection.res) {
-            server::game_room::instance->world_ops.push({true, intersection.prev, block::BRICKS.defaultState});
+            server::game_room::instance->place_block(intersection.prev,block::BRICKS.defaultState);
         }
     }
 
