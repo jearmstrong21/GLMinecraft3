@@ -39,7 +39,7 @@ namespace client {
             texture = new gl::texture(TEXTURE_ascii_png, TEXTURE_ascii_png_len);
         }
 
-        [[nodiscard]] glm::mat4 get_ortho() const{
+        [[nodiscard]] glm::mat4 get_ortho() const {
             int w, h;
 //            glfwGetWindowSize(window,&w,&h);
             w = h = 1000;//TODOD what the fric k
@@ -51,7 +51,7 @@ namespace client {
 
 //        int charsize = 16;
 
-        void render_string(std::string s, int x, int y,int charsize) const{
+        void render_string(std::string s, int x, int y, int charsize) const {
             int cx = x, cy = y;
             for (int i = 0; i < s.size(); i++) {
                 if (s[i] == '\n') {
@@ -59,12 +59,12 @@ namespace client {
                     cx = x;
                     continue;
                 }
-                render_character(s[i], cx, cy,charsize);
+                render_character(s[i], cx, cy, charsize);
                 cx += charsize;
             }
         }
 
-        void render_character(char c, int x, int y,int charsize) const{
+        void render_character(char c, int x, int y, int charsize) const {
             shader->bind();
             glm::mat4 p = get_ortho();
             p *= glm::translate(glm::mat4(1), glm::vec3{x, y, 0});

@@ -47,10 +47,10 @@ namespace utils {
             }
         }
 
-        bool intersects_block(glm::ivec3 p)const{
-            bool b=false;
-            foreach([&](glm::ivec3 x){
-                if(x==p)b=true;
+        bool intersects_block(glm::ivec3 p) const {
+            bool b = false;
+            foreach([&](glm::ivec3 x) {
+                if (x == p)b = true;
             });
             return b;
         }

@@ -32,8 +32,8 @@ namespace item {
     }
 
     item_stack item::make(int count) {
-        item_stack stack=make();
-        stack.count=count;
+        item_stack stack = make();
+        stack.count = count;
         return stack;
     }
 

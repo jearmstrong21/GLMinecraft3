@@ -429,11 +429,11 @@ namespace client {
 
     void game::render_chat() {
         if (is_chat_open) {
-            text_rend->render_string(curchatbuffer, 0, 16,16);
-            text_rend->render_string("                    ", 0, 16,16);
+            text_rend->render_string(curchatbuffer, 0, 16, 16);
+            text_rend->render_string("                    ", 0, 16, 16);
         }
         for (int i = 0; i < utils::min((int) chathistory.size(), 20); i++) {
-            text_rend->render_string(chathistory[i], 0, 16 * (i + 2),16);
+            text_rend->render_string(chathistory[i], 0, 16 * (i + 2), 16);
         }
         int w, h;
         glfwGetWindowSize(window, &w, &h);
@@ -486,7 +486,7 @@ namespace client {
         for (int i = 0; i < 9; i++) {
             if (player->inventory[i].is_empty())continue;
             item_rend->render_item(
-                    ctx, player->inventory[i].item()->render(player->inventory[i]), texture,text_rend,
+                    ctx, player->inventory[i].item()->render(player->inventory[i]), texture, text_rend,
                     center - scale * 182 / 2 + scale * 20 * i + scale * 3,
                     hotbar_y - scale + scale * 4,
                     scale * 16

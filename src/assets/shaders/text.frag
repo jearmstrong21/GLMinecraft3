@@ -8,7 +8,7 @@ out vec4 fc;
 
 void main(){
     fc=texture(tex, uv/16.0+inUV);
-    if(fc.xyz==vec3(0))discard;
+    if (fc.xyz==vec3(0))discard;
     //    fc.w=1.0;
     //    fc.b=1.0;
     //    fc=vec4(1,0,0,1);

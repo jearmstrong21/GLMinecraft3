@@ -36,12 +36,13 @@ namespace item {
     }
 
     client::item_texture_descr item_block::render(item_stack stack) {
-        client::item_texture_descr tex=render_no_count(stack);
-        tex.count=stack.count;
+        client::item_texture_descr tex = render_no_count(stack);
+        tex.count = stack.count;
         return tex;
     }
 
-    item_block_default::item_block_default(item_properties properties, client::item_texture_descr tex):item_block(properties),tex(std::move(tex)) {
+    item_block_default::item_block_default(item_properties properties, client::item_texture_descr tex) : item_block(
+            properties), tex(std::move(tex)) {
 
     }
 

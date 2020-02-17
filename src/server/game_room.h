@@ -54,7 +54,8 @@ namespace server {
         DATA std::shared_ptr<nbt::nbt> get_entity_list();
 
         void schedule(int delay, delayed_task *task);
-        bool place_block(glm::ivec3 pos,block::block_state block);
+
+        bool place_block(glm::ivec3 pos, block::block_state block);
 
         void tick();
 
