@@ -13,7 +13,7 @@ namespace item {
 
         enums::material material;
 
-        explicit item_sword(item_properties properties, enums::material material);
+        item_sword(item_properties properties, enums::material material);
 
         void attack(const item_use_context &ctx) override;
 

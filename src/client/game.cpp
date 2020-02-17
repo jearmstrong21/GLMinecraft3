@@ -334,7 +334,6 @@ namespace client {
 
     void game::load_game_update(const std::shared_ptr<nbt::nbt> &obj) {
         std::lock_guard<std::mutex> guard(protect_game_state);
-//        std::cout<<"load_game_update "<<obj->to_str("")<<"\n";
 
         {
             entities.clear();

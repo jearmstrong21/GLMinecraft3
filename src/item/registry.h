@@ -8,6 +8,7 @@
 #include "item.h"
 #include "item_sword.h"
 #include "item_none.h"
+#include "item_block.h"
 
 namespace item {
 
@@ -19,6 +20,11 @@ namespace item {
         static std::shared_ptr<item> STONE_SWORD;
         static std::shared_ptr<item> WOOD_SWORD;
         static std::shared_ptr<item> NONE;
+
+        static std::shared_ptr<item> BLOCK_BRICKS;
+        static std::shared_ptr<item> BLOCK_DIRT;
+        static std::shared_ptr<item> BLOCK_GRASS;
+        static std::shared_ptr<item> BLOCK_STONE;
 
         static std::map<int, std::shared_ptr<item>> map;
 

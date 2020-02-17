@@ -62,6 +62,8 @@ namespace item {
 
         void load(item_stack *stack, const nbt::nbt_compound_ptr &tag);
 
+        item_stack make(int count);
+
         virtual item_stack make() = 0;
 
     };

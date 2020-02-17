@@ -31,4 +31,10 @@ namespace item {
         return item_type_id == 0 || count == 0;
     }
 
+    item_stack item::make(int count) {
+        item_stack stack=make();
+        stack.count=count;
+        return stack;
+    }
+
 }
