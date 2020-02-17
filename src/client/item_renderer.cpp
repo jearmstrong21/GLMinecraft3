@@ -28,7 +28,7 @@ namespace client {
             shader->uniform3("tint", l.color);
             mesh->render_triangles();
         }
-        text_rend->render_string(std::to_string(i.count), x, y, s / 3);
+        if (i.count > 1)text_rend->render_string(std::to_string(i.count), x, y, s / 3);
     }
 
     item_renderer::item_renderer() {
