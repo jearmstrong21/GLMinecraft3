@@ -4,23 +4,23 @@
 
 #include "item_block.h"
 #include <utility>
+#include "server/game_room.h"
 
 namespace item {
 
-    item_block::item_block(item_properties properties) : item(std::move(properties)) {
-
-    }
-
-    item_stack item_block::make(int count) {
-        return item_stack{properties.item_type_id, count};
-    }
-
-    void item_block::attack(const item_use_context &ctx) {
+    item_block::item_block(item_properties properties, block::block_state state) : item(std::move(properties)),
+                                                                                   state(state) {
 
     }
 
     void item_block::use(const item_use_context &ctx) {
-
+        if (ctx.stack->is_empty())return;
+        if (ctx.source->type_id == ENTITY_ID_PLAYER) {
+            auto player = (entity::entity_player *) ctx.source;
+            if (server::game_room::instance->place_block(player->intersection.prev, state)) {
+                ctx.stack->count--;
+            }
+        }
     }
 
     void item_block::save_additional_information(item_stack stack, const nbt::nbt_compound_ptr &tag) {
@@ -41,8 +41,9 @@ namespace item {
         return tex;
     }
 
-    item_block_default::item_block_default(item_properties properties, client::item_texture_descr tex) : item_block(
-            properties), tex(std::move(tex)) {
+    item_block_default::item_block_default(item_properties properties, block::block_state state,
+                                           client::item_texture_descr tex) : item_block(properties, state),
+                                                                             tex(std::move(tex)) {
 
     }
 

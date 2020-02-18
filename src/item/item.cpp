@@ -6,6 +6,8 @@
 
 #include <utility>
 #include "registry.h"
+#include "entity/entity_player.h"
+#include "server/game_room.h"
 
 namespace item {
 
@@ -23,12 +25,23 @@ namespace item {
         stack->item_type_id = tag->value["item_type_id"]->as_int();
     }
 
-    std::shared_ptr<item> item_stack::item() {
+    void item::attack(const item_use_context &ctx) {
+        if (ctx.source->type_id == ENTITY_ID_PLAYER) {
+            auto player = (entity::entity_player *) ctx.source;
+            server::game_room::instance->world_ops.push({true, player->intersection.hit, 0});
+        }
+    }
+
+    void item::use(const item_use_context &ctx) {
+
+    }
+
+    item *item_stack::item() {
         return item_registry::map[item_type_id];
     }
 
     bool item_stack::is_empty() {
-        return item_type_id == 0 || count == 0;
+        return item_type_id == 0 || count <= 0;
     }
 
     item_stack item::make(int count) {

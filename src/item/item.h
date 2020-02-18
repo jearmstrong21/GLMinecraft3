@@ -21,17 +21,15 @@ namespace item {
         int item_type_id = 0;
         int count = 0;
 
-        std::shared_ptr<item> item();
+        item *item();
 
         bool is_empty();
     };
 
     struct item_use_context {
 
-        item_stack stack;
-        std::shared_ptr<entity::entity> source;
-        server::game_room *room;
-        //TODO: std::vector<item_attribute>attributes
+        item_stack *stack;
+        entity::entity *source;
 
     };
 
@@ -48,9 +46,9 @@ namespace item {
 
         explicit item(item_properties properties);//TODO: int uuid, item_props props, etc
 
-        virtual void attack(const item_use_context &ctx) = 0;
+        virtual void attack(const item_use_context &ctx);
 
-        virtual void use(const item_use_context &ctx) = 0;
+        virtual void use(const item_use_context &ctx);
 
         virtual client::item_texture_descr render(item_stack stack) = 0;
 

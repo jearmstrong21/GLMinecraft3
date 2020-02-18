@@ -12,14 +12,6 @@ namespace item {
 
     }
 
-    void item_none::attack(const item_use_context &ctx) {
-
-    }
-
-    void item_none::use(const item_use_context &ctx) {
-
-    }
-
     client::item_texture_descr item_none::render(item_stack stack) {
         return client::item_texture_descr{{{client::atlas_texture::UNKNOWN, glm::vec3{1}}}, -1};
     }

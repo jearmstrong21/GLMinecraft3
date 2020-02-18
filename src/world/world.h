@@ -55,9 +55,9 @@ namespace block {
 
         [[nodiscard]] block_state get(glm::ivec3 v) const;
 
-        [[nodiscard]] world_op set(int x, int y, int z, block_state b);
+        world_op set(int x, int y, int z, block_state b);
 
-        [[nodiscard]] world_op set(glm::ivec3 v, block_state b);
+        world_op set(glm::ivec3 v, block_state b);
 
         [[nodiscard]] block_context get_block_context(glm::ivec3 p);
 

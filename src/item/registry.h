@@ -14,21 +14,23 @@ namespace item {
 
     struct item_registry {
 
-        static std::shared_ptr<item> DIAMOND_SWORD;
-        static std::shared_ptr<item> GOLD_SWORD;
-        static std::shared_ptr<item> IRON_SWORD;
-        static std::shared_ptr<item> STONE_SWORD;
-        static std::shared_ptr<item> WOOD_SWORD;
-        static std::shared_ptr<item> NONE;
+        static item *DIAMOND_SWORD;
+        static item *GOLD_SWORD;
+        static item *IRON_SWORD;
+        static item *STONE_SWORD;
+        static item *WOOD_SWORD;
+        static item *NONE;
 
-        static std::shared_ptr<item> BLOCK_BRICKS;
-        static std::shared_ptr<item> BLOCK_DIRT;
-        static std::shared_ptr<item> BLOCK_GRASS;
-        static std::shared_ptr<item> BLOCK_STONE;
+        static item *BLOCK_BRICKS;
+        static item *BLOCK_DIRT;
+        static item *BLOCK_GRASS;
+        static item *BLOCK_STONE;
 
-        static std::map<int, std::shared_ptr<item>> map;
+        static std::map<int, item *> map;
 
         static void initialize();
+
+        static void free();
 
     };
 

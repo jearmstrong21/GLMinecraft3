@@ -15,6 +15,13 @@ namespace entity {
         leftclick = false;
         rightclick = false;
         intersection.res = false;
+        last_attack_tick = 0;
+        last_use_tick = 0;
+        selected_item = 0;
+        leftclick = false;
+        rightclick = false;
+        firstperson = false;
+        intersection = {};
     }
 
     void entity_player::save_additional_information(const nbt::nbt_compound_ptr &tag) {
@@ -28,6 +35,8 @@ namespace entity {
         tag->value["leftclick"] = nbt::nbt_short::make(leftclick);
         tag->value["rightclick"] = nbt::nbt_short::make(rightclick);
         tag->value["firstperson"] = nbt::nbt_short::make(firstperson);
+        tag->value["last_use_tick"] = nbt::nbt_int::make(last_use_tick);
+        tag->value["last_attack_tick"] = nbt::nbt_int::make(last_attack_tick);
     }
 
     void entity_player::load_additional_information(const nbt::nbt_compound_ptr &tag) {
@@ -39,6 +48,8 @@ namespace entity {
         leftclick = tag->value["leftclick"]->as_short();
         rightclick = tag->value["rightclick"]->as_short();
         firstperson = tag->value["firstperson"]->as_short();
+        last_use_tick = tag->value["last_use_tick"]->as_int();
+        last_attack_tick = tag->value["last_attack_tick"]->as_int();
     }
 
     void entity_player::handle_ai() {
@@ -69,7 +80,6 @@ namespace entity {
         std::vector<glm::ivec3> list;
         for (int ___ = 0; ___ < range; ___++) {
             list.emplace_back(i, j, k);
-//            std::cout<<___<<" "<<i<<" "<<j<<" "<<k<<" "<<server::game_room::instance->world.get(i,j,k)<<"\n";
             if (tx <= ty && tx <= tz) {
                 tx += dx;
                 i += di;
@@ -111,13 +121,11 @@ namespace entity {
 
     void entity_player::leftclick_start() {
         leftclick = true;
-        if (intersection.res) {
-            server::game_room::instance->world_ops.push({true, intersection.hit, 0});
-        }
+        attempt_attack();
     }
 
     void entity_player::leftclick_continue() {
-
+        attempt_attack();
     }
 
     void entity_player::leftclick_end() {
@@ -126,17 +134,40 @@ namespace entity {
 
     void entity_player::rightclick_start() {
         rightclick = true;
-        if (intersection.res) {
-            server::game_room::instance->place_block(intersection.prev, block::BRICKS.defaultState);
-        }
+        attempt_use();
     }
 
     void entity_player::rightclick_continue() {
-
+        attempt_use();
     }
 
     void entity_player::rightclick_end() {
         rightclick = false;
+    }
+
+    item::item_stack *entity_player::get_held_item() {
+        return &inventory[selected_item];
+    }
+
+    item::item_use_context entity_player::get_use_context() {
+        item::item_use_context ctx;
+        ctx.stack = get_held_item();
+        ctx.source = this;
+        return ctx;
+    }
+
+    void entity_player::attempt_attack() {
+        if (last_attack_tick + ATTACK_DELAY < server::game_room::instance->tick_number) {
+            last_attack_tick = server::game_room::instance->tick_number;
+            get_held_item()->item()->attack(get_use_context());
+        }
+    }
+
+    void entity_player::attempt_use() {
+        if (last_use_tick + USE_DELAY < server::game_room::instance->tick_number) {
+            last_use_tick = server::game_room::instance->tick_number;
+            get_held_item()->item()->use(get_use_context());
+        }
     }
 
 }

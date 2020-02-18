@@ -13,14 +13,6 @@ namespace item {
 
     }
 
-    void item_sword::attack(const item_use_context &ctx) {
-
-    }
-
-    void item_sword::use(const item_use_context &ctx) {
-
-    }
-
     client::item_texture_descr item_sword::render(item_stack stack) {
         return {{{material.sword_texture, {1, 1, 1}}}, stack.count};
     }

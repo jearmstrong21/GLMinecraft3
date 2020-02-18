@@ -25,6 +25,7 @@
 #define ASSERT_OR_EXIT(condition, err) {if(!(condition))EXIT_WITH_ERROR(err);}
 #define TRANSIENT
 #define DATA
+#define TICKS
 
 namespace utils {
 

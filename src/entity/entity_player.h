@@ -25,11 +25,24 @@ namespace entity {
         DATA bool rightclick;
         DATA bool firstperson;
 
+        DATA int last_use_tick;
+        DATA int last_attack_tick;
+
         TRANSIENT block::intersection intersection;
 
         static constexpr const float eye_height = 1.75;
+        static constexpr const int USE_DELAY = 10 TICKS;
+        static constexpr const int ATTACK_DELAY = 10 TICKS;
+
+        item::item_stack *get_held_item();
+
+        item::item_use_context get_use_context();
 
         entity_player();
+
+        void attempt_use();
+
+        void attempt_attack();
 
         void leftclick_start();
 

@@ -15,10 +15,6 @@ namespace item {
 
         item_sword(item_properties properties, enums::material material);
 
-        void attack(const item_use_context &ctx) override;
-
-        void use(const item_use_context &ctx) override;
-
         client::item_texture_descr render(item_stack stack) override;
 
         void save_additional_information(item_stack stack, const nbt::nbt_compound_ptr &tag) override;

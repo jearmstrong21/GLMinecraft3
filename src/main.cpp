@@ -34,6 +34,7 @@ void sig_handler(int sig) {
 
 int main(int argc, char **argv) {
     for (int i = 0; i < 32; i++) std::signal(i, sig_handler);
+
     item::item_registry::initialize();
 
     boost::program_options::options_description desc("Allowed options");
@@ -93,6 +94,8 @@ int main(int argc, char **argv) {
 
     std::cout << "Select an option.\n";
     std::cout << desc << "\n";
+
+    item::item_registry::free();
 
     return 0;
 }
