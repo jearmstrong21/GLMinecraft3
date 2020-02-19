@@ -17,14 +17,14 @@ namespace item {
 
     struct item;
 
-    enum class item_attribute_modifier_operation{
+    enum class item_attribute_modifier_operation {
         add,
         multiply
     };
 
     struct item_attribute_modifier {
 
-        static std::map<std::string,float>BASE;
+        static std::map<std::string, float> BASE;
         static item_attribute_modifier NONE;
 
         std::string attribute_name;
@@ -33,26 +33,42 @@ namespace item {
         item_attribute_modifier_operation op;
         float value;
 
-        explicit item_attribute_modifier(const nbt::nbt_compound_ptr&tag);
-        void save(const nbt::nbt_compound_ptr&tag);
-        void load(const nbt::nbt_compound_ptr&tag);
+        item_attribute_modifier();
+
+        explicit item_attribute_modifier(const nbt::nbt_compound_ptr &tag);
+
+        void save(const nbt::nbt_compound_ptr &tag);
+
+        void load(const nbt::nbt_compound_ptr &tag);
     };
 
     struct item_stack {
         int item_type_id = 0;
         int count = 0;
-        std::vector<item_attribute_modifier>modifiers;
+        std::vector<item_attribute_modifier> modifiers;
         nbt::nbt_compound tag;
 
-        float get_value(std::string attribute_name);
-        bool has_modifier(const std::string& modifier_name);
-        item_attribute_modifier& get_modifier(const std::string& modifier_name);
-        void remove_modifier(const std::string& modifier_name);
-        item_attribute_modifier& add_modifier(const item_attribute_modifier& modifier);
+        float get_value(const std::string &attribute_name);
 
-        explicit item_stack(const nbt::nbt_compound_ptr&tag);
-        void save(const nbt::nbt_compound_ptr&tag);
-        void load(const nbt::nbt_compound_ptr&tag);
+        bool has_modifier(const std::string &modifier_name);
+
+        item_attribute_modifier &get_modifier(const std::string &modifier_name);
+
+        void remove_modifier(const std::string &modifier_name);
+
+        item_attribute_modifier &add_modifier(const item_attribute_modifier &modifier);
+
+        item_stack();
+
+        item_stack(const item_stack &other);
+
+        ~item_stack();
+
+        explicit item_stack(const nbt::nbt_compound_ptr &load_from);
+
+        void save(const nbt::nbt_compound_ptr &tag);
+
+        void load(const nbt::nbt_compound_ptr &tag);
 
         item *item();
 
@@ -84,14 +100,6 @@ namespace item {
         virtual void use(const item_use_context &ctx);
 
         virtual client::item_texture_descr render(item_stack stack) = 0;
-
-        virtual void save_additional_information(item_stack stack, const nbt::nbt_compound_ptr &tag) = 0;
-
-        virtual void load_additional_information(item_stack stack, const nbt::nbt_compound_ptr &tag) = 0;
-
-        void save(const item_stack &stack, const nbt::nbt_compound_ptr &tag);
-
-        void load(item_stack *stack, const nbt::nbt_compound_ptr &tag);
 
         item_stack make(int count);
 

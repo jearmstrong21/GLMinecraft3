@@ -17,16 +17,11 @@ namespace item {
         return {{{material.sword_texture, {1, 1, 1}}}, stack.count};
     }
 
-    void item_sword::save_additional_information(item_stack stack, const nbt::nbt_compound_ptr &tag) {
-
-    }
-
-    void item_sword::load_additional_information(item_stack stack, const nbt::nbt_compound_ptr &tag) {
-
-    }
-
     item_stack item_sword::make() {
-        return item_stack{properties.item_type_id, 1};
+        item_stack s;
+        s.item_type_id = properties.item_type_id;
+        s.count = 1;
+        return s;
     }
 
 }

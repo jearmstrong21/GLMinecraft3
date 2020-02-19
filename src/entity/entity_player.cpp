@@ -28,7 +28,7 @@ namespace entity {
         tag->value["inventory"] = nbt::nbt_list::make({});
         for (int i = 0; i < inventory_size; i++) {
             nbt::nbt_compound_ptr ptr = nbt::cast_compound(nbt::nbt_compound::make({}));
-            item::item_registry::map[inventory[i].item_type_id]->save(inventory[i], ptr);
+            inventory[i].save(ptr);
             tag->value["inventory"]->list_ref().push_back(ptr);
         }
         tag->value["selected_item"] = nbt::nbt_int::make(selected_item);
@@ -41,8 +41,7 @@ namespace entity {
 
     void entity_player::load_additional_information(const nbt::nbt_compound_ptr &tag) {
         for (int i = 0; i < inventory_size; i++) {
-            item::item_registry::map[inventory[i].item_type_id]->load(&inventory[i], nbt::cast_compound(
-                    tag->value["inventory"]->list_ref()[i]));
+            inventory[i].load(nbt::cast_compound(tag->value["inventory"]->list_ref()[i]));
         }
         selected_item = tag->value["selected_item"]->as_int();
         leftclick = tag->value["leftclick"]->as_short();

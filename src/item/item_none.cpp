@@ -16,16 +16,8 @@ namespace item {
         return client::item_texture_descr{{{client::atlas_texture::UNKNOWN, glm::vec3{1}}}, -1};
     }
 
-    void item_none::save_additional_information(item_stack stack, const nbt::nbt_compound_ptr &tag) {
-
-    }
-
-    void item_none::load_additional_information(item_stack stack, const nbt::nbt_compound_ptr &tag) {
-
-    }
-
     item_stack item_none::make() {
-        return item_stack{properties.item_type_id, 0};
+        return item_stack();
     }
 
 }

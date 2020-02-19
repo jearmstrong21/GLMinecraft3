@@ -22,10 +22,6 @@ namespace item {
 
         virtual client::item_texture_descr render_no_count(item_stack stack) = 0;
 
-        void save_additional_information(item_stack stack, const nbt::nbt_compound_ptr &tag) override;
-
-        void load_additional_information(item_stack stack, const nbt::nbt_compound_ptr &tag) override;
-
         item_stack make() override;
 
     };

@@ -15,10 +15,6 @@ namespace item {
 
         client::item_texture_descr render(item_stack stack) override;
 
-        void save_additional_information(item_stack stack, const nbt::nbt_compound_ptr &tag) override;
-
-        void load_additional_information(item_stack stack, const nbt::nbt_compound_ptr &tag) override;
-
         item_stack make() override;
 
     };

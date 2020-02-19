@@ -23,16 +23,11 @@ namespace item {
         }
     }
 
-    void item_block::save_additional_information(item_stack stack, const nbt::nbt_compound_ptr &tag) {
-
-    }
-
-    void item_block::load_additional_information(item_stack stack, const nbt::nbt_compound_ptr &tag) {
-
-    }
-
     item_stack item_block::make() {
-        return item_stack{properties.item_type_id, 1};
+        item_stack s;
+        s.item_type_id = properties.item_type_id;
+        s.count = 1;
+        return s;
     }
 
     client::item_texture_descr item_block::render(item_stack stack) {
@@ -42,7 +37,7 @@ namespace item {
     }
 
     item_block_default::item_block_default(item_properties properties, block::block_state state,
-                                           client::item_texture_descr tex) : item_block(properties, state),
+                                           client::item_texture_descr tex) : item_block(std::move(properties), state),
                                                                              tex(std::move(tex)) {
 
     }
