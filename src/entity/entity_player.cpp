@@ -150,7 +150,7 @@ namespace entity {
     }
 
     item::item_use_context entity_player::get_use_context() {
-        item::item_use_context ctx;
+        item::item_use_context ctx{};
         ctx.stack = get_held_item();
         ctx.source = this;
         return ctx;

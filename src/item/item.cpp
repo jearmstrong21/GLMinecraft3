@@ -50,4 +50,90 @@ namespace item {
         return stack;
     }
 
+    std::map<std::string,float>item_attribute_modifier::BASE;
+    item_attribute_modifier item_attribute_modifier::NONE;
+
+    item_attribute_modifier::item_attribute_modifier(const nbt::nbt_compound_ptr &tag) {
+        load(tag);
+    }
+
+    void item_attribute_modifier::save(const nbt::nbt_compound_ptr &tag) {
+        tag->value["attribute_name"]=nbt::nbt_string::make(attribute_name);
+        tag->value["modifier_name"]=nbt::nbt_string::make(modifier_name);
+        tag->value["op"]=nbt::nbt_short::make((short)op);
+        tag->value["value"]=nbt::nbt_float::make(value);
+    }
+
+    void item_attribute_modifier::load(const nbt::nbt_compound_ptr &tag) {
+        attribute_name=tag->value["attribute_name"]->as_string();
+        modifier_name=tag->value["modifier_name"]->as_string();
+        op=(item_attribute_modifier_operation)tag->value["op"]->as_short();
+        value=tag->value["value"]->as_float();
+    }
+
+    float item_stack::get_value(std::string attribute_name) {
+        float value=item_attribute_modifier::BASE[attribute_name];
+        for(auto&p:modifiers){
+            if(p.attribute_name==attribute_name){
+                switch(p.op){
+                    case item_attribute_modifier_operation::add:
+                        value+=p.value;
+                        break;
+                    case item_attribute_modifier_operation::multiply:
+                        value*=p.value;
+                        break;
+                }
+            }
+        }
+        return value;
+    }
+
+    item_attribute_modifier& item_stack::get_modifier(const std::string& modifier_name) {
+        for(auto&p:modifiers){
+            if(p.modifier_name==modifier_name)return p;
+        }
+        return item_attribute_modifier::NONE;
+    }
+
+    bool item_stack::has_modifier(const std::string& modifier_name) {
+        for(auto &p:modifiers){
+            if(p.modifier_name==modifier_name)return true;
+        }
+        return false;
+    }
+
+    void item_stack::remove_modifier(const std::string& modifier_name) {
+        for(int i=0;i<modifiers.size();i++){
+            if(modifiers[i].modifier_name==modifier_name){
+                modifiers.erase(modifiers.begin()+i);
+            }
+        }
+    }
+
+    item_attribute_modifier& item_stack::add_modifier(const item_attribute_modifier& modifier) {
+        modifiers.push_back(modifier);
+        return modifiers[modifiers.size()-1];
+    }
+
+    item_stack::item_stack(const nbt::nbt_compound_ptr &tag) {
+        load(tag);
+    }
+
+    void item_stack::save(const nbt::nbt_compound_ptr &tag) {
+        tag->value["item_type_id"]=nbt::nbt_int::make(item_type_id);
+        tag->value["count"]=nbt::nbt_int::make(count);
+        tag->value["modifiers"]=nbt::nbt_list::make({});
+        for(auto&p:modifiers){
+            nbt::nbt_compound_ptr cmpnd=std::make_shared<nbt::nbt_compound>();
+            p.save(cmpnd);
+            tag->value["modifiers"]->list_ref().push_back(cmpnd);
+        }
+        tag->value["tag"]=std::shared_ptr<nbt::nbt_compound>(tag);
+    }
+
+    void item_stack::load(const nbt::nbt_compound_ptr &tag) {
+        item_type_id=tag->value["item_type_id"]->as_int();
+        //TODO delete item::load/save and use item_stack::load/save
+    }
+
 }

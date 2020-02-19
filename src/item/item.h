@@ -17,9 +17,42 @@ namespace item {
 
     struct item;
 
+    enum class item_attribute_modifier_operation{
+        add,
+        multiply
+    };
+
+    struct item_attribute_modifier {
+
+        static std::map<std::string,float>BASE;
+        static item_attribute_modifier NONE;
+
+        std::string attribute_name;
+        std::string modifier_name;
+        //TODO item_slot_type slot;
+        item_attribute_modifier_operation op;
+        float value;
+
+        explicit item_attribute_modifier(const nbt::nbt_compound_ptr&tag);
+        void save(const nbt::nbt_compound_ptr&tag);
+        void load(const nbt::nbt_compound_ptr&tag);
+    };
+
     struct item_stack {
         int item_type_id = 0;
         int count = 0;
+        std::vector<item_attribute_modifier>modifiers;
+        nbt::nbt_compound tag;
+
+        float get_value(std::string attribute_name);
+        bool has_modifier(const std::string& modifier_name);
+        item_attribute_modifier& get_modifier(const std::string& modifier_name);
+        void remove_modifier(const std::string& modifier_name);
+        item_attribute_modifier& add_modifier(const item_attribute_modifier& modifier);
+
+        explicit item_stack(const nbt::nbt_compound_ptr&tag);
+        void save(const nbt::nbt_compound_ptr&tag);
+        void load(const nbt::nbt_compound_ptr&tag);
 
         item *item();
 
