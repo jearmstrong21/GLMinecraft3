@@ -137,8 +137,8 @@ namespace server {
         std::cout << "PLAYER " << ptr->entity_id << " JOINED\n";
         queued_chat = ptr->entity_id + " joined the game";
 
-        spawn_entity([&](const std::string&id){
-            return entity::entity_pig::spawn(id,glm::vec3{40,100,40},this);
+        spawn_entity([&](const std::string &id) {
+            return entity::entity_pig::spawn(id, glm::vec3{40, 100, 40}, this);
         });
     }
 

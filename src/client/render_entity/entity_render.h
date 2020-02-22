@@ -31,7 +31,7 @@ namespace client {
 
         void render_zombie(glm::mat4 p, glm::mat4 v, const entity::entity_ptr &data);
 
-        void render_pig(glm::mat4 p,glm::mat4 v,const entity::entity_ptr &data);
+        void render_pig(glm::mat4 p, glm::mat4 v, const entity::entity_ptr &data);
 
     };
 

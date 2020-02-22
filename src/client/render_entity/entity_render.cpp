@@ -26,7 +26,7 @@ namespace client {
         tcr = new textured_cube_renderer();
         steve_texture = new gl::texture(TEXTURE_entity_steve, TEXTURE_entity_steve_len);
         zombie_texture = new gl::texture(TEXTURE_entity_zombie, TEXTURE_entity_zombie_len);
-        pig_texture=new gl::texture(TEXTURE_pig_png,TEXTURE_pig_png_len);
+        pig_texture = new gl::texture(TEXTURE_pig_png, TEXTURE_pig_png_len);
         item_shader = new gl::shader(SHADER_item3d_vert, SHADER_item3d_vert_len, SHADER_item3d_frag,
                                      SHADER_item3d_frag_len);
         {
@@ -138,14 +138,17 @@ namespace client {
         glm::mat4 m = m0 *
                       glm::lookAt(glm::vec3{0, 0, 0}, glm::normalize(glm::vec3{data->facedir.x, 0, -data->facedir.z}),
                                   glm::vec3{0, 1, 0});
-        tcr->render_cube(p,v,m*glm::translate(glm::mat4(1),glm::vec3{0,10,-8}/16.0F)*glm::rotate(glm::mat4(1),glm::radians(90.0F),glm::vec3{1,0,0}),pig_texture,glm::vec3{10,16,8},glm::vec2{28,0},glm::vec2{64,32});//body
+        tcr->render_cube(p, v, m * glm::translate(glm::mat4(1), glm::vec3{0, 10, -8} / 16.0F) *
+                               glm::rotate(glm::mat4(1), glm::radians(90.0F), glm::vec3{1, 0, 0}), pig_texture,
+                         glm::vec3{10, 16, 8}, glm::vec2{28, 0}, glm::vec2{64, 32});//body
 
 
 
-        m-m0 *
-          glm::lookAt(glm::vec3{0, 0, 0}, glm::normalize(glm::vec3{data->lookdir.x, 0, -data->lookdir.z}),
-                      glm::vec3{0, 1, 0});
-        tcr->render_cube(p,v,m*glm::translate(glm::mat4(1),glm::vec3{0,10,8}/16.0F),pig_texture,glm::vec3{8,8,8},glm::vec2{0,16 },glm::vec2{64,32});//head
+        m - m0 *
+            glm::lookAt(glm::vec3{0, 0, 0}, glm::normalize(glm::vec3{data->lookdir.x, 0, -data->lookdir.z}),
+                        glm::vec3{0, 1, 0});
+        tcr->render_cube(p, v, m * glm::translate(glm::mat4(1), glm::vec3{0, 10, 8} / 16.0F), pig_texture,
+                         glm::vec3{8, 8, 8}, glm::vec2{0, 16}, glm::vec2{64, 32});//head
     }
 
 }
