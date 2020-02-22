@@ -14,9 +14,7 @@
 #include <boost/uuid/uuid.hpp>            // uuid class
 #include <boost/uuid/uuid_generators.hpp> // generators
 #include <boost/uuid/uuid_io.hpp>         // streaming operators etc.
-#include "entity/entity.h"
-#include "entity/entity_player.h"
-#include "entity/entity_zombie.h"
+#include "entity/entities.h"
 #include "utils/profiler.h"
 #include <future>
 #include "item/item.h"

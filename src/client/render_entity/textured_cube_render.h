@@ -42,7 +42,7 @@ namespace client {
             float ty = textureOffset.y / textureSize.y;
             float dx = boxSize.x / textureSize.x;
             float dy = boxSize.y / textureSize.y;
-            float dz = boxSize.z / textureSize.y;
+            float dz = boxSize.z / textureSize.x;
             gl::mesh_data data{
                     {
                             {3, {

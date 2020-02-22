@@ -194,12 +194,13 @@ namespace client {
                 int id = e.second->type_id;
                 if (id == ENTITY_ID_PLAYER)ent_rend->render_player(p, v, e.second, texture, item_rend);
                 if (id == ENTITY_ID_ZOMBIE)ent_rend->render_zombie(p, v, e.second);
+                if (id == ENTITY_ID_PIG)ent_rend->render_pig(p, v, e.second);
 
                 glm::vec3 pos = e.second->box.pos;
                 glm::vec3 size = e.second->box.size;
 
                 box_rend->render_lines(ctx_3d, e.second->box);
-                box_rend->render_lines(ctx_3d, {e.second->box.pos, glm::vec3{1, 2, 1}});
+//                box_rend->render_lines(ctx_3d, {e.second->box.pos, glm::vec3{1, 2, 1}});
             }
 
             if (!freecam) {

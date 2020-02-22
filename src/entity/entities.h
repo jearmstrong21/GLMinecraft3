@@ -8,6 +8,7 @@
 #include "entity.h"
 #include "entity_player.h"
 #include "entity_zombie.h"
+#include "entity_pig.h"
 
 namespace entity {
 

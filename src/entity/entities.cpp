@@ -18,6 +18,11 @@ namespace entity {
             ent->load(tag);
             return ent;
         }
+        if(id==ENTITY_ID_PIG){
+            entity_ptr ent(new entity_pig());
+            ent->load(tag);
+            return ent;
+        }
         return nullptr;
     }
 

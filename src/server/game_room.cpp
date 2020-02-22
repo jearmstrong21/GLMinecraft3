@@ -3,7 +3,6 @@
 //
 
 #include <boost/thread.hpp>
-#include <utility>
 #include "game_room.h"
 #include "utils/profiler.h"
 #include "acceptor.h"
@@ -137,6 +136,10 @@ namespace server {
         players.insert(ptr);
         std::cout << "PLAYER " << ptr->entity_id << " JOINED\n";
         queued_chat = ptr->entity_id + " joined the game";
+
+        spawn_entity([&](const std::string&id){
+            return entity::entity_pig::spawn(id,glm::vec3{40,100,40},this);
+        });
     }
 
     void game_room::handle_player_interaction_packet(const server_player_ptr &player,

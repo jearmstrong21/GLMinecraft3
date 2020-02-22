@@ -16,6 +16,7 @@ namespace client {
 
         gl::texture *steve_texture;
         gl::texture *zombie_texture;
+        gl::texture *pig_texture;
         textured_cube_renderer *tcr;
 
         gl::mesh *item_mesh;
@@ -29,6 +30,8 @@ namespace client {
                            item_renderer *item_rend);
 
         void render_zombie(glm::mat4 p, glm::mat4 v, const entity::entity_ptr &data);
+
+        void render_pig(glm::mat4 p,glm::mat4 v,const entity::entity_ptr &data);
 
     };
 
