@@ -121,13 +121,9 @@ namespace server {
         std::cout << "game_room::join guard\n";
         ptr->send_world(world);
         std::string id = spawn_entity([&](const std::string &id) {
-            return entity::entity_player::spawn(id, glm::vec3{24 + (rand() % 10000) / 10000.0F, 150,
+            return entity::entity_player::spawn(id, glm::vec3{24 + (rand() % 10000) / 10000.0F, 256,
                                                               24 + (rand() % 10000) / 10000.0F}, this);
         });
-//        spawn_entity([&](const std::string &id) {
-//            return entity::entity_zombie::spawn(id, glm::vec3{24 + (rand() % 10000) / 10000.0F, 150,
-//                                                              24 + (rand() % 10000) / 10000.0F}, this);
-//        });
         ptr->entity_id = id;
         ptr->deliver(nbt::nbt_compound::make({
                                                      {"player_id", nbt::nbt_string::make(id)},
@@ -137,9 +133,14 @@ namespace server {
         std::cout << "PLAYER " << ptr->entity_id << " JOINED\n";
         queued_chat = ptr->entity_id + " joined the game";
 
-        spawn_entity([&](const std::string &id) {
-            return entity::entity_pig::spawn(id, glm::vec3{40, 100, 40}, this);
-        });
+        for (int i = 0; i < 2; i++)
+            spawn_entity([&](const std::string &id) {
+                return entity::entity_pig::spawn(id, glm::vec3{40, 256, 40}, this);
+            });
+//        spawn_entity([&](const std::string &id) {
+//            return entity::entity_zombie::spawn(id, glm::vec3{24 + (rand() % 10000) / 10000.0F, 256,
+//                                                              24 + (rand() % 10000) / 10000.0F}, this);
+//        });
     }
 
     void game_room::handle_player_interaction_packet(const server_player_ptr &player,

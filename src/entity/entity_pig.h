@@ -11,6 +11,9 @@ namespace entity {
 
     struct entity_pig : entity {
 
+        TRANSIENT glm::vec3 wander_target{};
+        TRANSIENT bool has_target;
+
         entity_pig();
 
         void save_additional_information(const nbt::nbt_compound_ptr &tag) override;
