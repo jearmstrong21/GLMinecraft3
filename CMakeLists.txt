@@ -154,7 +154,7 @@ list(APPEND SOURCE_FILES ${SOURCE_FILES_SRC})
 list(APPEND SOURCE_FILES ${SOURCE_FILES_LIB})
 list(APPEND SOURCE_FILES ${SOURCE_FILES_GEN})
 
-message(STATUS "source files are: "${SOURCE_FILES})
+message(STATUS "source files are: " ${SOURCE_FILES})
 
 if (APPLE)
     include_directories(/usr/local/include/GLFW)
