@@ -6,6 +6,7 @@
 #include <boost/asio.hpp>
 #include <memory>
 #include "server/acceptor.h"
+#include "network/network.h"
 
 namespace networking {
 

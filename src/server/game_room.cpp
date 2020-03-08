@@ -133,10 +133,10 @@ namespace server {
         std::cout << "PLAYER " << ptr->entity_id << " JOINED\n";
         queued_chat = ptr->entity_id + " joined the game";
 
-        for (int i = 0; i < 2; i++)
-            spawn_entity([&](const std::string &id) {
-                return entity::entity_pig::spawn(id, glm::vec3{40, 256, 40}, this);
-            });
+//        for (int i = 0; i < 2; i++)
+//            spawn_entity([&](const std::string &id) {
+//                return entity::entity_pig::spawn(id, glm::vec3{40, 256, 40}, this);
+//            });
 //        spawn_entity([&](const std::string &id) {
 //            return entity::entity_zombie::spawn(id, glm::vec3{24 + (rand() % 10000) / 10000.0F, 256,
 //                                                              24 + (rand() % 10000) / 10000.0F}, this);
