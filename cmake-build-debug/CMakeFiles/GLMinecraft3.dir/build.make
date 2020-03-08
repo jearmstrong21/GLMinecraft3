@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/103/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/103/bin/cmake/linux/bin/cmake -E remove -f
+RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/proc-daemon/data/jaaava/glminecraft3
+CMAKE_SOURCE_DIR = /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/GLMinecraft3.dir/depend.make
@@ -57,1787 +57,541 @@ include CMakeFiles/GLMinecraft3.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/GLMinecraft3.dir/flags.make
 
-../lib/gen_assets/SHADER_chunk_vert.c: ../src/assets/shaders/chunk.vert
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating ../lib/gen_assets/SHADER_chunk_vert.c"
-	./embedfile SHADER_chunk_vert ../src/assets/shaders/chunk.vert
-
-../lib/gen_assets/SHADER_chunk_frag.c: ../src/assets/shaders/chunk.frag
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating ../lib/gen_assets/SHADER_chunk_frag.c"
-	./embedfile SHADER_chunk_frag ../src/assets/shaders/chunk.frag
-
-../lib/gen_assets/SHADER_wireframe_vert.c: ../src/assets/shaders/wireframe.vert
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating ../lib/gen_assets/SHADER_wireframe_vert.c"
-	./embedfile SHADER_wireframe_vert ../src/assets/shaders/wireframe.vert
-
-../lib/gen_assets/SHADER_wireframe_frag.c: ../src/assets/shaders/wireframe.frag
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating ../lib/gen_assets/SHADER_wireframe_frag.c"
-	./embedfile SHADER_wireframe_frag ../src/assets/shaders/wireframe.frag
-
-../lib/gen_assets/TEXTURE_1_8_textures_0_png.c: ../src/assets/textures/1.8_textures_0.png
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating ../lib/gen_assets/TEXTURE_1_8_textures_0_png.c"
-	./embedfile TEXTURE_1_8_textures_0_png ../src/assets/textures/1.8_textures_0.png
-
-../lib/gen_assets/TEXTURE_ascii_png.c: ../src/assets/textures/ascii.png
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating ../lib/gen_assets/TEXTURE_ascii_png.c"
-	./embedfile TEXTURE_ascii_png ../src/assets/textures/ascii.png
-
-../lib/gen_assets/SHADER_text_vert.c: ../src/assets/shaders/text.vert
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating ../lib/gen_assets/SHADER_text_vert.c"
-	./embedfile SHADER_text_vert ../src/assets/shaders/text.vert
-
-../lib/gen_assets/SHADER_text_frag.c: ../src/assets/shaders/text.frag
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating ../lib/gen_assets/SHADER_text_frag.c"
-	./embedfile SHADER_text_frag ../src/assets/shaders/text.frag
-
-../lib/gen_assets/SHADER_entity_vert.c: ../src/assets/shaders/entity.vert
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Generating ../lib/gen_assets/SHADER_entity_vert.c"
-	./embedfile SHADER_entity_vert ../src/assets/shaders/entity.vert
-
-../lib/gen_assets/SHADER_entity_frag.c: ../src/assets/shaders/entity.frag
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Generating ../lib/gen_assets/SHADER_entity_frag.c"
-	./embedfile SHADER_entity_frag ../src/assets/shaders/entity.frag
-
-../lib/gen_assets/TEXTURE_entity_steve.c: ../src/assets/textures/steve.png
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Generating ../lib/gen_assets/TEXTURE_entity_steve.c"
-	./embedfile TEXTURE_entity_steve ../src/assets/textures/steve.png
-
-../lib/gen_assets/TEXTURE_entity_zombie.c: ../src/assets/textures/zombie.png
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Generating ../lib/gen_assets/TEXTURE_entity_zombie.c"
-	./embedfile TEXTURE_entity_zombie ../src/assets/textures/zombie.png
-
-../lib/gen_assets/SHADER_item_vert.c: ../src/assets/shaders/item.vert
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Generating ../lib/gen_assets/SHADER_item_vert.c"
-	./embedfile SHADER_item_vert ../src/assets/shaders/item.vert
-
-../lib/gen_assets/SHADER_item_frag.c: ../src/assets/shaders/item.frag
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Generating ../lib/gen_assets/SHADER_item_frag.c"
-	./embedfile SHADER_item_frag ../src/assets/shaders/item.frag
-
-../lib/gen_assets/TEXTURE_gui_widgets_png.c: ../src/assets/textures/gui_widgets.png
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Generating ../lib/gen_assets/TEXTURE_gui_widgets_png.c"
-	./embedfile TEXTURE_gui_widgets_png ../src/assets/textures/gui_widgets.png
-
-../lib/gen_assets/SHADER_item3d_vert.c: ../src/assets/shaders/item3d.vert
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Generating ../lib/gen_assets/SHADER_item3d_vert.c"
-	./embedfile SHADER_item3d_vert ../src/assets/shaders/item3d.vert
-
-../lib/gen_assets/SHADER_item3d_frag.c: ../src/assets/shaders/item3d.frag
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Generating ../lib/gen_assets/SHADER_item3d_frag.c"
-	./embedfile SHADER_item3d_frag ../src/assets/shaders/item3d.frag
-
-../lib/gen_assets/TEXTURE_pig_png.c: ../src/assets/textures/pig.png
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Generating ../lib/gen_assets/TEXTURE_pig_png.c"
-	./embedfile TEXTURE_pig_png ../src/assets/textures/pig.png
-
-CMakeFiles/GLMinecraft3.dir/src/block/block.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/block/block.cpp.o: ../src/block/block.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/block/block.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/block/block.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/block/block.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/block/block.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/block/block.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/block/block.cpp > CMakeFiles/GLMinecraft3.dir/src/block/block.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/block/block.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/block/block.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/block/block.cpp -o CMakeFiles/GLMinecraft3.dir/src/block/block.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/block/blocks.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/block/blocks.cpp.o: ../src/block/blocks.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/block/blocks.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/block/blocks.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/block/blocks.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/block/blocks.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/block/blocks.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/block/blocks.cpp > CMakeFiles/GLMinecraft3.dir/src/block/blocks.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/block/blocks.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/block/blocks.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/block/blocks.cpp -o CMakeFiles/GLMinecraft3.dir/src/block/blocks.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/block/blockstate.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/block/blockstate.cpp.o: ../src/block/blockstate.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/block/blockstate.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/block/blockstate.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/block/blockstate.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/block/blockstate.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/block/blockstate.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/block/blockstate.cpp > CMakeFiles/GLMinecraft3.dir/src/block/blockstate.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/block/blockstate.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/block/blockstate.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/block/blockstate.cpp -o CMakeFiles/GLMinecraft3.dir/src/block/blockstate.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/block/types/block_bricks.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/block/types/block_bricks.cpp.o: ../src/block/types/block_bricks.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/block/types/block_bricks.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/block/types/block_bricks.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/block/types/block_bricks.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/block/types/block_bricks.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/block/types/block_bricks.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/block/types/block_bricks.cpp > CMakeFiles/GLMinecraft3.dir/src/block/types/block_bricks.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/block/types/block_bricks.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/block/types/block_bricks.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/block/types/block_bricks.cpp -o CMakeFiles/GLMinecraft3.dir/src/block/types/block_bricks.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/block/types/block_dirt.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/block/types/block_dirt.cpp.o: ../src/block/types/block_dirt.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/block/types/block_dirt.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/block/types/block_dirt.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/block/types/block_dirt.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/block/types/block_dirt.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/block/types/block_dirt.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/block/types/block_dirt.cpp > CMakeFiles/GLMinecraft3.dir/src/block/types/block_dirt.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/block/types/block_dirt.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/block/types/block_dirt.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/block/types/block_dirt.cpp -o CMakeFiles/GLMinecraft3.dir/src/block/types/block_dirt.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/block/types/block_grass.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/block/types/block_grass.cpp.o: ../src/block/types/block_grass.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/block/types/block_grass.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/block/types/block_grass.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/block/types/block_grass.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/block/types/block_grass.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/block/types/block_grass.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/block/types/block_grass.cpp > CMakeFiles/GLMinecraft3.dir/src/block/types/block_grass.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/block/types/block_grass.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/block/types/block_grass.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/block/types/block_grass.cpp -o CMakeFiles/GLMinecraft3.dir/src/block/types/block_grass.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/block/types/block_none.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/block/types/block_none.cpp.o: ../src/block/types/block_none.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/block/types/block_none.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/block/types/block_none.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/block/types/block_none.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/block/types/block_none.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/block/types/block_none.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/block/types/block_none.cpp > CMakeFiles/GLMinecraft3.dir/src/block/types/block_none.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/block/types/block_none.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/block/types/block_none.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/block/types/block_none.cpp -o CMakeFiles/GLMinecraft3.dir/src/block/types/block_none.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/block/types/block_stone.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/block/types/block_stone.cpp.o: ../src/block/types/block_stone.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/block/types/block_stone.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/block/types/block_stone.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/block/types/block_stone.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/block/types/block_stone.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/block/types/block_stone.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/block/types/block_stone.cpp > CMakeFiles/GLMinecraft3.dir/src/block/types/block_stone.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/block/types/block_stone.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/block/types/block_stone.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/block/types/block_stone.cpp -o CMakeFiles/GLMinecraft3.dir/src/block/types/block_stone.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/client/block_rendering.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/client/block_rendering.cpp.o: ../src/client/block_rendering.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/client/block_rendering.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/client/block_rendering.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/client/block_rendering.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/client/block_rendering.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/client/block_rendering.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/client/block_rendering.cpp > CMakeFiles/GLMinecraft3.dir/src/client/block_rendering.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/client/block_rendering.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/client/block_rendering.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/client/block_rendering.cpp -o CMakeFiles/GLMinecraft3.dir/src/client/block_rendering.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/client/box_rendering.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/client/box_rendering.cpp.o: ../src/client/box_rendering.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/client/box_rendering.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/client/box_rendering.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/client/box_rendering.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/client/box_rendering.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/client/box_rendering.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/client/box_rendering.cpp > CMakeFiles/GLMinecraft3.dir/src/client/box_rendering.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/client/box_rendering.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/client/box_rendering.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/client/box_rendering.cpp -o CMakeFiles/GLMinecraft3.dir/src/client/box_rendering.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/client/game.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/client/game.cpp.o: ../src/client/game.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/client/game.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/client/game.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/client/game.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/client/game.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/client/game.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/client/game.cpp > CMakeFiles/GLMinecraft3.dir/src/client/game.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/client/game.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/client/game.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/client/game.cpp -o CMakeFiles/GLMinecraft3.dir/src/client/game.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/client/item_renderer.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/client/item_renderer.cpp.o: ../src/client/item_renderer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/client/item_renderer.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/client/item_renderer.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/client/item_renderer.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/client/item_renderer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/client/item_renderer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/client/item_renderer.cpp > CMakeFiles/GLMinecraft3.dir/src/client/item_renderer.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/client/item_renderer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/client/item_renderer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/client/item_renderer.cpp -o CMakeFiles/GLMinecraft3.dir/src/client/item_renderer.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/client/render_entity/entity_render.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/client/render_entity/entity_render.cpp.o: ../src/client/render_entity/entity_render.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/client/render_entity/entity_render.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/client/render_entity/entity_render.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/client/render_entity/entity_render.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/client/render_entity/entity_render.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/client/render_entity/entity_render.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/client/render_entity/entity_render.cpp > CMakeFiles/GLMinecraft3.dir/src/client/render_entity/entity_render.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/client/render_entity/entity_render.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/client/render_entity/entity_render.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/client/render_entity/entity_render.cpp -o CMakeFiles/GLMinecraft3.dir/src/client/render_entity/entity_render.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/client/rendered_chunk.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/client/rendered_chunk.cpp.o: ../src/client/rendered_chunk.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/client/rendered_chunk.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/client/rendered_chunk.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/client/rendered_chunk.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/client/rendered_chunk.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/client/rendered_chunk.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/client/rendered_chunk.cpp > CMakeFiles/GLMinecraft3.dir/src/client/rendered_chunk.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/client/rendered_chunk.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/client/rendered_chunk.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/client/rendered_chunk.cpp -o CMakeFiles/GLMinecraft3.dir/src/client/rendered_chunk.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/entity/entities.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/entity/entities.cpp.o: ../src/entity/entities.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/entity/entities.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/entity/entities.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/entity/entities.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/entity/entities.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/entity/entities.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/entity/entities.cpp > CMakeFiles/GLMinecraft3.dir/src/entity/entities.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/entity/entities.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/entity/entities.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/entity/entities.cpp -o CMakeFiles/GLMinecraft3.dir/src/entity/entities.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/entity/entity.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/entity/entity.cpp.o: ../src/entity/entity.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/entity/entity.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/entity/entity.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/entity/entity.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/entity/entity.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/entity/entity.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/entity/entity.cpp > CMakeFiles/GLMinecraft3.dir/src/entity/entity.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/entity/entity.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/entity/entity.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/entity/entity.cpp -o CMakeFiles/GLMinecraft3.dir/src/entity/entity.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/entity/entity_ai.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/entity/entity_ai.cpp.o: ../src/entity/entity_ai.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/entity/entity_ai.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/entity/entity_ai.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/entity/entity_ai.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/entity/entity_ai.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/entity/entity_ai.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/entity/entity_ai.cpp > CMakeFiles/GLMinecraft3.dir/src/entity/entity_ai.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/entity/entity_ai.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/entity/entity_ai.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/entity/entity_ai.cpp -o CMakeFiles/GLMinecraft3.dir/src/entity/entity_ai.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/entity/entity_pig.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/entity/entity_pig.cpp.o: ../src/entity/entity_pig.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/entity/entity_pig.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/entity/entity_pig.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/entity/entity_pig.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/entity/entity_pig.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/entity/entity_pig.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/entity/entity_pig.cpp > CMakeFiles/GLMinecraft3.dir/src/entity/entity_pig.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/entity/entity_pig.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/entity/entity_pig.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/entity/entity_pig.cpp -o CMakeFiles/GLMinecraft3.dir/src/entity/entity_pig.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/entity/entity_player.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/entity/entity_player.cpp.o: ../src/entity/entity_player.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/entity/entity_player.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/entity/entity_player.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/entity/entity_player.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/entity/entity_player.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/entity/entity_player.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/entity/entity_player.cpp > CMakeFiles/GLMinecraft3.dir/src/entity/entity_player.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/entity/entity_player.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/entity/entity_player.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/entity/entity_player.cpp -o CMakeFiles/GLMinecraft3.dir/src/entity/entity_player.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/entity/entity_zombie.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/entity/entity_zombie.cpp.o: ../src/entity/entity_zombie.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/entity/entity_zombie.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/entity/entity_zombie.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/entity/entity_zombie.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/entity/entity_zombie.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/entity/entity_zombie.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/entity/entity_zombie.cpp > CMakeFiles/GLMinecraft3.dir/src/entity/entity_zombie.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/entity/entity_zombie.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/entity/entity_zombie.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/entity/entity_zombie.cpp -o CMakeFiles/GLMinecraft3.dir/src/entity/entity_zombie.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/gl/gl.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/gl/gl.cpp.o: ../src/gl/gl.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/gl/gl.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/gl/gl.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/gl/gl.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/gl/gl.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/gl/gl.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/gl/gl.cpp > CMakeFiles/GLMinecraft3.dir/src/gl/gl.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/gl/gl.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/gl/gl.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/gl/gl.cpp -o CMakeFiles/GLMinecraft3.dir/src/gl/gl.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/gl/mesh.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/gl/mesh.cpp.o: ../src/gl/mesh.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/gl/mesh.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/gl/mesh.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/gl/mesh.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/gl/mesh.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/gl/mesh.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/gl/mesh.cpp > CMakeFiles/GLMinecraft3.dir/src/gl/mesh.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/gl/mesh.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/gl/mesh.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/gl/mesh.cpp -o CMakeFiles/GLMinecraft3.dir/src/gl/mesh.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/gl/shader.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/gl/shader.cpp.o: ../src/gl/shader.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/gl/shader.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/gl/shader.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/gl/shader.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/gl/shader.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/gl/shader.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/gl/shader.cpp > CMakeFiles/GLMinecraft3.dir/src/gl/shader.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/gl/shader.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/gl/shader.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/gl/shader.cpp -o CMakeFiles/GLMinecraft3.dir/src/gl/shader.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/gl/texture.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/gl/texture.cpp.o: ../src/gl/texture.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/gl/texture.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/gl/texture.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/gl/texture.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/gl/texture.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/gl/texture.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/gl/texture.cpp > CMakeFiles/GLMinecraft3.dir/src/gl/texture.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/gl/texture.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/gl/texture.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/gl/texture.cpp -o CMakeFiles/GLMinecraft3.dir/src/gl/texture.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/item/item.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/item/item.cpp.o: ../src/item/item.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/item/item.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/item/item.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/item/item.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/item/item.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/item/item.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/item/item.cpp > CMakeFiles/GLMinecraft3.dir/src/item/item.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/item/item.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/item/item.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/item/item.cpp -o CMakeFiles/GLMinecraft3.dir/src/item/item.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/item/item_block.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/item/item_block.cpp.o: ../src/item/item_block.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/item/item_block.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/item/item_block.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/item/item_block.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/item/item_block.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/item/item_block.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/item/item_block.cpp > CMakeFiles/GLMinecraft3.dir/src/item/item_block.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/item/item_block.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/item/item_block.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/item/item_block.cpp -o CMakeFiles/GLMinecraft3.dir/src/item/item_block.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/item/item_enums.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/item/item_enums.cpp.o: ../src/item/item_enums.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/item/item_enums.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/item/item_enums.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/item/item_enums.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/item/item_enums.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/item/item_enums.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/item/item_enums.cpp > CMakeFiles/GLMinecraft3.dir/src/item/item_enums.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/item/item_enums.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/item/item_enums.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/item/item_enums.cpp -o CMakeFiles/GLMinecraft3.dir/src/item/item_enums.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/item/item_none.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/item/item_none.cpp.o: ../src/item/item_none.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/item/item_none.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/item/item_none.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/item/item_none.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/item/item_none.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/item/item_none.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/item/item_none.cpp > CMakeFiles/GLMinecraft3.dir/src/item/item_none.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/item/item_none.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/item/item_none.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/item/item_none.cpp -o CMakeFiles/GLMinecraft3.dir/src/item/item_none.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/item/item_sword.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/item/item_sword.cpp.o: ../src/item/item_sword.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/item/item_sword.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/item/item_sword.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/item/item_sword.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/item/item_sword.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/item/item_sword.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/item/item_sword.cpp > CMakeFiles/GLMinecraft3.dir/src/item/item_sword.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/item/item_sword.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/item/item_sword.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/item/item_sword.cpp -o CMakeFiles/GLMinecraft3.dir/src/item/item_sword.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/item/registry.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/item/registry.cpp.o: ../src/item/registry.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/item/registry.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/item/registry.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/item/registry.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/item/registry.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/item/registry.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/item/registry.cpp > CMakeFiles/GLMinecraft3.dir/src/item/registry.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/item/registry.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/item/registry.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/item/registry.cpp -o CMakeFiles/GLMinecraft3.dir/src/item/registry.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_compound.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_compound.cpp.o: ../src/nbt/__nbt_compound.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_compound.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_compound.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/nbt/__nbt_compound.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_compound.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_compound.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/nbt/__nbt_compound.cpp > CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_compound.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_compound.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_compound.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/nbt/__nbt_compound.cpp -o CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_compound.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_float.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_float.cpp.o: ../src/nbt/__nbt_float.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_float.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_float.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/nbt/__nbt_float.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_float.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_float.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/nbt/__nbt_float.cpp > CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_float.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_float.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_float.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/nbt/__nbt_float.cpp -o CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_float.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_int.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_int.cpp.o: ../src/nbt/__nbt_int.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_int.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_int.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/nbt/__nbt_int.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_int.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_int.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/nbt/__nbt_int.cpp > CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_int.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_int.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_int.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/nbt/__nbt_int.cpp -o CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_int.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_list.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_list.cpp.o: ../src/nbt/__nbt_list.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_list.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_list.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/nbt/__nbt_list.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_list.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_list.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/nbt/__nbt_list.cpp > CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_list.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_list.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_list.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/nbt/__nbt_list.cpp -o CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_list.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_long.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_long.cpp.o: ../src/nbt/__nbt_long.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_long.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_long.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/nbt/__nbt_long.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_long.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_long.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/nbt/__nbt_long.cpp > CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_long.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_long.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_long.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/nbt/__nbt_long.cpp -o CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_long.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_short.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_short.cpp.o: ../src/nbt/__nbt_short.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_short.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_short.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/nbt/__nbt_short.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_short.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_short.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/nbt/__nbt_short.cpp > CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_short.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_short.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_short.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/nbt/__nbt_short.cpp -o CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_short.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_string.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_string.cpp.o: ../src/nbt/__nbt_string.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_string.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_string.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/nbt/__nbt_string.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_string.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_string.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/nbt/__nbt_string.cpp > CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_string.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_string.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_string.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/nbt/__nbt_string.cpp -o CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_string.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_utils.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_utils.cpp.o: ../src/nbt/__nbt_utils.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_utils.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_utils.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/nbt/__nbt_utils.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_utils.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_utils.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/nbt/__nbt_utils.cpp > CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_utils.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_utils.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_utils.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/nbt/__nbt_utils.cpp -o CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_utils.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/nbt/nbt.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/nbt/nbt.cpp.o: ../src/nbt/nbt.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/nbt/nbt.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/nbt/nbt.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/nbt/nbt.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/nbt/nbt.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/nbt/nbt.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/nbt/nbt.cpp > CMakeFiles/GLMinecraft3.dir/src/nbt/nbt.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/nbt/nbt.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/nbt/nbt.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/nbt/nbt.cpp -o CMakeFiles/GLMinecraft3.dir/src/nbt/nbt.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/server/acceptor.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/server/acceptor.cpp.o: ../src/server/acceptor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/server/acceptor.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/server/acceptor.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/server/acceptor.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/server/acceptor.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/server/acceptor.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/server/acceptor.cpp > CMakeFiles/GLMinecraft3.dir/src/server/acceptor.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/server/acceptor.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/server/acceptor.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/server/acceptor.cpp -o CMakeFiles/GLMinecraft3.dir/src/server/acceptor.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/server/delayed_task.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/server/delayed_task.cpp.o: ../src/server/delayed_task.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/server/delayed_task.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/server/delayed_task.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/server/delayed_task.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/server/delayed_task.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/server/delayed_task.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/server/delayed_task.cpp > CMakeFiles/GLMinecraft3.dir/src/server/delayed_task.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/server/delayed_task.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/server/delayed_task.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/server/delayed_task.cpp -o CMakeFiles/GLMinecraft3.dir/src/server/delayed_task.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/server/game_room.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/server/game_room.cpp.o: ../src/server/game_room.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/server/game_room.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/server/game_room.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/server/game_room.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/server/game_room.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/server/game_room.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/server/game_room.cpp > CMakeFiles/GLMinecraft3.dir/src/server/game_room.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/server/game_room.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/server/game_room.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/server/game_room.cpp -o CMakeFiles/GLMinecraft3.dir/src/server/game_room.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/server/session.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/server/session.cpp.o: ../src/server/session.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/server/session.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/server/session.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/server/session.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/server/session.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/server/session.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/server/session.cpp > CMakeFiles/GLMinecraft3.dir/src/server/session.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/server/session.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/server/session.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/server/session.cpp -o CMakeFiles/GLMinecraft3.dir/src/server/session.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/utils/noise/noise.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/utils/noise/noise.cpp.o: ../src/utils/noise/noise.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/utils/noise/noise.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/utils/noise/noise.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/utils/noise/noise.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/utils/noise/noise.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/utils/noise/noise.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/utils/noise/noise.cpp > CMakeFiles/GLMinecraft3.dir/src/utils/noise/noise.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/utils/noise/noise.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/utils/noise/noise.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/utils/noise/noise.cpp -o CMakeFiles/GLMinecraft3.dir/src/utils/noise/noise.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/utils/registry.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/utils/registry.cpp.o: ../src/utils/registry.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/utils/registry.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/utils/registry.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/utils/registry.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/utils/registry.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/utils/registry.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/utils/registry.cpp > CMakeFiles/GLMinecraft3.dir/src/utils/registry.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/utils/registry.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/utils/registry.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/utils/registry.cpp -o CMakeFiles/GLMinecraft3.dir/src/utils/registry.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/utils/utils.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/utils/utils.cpp.o: ../src/utils/utils.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/utils/utils.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/utils/utils.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/utils/utils.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/utils/utils.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/utils/utils.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/utils/utils.cpp > CMakeFiles/GLMinecraft3.dir/src/utils/utils.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/utils/utils.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/utils/utils.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/utils/utils.cpp -o CMakeFiles/GLMinecraft3.dir/src/utils/utils.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/world/gen/biome/biome.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/world/gen/biome/biome.cpp.o: ../src/world/gen/biome/biome.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/world/gen/biome/biome.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/world/gen/biome/biome.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/world/gen/biome/biome.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/world/gen/biome/biome.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/world/gen/biome/biome.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/world/gen/biome/biome.cpp > CMakeFiles/GLMinecraft3.dir/src/world/gen/biome/biome.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/world/gen/biome/biome.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/world/gen/biome/biome.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/world/gen/biome/biome.cpp -o CMakeFiles/GLMinecraft3.dir/src/world/gen/biome/biome.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/base_carver.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/base_carver.cpp.o: ../src/world/gen/carver/base_carver.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/base_carver.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/base_carver.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/world/gen/carver/base_carver.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/base_carver.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/base_carver.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/world/gen/carver/base_carver.cpp > CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/base_carver.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/base_carver.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/base_carver.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/world/gen/carver/base_carver.cpp -o CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/base_carver.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/simple_carver.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/simple_carver.cpp.o: ../src/world/gen/carver/simple_carver.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/simple_carver.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/simple_carver.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/world/gen/carver/simple_carver.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/simple_carver.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/simple_carver.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/world/gen/carver/simple_carver.cpp > CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/simple_carver.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/simple_carver.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/simple_carver.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/world/gen/carver/simple_carver.cpp -o CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/simple_carver.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/world/gen/features/base_feature.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/world/gen/features/base_feature.cpp.o: ../src/world/gen/features/base_feature.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/world/gen/features/base_feature.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/world/gen/features/base_feature.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/world/gen/features/base_feature.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/world/gen/features/base_feature.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/world/gen/features/base_feature.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/world/gen/features/base_feature.cpp > CMakeFiles/GLMinecraft3.dir/src/world/gen/features/base_feature.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/world/gen/features/base_feature.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/world/gen/features/base_feature.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/world/gen/features/base_feature.cpp -o CMakeFiles/GLMinecraft3.dir/src/world/gen/features/base_feature.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/world/gen/structures/base_structure.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/world/gen/structures/base_structure.cpp.o: ../src/world/gen/structures/base_structure.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/world/gen/structures/base_structure.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/world/gen/structures/base_structure.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/world/gen/structures/base_structure.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/world/gen/structures/base_structure.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/world/gen/structures/base_structure.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/world/gen/structures/base_structure.cpp > CMakeFiles/GLMinecraft3.dir/src/world/gen/structures/base_structure.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/world/gen/structures/base_structure.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/world/gen/structures/base_structure.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/world/gen/structures/base_structure.cpp -o CMakeFiles/GLMinecraft3.dir/src/world/gen/structures/base_structure.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/base_surface.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/base_surface.cpp.o: ../src/world/gen/surface/base_surface.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/base_surface.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/base_surface.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/world/gen/surface/base_surface.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/base_surface.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/base_surface.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/world/gen/surface/base_surface.cpp > CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/base_surface.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/base_surface.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/base_surface.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/world/gen/surface/base_surface.cpp -o CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/base_surface.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/simple_grass_surface.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/simple_grass_surface.cpp.o: ../src/world/gen/surface/simple_grass_surface.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/simple_grass_surface.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/simple_grass_surface.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/world/gen/surface/simple_grass_surface.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/simple_grass_surface.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/simple_grass_surface.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/world/gen/surface/simple_grass_surface.cpp > CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/simple_grass_surface.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/simple_grass_surface.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/simple_grass_surface.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/world/gen/surface/simple_grass_surface.cpp -o CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/simple_grass_surface.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/world/gen/world_generator.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/world/gen/world_generator.cpp.o: ../src/world/gen/world_generator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_72) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/world/gen/world_generator.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/world/gen/world_generator.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/world/gen/world_generator.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/world/gen/world_generator.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/world/gen/world_generator.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/world/gen/world_generator.cpp > CMakeFiles/GLMinecraft3.dir/src/world/gen/world_generator.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/world/gen/world_generator.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/world/gen/world_generator.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/world/gen/world_generator.cpp -o CMakeFiles/GLMinecraft3.dir/src/world/gen/world_generator.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/world/world.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/world/world.cpp.o: ../src/world/world.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_73) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/world/world.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/world/world.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/world/world.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/world/world.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/world/world.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/world/world.cpp > CMakeFiles/GLMinecraft3.dir/src/world/world.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/world/world.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/world/world.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/world/world.cpp -o CMakeFiles/GLMinecraft3.dir/src/world/world.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/src/client.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/src/client.cpp.o: ../src/client.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_74) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/client.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/client.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/client.cpp
-
-CMakeFiles/GLMinecraft3.dir/src/client.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/client.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/client.cpp > CMakeFiles/GLMinecraft3.dir/src/client.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/src/client.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/client.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/client.cpp -o CMakeFiles/GLMinecraft3.dir/src/client.cpp.s
-
 CMakeFiles/GLMinecraft3.dir/src/main.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
 CMakeFiles/GLMinecraft3.dir/src/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_75) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/main.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/main.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/main.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/main.cpp
 
 CMakeFiles/GLMinecraft3.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/main.cpp > CMakeFiles/GLMinecraft3.dir/src/main.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/main.cpp > CMakeFiles/GLMinecraft3.dir/src/main.cpp.i
 
 CMakeFiles/GLMinecraft3.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/main.cpp -o CMakeFiles/GLMinecraft3.dir/src/main.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/main.cpp -o CMakeFiles/GLMinecraft3.dir/src/main.cpp.s
+
+CMakeFiles/GLMinecraft3.dir/src/utils/utils.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
+CMakeFiles/GLMinecraft3.dir/src/utils/utils.cpp.o: ../src/utils/utils.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/utils/utils.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/utils/utils.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/utils/utils.cpp
+
+CMakeFiles/GLMinecraft3.dir/src/utils/utils.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/utils/utils.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/utils/utils.cpp > CMakeFiles/GLMinecraft3.dir/src/utils/utils.cpp.i
+
+CMakeFiles/GLMinecraft3.dir/src/utils/utils.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/utils/utils.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/utils/utils.cpp -o CMakeFiles/GLMinecraft3.dir/src/utils/utils.cpp.s
+
+CMakeFiles/GLMinecraft3.dir/src/utils/noise/noise.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
+CMakeFiles/GLMinecraft3.dir/src/utils/noise/noise.cpp.o: ../src/utils/noise/noise.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/utils/noise/noise.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/utils/noise/noise.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/utils/noise/noise.cpp
+
+CMakeFiles/GLMinecraft3.dir/src/utils/noise/noise.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/utils/noise/noise.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/utils/noise/noise.cpp > CMakeFiles/GLMinecraft3.dir/src/utils/noise/noise.cpp.i
+
+CMakeFiles/GLMinecraft3.dir/src/utils/noise/noise.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/utils/noise/noise.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/utils/noise/noise.cpp -o CMakeFiles/GLMinecraft3.dir/src/utils/noise/noise.cpp.s
+
+CMakeFiles/GLMinecraft3.dir/src/gl/gl.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
+CMakeFiles/GLMinecraft3.dir/src/gl/gl.cpp.o: ../src/gl/gl.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/gl/gl.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/gl/gl.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/gl.cpp
+
+CMakeFiles/GLMinecraft3.dir/src/gl/gl.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/gl/gl.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/gl.cpp > CMakeFiles/GLMinecraft3.dir/src/gl/gl.cpp.i
+
+CMakeFiles/GLMinecraft3.dir/src/gl/gl.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/gl/gl.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/gl.cpp -o CMakeFiles/GLMinecraft3.dir/src/gl/gl.cpp.s
+
+CMakeFiles/GLMinecraft3.dir/src/gl/glad.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
+CMakeFiles/GLMinecraft3.dir/src/gl/glad.cpp.o: ../src/gl/glad.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/gl/glad.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/gl/glad.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/glad.cpp
+
+CMakeFiles/GLMinecraft3.dir/src/gl/glad.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/gl/glad.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/glad.cpp > CMakeFiles/GLMinecraft3.dir/src/gl/glad.cpp.i
+
+CMakeFiles/GLMinecraft3.dir/src/gl/glad.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/gl/glad.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/glad.cpp -o CMakeFiles/GLMinecraft3.dir/src/gl/glad.cpp.s
+
+CMakeFiles/GLMinecraft3.dir/src/gl/texture.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
+CMakeFiles/GLMinecraft3.dir/src/gl/texture.cpp.o: ../src/gl/texture.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/gl/texture.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/gl/texture.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/texture.cpp
+
+CMakeFiles/GLMinecraft3.dir/src/gl/texture.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/gl/texture.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/texture.cpp > CMakeFiles/GLMinecraft3.dir/src/gl/texture.cpp.i
+
+CMakeFiles/GLMinecraft3.dir/src/gl/texture.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/gl/texture.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/texture.cpp -o CMakeFiles/GLMinecraft3.dir/src/gl/texture.cpp.s
+
+CMakeFiles/GLMinecraft3.dir/src/gl/shader.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
+CMakeFiles/GLMinecraft3.dir/src/gl/shader.cpp.o: ../src/gl/shader.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/gl/shader.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/gl/shader.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/shader.cpp
+
+CMakeFiles/GLMinecraft3.dir/src/gl/shader.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/gl/shader.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/shader.cpp > CMakeFiles/GLMinecraft3.dir/src/gl/shader.cpp.i
+
+CMakeFiles/GLMinecraft3.dir/src/gl/shader.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/gl/shader.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/shader.cpp -o CMakeFiles/GLMinecraft3.dir/src/gl/shader.cpp.s
+
+CMakeFiles/GLMinecraft3.dir/src/gl/mesh.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
+CMakeFiles/GLMinecraft3.dir/src/gl/mesh.cpp.o: ../src/gl/mesh.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/gl/mesh.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/gl/mesh.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/mesh.cpp
+
+CMakeFiles/GLMinecraft3.dir/src/gl/mesh.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/gl/mesh.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/mesh.cpp > CMakeFiles/GLMinecraft3.dir/src/gl/mesh.cpp.i
+
+CMakeFiles/GLMinecraft3.dir/src/gl/mesh.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/gl/mesh.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/gl/mesh.cpp -o CMakeFiles/GLMinecraft3.dir/src/gl/mesh.cpp.s
+
+CMakeFiles/GLMinecraft3.dir/src/client/game.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
+CMakeFiles/GLMinecraft3.dir/src/client/game.cpp.o: ../src/client/game.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/client/game.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/client/game.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/client/game.cpp
+
+CMakeFiles/GLMinecraft3.dir/src/client/game.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/client/game.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/client/game.cpp > CMakeFiles/GLMinecraft3.dir/src/client/game.cpp.i
+
+CMakeFiles/GLMinecraft3.dir/src/client/game.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/client/game.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/client/game.cpp -o CMakeFiles/GLMinecraft3.dir/src/client/game.cpp.s
+
+CMakeFiles/GLMinecraft3.dir/src/client/block_rendering.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
+CMakeFiles/GLMinecraft3.dir/src/client/block_rendering.cpp.o: ../src/client/block_rendering.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/client/block_rendering.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/client/block_rendering.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/client/block_rendering.cpp
+
+CMakeFiles/GLMinecraft3.dir/src/client/block_rendering.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/client/block_rendering.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/client/block_rendering.cpp > CMakeFiles/GLMinecraft3.dir/src/client/block_rendering.cpp.i
+
+CMakeFiles/GLMinecraft3.dir/src/client/block_rendering.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/client/block_rendering.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/client/block_rendering.cpp -o CMakeFiles/GLMinecraft3.dir/src/client/block_rendering.cpp.s
+
+CMakeFiles/GLMinecraft3.dir/src/client/rendered_chunk.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
+CMakeFiles/GLMinecraft3.dir/src/client/rendered_chunk.cpp.o: ../src/client/rendered_chunk.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/client/rendered_chunk.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/client/rendered_chunk.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/client/rendered_chunk.cpp
+
+CMakeFiles/GLMinecraft3.dir/src/client/rendered_chunk.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/client/rendered_chunk.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/client/rendered_chunk.cpp > CMakeFiles/GLMinecraft3.dir/src/client/rendered_chunk.cpp.i
+
+CMakeFiles/GLMinecraft3.dir/src/client/rendered_chunk.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/client/rendered_chunk.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/client/rendered_chunk.cpp -o CMakeFiles/GLMinecraft3.dir/src/client/rendered_chunk.cpp.s
+
+CMakeFiles/GLMinecraft3.dir/src/server/registry.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
+CMakeFiles/GLMinecraft3.dir/src/server/registry.cpp.o: ../src/server/registry.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/server/registry.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/server/registry.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/server/registry.cpp
+
+CMakeFiles/GLMinecraft3.dir/src/server/registry.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/server/registry.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/server/registry.cpp > CMakeFiles/GLMinecraft3.dir/src/server/registry.cpp.i
+
+CMakeFiles/GLMinecraft3.dir/src/server/registry.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/server/registry.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/server/registry.cpp -o CMakeFiles/GLMinecraft3.dir/src/server/registry.cpp.s
+
+CMakeFiles/GLMinecraft3.dir/src/block/blockstate.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
+CMakeFiles/GLMinecraft3.dir/src/block/blockstate.cpp.o: ../src/block/blockstate.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/block/blockstate.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/block/blockstate.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/block/blockstate.cpp
+
+CMakeFiles/GLMinecraft3.dir/src/block/blockstate.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/block/blockstate.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/block/blockstate.cpp > CMakeFiles/GLMinecraft3.dir/src/block/blockstate.cpp.i
+
+CMakeFiles/GLMinecraft3.dir/src/block/blockstate.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/block/blockstate.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/block/blockstate.cpp -o CMakeFiles/GLMinecraft3.dir/src/block/blockstate.cpp.s
+
+CMakeFiles/GLMinecraft3.dir/src/block/block.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
+CMakeFiles/GLMinecraft3.dir/src/block/block.cpp.o: ../src/block/block.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/block/block.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/block/block.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/block/block.cpp
+
+CMakeFiles/GLMinecraft3.dir/src/block/block.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/block/block.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/block/block.cpp > CMakeFiles/GLMinecraft3.dir/src/block/block.cpp.i
+
+CMakeFiles/GLMinecraft3.dir/src/block/block.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/block/block.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/block/block.cpp -o CMakeFiles/GLMinecraft3.dir/src/block/block.cpp.s
+
+CMakeFiles/GLMinecraft3.dir/src/world/world.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
+CMakeFiles/GLMinecraft3.dir/src/world/world.cpp.o: ../src/world/world.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/world/world.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/world/world.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/world/world.cpp
+
+CMakeFiles/GLMinecraft3.dir/src/world/world.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/world/world.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/world/world.cpp > CMakeFiles/GLMinecraft3.dir/src/world/world.cpp.i
+
+CMakeFiles/GLMinecraft3.dir/src/world/world.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/world/world.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/world/world.cpp -o CMakeFiles/GLMinecraft3.dir/src/world/world.cpp.s
+
+CMakeFiles/GLMinecraft3.dir/src/block/blocks.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
+CMakeFiles/GLMinecraft3.dir/src/block/blocks.cpp.o: ../src/block/blocks.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/block/blocks.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/block/blocks.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/block/blocks.cpp
+
+CMakeFiles/GLMinecraft3.dir/src/block/blocks.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/block/blocks.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/block/blocks.cpp > CMakeFiles/GLMinecraft3.dir/src/block/blocks.cpp.i
+
+CMakeFiles/GLMinecraft3.dir/src/block/blocks.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/block/blocks.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/block/blocks.cpp -o CMakeFiles/GLMinecraft3.dir/src/block/blocks.cpp.s
+
+CMakeFiles/GLMinecraft3.dir/src/block/types/block_grass.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
+CMakeFiles/GLMinecraft3.dir/src/block/types/block_grass.cpp.o: ../src/block/types/block_grass.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/block/types/block_grass.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/block/types/block_grass.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/block/types/block_grass.cpp
+
+CMakeFiles/GLMinecraft3.dir/src/block/types/block_grass.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/block/types/block_grass.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/block/types/block_grass.cpp > CMakeFiles/GLMinecraft3.dir/src/block/types/block_grass.cpp.i
+
+CMakeFiles/GLMinecraft3.dir/src/block/types/block_grass.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/block/types/block_grass.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/block/types/block_grass.cpp -o CMakeFiles/GLMinecraft3.dir/src/block/types/block_grass.cpp.s
+
+CMakeFiles/GLMinecraft3.dir/src/block/types/block_dirt.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
+CMakeFiles/GLMinecraft3.dir/src/block/types/block_dirt.cpp.o: ../src/block/types/block_dirt.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/block/types/block_dirt.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/block/types/block_dirt.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/block/types/block_dirt.cpp
+
+CMakeFiles/GLMinecraft3.dir/src/block/types/block_dirt.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/block/types/block_dirt.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/block/types/block_dirt.cpp > CMakeFiles/GLMinecraft3.dir/src/block/types/block_dirt.cpp.i
+
+CMakeFiles/GLMinecraft3.dir/src/block/types/block_dirt.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/block/types/block_dirt.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/block/types/block_dirt.cpp -o CMakeFiles/GLMinecraft3.dir/src/block/types/block_dirt.cpp.s
+
+CMakeFiles/GLMinecraft3.dir/src/block/types/block_stone.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
+CMakeFiles/GLMinecraft3.dir/src/block/types/block_stone.cpp.o: ../src/block/types/block_stone.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/block/types/block_stone.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/block/types/block_stone.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/block/types/block_stone.cpp
+
+CMakeFiles/GLMinecraft3.dir/src/block/types/block_stone.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/block/types/block_stone.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/block/types/block_stone.cpp > CMakeFiles/GLMinecraft3.dir/src/block/types/block_stone.cpp.i
+
+CMakeFiles/GLMinecraft3.dir/src/block/types/block_stone.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/block/types/block_stone.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/block/types/block_stone.cpp -o CMakeFiles/GLMinecraft3.dir/src/block/types/block_stone.cpp.s
+
+CMakeFiles/GLMinecraft3.dir/src/block/types/block_none.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
+CMakeFiles/GLMinecraft3.dir/src/block/types/block_none.cpp.o: ../src/block/types/block_none.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/block/types/block_none.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/block/types/block_none.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/block/types/block_none.cpp
+
+CMakeFiles/GLMinecraft3.dir/src/block/types/block_none.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/block/types/block_none.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/block/types/block_none.cpp > CMakeFiles/GLMinecraft3.dir/src/block/types/block_none.cpp.i
+
+CMakeFiles/GLMinecraft3.dir/src/block/types/block_none.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/block/types/block_none.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/block/types/block_none.cpp -o CMakeFiles/GLMinecraft3.dir/src/block/types/block_none.cpp.s
+
+CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/base_carver.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
+CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/base_carver.cpp.o: ../src/world/gen/carver/base_carver.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/base_carver.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/base_carver.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/world/gen/carver/base_carver.cpp
+
+CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/base_carver.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/base_carver.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/world/gen/carver/base_carver.cpp > CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/base_carver.cpp.i
+
+CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/base_carver.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/base_carver.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/world/gen/carver/base_carver.cpp -o CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/base_carver.cpp.s
+
+CMakeFiles/GLMinecraft3.dir/src/world/gen/features/base_feature.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
+CMakeFiles/GLMinecraft3.dir/src/world/gen/features/base_feature.cpp.o: ../src/world/gen/features/base_feature.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/world/gen/features/base_feature.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/world/gen/features/base_feature.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/world/gen/features/base_feature.cpp
+
+CMakeFiles/GLMinecraft3.dir/src/world/gen/features/base_feature.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/world/gen/features/base_feature.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/world/gen/features/base_feature.cpp > CMakeFiles/GLMinecraft3.dir/src/world/gen/features/base_feature.cpp.i
+
+CMakeFiles/GLMinecraft3.dir/src/world/gen/features/base_feature.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/world/gen/features/base_feature.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/world/gen/features/base_feature.cpp -o CMakeFiles/GLMinecraft3.dir/src/world/gen/features/base_feature.cpp.s
+
+CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/base_surface.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
+CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/base_surface.cpp.o: ../src/world/gen/surface/base_surface.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/base_surface.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/base_surface.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/world/gen/surface/base_surface.cpp
+
+CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/base_surface.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/base_surface.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/world/gen/surface/base_surface.cpp > CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/base_surface.cpp.i
+
+CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/base_surface.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/base_surface.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/world/gen/surface/base_surface.cpp -o CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/base_surface.cpp.s
+
+CMakeFiles/GLMinecraft3.dir/src/world/gen/structures/base_structure.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
+CMakeFiles/GLMinecraft3.dir/src/world/gen/structures/base_structure.cpp.o: ../src/world/gen/structures/base_structure.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/world/gen/structures/base_structure.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/world/gen/structures/base_structure.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/world/gen/structures/base_structure.cpp
+
+CMakeFiles/GLMinecraft3.dir/src/world/gen/structures/base_structure.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/world/gen/structures/base_structure.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/world/gen/structures/base_structure.cpp > CMakeFiles/GLMinecraft3.dir/src/world/gen/structures/base_structure.cpp.i
+
+CMakeFiles/GLMinecraft3.dir/src/world/gen/structures/base_structure.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/world/gen/structures/base_structure.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/world/gen/structures/base_structure.cpp -o CMakeFiles/GLMinecraft3.dir/src/world/gen/structures/base_structure.cpp.s
+
+CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/simple_grass_surface.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
+CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/simple_grass_surface.cpp.o: ../src/world/gen/surface/simple_grass_surface.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/simple_grass_surface.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/simple_grass_surface.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/world/gen/surface/simple_grass_surface.cpp
+
+CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/simple_grass_surface.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/simple_grass_surface.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/world/gen/surface/simple_grass_surface.cpp > CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/simple_grass_surface.cpp.i
+
+CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/simple_grass_surface.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/simple_grass_surface.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/world/gen/surface/simple_grass_surface.cpp -o CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/simple_grass_surface.cpp.s
+
+CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/simple_carver.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
+CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/simple_carver.cpp.o: ../src/world/gen/carver/simple_carver.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/simple_carver.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/simple_carver.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/world/gen/carver/simple_carver.cpp
+
+CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/simple_carver.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/simple_carver.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/world/gen/carver/simple_carver.cpp > CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/simple_carver.cpp.i
+
+CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/simple_carver.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/simple_carver.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/world/gen/carver/simple_carver.cpp -o CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/simple_carver.cpp.s
+
+CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_compound.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
+CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_compound.cpp.o: ../src/nbt/__nbt_compound.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_compound.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_compound.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/__nbt_compound.cpp
+
+CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_compound.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_compound.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/__nbt_compound.cpp > CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_compound.cpp.i
+
+CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_compound.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_compound.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/__nbt_compound.cpp -o CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_compound.cpp.s
+
+CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_float.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
+CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_float.cpp.o: ../src/nbt/__nbt_float.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_float.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_float.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/__nbt_float.cpp
+
+CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_float.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_float.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/__nbt_float.cpp > CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_float.cpp.i
+
+CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_float.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_float.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/__nbt_float.cpp -o CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_float.cpp.s
+
+CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_int.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
+CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_int.cpp.o: ../src/nbt/__nbt_int.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_int.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_int.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/__nbt_int.cpp
+
+CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_int.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_int.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/__nbt_int.cpp > CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_int.cpp.i
+
+CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_int.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_int.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/__nbt_int.cpp -o CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_int.cpp.s
+
+CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_list.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
+CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_list.cpp.o: ../src/nbt/__nbt_list.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_list.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_list.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/__nbt_list.cpp
+
+CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_list.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_list.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/__nbt_list.cpp > CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_list.cpp.i
+
+CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_list.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_list.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/__nbt_list.cpp -o CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_list.cpp.s
+
+CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_long.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
+CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_long.cpp.o: ../src/nbt/__nbt_long.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_long.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_long.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/__nbt_long.cpp
+
+CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_long.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_long.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/__nbt_long.cpp > CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_long.cpp.i
+
+CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_long.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_long.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/__nbt_long.cpp -o CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_long.cpp.s
+
+CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_short.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
+CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_short.cpp.o: ../src/nbt/__nbt_short.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_short.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_short.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/__nbt_short.cpp
+
+CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_short.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_short.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/__nbt_short.cpp > CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_short.cpp.i
+
+CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_short.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_short.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/__nbt_short.cpp -o CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_short.cpp.s
+
+CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_string.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
+CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_string.cpp.o: ../src/nbt/__nbt_string.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_string.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_string.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/__nbt_string.cpp
+
+CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_string.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_string.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/__nbt_string.cpp > CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_string.cpp.i
+
+CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_string.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_string.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/__nbt_string.cpp -o CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_string.cpp.s
+
+CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_utils.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
+CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_utils.cpp.o: ../src/nbt/__nbt_utils.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_utils.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_utils.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/__nbt_utils.cpp
+
+CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_utils.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_utils.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/__nbt_utils.cpp > CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_utils.cpp.i
+
+CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_utils.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_utils.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/__nbt_utils.cpp -o CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_utils.cpp.s
+
+CMakeFiles/GLMinecraft3.dir/src/nbt/nbt.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
+CMakeFiles/GLMinecraft3.dir/src/nbt/nbt.cpp.o: ../src/nbt/nbt.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/nbt/nbt.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/nbt/nbt.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/nbt.cpp
+
+CMakeFiles/GLMinecraft3.dir/src/nbt/nbt.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/nbt/nbt.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/nbt.cpp > CMakeFiles/GLMinecraft3.dir/src/nbt/nbt.cpp.i
+
+CMakeFiles/GLMinecraft3.dir/src/nbt/nbt.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/nbt/nbt.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/nbt/nbt.cpp -o CMakeFiles/GLMinecraft3.dir/src/nbt/nbt.cpp.s
+
+CMakeFiles/GLMinecraft3.dir/src/server/entity.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
+CMakeFiles/GLMinecraft3.dir/src/server/entity.cpp.o: ../src/server/entity.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/server/entity.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/server/entity.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/server/entity.cpp
+
+CMakeFiles/GLMinecraft3.dir/src/server/entity.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/server/entity.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/server/entity.cpp > CMakeFiles/GLMinecraft3.dir/src/server/entity.cpp.i
+
+CMakeFiles/GLMinecraft3.dir/src/server/entity.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/server/entity.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/server/entity.cpp -o CMakeFiles/GLMinecraft3.dir/src/server/entity.cpp.s
+
+CMakeFiles/GLMinecraft3.dir/src/server/server.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
+CMakeFiles/GLMinecraft3.dir/src/server/server.cpp.o: ../src/server/server.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/server/server.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/server/server.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/server/server.cpp
+
+CMakeFiles/GLMinecraft3.dir/src/server/server.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/server/server.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/server/server.cpp > CMakeFiles/GLMinecraft3.dir/src/server/server.cpp.i
+
+CMakeFiles/GLMinecraft3.dir/src/server/server.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/server/server.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/server/server.cpp -o CMakeFiles/GLMinecraft3.dir/src/server/server.cpp.s
+
+CMakeFiles/GLMinecraft3.dir/src/client.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
+CMakeFiles/GLMinecraft3.dir/src/client.cpp.o: ../src/client.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/client.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/client.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/client.cpp
+
+CMakeFiles/GLMinecraft3.dir/src/client.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/client.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/client.cpp > CMakeFiles/GLMinecraft3.dir/src/client.cpp.i
+
+CMakeFiles/GLMinecraft3.dir/src/client.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/client.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/client.cpp -o CMakeFiles/GLMinecraft3.dir/src/client.cpp.s
 
 CMakeFiles/GLMinecraft3.dir/src/server.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
 CMakeFiles/GLMinecraft3.dir/src/server.cpp.o: ../src/server.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_76) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/server.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/server.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/src/server.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building CXX object CMakeFiles/GLMinecraft3.dir/src/server.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/src/server.cpp.o -c /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/server.cpp
 
 CMakeFiles/GLMinecraft3.dir/src/server.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/src/server.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/src/server.cpp > CMakeFiles/GLMinecraft3.dir/src/server.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/server.cpp > CMakeFiles/GLMinecraft3.dir/src/server.cpp.i
 
 CMakeFiles/GLMinecraft3.dir/src/server.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/src/server.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/src/server.cpp -o CMakeFiles/GLMinecraft3.dir/src/server.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/arrayoperations.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/arrayoperations.cpp.o: ../lib/anl/arrayoperations.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_77) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/arrayoperations.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/arrayoperations.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/arrayoperations.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/arrayoperations.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/arrayoperations.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/arrayoperations.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/arrayoperations.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/arrayoperations.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/arrayoperations.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/arrayoperations.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/arrayoperations.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/cellulargen.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/cellulargen.cpp.o: ../lib/anl/cellulargen.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_78) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/cellulargen.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/cellulargen.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/cellulargen.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/cellulargen.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/cellulargen.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/cellulargen.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/cellulargen.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/cellulargen.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/cellulargen.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/cellulargen.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/cellulargen.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/hsv.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/hsv.cpp.o: ../lib/anl/hsv.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_79) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/hsv.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/hsv.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/hsv.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/hsv.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/hsv.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/hsv.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/hsv.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/hsv.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/hsv.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/hsv.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/hsv.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitautocorrect.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitautocorrect.cpp.o: ../lib/anl/implicitautocorrect.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_80) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/implicitautocorrect.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitautocorrect.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitautocorrect.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitautocorrect.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/implicitautocorrect.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitautocorrect.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/implicitautocorrect.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitautocorrect.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/implicitautocorrect.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitautocorrect.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitautocorrect.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitbasisfunction.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitbasisfunction.cpp.o: ../lib/anl/implicitbasisfunction.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_81) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/implicitbasisfunction.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitbasisfunction.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitbasisfunction.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitbasisfunction.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/implicitbasisfunction.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitbasisfunction.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/implicitbasisfunction.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitbasisfunction.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/implicitbasisfunction.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitbasisfunction.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitbasisfunction.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitbias.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitbias.cpp.o: ../lib/anl/implicitbias.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_82) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/implicitbias.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitbias.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitbias.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitbias.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/implicitbias.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitbias.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/implicitbias.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitbias.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/implicitbias.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitbias.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitbias.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitblend.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitblend.cpp.o: ../lib/anl/implicitblend.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_83) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/implicitblend.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitblend.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitblend.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitblend.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/implicitblend.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitblend.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/implicitblend.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitblend.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/implicitblend.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitblend.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitblend.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitbrightcontrast.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitbrightcontrast.cpp.o: ../lib/anl/implicitbrightcontrast.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_84) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/implicitbrightcontrast.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitbrightcontrast.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitbrightcontrast.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitbrightcontrast.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/implicitbrightcontrast.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitbrightcontrast.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/implicitbrightcontrast.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitbrightcontrast.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/implicitbrightcontrast.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitbrightcontrast.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitbrightcontrast.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcache.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcache.cpp.o: ../lib/anl/implicitcache.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_85) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcache.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcache.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitcache.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcache.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcache.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitcache.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcache.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcache.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcache.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitcache.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcache.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcellular.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcellular.cpp.o: ../lib/anl/implicitcellular.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_86) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcellular.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcellular.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitcellular.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcellular.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcellular.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitcellular.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcellular.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcellular.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcellular.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitcellular.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcellular.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitclamp.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitclamp.cpp.o: ../lib/anl/implicitclamp.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_87) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/implicitclamp.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitclamp.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitclamp.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitclamp.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/implicitclamp.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitclamp.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/implicitclamp.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitclamp.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/implicitclamp.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitclamp.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitclamp.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcombiner.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcombiner.cpp.o: ../lib/anl/implicitcombiner.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_88) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcombiner.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcombiner.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitcombiner.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcombiner.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcombiner.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitcombiner.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcombiner.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcombiner.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcombiner.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitcombiner.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcombiner.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitconstant.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitconstant.cpp.o: ../lib/anl/implicitconstant.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_89) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/implicitconstant.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitconstant.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitconstant.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitconstant.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/implicitconstant.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitconstant.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/implicitconstant.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitconstant.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/implicitconstant.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitconstant.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitconstant.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcos.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcos.cpp.o: ../lib/anl/implicitcos.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_90) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcos.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcos.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitcos.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcos.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcos.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitcos.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcos.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcos.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcos.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitcos.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcos.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcurve.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcurve.cpp.o: ../lib/anl/implicitcurve.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_91) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcurve.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcurve.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitcurve.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcurve.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcurve.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitcurve.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcurve.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcurve.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcurve.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitcurve.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcurve.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitextractrgbachannel.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitextractrgbachannel.cpp.o: ../lib/anl/implicitextractrgbachannel.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_92) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/implicitextractrgbachannel.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitextractrgbachannel.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitextractrgbachannel.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitextractrgbachannel.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/implicitextractrgbachannel.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitextractrgbachannel.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/implicitextractrgbachannel.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitextractrgbachannel.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/implicitextractrgbachannel.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitextractrgbachannel.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitextractrgbachannel.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitfloor.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitfloor.cpp.o: ../lib/anl/implicitfloor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_93) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/implicitfloor.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitfloor.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitfloor.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitfloor.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/implicitfloor.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitfloor.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/implicitfloor.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitfloor.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/implicitfloor.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitfloor.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitfloor.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitfractal.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitfractal.cpp.o: ../lib/anl/implicitfractal.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_94) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/implicitfractal.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitfractal.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitfractal.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitfractal.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/implicitfractal.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitfractal.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/implicitfractal.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitfractal.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/implicitfractal.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitfractal.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitfractal.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitfunctiongradient.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitfunctiongradient.cpp.o: ../lib/anl/implicitfunctiongradient.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_95) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/implicitfunctiongradient.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitfunctiongradient.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitfunctiongradient.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitfunctiongradient.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/implicitfunctiongradient.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitfunctiongradient.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/implicitfunctiongradient.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitfunctiongradient.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/implicitfunctiongradient.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitfunctiongradient.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitfunctiongradient.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitgain.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitgain.cpp.o: ../lib/anl/implicitgain.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_96) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/implicitgain.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitgain.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitgain.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitgain.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/implicitgain.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitgain.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/implicitgain.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitgain.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/implicitgain.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitgain.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitgain.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitgradient.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitgradient.cpp.o: ../lib/anl/implicitgradient.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_97) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/implicitgradient.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitgradient.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitgradient.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitgradient.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/implicitgradient.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitgradient.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/implicitgradient.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitgradient.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/implicitgradient.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitgradient.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitgradient.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitmagnitude.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitmagnitude.cpp.o: ../lib/anl/implicitmagnitude.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_98) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/implicitmagnitude.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitmagnitude.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitmagnitude.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitmagnitude.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/implicitmagnitude.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitmagnitude.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/implicitmagnitude.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitmagnitude.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/implicitmagnitude.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitmagnitude.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitmagnitude.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitmodulebase.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitmodulebase.cpp.o: ../lib/anl/implicitmodulebase.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_99) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/implicitmodulebase.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitmodulebase.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitmodulebase.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitmodulebase.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/implicitmodulebase.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitmodulebase.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/implicitmodulebase.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitmodulebase.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/implicitmodulebase.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitmodulebase.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitmodulebase.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitnormalizecoords.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitnormalizecoords.cpp.o: ../lib/anl/implicitnormalizecoords.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_100) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/implicitnormalizecoords.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitnormalizecoords.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitnormalizecoords.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitnormalizecoords.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/implicitnormalizecoords.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitnormalizecoords.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/implicitnormalizecoords.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitnormalizecoords.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/implicitnormalizecoords.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitnormalizecoords.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitnormalizecoords.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitpow.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitpow.cpp.o: ../lib/anl/implicitpow.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_101) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/implicitpow.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitpow.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitpow.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitpow.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/implicitpow.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitpow.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/implicitpow.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitpow.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/implicitpow.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitpow.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitpow.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitrgbadotproduct.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitrgbadotproduct.cpp.o: ../lib/anl/implicitrgbadotproduct.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_102) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/implicitrgbadotproduct.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitrgbadotproduct.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitrgbadotproduct.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitrgbadotproduct.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/implicitrgbadotproduct.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitrgbadotproduct.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/implicitrgbadotproduct.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitrgbadotproduct.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/implicitrgbadotproduct.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitrgbadotproduct.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitrgbadotproduct.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitrotatedomain.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitrotatedomain.cpp.o: ../lib/anl/implicitrotatedomain.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_103) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/implicitrotatedomain.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitrotatedomain.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitrotatedomain.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitrotatedomain.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/implicitrotatedomain.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitrotatedomain.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/implicitrotatedomain.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitrotatedomain.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/implicitrotatedomain.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitrotatedomain.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitrotatedomain.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitsawtooth.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitsawtooth.cpp.o: ../lib/anl/implicitsawtooth.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_104) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/implicitsawtooth.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitsawtooth.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitsawtooth.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitsawtooth.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/implicitsawtooth.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitsawtooth.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/implicitsawtooth.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitsawtooth.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/implicitsawtooth.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitsawtooth.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitsawtooth.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitscaledomain.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitscaledomain.cpp.o: ../lib/anl/implicitscaledomain.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_105) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/implicitscaledomain.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitscaledomain.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitscaledomain.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitscaledomain.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/implicitscaledomain.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitscaledomain.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/implicitscaledomain.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitscaledomain.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/implicitscaledomain.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitscaledomain.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitscaledomain.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitscaleoffset.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitscaleoffset.cpp.o: ../lib/anl/implicitscaleoffset.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_106) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/implicitscaleoffset.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitscaleoffset.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitscaleoffset.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitscaleoffset.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/implicitscaleoffset.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitscaleoffset.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/implicitscaleoffset.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitscaleoffset.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/implicitscaleoffset.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitscaleoffset.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitscaleoffset.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitselect.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitselect.cpp.o: ../lib/anl/implicitselect.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_107) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/implicitselect.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitselect.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitselect.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitselect.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/implicitselect.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitselect.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/implicitselect.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitselect.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/implicitselect.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitselect.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitselect.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitsin.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitsin.cpp.o: ../lib/anl/implicitsin.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_108) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/implicitsin.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitsin.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitsin.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitsin.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/implicitsin.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitsin.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/implicitsin.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitsin.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/implicitsin.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitsin.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitsin.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitsphere.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitsphere.cpp.o: ../lib/anl/implicitsphere.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_109) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/implicitsphere.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitsphere.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitsphere.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitsphere.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/implicitsphere.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitsphere.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/implicitsphere.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicitsphere.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/implicitsphere.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicitsphere.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicitsphere.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicittiers.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicittiers.cpp.o: ../lib/anl/implicittiers.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_110) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/implicittiers.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicittiers.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicittiers.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicittiers.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/implicittiers.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicittiers.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/implicittiers.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicittiers.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/implicittiers.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicittiers.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicittiers.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicittranslatedomain.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicittranslatedomain.cpp.o: ../lib/anl/implicittranslatedomain.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_111) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/implicittranslatedomain.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicittranslatedomain.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicittranslatedomain.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicittranslatedomain.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/implicittranslatedomain.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicittranslatedomain.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/implicittranslatedomain.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicittranslatedomain.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/implicittranslatedomain.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicittranslatedomain.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicittranslatedomain.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicittriangle.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicittriangle.cpp.o: ../lib/anl/implicittriangle.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_112) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/implicittriangle.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicittriangle.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicittriangle.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicittriangle.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/implicittriangle.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicittriangle.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/implicittriangle.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/implicittriangle.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/implicittriangle.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/implicittriangle.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/implicittriangle.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/mapping.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/mapping.cpp.o: ../lib/anl/mapping.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_113) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/mapping.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/mapping.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/mapping.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/mapping.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/mapping.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/mapping.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/mapping.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/mapping.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/mapping.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/mapping.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/mapping.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/noise_gen.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/noise_gen.cpp.o: ../lib/anl/noise_gen.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_114) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/noise_gen.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/noise_gen.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/noise_gen.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/noise_gen.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/noise_gen.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/noise_gen.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/noise_gen.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/noise_gen.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/noise_gen.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/noise_gen.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/noise_gen.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/noise_lut.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/noise_lut.cpp.o: ../lib/anl/noise_lut.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_115) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/noise_lut.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/noise_lut.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/noise_lut.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/noise_lut.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/noise_lut.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/noise_lut.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/noise_lut.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/noise_lut.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/noise_lut.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/noise_lut.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/noise_lut.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/rasterization.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/rasterization.cpp.o: ../lib/anl/rasterization.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_116) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/rasterization.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/rasterization.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/rasterization.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/rasterization.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/rasterization.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/rasterization.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/rasterization.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/rasterization.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/rasterization.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/rasterization.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/rasterization.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbablend.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbablend.cpp.o: ../lib/anl/rgbablend.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_117) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/rgbablend.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/rgbablend.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/rgbablend.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbablend.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/rgbablend.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/rgbablend.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/rgbablend.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbablend.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/rgbablend.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/rgbablend.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/rgbablend.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbablendops.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbablendops.cpp.o: ../lib/anl/rgbablendops.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_118) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/rgbablendops.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/rgbablendops.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/rgbablendops.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbablendops.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/rgbablendops.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/rgbablendops.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/rgbablendops.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbablendops.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/rgbablendops.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/rgbablendops.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/rgbablendops.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbacolorops.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbacolorops.cpp.o: ../lib/anl/rgbacolorops.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_119) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/rgbacolorops.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/rgbacolorops.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/rgbacolorops.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbacolorops.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/rgbacolorops.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/rgbacolorops.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/rgbacolorops.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbacolorops.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/rgbacolorops.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/rgbacolorops.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/rgbacolorops.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbacomposechannels.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbacomposechannels.cpp.o: ../lib/anl/rgbacomposechannels.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_120) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/rgbacomposechannels.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/rgbacomposechannels.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/rgbacomposechannels.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbacomposechannels.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/rgbacomposechannels.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/rgbacomposechannels.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/rgbacomposechannels.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbacomposechannels.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/rgbacomposechannels.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/rgbacomposechannels.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/rgbacomposechannels.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbaconstant.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbaconstant.cpp.o: ../lib/anl/rgbaconstant.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_121) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/rgbaconstant.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/rgbaconstant.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/rgbaconstant.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbaconstant.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/rgbaconstant.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/rgbaconstant.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/rgbaconstant.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbaconstant.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/rgbaconstant.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/rgbaconstant.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/rgbaconstant.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbacurve.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbacurve.cpp.o: ../lib/anl/rgbacurve.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_122) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/rgbacurve.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/rgbacurve.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/rgbacurve.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbacurve.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/rgbacurve.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/rgbacurve.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/rgbacurve.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbacurve.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/rgbacurve.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/rgbacurve.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/rgbacurve.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbahsvtorgba.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbahsvtorgba.cpp.o: ../lib/anl/rgbahsvtorgba.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_123) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/rgbahsvtorgba.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/rgbahsvtorgba.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/rgbahsvtorgba.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbahsvtorgba.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/rgbahsvtorgba.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/rgbahsvtorgba.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/rgbahsvtorgba.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbahsvtorgba.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/rgbahsvtorgba.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/rgbahsvtorgba.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/rgbahsvtorgba.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbaimplicitgrayscale.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbaimplicitgrayscale.cpp.o: ../lib/anl/rgbaimplicitgrayscale.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_124) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/rgbaimplicitgrayscale.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/rgbaimplicitgrayscale.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/rgbaimplicitgrayscale.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbaimplicitgrayscale.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/rgbaimplicitgrayscale.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/rgbaimplicitgrayscale.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/rgbaimplicitgrayscale.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbaimplicitgrayscale.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/rgbaimplicitgrayscale.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/rgbaimplicitgrayscale.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/rgbaimplicitgrayscale.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbanormalize.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbanormalize.cpp.o: ../lib/anl/rgbanormalize.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_125) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/rgbanormalize.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/rgbanormalize.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/rgbanormalize.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbanormalize.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/rgbanormalize.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/rgbanormalize.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/rgbanormalize.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbanormalize.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/rgbanormalize.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/rgbanormalize.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/rgbanormalize.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbargbatohsv.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbargbatohsv.cpp.o: ../lib/anl/rgbargbatohsv.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_126) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/rgbargbatohsv.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/rgbargbatohsv.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/rgbargbatohsv.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbargbatohsv.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/rgbargbatohsv.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/rgbargbatohsv.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/rgbargbatohsv.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbargbatohsv.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/rgbargbatohsv.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/rgbargbatohsv.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/rgbargbatohsv.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbarotatecolor.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbarotatecolor.cpp.o: ../lib/anl/rgbarotatecolor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_127) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/rgbarotatecolor.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/rgbarotatecolor.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/rgbarotatecolor.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbarotatecolor.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/rgbarotatecolor.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/rgbarotatecolor.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/rgbarotatecolor.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbarotatecolor.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/rgbarotatecolor.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/rgbarotatecolor.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/rgbarotatecolor.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbaselect.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbaselect.cpp.o: ../lib/anl/rgbaselect.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_128) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/anl/rgbaselect.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/anl/rgbaselect.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/rgbaselect.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbaselect.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/anl/rgbaselect.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/rgbaselect.cpp > CMakeFiles/GLMinecraft3.dir/lib/anl/rgbaselect.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/anl/rgbaselect.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/anl/rgbaselect.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/anl/rgbaselect.cpp -o CMakeFiles/GLMinecraft3.dir/lib/anl/rgbaselect.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/glad.cpp.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/glad.cpp.o: ../lib/glad.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_129) "Building CXX object CMakeFiles/GLMinecraft3.dir/lib/glad.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/glad.cpp.o -c /home/proc-daemon/data/jaaava/glminecraft3/lib/glad.cpp
-
-CMakeFiles/GLMinecraft3.dir/lib/glad.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLMinecraft3.dir/lib/glad.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/glad.cpp > CMakeFiles/GLMinecraft3.dir/lib/glad.cpp.i
-
-CMakeFiles/GLMinecraft3.dir/lib/glad.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLMinecraft3.dir/lib/glad.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/glad.cpp -o CMakeFiles/GLMinecraft3.dir/lib/glad.cpp.s
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_chunk_vert.c.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_chunk_vert.c.o: ../lib/gen_assets/SHADER_chunk_vert.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_130) "Building C object CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_chunk_vert.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_chunk_vert.c.o   -c /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/SHADER_chunk_vert.c
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_chunk_vert.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_chunk_vert.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/SHADER_chunk_vert.c > CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_chunk_vert.c.i
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_chunk_vert.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_chunk_vert.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/SHADER_chunk_vert.c -o CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_chunk_vert.c.s
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_chunk_frag.c.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_chunk_frag.c.o: ../lib/gen_assets/SHADER_chunk_frag.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_131) "Building C object CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_chunk_frag.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_chunk_frag.c.o   -c /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/SHADER_chunk_frag.c
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_chunk_frag.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_chunk_frag.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/SHADER_chunk_frag.c > CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_chunk_frag.c.i
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_chunk_frag.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_chunk_frag.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/SHADER_chunk_frag.c -o CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_chunk_frag.c.s
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_wireframe_vert.c.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_wireframe_vert.c.o: ../lib/gen_assets/SHADER_wireframe_vert.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_132) "Building C object CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_wireframe_vert.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_wireframe_vert.c.o   -c /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/SHADER_wireframe_vert.c
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_wireframe_vert.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_wireframe_vert.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/SHADER_wireframe_vert.c > CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_wireframe_vert.c.i
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_wireframe_vert.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_wireframe_vert.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/SHADER_wireframe_vert.c -o CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_wireframe_vert.c.s
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_wireframe_frag.c.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_wireframe_frag.c.o: ../lib/gen_assets/SHADER_wireframe_frag.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_133) "Building C object CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_wireframe_frag.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_wireframe_frag.c.o   -c /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/SHADER_wireframe_frag.c
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_wireframe_frag.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_wireframe_frag.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/SHADER_wireframe_frag.c > CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_wireframe_frag.c.i
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_wireframe_frag.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_wireframe_frag.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/SHADER_wireframe_frag.c -o CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_wireframe_frag.c.s
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_1_8_textures_0_png.c.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_1_8_textures_0_png.c.o: ../lib/gen_assets/TEXTURE_1_8_textures_0_png.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_134) "Building C object CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_1_8_textures_0_png.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_1_8_textures_0_png.c.o   -c /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/TEXTURE_1_8_textures_0_png.c
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_1_8_textures_0_png.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_1_8_textures_0_png.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/TEXTURE_1_8_textures_0_png.c > CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_1_8_textures_0_png.c.i
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_1_8_textures_0_png.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_1_8_textures_0_png.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/TEXTURE_1_8_textures_0_png.c -o CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_1_8_textures_0_png.c.s
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_ascii_png.c.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_ascii_png.c.o: ../lib/gen_assets/TEXTURE_ascii_png.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_135) "Building C object CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_ascii_png.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_ascii_png.c.o   -c /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/TEXTURE_ascii_png.c
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_ascii_png.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_ascii_png.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/TEXTURE_ascii_png.c > CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_ascii_png.c.i
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_ascii_png.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_ascii_png.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/TEXTURE_ascii_png.c -o CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_ascii_png.c.s
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_text_vert.c.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_text_vert.c.o: ../lib/gen_assets/SHADER_text_vert.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_136) "Building C object CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_text_vert.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_text_vert.c.o   -c /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/SHADER_text_vert.c
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_text_vert.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_text_vert.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/SHADER_text_vert.c > CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_text_vert.c.i
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_text_vert.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_text_vert.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/SHADER_text_vert.c -o CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_text_vert.c.s
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_text_frag.c.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_text_frag.c.o: ../lib/gen_assets/SHADER_text_frag.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_137) "Building C object CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_text_frag.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_text_frag.c.o   -c /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/SHADER_text_frag.c
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_text_frag.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_text_frag.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/SHADER_text_frag.c > CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_text_frag.c.i
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_text_frag.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_text_frag.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/SHADER_text_frag.c -o CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_text_frag.c.s
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_entity_vert.c.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_entity_vert.c.o: ../lib/gen_assets/SHADER_entity_vert.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_138) "Building C object CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_entity_vert.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_entity_vert.c.o   -c /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/SHADER_entity_vert.c
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_entity_vert.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_entity_vert.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/SHADER_entity_vert.c > CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_entity_vert.c.i
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_entity_vert.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_entity_vert.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/SHADER_entity_vert.c -o CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_entity_vert.c.s
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_entity_frag.c.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_entity_frag.c.o: ../lib/gen_assets/SHADER_entity_frag.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_139) "Building C object CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_entity_frag.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_entity_frag.c.o   -c /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/SHADER_entity_frag.c
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_entity_frag.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_entity_frag.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/SHADER_entity_frag.c > CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_entity_frag.c.i
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_entity_frag.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_entity_frag.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/SHADER_entity_frag.c -o CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_entity_frag.c.s
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_entity_steve.c.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_entity_steve.c.o: ../lib/gen_assets/TEXTURE_entity_steve.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_140) "Building C object CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_entity_steve.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_entity_steve.c.o   -c /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/TEXTURE_entity_steve.c
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_entity_steve.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_entity_steve.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/TEXTURE_entity_steve.c > CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_entity_steve.c.i
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_entity_steve.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_entity_steve.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/TEXTURE_entity_steve.c -o CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_entity_steve.c.s
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_entity_zombie.c.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_entity_zombie.c.o: ../lib/gen_assets/TEXTURE_entity_zombie.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_141) "Building C object CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_entity_zombie.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_entity_zombie.c.o   -c /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/TEXTURE_entity_zombie.c
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_entity_zombie.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_entity_zombie.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/TEXTURE_entity_zombie.c > CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_entity_zombie.c.i
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_entity_zombie.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_entity_zombie.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/TEXTURE_entity_zombie.c -o CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_entity_zombie.c.s
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item_vert.c.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item_vert.c.o: ../lib/gen_assets/SHADER_item_vert.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_142) "Building C object CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item_vert.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item_vert.c.o   -c /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/SHADER_item_vert.c
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item_vert.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item_vert.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/SHADER_item_vert.c > CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item_vert.c.i
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item_vert.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item_vert.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/SHADER_item_vert.c -o CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item_vert.c.s
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item_frag.c.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item_frag.c.o: ../lib/gen_assets/SHADER_item_frag.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_143) "Building C object CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item_frag.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item_frag.c.o   -c /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/SHADER_item_frag.c
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item_frag.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item_frag.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/SHADER_item_frag.c > CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item_frag.c.i
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item_frag.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item_frag.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/SHADER_item_frag.c -o CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item_frag.c.s
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_gui_widgets_png.c.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_gui_widgets_png.c.o: ../lib/gen_assets/TEXTURE_gui_widgets_png.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_144) "Building C object CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_gui_widgets_png.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_gui_widgets_png.c.o   -c /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/TEXTURE_gui_widgets_png.c
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_gui_widgets_png.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_gui_widgets_png.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/TEXTURE_gui_widgets_png.c > CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_gui_widgets_png.c.i
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_gui_widgets_png.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_gui_widgets_png.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/TEXTURE_gui_widgets_png.c -o CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_gui_widgets_png.c.s
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item3d_vert.c.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item3d_vert.c.o: ../lib/gen_assets/SHADER_item3d_vert.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_145) "Building C object CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item3d_vert.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item3d_vert.c.o   -c /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/SHADER_item3d_vert.c
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item3d_vert.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item3d_vert.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/SHADER_item3d_vert.c > CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item3d_vert.c.i
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item3d_vert.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item3d_vert.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/SHADER_item3d_vert.c -o CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item3d_vert.c.s
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item3d_frag.c.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item3d_frag.c.o: ../lib/gen_assets/SHADER_item3d_frag.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_146) "Building C object CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item3d_frag.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item3d_frag.c.o   -c /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/SHADER_item3d_frag.c
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item3d_frag.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item3d_frag.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/SHADER_item3d_frag.c > CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item3d_frag.c.i
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item3d_frag.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item3d_frag.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/SHADER_item3d_frag.c -o CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item3d_frag.c.s
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_pig_png.c.o: CMakeFiles/GLMinecraft3.dir/flags.make
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_pig_png.c.o: ../lib/gen_assets/TEXTURE_pig_png.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_147) "Building C object CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_pig_png.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_pig_png.c.o   -c /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/TEXTURE_pig_png.c
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_pig_png.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_pig_png.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/TEXTURE_pig_png.c > CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_pig_png.c.i
-
-CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_pig_png.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_pig_png.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/proc-daemon/data/jaaava/glminecraft3/lib/gen_assets/TEXTURE_pig_png.c -o CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_pig_png.c.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/src/server.cpp -o CMakeFiles/GLMinecraft3.dir/src/server.cpp.s
 
 # Object files for target GLMinecraft3
 GLMinecraft3_OBJECTS = \
-"CMakeFiles/GLMinecraft3.dir/src/block/block.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/src/block/blocks.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/src/block/blockstate.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/src/block/types/block_bricks.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/src/block/types/block_dirt.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/src/block/types/block_grass.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/src/block/types/block_none.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/src/block/types/block_stone.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/src/client/block_rendering.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/src/client/box_rendering.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/src/client/game.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/src/client/item_renderer.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/src/client/render_entity/entity_render.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/src/client/rendered_chunk.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/src/entity/entities.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/src/entity/entity.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/src/entity/entity_ai.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/src/entity/entity_pig.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/src/entity/entity_player.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/src/entity/entity_zombie.cpp.o" \
+"CMakeFiles/GLMinecraft3.dir/src/main.cpp.o" \
+"CMakeFiles/GLMinecraft3.dir/src/utils/utils.cpp.o" \
+"CMakeFiles/GLMinecraft3.dir/src/utils/noise/noise.cpp.o" \
 "CMakeFiles/GLMinecraft3.dir/src/gl/gl.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/src/gl/mesh.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/src/gl/shader.cpp.o" \
+"CMakeFiles/GLMinecraft3.dir/src/gl/glad.cpp.o" \
 "CMakeFiles/GLMinecraft3.dir/src/gl/texture.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/src/item/item.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/src/item/item_block.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/src/item/item_enums.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/src/item/item_none.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/src/item/item_sword.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/src/item/registry.cpp.o" \
+"CMakeFiles/GLMinecraft3.dir/src/gl/shader.cpp.o" \
+"CMakeFiles/GLMinecraft3.dir/src/gl/mesh.cpp.o" \
+"CMakeFiles/GLMinecraft3.dir/src/client/game.cpp.o" \
+"CMakeFiles/GLMinecraft3.dir/src/client/block_rendering.cpp.o" \
+"CMakeFiles/GLMinecraft3.dir/src/client/rendered_chunk.cpp.o" \
+"CMakeFiles/GLMinecraft3.dir/src/server/registry.cpp.o" \
+"CMakeFiles/GLMinecraft3.dir/src/block/blockstate.cpp.o" \
+"CMakeFiles/GLMinecraft3.dir/src/block/block.cpp.o" \
+"CMakeFiles/GLMinecraft3.dir/src/world/world.cpp.o" \
+"CMakeFiles/GLMinecraft3.dir/src/block/blocks.cpp.o" \
+"CMakeFiles/GLMinecraft3.dir/src/block/types/block_grass.cpp.o" \
+"CMakeFiles/GLMinecraft3.dir/src/block/types/block_dirt.cpp.o" \
+"CMakeFiles/GLMinecraft3.dir/src/block/types/block_stone.cpp.o" \
+"CMakeFiles/GLMinecraft3.dir/src/block/types/block_none.cpp.o" \
+"CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/base_carver.cpp.o" \
+"CMakeFiles/GLMinecraft3.dir/src/world/gen/features/base_feature.cpp.o" \
+"CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/base_surface.cpp.o" \
+"CMakeFiles/GLMinecraft3.dir/src/world/gen/structures/base_structure.cpp.o" \
+"CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/simple_grass_surface.cpp.o" \
+"CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/simple_carver.cpp.o" \
 "CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_compound.cpp.o" \
 "CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_float.cpp.o" \
 "CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_int.cpp.o" \
@@ -1847,130 +601,40 @@ GLMinecraft3_OBJECTS = \
 "CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_string.cpp.o" \
 "CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_utils.cpp.o" \
 "CMakeFiles/GLMinecraft3.dir/src/nbt/nbt.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/src/server/acceptor.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/src/server/delayed_task.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/src/server/game_room.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/src/server/session.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/src/utils/noise/noise.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/src/utils/registry.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/src/utils/utils.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/src/world/gen/biome/biome.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/base_carver.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/simple_carver.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/src/world/gen/features/base_feature.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/src/world/gen/structures/base_structure.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/base_surface.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/simple_grass_surface.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/src/world/gen/world_generator.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/src/world/world.cpp.o" \
+"CMakeFiles/GLMinecraft3.dir/src/server/entity.cpp.o" \
+"CMakeFiles/GLMinecraft3.dir/src/server/server.cpp.o" \
 "CMakeFiles/GLMinecraft3.dir/src/client.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/src/main.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/src/server.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/arrayoperations.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/cellulargen.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/hsv.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/implicitautocorrect.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/implicitbasisfunction.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/implicitbias.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/implicitblend.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/implicitbrightcontrast.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcache.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcellular.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/implicitclamp.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcombiner.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/implicitconstant.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcos.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcurve.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/implicitextractrgbachannel.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/implicitfloor.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/implicitfractal.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/implicitfunctiongradient.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/implicitgain.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/implicitgradient.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/implicitmagnitude.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/implicitmodulebase.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/implicitnormalizecoords.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/implicitpow.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/implicitrgbadotproduct.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/implicitrotatedomain.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/implicitsawtooth.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/implicitscaledomain.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/implicitscaleoffset.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/implicitselect.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/implicitsin.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/implicitsphere.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/implicittiers.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/implicittranslatedomain.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/implicittriangle.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/mapping.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/noise_gen.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/noise_lut.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/rasterization.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/rgbablend.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/rgbablendops.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/rgbacolorops.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/rgbacomposechannels.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/rgbaconstant.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/rgbacurve.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/rgbahsvtorgba.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/rgbaimplicitgrayscale.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/rgbanormalize.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/rgbargbatohsv.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/rgbarotatecolor.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/anl/rgbaselect.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/glad.cpp.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_chunk_vert.c.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_chunk_frag.c.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_wireframe_vert.c.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_wireframe_frag.c.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_1_8_textures_0_png.c.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_ascii_png.c.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_text_vert.c.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_text_frag.c.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_entity_vert.c.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_entity_frag.c.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_entity_steve.c.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_entity_zombie.c.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item_vert.c.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item_frag.c.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_gui_widgets_png.c.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item3d_vert.c.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item3d_frag.c.o" \
-"CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_pig_png.c.o"
+"CMakeFiles/GLMinecraft3.dir/src/server.cpp.o"
 
 # External object files for target GLMinecraft3
 GLMinecraft3_EXTERNAL_OBJECTS =
 
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/block/block.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/block/blocks.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/block/blockstate.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/block/types/block_bricks.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/block/types/block_dirt.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/block/types/block_grass.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/block/types/block_none.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/block/types/block_stone.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/client/block_rendering.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/client/box_rendering.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/client/game.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/client/item_renderer.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/client/render_entity/entity_render.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/client/rendered_chunk.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/entity/entities.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/entity/entity.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/entity/entity_ai.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/entity/entity_pig.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/entity/entity_player.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/entity/entity_zombie.cpp.o
+GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/main.cpp.o
+GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/utils/utils.cpp.o
+GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/utils/noise/noise.cpp.o
 GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/gl/gl.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/gl/mesh.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/gl/shader.cpp.o
+GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/gl/glad.cpp.o
 GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/gl/texture.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/item/item.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/item/item_block.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/item/item_enums.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/item/item_none.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/item/item_sword.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/item/registry.cpp.o
+GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/gl/shader.cpp.o
+GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/gl/mesh.cpp.o
+GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/client/game.cpp.o
+GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/client/block_rendering.cpp.o
+GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/client/rendered_chunk.cpp.o
+GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/server/registry.cpp.o
+GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/block/blockstate.cpp.o
+GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/block/block.cpp.o
+GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/world/world.cpp.o
+GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/block/blocks.cpp.o
+GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/block/types/block_grass.cpp.o
+GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/block/types/block_dirt.cpp.o
+GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/block/types/block_stone.cpp.o
+GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/block/types/block_none.cpp.o
+GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/base_carver.cpp.o
+GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/world/gen/features/base_feature.cpp.o
+GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/base_surface.cpp.o
+GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/world/gen/structures/base_structure.cpp.o
+GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/simple_grass_surface.cpp.o
+GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/simple_carver.cpp.o
 GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_compound.cpp.o
 GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_float.cpp.o
 GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_int.cpp.o
@@ -1980,99 +644,14 @@ GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_short.cpp.o
 GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_string.cpp.o
 GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/nbt/__nbt_utils.cpp.o
 GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/nbt/nbt.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/server/acceptor.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/server/delayed_task.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/server/game_room.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/server/session.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/utils/noise/noise.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/utils/registry.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/utils/utils.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/world/gen/biome/biome.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/base_carver.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/world/gen/carver/simple_carver.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/world/gen/features/base_feature.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/world/gen/structures/base_structure.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/base_surface.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/world/gen/surface/simple_grass_surface.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/world/gen/world_generator.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/world/world.cpp.o
+GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/server/entity.cpp.o
+GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/server/server.cpp.o
 GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/client.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/main.cpp.o
 GLMinecraft3: CMakeFiles/GLMinecraft3.dir/src/server.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/arrayoperations.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/cellulargen.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/hsv.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/implicitautocorrect.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/implicitbasisfunction.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/implicitbias.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/implicitblend.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/implicitbrightcontrast.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcache.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcellular.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/implicitclamp.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcombiner.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/implicitconstant.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcos.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/implicitcurve.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/implicitextractrgbachannel.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/implicitfloor.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/implicitfractal.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/implicitfunctiongradient.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/implicitgain.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/implicitgradient.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/implicitmagnitude.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/implicitmodulebase.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/implicitnormalizecoords.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/implicitpow.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/implicitrgbadotproduct.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/implicitrotatedomain.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/implicitsawtooth.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/implicitscaledomain.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/implicitscaleoffset.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/implicitselect.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/implicitsin.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/implicitsphere.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/implicittiers.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/implicittranslatedomain.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/implicittriangle.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/mapping.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/noise_gen.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/noise_lut.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/rasterization.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/rgbablend.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/rgbablendops.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/rgbacolorops.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/rgbacomposechannels.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/rgbaconstant.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/rgbacurve.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/rgbahsvtorgba.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/rgbaimplicitgrayscale.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/rgbanormalize.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/rgbargbatohsv.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/rgbarotatecolor.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/anl/rgbaselect.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/glad.cpp.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_chunk_vert.c.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_chunk_frag.c.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_wireframe_vert.c.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_wireframe_frag.c.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_1_8_textures_0_png.c.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_ascii_png.c.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_text_vert.c.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_text_frag.c.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_entity_vert.c.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_entity_frag.c.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_entity_steve.c.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_entity_zombie.c.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item_vert.c.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item_frag.c.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_gui_widgets_png.c.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item3d_vert.c.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/gen_assets/SHADER_item3d_frag.c.o
-GLMinecraft3: CMakeFiles/GLMinecraft3.dir/lib/gen_assets/TEXTURE_pig_png.c.o
 GLMinecraft3: CMakeFiles/GLMinecraft3.dir/build.make
+GLMinecraft3: /usr/local/lib/libglfw.3.3.dylib
 GLMinecraft3: CMakeFiles/GLMinecraft3.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_148) "Linking CXX executable GLMinecraft3"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Linking CXX executable GLMinecraft3"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/GLMinecraft3.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -2084,24 +663,7 @@ CMakeFiles/GLMinecraft3.dir/clean:
 	$(CMAKE_COMMAND) -P CMakeFiles/GLMinecraft3.dir/cmake_clean.cmake
 .PHONY : CMakeFiles/GLMinecraft3.dir/clean
 
-CMakeFiles/GLMinecraft3.dir/depend: ../lib/gen_assets/SHADER_chunk_vert.c
-CMakeFiles/GLMinecraft3.dir/depend: ../lib/gen_assets/SHADER_chunk_frag.c
-CMakeFiles/GLMinecraft3.dir/depend: ../lib/gen_assets/SHADER_wireframe_vert.c
-CMakeFiles/GLMinecraft3.dir/depend: ../lib/gen_assets/SHADER_wireframe_frag.c
-CMakeFiles/GLMinecraft3.dir/depend: ../lib/gen_assets/TEXTURE_1_8_textures_0_png.c
-CMakeFiles/GLMinecraft3.dir/depend: ../lib/gen_assets/TEXTURE_ascii_png.c
-CMakeFiles/GLMinecraft3.dir/depend: ../lib/gen_assets/SHADER_text_vert.c
-CMakeFiles/GLMinecraft3.dir/depend: ../lib/gen_assets/SHADER_text_frag.c
-CMakeFiles/GLMinecraft3.dir/depend: ../lib/gen_assets/SHADER_entity_vert.c
-CMakeFiles/GLMinecraft3.dir/depend: ../lib/gen_assets/SHADER_entity_frag.c
-CMakeFiles/GLMinecraft3.dir/depend: ../lib/gen_assets/TEXTURE_entity_steve.c
-CMakeFiles/GLMinecraft3.dir/depend: ../lib/gen_assets/TEXTURE_entity_zombie.c
-CMakeFiles/GLMinecraft3.dir/depend: ../lib/gen_assets/SHADER_item_vert.c
-CMakeFiles/GLMinecraft3.dir/depend: ../lib/gen_assets/SHADER_item_frag.c
-CMakeFiles/GLMinecraft3.dir/depend: ../lib/gen_assets/TEXTURE_gui_widgets_png.c
-CMakeFiles/GLMinecraft3.dir/depend: ../lib/gen_assets/SHADER_item3d_vert.c
-CMakeFiles/GLMinecraft3.dir/depend: ../lib/gen_assets/SHADER_item3d_frag.c
-CMakeFiles/GLMinecraft3.dir/depend: ../lib/gen_assets/TEXTURE_pig_png.c
-	cd /home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/proc-daemon/data/jaaava/glminecraft3 /home/proc-daemon/data/jaaava/glminecraft3 /home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug /home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug /home/proc-daemon/data/jaaava/glminecraft3/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/DependInfo.cmake --color=$(COLOR)
+CMakeFiles/GLMinecraft3.dir/depend:
+	cd /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3 /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3 /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug /Users/jackarmstrong/Documents/CLionProjects/GLMinecraft3/cmake-build-debug/CMakeFiles/GLMinecraft3.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/GLMinecraft3.dir/depend
 
